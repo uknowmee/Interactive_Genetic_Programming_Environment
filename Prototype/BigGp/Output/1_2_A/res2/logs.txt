@@ -1,0 +1,229 @@
+[Solving: 1_2_A]
+BigGpConfig{
+ outputFolder=.\BigGp\Output
+ tasksFolder=.\BigGp\Tasks\
+ taskFolder=1_2_A\
+ programToRead=02-11-2022_04-53-33,
+ nextConfigsFolder=,
+
+ ifWindows=true,
+ showTimeout=3,
+
+ error=0.05,
+ populationSize=1000,
+ generations=10000,
+ tournamentSize=10,
+
+ crossProbability=85.0,
+ mutationProbability=5.0,
+ pointMutationProbability=50.0,
+ subtreeMutationProbability=50.0,
+
+ lineChangingProbability=10.0,
+ newLineProbability=34.0,
+ deleteLineProbability=33.0,
+ swapLineProbability=33.0,
+
+ maxInt=100,
+ maxStringLen=100,
+
+ newChildOfProgramNodeChance=80.0,
+ newDeepNodeGenerationChance=30.0,
+ newDeepNodeGenerationFall=5.0,
+
+ newChildOfForNodeChance=50.0,
+ newExpressionInForComparisonChance=35.0,
+
+ newChildOfIfNodeChance=50.0,
+
+ newLogicExpressionChance=40.0,
+ newTwoArgExpressionChance=40.0,
+ newVarExpressionChance=50.0
+}
+
+[Making initial population]
+1000 of 1000 has been created
+
+[Running population of size: 1000]
+1000 of 1000
+
+[Runnable individuals: 495, Generating additional population of size: 505]
+500 of 505 has been created
+[Running population of size: 505]
+500 of 505
+[Runnable individuals in additional population: 270]
+
+[Runnable individuals: 765, Generating additional population of size: 235]
+230 of 235 has been created
+[Running population of size: 235]
+230 of 235
+[Runnable individuals in additional population: 115]
+
+[Runnable individuals: 880, Generating additional population of size: 120]
+120 of 120 has been created
+
+[Running population of size: 120]
+120 of 120
+
+[Runnable individuals in additional population: 52]
+
+[Runnable individuals: 932, Generating additional population of size: 68]
+60 of 68 has been created
+[Running population of size: 68]
+60 of 68
+[Runnable individuals in additional population: 38]
+
+[Runnable individuals: 970, Generating additional population of size: 30]
+30 of 30 has been created
+
+[Running population of size: 30]
+30 of 30
+
+[Runnable individuals in additional population: 14]
+
+[Runnable individuals: 984, Generating additional population of size: 16]
+10 of 16 has been created
+[Running population of size: 16]
+10 of 16
+[Runnable individuals in additional population: 9]
+
+[Runnable individuals: 993, Generating additional population of size: 7]
+
+[Running population of size: 7]
+
+[Runnable individuals in additional population: 3]
+
+[Runnable individuals: 996, Generating additional population of size: 4]
+
+[Running population of size: 4]
+
+[Runnable individuals in additional population: 4]
+
+[Generation number: 0 / 10000, population size: 1000]
+[Best individual fitness: 834.0]
+[AVG fitness: 138737.3728525745]
+100%
+
+[Generation number: 1 / 10000, population size: 1000]
+[Best individual fitness: 760.0]
+[AVG fitness: 3.0E31]
+100%
+
+[Generation number: 2 / 10000, population size: 1000]
+[Best individual fitness: 760.0]
+[AVG fitness: 6.0E31]
+100%
+
+[Generation number: 3 / 10000, population size: 1000]
+[Best individual fitness: 682.2857142857141]
+[AVG fitness: 5.0E31]
+100%
+
+[Generation number: 4 / 10000, population size: 1000]
+[Best individual fitness: 638.8571428571428]
+[AVG fitness: 2.0E31]
+100%
+
+[Generation number: 5 / 10000, population size: 1000]
+[Best individual fitness: 636.5714285714286]
+[AVG fitness: 4.0E31]
+100%
+
+[Generation number: 6 / 10000, population size: 1000]
+[Best individual fitness: 636.5714285714286]
+[AVG fitness: 6.999999999999999E31]
+100%
+
+[Generation number: 7 / 10000, population size: 1000]
+[Best individual fitness: 602.5714285714286]
+[AVG fitness: 1.0E31]
+100%
+
+[Generation number: 8 / 10000, population size: 1000]
+[Best individual fitness: 592.0]
+[AVG fitness: 5.0E31]
+100%
+
+[Generation number: 9 / 10000, population size: 1000]
+[Best individual fitness: 589.7142857142862]
+[AVG fitness: 6.0E31]
+100%
+
+[Generation number: 10 / 10000, population size: 1000]
+[Best individual fitness: 531.5918367346936]
+[AVG fitness: 3.0E31]
+100%
+
+[Generation number: 11 / 10000, population size: 1000]
+[Best individual fitness: 396.28571428571433]
+[AVG fitness: 6.0E31]
+100%
+
+[Generation number: 12 / 10000, population size: 1000]
+[Best individual fitness: 153.79591836734696]
+[AVG fitness: 4.0E31]
+100%
+
+[Generation number: 13 / 10000, population size: 1000]
+[Best individual fitness: 153.79591836734696]
+[AVG fitness: 4.0E31]
+100%
+
+[Generation number: 14 / 10000, population size: 1000]
+[Best individual fitness: 153.79591836734696]
+[AVG fitness: 5.0E31]
+100%
+
+[Generation number: 15 / 10000, population size: 1000]
+[Best individual fitness: 153.79591836734696]
+[AVG fitness: 4.0E31]
+100%
+
+[Generation number: 16 / 10000, population size: 1000]
+[Best individual fitness: 153.79591836734696]
+[AVG fitness: 8.999999999999997E31]
+100%
+
+[Generation number: 17 / 10000, population size: 1000]
+[Best individual fitness: 153.79591836734696]
+[AVG fitness: 6.999999999999999E31]
+100%
+
+[Generation number: 18 / 10000, population size: 1000]
+[Best individual fitness: 153.79591836734696]
+[AVG fitness: 6.0E31]
+100%
+
+[Generation number: 19 / 10000, population size: 1000]
+[Best individual fitness: 143.02040816326524]
+[AVG fitness: 5.0E31]
+100%
+
+[Generation number: 20 / 10000, population size: 1000]
+[Best individual fitness: 95.34693877551024]
+[AVG fitness: 4.0E31]
+100%
+
+[Generation number: 21 / 10000, population size: 1000]
+[Best individual fitness: 95.34693877551024]
+[AVG fitness: 2.0E31]
+100%
+
+[Generation number: 22 / 10000, population size: 1000]
+[Best individual fitness: 91.34693877551013]
+[AVG fitness: 5.0E31]
+100%
+
+[Generation number: 23 / 10000, population size: 1000]
+[Best individual fitness: 72.00000000000003]
+[AVG fitness: 3.0E31]
+100%
+
+[Generation number: 24 / 10000, population size: 1000]
+[Best individual fitness: -0.0]
+[AVG fitness: 3.0E31]
+Successfully wrote to the file: .\BigGp\Output\1_2_A\BigGpConfig.json
+Successfully wrote to the file: .\BigGp\Output\1_2_A\Program.txt
+Successfully wrote to the file: .\BigGp\Output\1_2_A\BigGpConfig.json
+Successfully wrote to the file: .\BigGp\Output\1_2_A\Program.json
+Successfully wrote to the file: .\BigGp\Output\1_2_A\data.json

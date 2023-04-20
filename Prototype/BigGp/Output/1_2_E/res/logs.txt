@@ -1,0 +1,138 @@
+[Solving: 1_2_E]
+BigGpConfig{
+ outputFolder=.\BigGp\Output
+ tasksFolder=.\BigGp\Tasks\
+ taskFolder=1_2_E\
+ programToRead=02-11-2022_04-53-33,
+ nextConfigsFolder=,
+
+ ifWindows=true,
+ showTimeout=3,
+
+ error=0.05,
+ populationSize=1000,
+ generations=10000,
+ tournamentSize=10,
+
+ crossProbability=85.0,
+ mutationProbability=5.0,
+ pointMutationProbability=50.0,
+ subtreeMutationProbability=50.0,
+
+ lineChangingProbability=10.0,
+ newLineProbability=34.0,
+ deleteLineProbability=33.0,
+ swapLineProbability=33.0,
+
+ maxInt=100,
+ maxStringLen=100,
+
+ newChildOfProgramNodeChance=80.0,
+ newDeepNodeGenerationChance=30.0,
+ newDeepNodeGenerationFall=5.0,
+
+ newChildOfForNodeChance=50.0,
+ newExpressionInForComparisonChance=35.0,
+
+ newChildOfIfNodeChance=50.0,
+
+ newLogicExpressionChance=40.0,
+ newTwoArgExpressionChance=40.0,
+ newVarExpressionChance=50.0
+}
+
+[Making initial population]
+1000 of 1000 has been created
+
+[Running population of size: 1000]
+1000 of 1000
+
+[Runnable individuals: 465, Generating additional population of size: 535]
+530 of 535 has been created
+[Running population of size: 535]
+530 of 535
+[Runnable individuals in additional population: 254]
+
+[Runnable individuals: 719, Generating additional population of size: 281]
+280 of 281 has been created
+[Running population of size: 281]
+280 of 281
+[Runnable individuals in additional population: 142]
+
+[Runnable individuals: 861, Generating additional population of size: 139]
+130 of 139 has been created
+[Running population of size: 139]
+130 of 139
+[Runnable individuals in additional population: 57]
+
+[Runnable individuals: 918, Generating additional population of size: 82]
+80 of 82 has been created
+[Running population of size: 82]
+80 of 82
+[Runnable individuals in additional population: 31]
+
+[Runnable individuals: 949, Generating additional population of size: 51]
+50 of 51 has been created
+[Running population of size: 51]
+50 of 51
+[Runnable individuals in additional population: 22]
+
+[Runnable individuals: 971, Generating additional population of size: 29]
+20 of 29 has been created
+[Running population of size: 29]
+20 of 29
+[Runnable individuals in additional population: 9]
+
+[Runnable individuals: 980, Generating additional population of size: 20]
+20 of 20 has been created
+
+[Running population of size: 20]
+20 of 20
+
+[Runnable individuals in additional population: 5]
+
+[Runnable individuals: 985, Generating additional population of size: 15]
+10 of 15 has been created
+[Running population of size: 15]
+10 of 15
+[Runnable individuals in additional population: 7]
+
+[Runnable individuals: 992, Generating additional population of size: 8]
+
+[Running population of size: 8]
+
+[Runnable individuals in additional population: 3]
+
+[Runnable individuals: 995, Generating additional population of size: 5]
+
+[Running population of size: 5]
+
+[Runnable individuals in additional population: 3]
+
+[Runnable individuals: 998, Generating additional population of size: 2]
+
+[Running population of size: 2]
+
+[Runnable individuals in additional population: 1]
+
+[Runnable individuals: 999, Generating additional population of size: 1]
+
+[Running population of size: 1]
+
+[Runnable individuals in additional population: 1]
+
+[Generation number: 0 / 10000, population size: 1000]
+[Best individual fitness: 17.0]
+[AVG fitness: 2.4817955501457535E7]
+100%
+
+[Generation number: 1 / 10000, population size: 1000]
+[Best individual fitness: -0.0]
+[AVG fitness: 6.999999999999999E31]
+Successfully wrote to the file: .\BigGp\Output\1_2_E\BigGpConfig.json
+Successfully wrote to the file: .\BigGp\Output\1_2_E\Program.txt
+Successfully wrote to the file: .\BigGp\Output\1_2_E\BigGpConfig.json
+Successfully wrote to the file: .\BigGp\Output\1_2_E\Program.json
+Successfully wrote to the file: .\BigGp\Output\1_2_E\data.json
+
+Process finished with exit code 0

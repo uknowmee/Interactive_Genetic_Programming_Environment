@@ -1,0 +1,75 @@
+{
+  "taskName": "F_4\\2",
+  "function": "(x0 and x1)",
+  "numOfTestCases": 4,
+  "maxInputLength": 2,
+  "minInputLength": 2,
+  "maxOutputLength": 1,
+  "minOutputLength": 1,
+  "testCases": [
+    {
+      "input": {
+        "values": [
+          0.0,
+          0.0
+        ]
+      },
+      "output": {
+        "values": [
+          0.0
+        ]
+      },
+      "programOutput": {
+        "values": []
+      }
+    },
+    {
+      "input": {
+        "values": [
+          0.0,
+          1.0
+        ]
+      },
+      "output": {
+        "values": [
+          0.0
+        ]
+      },
+      "programOutput": {
+        "values": []
+      }
+    },
+    {
+      "input": {
+        "values": [
+          1.0,
+          0.0
+        ]
+      },
+      "output": {
+        "values": [
+          0.0
+        ]
+      },
+      "programOutput": {
+        "values": []
+      }
+    },
+    {
+      "input": {
+        "values": [
+          1.0,
+          1.0
+        ]
+      },
+      "output": {
+        "values": [
+          1.0
+        ]
+      },
+      "programOutput": {
+        "values": []
+      }
+    }
+  ]
+}

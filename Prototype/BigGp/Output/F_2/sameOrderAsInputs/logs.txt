@@ -1,0 +1,252 @@
+[Solving: F_2]
+BigGpConfig{
+ outputFolder=.\BigGp\Output
+ tasksFolder=.\BigGp\Tasks\
+ taskFolder=F_2\
+ programToRead=02-11-2022_04-53-33,
+ nextConfigsFolder=,
+
+ ifWindows=true,
+ showTimeout=3,
+
+ error=0.1,
+ populationSize=1000,
+ generations=10000,
+ tournamentSize=10,
+
+ crossProbability=85.0,
+ mutationProbability=5.0,
+ pointMutationProbability=50.0,
+ subtreeMutationProbability=50.0,
+
+ lineChangingProbability=10.0,
+ newLineProbability=34.0,
+ deleteLineProbability=33.0,
+ swapLineProbability=33.0,
+
+ maxInt=100,
+ maxStringLen=100,
+
+ newChildOfProgramNodeChance=80.0,
+ newDeepNodeGenerationChance=30.0,
+ newDeepNodeGenerationFall=5.0,
+
+ newChildOfForNodeChance=50.0,
+ newExpressionInForComparisonChance=35.0,
+
+ newChildOfIfNodeChance=50.0,
+
+ newLogicExpressionChance=40.0,
+ newTwoArgExpressionChance=40.0,
+ newVarExpressionChance=50.0
+}
+
+[Making initial population]
+1000 of 1000 has been created
+
+[Running population of size: 1000]
+1000 of 1000
+
+[Runnable individuals: 401, Generating additional population of size: 599]
+590 of 599 has been created
+[Running population of size: 599]
+590 of 599
+[Runnable individuals in additional population: 211]
+
+[Runnable individuals: 612, Generating additional population of size: 388]
+380 of 388 has been created
+[Running population of size: 388]
+380 of 388
+[Runnable individuals in additional population: 157]
+
+[Runnable individuals: 769, Generating additional population of size: 231]
+230 of 231 has been created
+[Running population of size: 231]
+230 of 231
+[Runnable individuals in additional population: 81]
+
+[Runnable individuals: 850, Generating additional population of size: 150]
+150 of 150 has been created
+
+[Running population of size: 150]
+150 of 150
+
+[Runnable individuals in additional population: 58]
+
+[Runnable individuals: 908, Generating additional population of size: 92]
+90 of 92 has been created
+[Running population of size: 92]
+90 of 92
+[Runnable individuals in additional population: 41]
+
+[Runnable individuals: 949, Generating additional population of size: 51]
+50 of 51 has been created
+[Running population of size: 51]
+50 of 51
+[Runnable individuals in additional population: 25]
+
+[Runnable individuals: 974, Generating additional population of size: 26]
+20 of 26 has been created
+[Running population of size: 26]
+20 of 26
+[Runnable individuals in additional population: 10]
+
+[Runnable individuals: 984, Generating additional population of size: 16]
+10 of 16 has been created
+[Running population of size: 16]
+10 of 16
+[Runnable individuals in additional population: 7]
+
+[Runnable individuals: 991, Generating additional population of size: 9]
+
+[Running population of size: 9]
+
+[Runnable individuals in additional population: 5]
+
+[Runnable individuals: 996, Generating additional population of size: 4]
+
+[Running population of size: 4]
+
+[Runnable individuals in additional population: 1]
+
+[Runnable individuals: 997, Generating additional population of size: 3]
+
+[Running population of size: 3]
+
+[Runnable individuals in additional population: 2]
+
+[Runnable individuals: 999, Generating additional population of size: 1]
+
+[Running population of size: 1]
+
+[Runnable individuals in additional population: 0]
+
+[Runnable individuals: 999, Generating additional population of size: 1]
+
+[Running population of size: 1]
+
+[Runnable individuals in additional population: 0]
+
+[Runnable individuals: 999, Generating additional population of size: 1]
+
+[Running population of size: 1]
+
+[Runnable individuals in additional population: 0]
+
+[Runnable individuals: 999, Generating additional population of size: 1]
+
+[Running population of size: 1]
+
+[Runnable individuals in additional population: 0]
+
+[Runnable individuals: 999, Generating additional population of size: 1]
+
+[Running population of size: 1]
+
+[Runnable individuals in additional population: 0]
+
+[Runnable individuals: 999, Generating additional population of size: 1]
+
+[Running population of size: 1]
+
+[Runnable individuals in additional population: 0]
+
+[Runnable individuals: 999, Generating additional population of size: 1]
+
+[Running population of size: 1]
+
+[Runnable individuals in additional population: 0]
+
+[Runnable individuals: 999, Generating additional population of size: 1]
+
+[Running population of size: 1]
+
+[Runnable individuals in additional population: 0]
+
+[Runnable individuals: 999, Generating additional population of size: 1]
+
+[Running population of size: 1]
+
+[Runnable individuals in additional population: 0]
+
+[Runnable individuals: 999, Generating additional population of size: 1]
+
+[Running population of size: 1]
+
+[Runnable individuals in additional population: 0]
+
+[Runnable individuals: 999, Generating additional population of size: 1]
+
+[Running population of size: 1]
+
+[Runnable individuals in additional population: 0]
+
+[Runnable individuals: 999, Generating additional population of size: 1]
+
+[Running population of size: 1]
+
+[Runnable individuals in additional population: 0]
+
+[Runnable individuals: 999, Generating additional population of size: 1]
+
+[Running population of size: 1]
+
+[Runnable individuals in additional population: 0]
+
+[Runnable individuals: 999, Generating additional population of size: 1]
+
+[Running population of size: 1]
+
+[Runnable individuals in additional population: 0]
+
+[Runnable individuals: 999, Generating additional population of size: 1]
+
+[Running population of size: 1]
+
+[Runnable individuals in additional population: 0]
+
+[Runnable individuals: 999, Generating additional population of size: 1]
+
+[Running population of size: 1]
+
+[Runnable individuals in additional population: 0]
+
+[Runnable individuals: 999, Generating additional population of size: 1]
+
+[Running population of size: 1]
+
+[Runnable individuals in additional population: 0]
+
+[Runnable individuals: 999, Generating additional population of size: 1]
+
+[Running population of size: 1]
+
+[Runnable individuals in additional population: 0]
+
+[Runnable individuals: 999, Generating additional population of size: 1]
+
+[Running population of size: 1]
+
+[Runnable individuals in additional population: 0]
+
+[Runnable individuals: 999, Generating additional population of size: 1]
+
+[Running population of size: 1]
+
+[Runnable individuals in additional population: 1]
+
+[Generation number: 0 / 10000, population size: 1000]
+[Best individual fitness: 109382.0]
+[AVG fitness: 4821216.910549961]
+100%
+
+[Generation number: 1 / 10000, population size: 1000]
+[Best individual fitness: -0.0]
+[AVG fitness: 2.0E31]
+Successfully wrote to the file: .\BigGp\Output\F_2\BigGpConfig.json
+Successfully wrote to the file: .\BigGp\Output\F_2\Program.txt
+Successfully wrote to the file: .\BigGp\Output\F_2\BigGpConfig.json
+Successfully wrote to the file: .\BigGp\Output\F_2\Program.json
+Successfully wrote to the file: .\BigGp\Output\F_2\data.json
+
+Process finished with exit code 0

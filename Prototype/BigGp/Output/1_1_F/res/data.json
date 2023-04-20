@@ -1,0 +1,25 @@
+{
+  "taskName": "1_1_F",
+  "numOfTestCases": 1,
+  "maxInputLength": 0,
+  "minInputLength": 0,
+  "maxOutputLength": 1,
+  "minOutputLength": 1,
+  "testCases": [
+    {
+      "input": {
+        "values": []
+      },
+      "output": {
+        "values": [
+          1.0
+        ]
+      },
+      "programOutput": {
+        "values": [
+          1.0
+        ]
+      }
+    }
+  ]
+}

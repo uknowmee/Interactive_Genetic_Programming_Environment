@@ -1,0 +1,148 @@
+[Solving: F_1]
+BigGpConfig{
+ outputFolder=.\BigGp\Output
+ tasksFolder=.\BigGp\Tasks\
+ taskFolder=F_1\
+ programToRead=02-11-2022_04-53-33,
+ nextConfigsFolder=,
+
+ ifWindows=true,
+ showTimeout=3,
+
+ error=1.0,
+ populationSize=1000,
+ generations=10000,
+ tournamentSize=10,
+
+ crossProbability=85.0,
+ mutationProbability=5.0,
+ pointMutationProbability=50.0,
+ subtreeMutationProbability=50.0,
+
+ lineChangingProbability=10.0,
+ newLineProbability=34.0,
+ deleteLineProbability=33.0,
+ swapLineProbability=33.0,
+
+ maxInt=100,
+ maxStringLen=100,
+
+ newChildOfProgramNodeChance=80.0,
+ newDeepNodeGenerationChance=30.0,
+ newDeepNodeGenerationFall=5.0,
+
+ newChildOfForNodeChance=50.0,
+ newExpressionInForComparisonChance=35.0,
+
+ newChildOfIfNodeChance=50.0,
+
+ newLogicExpressionChance=40.0,
+ newTwoArgExpressionChance=40.0,
+ newVarExpressionChance=50.0
+}
+
+[Making initial population]
+1000 of 1000 has been created
+
+[Running population of size: 1000]
+1000 of 1000
+
+[Runnable individuals: 501, Generating additional population of size: 499]
+490 of 499 has been created
+[Running population of size: 499]
+490 of 499
+[Runnable individuals in additional population: 235]
+
+[Runnable individuals: 736, Generating additional population of size: 264]
+260 of 264 has been created
+[Running population of size: 264]
+260 of 264
+[Runnable individuals in additional population: 145]
+
+[Runnable individuals: 881, Generating additional population of size: 119]
+110 of 119 has been created
+[Running population of size: 119]
+110 of 119
+[Runnable individuals in additional population: 61]
+
+[Runnable individuals: 942, Generating additional population of size: 58]
+50 of 58 has been created
+[Running population of size: 58]
+50 of 58
+[Runnable individuals in additional population: 32]
+
+[Runnable individuals: 974, Generating additional population of size: 26]
+20 of 26 has been created
+[Running population of size: 26]
+20 of 26
+[Runnable individuals in additional population: 10]
+
+[Runnable individuals: 984, Generating additional population of size: 16]
+10 of 16 has been created
+[Running population of size: 16]
+10 of 16
+[Runnable individuals in additional population: 9]
+
+[Runnable individuals: 993, Generating additional population of size: 7]
+
+[Running population of size: 7]
+
+[Runnable individuals in additional population: 2]
+
+[Runnable individuals: 995, Generating additional population of size: 5]
+
+[Running population of size: 5]
+
+[Runnable individuals in additional population: 2]
+
+[Runnable individuals: 997, Generating additional population of size: 3]
+
+[Running population of size: 3]
+
+[Runnable individuals in additional population: 3]
+
+[Generation number: 0 / 10000, population size: 1000]
+[Best individual fitness: 1031.7251963615417]
+[AVG fitness: 133950.37883177513]
+100%
+
+[Generation number: 1 / 10000, population size: 1000]
+[Best individual fitness: 1031.7251963615417]
+[AVG fitness: 2.0E31]
+100%
+
+[Generation number: 2 / 10000, population size: 1000]
+[Best individual fitness: 1031.7251963615417]
+[AVG fitness: 2.0E31]
+100%
+
+[Generation number: 3 / 10000, population size: 1000]
+[Best individual fitness: 1031.7251963615417]
+[AVG fitness: 2.0E31]
+100%
+
+[Generation number: 4 / 10000, population size: 1000]
+[Best individual fitness: 1031.7251963615417]
+[AVG fitness: 2.0E31]
+100%
+
+[Generation number: 5 / 10000, population size: 1000]
+[Best individual fitness: 1031.7251963615417]
+[AVG fitness: 2.0E31]
+100%
+
+[Generation number: 6 / 10000, population size: 1000]
+[Best individual fitness: 1031.7251963615417]
+[AVG fitness: 1.0E31]
+100%
+
+[Generation number: 7 / 10000, population size: 1000]
+[Best individual fitness: -0.0]
+[AVG fitness: 3.0E31]
+Successfully wrote to the file: .\BigGp\Output\F_1\BigGpConfig.json
+Successfully wrote to the file: .\BigGp\Output\F_1\Program.txt
+Successfully wrote to the file: .\BigGp\Output\F_1\BigGpConfig.json
+Successfully wrote to the file: .\BigGp\Output\F_1\Program.json
+Successfully wrote to the file: .\BigGp\Output\F_1\data.json
+
+Process finished with exit code 0

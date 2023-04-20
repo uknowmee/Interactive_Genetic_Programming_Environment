@@ -1,0 +1,368 @@
+[Solving: 1_1_E]
+BigGpConfig{
+ outputFolder=.\BigGp\Output
+ tasksFolder=.\BigGp\Tasks\
+ taskFolder=1_1_E\
+ programToRead=02-11-2022_04-53-33,
+ nextConfigsFolder=,
+
+ ifWindows=true,
+ showTimeout=3,
+
+ error=0.05,
+ populationSize=2000,
+ generations=10000,
+ tournamentSize=10,
+
+ crossProbability=85.0,
+ mutationProbability=5.0,
+ pointMutationProbability=50.0,
+ subtreeMutationProbability=50.0,
+
+ lineChangingProbability=10.0,
+ newLineProbability=34.0,
+ deleteLineProbability=33.0,
+ swapLineProbability=33.0,
+
+ maxInt=100,
+ maxStringLen=100,
+
+ newChildOfProgramNodeChance=80.0,
+ newDeepNodeGenerationChance=30.0,
+ newDeepNodeGenerationFall=5.0,
+
+ newChildOfForNodeChance=50.0,
+ newExpressionInForComparisonChance=35.0,
+
+ newChildOfIfNodeChance=50.0,
+
+ newLogicExpressionChance=40.0,
+ newTwoArgExpressionChance=40.0,
+ newVarExpressionChance=50.0
+}
+
+[Making initial population]
+2000 of 2000 has been created
+
+[Running population of size: 2000]
+2000 of 2000
+
+[Runnable individuals: 1081, Generating additional population of size: 919]
+910 of 919 has been created
+[Running population of size: 919]
+910 of 919
+[Runnable individuals in additional population: 483]
+
+[Runnable individuals: 1564, Generating additional population of size: 436]
+430 of 436 has been created
+[Running population of size: 436]
+430 of 436
+[Runnable individuals in additional population: 233]
+
+[Runnable individuals: 1797, Generating additional population of size: 203]
+200 of 203 has been created
+[Running population of size: 203]
+200 of 203
+[Runnable individuals in additional population: 100]
+
+[Runnable individuals: 1897, Generating additional population of size: 103]
+100 of 103 has been created
+[Running population of size: 103]
+100 of 103
+[Runnable individuals in additional population: 62]
+
+[Runnable individuals: 1959, Generating additional population of size: 41]
+40 of 41 has been created
+[Running population of size: 41]
+40 of 41
+[Runnable individuals in additional population: 24]
+
+[Runnable individuals: 1983, Generating additional population of size: 17]
+10 of 17 has been created
+[Running population of size: 17]
+10 of 17
+[Runnable individuals in additional population: 10]
+
+[Runnable individuals: 1993, Generating additional population of size: 7]
+
+[Running population of size: 7]
+
+[Runnable individuals in additional population: 5]
+
+[Runnable individuals: 1998, Generating additional population of size: 2]
+
+[Running population of size: 2]
+
+[Runnable individuals in additional population: 1]
+
+[Runnable individuals: 1999, Generating additional population of size: 1]
+
+[Running population of size: 1]
+
+[Runnable individuals in additional population: 1]
+
+[Generation number: 0 / 10000, population size: 2000]
+[Best individual fitness: 107.0]
+[AVG fitness: 989.1660255832938]
+100%
+
+[Generation number: 1 / 10000, population size: 2000]
+[Best individual fitness: 39.0]
+[AVG fitness: 2.5E31]
+100%
+
+[Generation number: 2 / 10000, population size: 2000]
+[Best individual fitness: 33.0]
+[AVG fitness: 432.0893625510204]
+100%
+
+[Generation number: 3 / 10000, population size: 2000]
+[Best individual fitness: 15.0]
+[AVG fitness: 74.9265]
+100%
+
+[Generation number: 4 / 10000, population size: 2000]
+[Best individual fitness: 15.0]
+[AVG fitness: 126.8905]
+100%
+
+[Generation number: 5 / 10000, population size: 2000]
+[Best individual fitness: 15.0]
+[AVG fitness: 86.50972222222222]
+100%
+
+[Generation number: 6 / 10000, population size: 2000]
+[Best individual fitness: 3.0]
+[AVG fitness: 55.039]
+100%
+
+[Generation number: 7 / 10000, population size: 2000]
+[Best individual fitness: 3.0]
+[AVG fitness: 5.0E30]
+100%
+
+[Generation number: 8 / 10000, population size: 2000]
+[Best individual fitness: 3.0]
+[AVG fitness: 2.0E31]
+100%
+
+[Generation number: 9 / 10000, population size: 2000]
+[Best individual fitness: 3.0]
+[AVG fitness: 61.6725]
+100%
+
+[Generation number: 10 / 10000, population size: 2000]
+[Best individual fitness: 3.0]
+[AVG fitness: 5.0E30]
+100%
+
+[Generation number: 11 / 10000, population size: 2000]
+[Best individual fitness: 3.0]
+[AVG fitness: 30.5895]
+100%
+
+[Generation number: 12 / 10000, population size: 2000]
+[Best individual fitness: 3.0]
+[AVG fitness: 5.0E30]
+100%
+
+[Generation number: 13 / 10000, population size: 2000]
+[Best individual fitness: 3.0]
+[AVG fitness: 1.0E31]
+100%
+
+[Generation number: 14 / 10000, population size: 2000]
+[Best individual fitness: 1.0]
+[AVG fitness: 1.0E31]
+100%
+
+[Generation number: 15 / 10000, population size: 2000]
+[Best individual fitness: 1.0]
+[AVG fitness: 28.6355]
+100%
+
+[Generation number: 16 / 10000, population size: 2000]
+[Best individual fitness: 1.0]
+[AVG fitness: 26.8475]
+100%
+
+[Generation number: 17 / 10000, population size: 2000]
+[Best individual fitness: 1.0]
+[AVG fitness: 5.0E30]
+100%
+
+[Generation number: 18 / 10000, population size: 2000]
+[Best individual fitness: 1.0]
+[AVG fitness: 1.0E31]
+100%
+
+[Generation number: 19 / 10000, population size: 2000]
+[Best individual fitness: 1.0]
+[AVG fitness: 1.0E31]
+100%
+
+[Generation number: 20 / 10000, population size: 2000]
+[Best individual fitness: 1.0]
+[AVG fitness: 24.888465697240868]
+100%
+
+[Generation number: 21 / 10000, population size: 2000]
+[Best individual fitness: 1.0]
+[AVG fitness: 5.0E30]
+100%
+
+[Generation number: 22 / 10000, population size: 2000]
+[Best individual fitness: 1.0]
+[AVG fitness: 29.941465086693686]
+100%
+
+[Generation number: 23 / 10000, population size: 2000]
+[Best individual fitness: 1.0]
+[AVG fitness: 1.0E31]
+100%
+
+[Generation number: 24 / 10000, population size: 2000]
+[Best individual fitness: 1.0]
+[AVG fitness: 3152.3145]
+100%
+
+[Generation number: 25 / 10000, population size: 2000]
+[Best individual fitness: 1.0]
+[AVG fitness: 5.0E30]
+100%
+
+[Generation number: 26 / 10000, population size: 2000]
+[Best individual fitness: 1.0]
+[AVG fitness: 66.282575]
+100%
+
+[Generation number: 27 / 10000, population size: 2000]
+[Best individual fitness: 1.0]
+[AVG fitness: 5.0E30]
+100%
+
+[SOLVER IS STUCK!!]
+[REFRESHING POPULATION]
+
+[Running population of size: 2000]
+2000 of 2000
+
+[Runnable individuals: 2000, Generating additional population of size: 1000]
+1000 of 1000 has been created
+
+[Running population of size: 1000]
+1000 of 1000
+
+[Runnable individuals in additional population: 537]
+
+[Runnable individuals: 2537, Generating additional population of size: 463]
+460 of 463 has been created
+[Running population of size: 463]
+460 of 463
+[Runnable individuals in additional population: 264]
+
+[Runnable individuals: 2801, Generating additional population of size: 199]
+190 of 199 has been created
+[Running population of size: 199]
+190 of 199
+[Runnable individuals in additional population: 102]
+
+[Runnable individuals: 2903, Generating additional population of size: 97]
+90 of 97 has been created
+[Running population of size: 97]
+90 of 97
+[Runnable individuals in additional population: 54]
+
+[Runnable individuals: 2957, Generating additional population of size: 43]
+40 of 43 has been created
+[Running population of size: 43]
+40 of 43
+[Runnable individuals in additional population: 24]
+
+[Runnable individuals: 2981, Generating additional population of size: 19]
+10 of 19 has been created
+[Running population of size: 19]
+10 of 19
+[Runnable individuals in additional population: 9]
+
+[Runnable individuals: 2990, Generating additional population of size: 10]
+10 of 10 has been created
+
+[Running population of size: 10]
+10 of 10
+
+[Runnable individuals in additional population: 5]
+
+[Runnable individuals: 2995, Generating additional population of size: 5]
+
+[Running population of size: 5]
+
+[Runnable individuals in additional population: 3]
+
+[Runnable individuals: 2998, Generating additional population of size: 2]
+
+[Running population of size: 2]
+
+[Runnable individuals in additional population: 0]
+
+[Runnable individuals: 2998, Generating additional population of size: 2]
+
+[Running population of size: 2]
+
+[Runnable individuals in additional population: 2]
+
+[Generation number: 28 / 10000, population size: 3000]
+[Best individual fitness: 1.0]
+[AVG fitness: 10758.21932327978]
+100%
+
+[Generation number: 29 / 10000, population size: 3000]
+[Best individual fitness: 1.0]
+[AVG fitness: 3.333333333333333E30]
+100%
+
+[Generation number: 30 / 10000, population size: 3000]
+[Best individual fitness: 1.0]
+[AVG fitness: 3.333333333333333E30]
+100%
+
+[Generation number: 31 / 10000, population size: 3000]
+[Best individual fitness: 1.0]
+[AVG fitness: 9.999999999999999E30]
+100%
+
+[Generation number: 32 / 10000, population size: 3000]
+[Best individual fitness: 1.0]
+[AVG fitness: 83.79448148148148]
+100%
+
+[Generation number: 33 / 10000, population size: 3000]
+[Best individual fitness: 1.0]
+[AVG fitness: 3.333333333333333E30]
+100%
+
+[Generation number: 34 / 10000, population size: 3000]
+[Best individual fitness: 1.0]
+[AVG fitness: 1.3333333333333332E31]
+100%
+
+[Generation number: 35 / 10000, population size: 3000]
+[Best individual fitness: 1.0]
+[AVG fitness: 6.666666666666666E30]
+100%
+
+[Generation number: 36 / 10000, population size: 3000]
+[Best individual fitness: 0.06976744186044925]
+[AVG fitness: 3.333333333333333E30]
+100%
+
+[Generation number: 37 / 10000, population size: 3000]
+[Best individual fitness: -0.0]
+[AVG fitness: 6.666666666666666E30]
+Successfully wrote to the file: .\BigGp\Output\1_1_E\BigGpConfig.json
+Successfully wrote to the file: .\BigGp\Output\1_1_E\Program.txt
+Successfully wrote to the file: .\BigGp\Output\1_1_E\BigGpConfig.json
+Successfully wrote to the file: .\BigGp\Output\1_1_E\Program.json
+Successfully wrote to the file: .\BigGp\Output\1_1_E\data.json
+
+Process finished with exit code 0

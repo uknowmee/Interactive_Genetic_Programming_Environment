@@ -1,0 +1,13 @@
+x_0 = read();
+x_1 = read();
+if ((x_1 < x_0)) {
+	x_1 = x_0;
+}
+write(x_1);
+for (x_2 = 91, (x_1 == (85 + 34)), -x_1) {
+	write(x_1);
+	x_4 = 72;
+	write(x_2);
+	write(x_0);
+	write(x_1);
+}

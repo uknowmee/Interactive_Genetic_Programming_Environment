@@ -1,0 +1,1 @@
+{"taskName":"F_4\\1","numOfTestCases":2,"maxInputLength":1,"minInputLength":1,"maxOutputLength":1,"minOutputLength":1,"testCases":[{"input":{"values":[0.0]},"output":{"values":[0.0]},"programOutput":{"values":[0.0]}},{"input":{"values":[1.0]},"output":{"values":[1.0]},"programOutput":{"values":[1.0]}}]}
