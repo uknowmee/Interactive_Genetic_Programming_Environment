@@ -7,4 +7,9 @@ public class PathNormalizer {
 
         return path;
     }
+
+    public static String changeTaskFolderPathToMac(String path) {
+        path = path.replace('\\', '/');
+        return path;
+    }
 }

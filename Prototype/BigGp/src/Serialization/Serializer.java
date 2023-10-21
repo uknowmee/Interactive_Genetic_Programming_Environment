@@ -183,7 +183,7 @@ public class Serializer {
         if (config.isIfWindows()){
             FOLDER = config.getOutputFolderShort() + folder;
         } else {
-            FOLDER = config.getOutputFolderShort() + "/" + folder;
+            FOLDER = config.getOutputFolderShort() + folder;
         }
     }
 

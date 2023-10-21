@@ -137,7 +137,7 @@ public class BigGpConfig {
         if (ifWindows) {
             return outputFolder + "\\";
         }
-        return "/" + outputFolder;
+        return outputFolder;
     }
 
     public String getNextConfigsFolder() {
@@ -244,7 +244,7 @@ public class BigGpConfig {
         if (!ifWindows) {
             outputFolder = PathNormalizer.changePathToMac(outputFolder);
             tasksFolder = PathNormalizer.changePathToMac(tasksFolder);
-            taskFolder = PathNormalizer.changePathToMac(taskFolder);
+            taskFolder = PathNormalizer.changeTaskFolderPathToMac(taskFolder);
         }
     }
 
