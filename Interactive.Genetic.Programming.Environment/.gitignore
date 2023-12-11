@@ -1,0 +1,7 @@
+﻿*obj/
+*bin/
+*debug/
+*.idea/
+*.vs/
+*logs/app/
+*csproj.user
