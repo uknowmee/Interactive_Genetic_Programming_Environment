@@ -1,6 +1,6 @@
 ﻿namespace Model.Nodes;
 
-public class Node
+public abstract class Node
 {
-    
+    public List<Node>? ChildrenNodes { get; set; }
 }
