@@ -7,7 +7,19 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="BigNodes\" />
+      <ProjectReference Include="..\..\Services\Utils\Utils.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Remove="BigNodes\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Remove="BigNodes\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="BigNodes\**" />
     </ItemGroup>
 
 </Project>
