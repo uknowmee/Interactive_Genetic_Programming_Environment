@@ -9,7 +9,7 @@ public class Visitor : IntGrammarBaseVisitor<object>
     public List<double> Outputs { get; private set; } = [];
     private readonly List<double> _inputs;
 
-    private int _lastLine = 0;
+    private int _lastLine;
 
     private readonly OrderedDictionary _variables = new();
     private readonly List<Scope> _scopes = [];
