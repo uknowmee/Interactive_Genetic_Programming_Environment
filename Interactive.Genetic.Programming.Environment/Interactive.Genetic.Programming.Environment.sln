@@ -16,7 +16,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tasks", "src\Tasks\Tasks.cs
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{04815A76-24C7-4481-830D-19ED8375AA18}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Evaluators", "src\Services\Evaluators\Evaluators.csproj", "{A63D42DF-83C2-4CF3-BC03-2F82D15F7122}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fitness", "src\Services\Fitness\Fitness.csproj", "{A63D42DF-83C2-4CF3-BC03-2F82D15F7122}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Evolution.Strategies", "src\Services\Evolution.Strategies\Evolution.Strategies.csproj", "{E2AD2A81-C4B1-4996-A28F-532421DB3423}"
 EndProject
@@ -50,9 +50,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tasks.Tests", "tests\Tasks.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Configuration", "src\Domain\Configuration\Configuration.csproj", "{0925ADB3-652F-4C8A-BF8F-CD7AE97E15C4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Configuration.Service", "src\Services\Configuration.Service\Configuration.Service.csproj", "{4E1BA94C-174F-4C6B-8F53-94B521D47091}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solver.Configuration", "src\Services\Solver.Configuration\Solver.Configuration.csproj", "{4E1BA94C-174F-4C6B-8F53-94B521D47091}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Configuration.Service.Tests", "tests\Configuration.Service.Tests\Configuration.Service.Tests.csproj", "{33350E2E-84F0-473B-8ADB-A8B53D89E322}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Program.Generator", "src\Services\Program.Generator\Program.Generator.csproj", "{ED6D12DC-86DB-4B95-B60B-B7B9C700F837}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "File", "src\Services\File\File.csproj", "{33C1E16F-FDFC-41B7-B59F-5DC2B5954527}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -148,6 +152,14 @@ Global
 		{33350E2E-84F0-473B-8ADB-A8B53D89E322}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{33350E2E-84F0-473B-8ADB-A8B53D89E322}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{33350E2E-84F0-473B-8ADB-A8B53D89E322}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED6D12DC-86DB-4B95-B60B-B7B9C700F837}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED6D12DC-86DB-4B95-B60B-B7B9C700F837}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED6D12DC-86DB-4B95-B60B-B7B9C700F837}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED6D12DC-86DB-4B95-B60B-B7B9C700F837}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33C1E16F-FDFC-41B7-B59F-5DC2B5954527}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33C1E16F-FDFC-41B7-B59F-5DC2B5954527}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33C1E16F-FDFC-41B7-B59F-5DC2B5954527}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33C1E16F-FDFC-41B7-B59F-5DC2B5954527}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{6537CA0A-1D6F-4213-AE3B-43043A490A65} = {1870A907-7094-4F67-9140-C365A487DEFC}
@@ -174,5 +186,7 @@ Global
 		{0925ADB3-652F-4C8A-BF8F-CD7AE97E15C4} = {4F9EDE38-8714-4807-855F-9C2C704D7DAD}
 		{4E1BA94C-174F-4C6B-8F53-94B521D47091} = {04815A76-24C7-4481-830D-19ED8375AA18}
 		{33350E2E-84F0-473B-8ADB-A8B53D89E322} = {FDDC1939-C026-4277-B19D-379748E0E74D}
+		{ED6D12DC-86DB-4B95-B60B-B7B9C700F837} = {04815A76-24C7-4481-830D-19ED8375AA18}
+		{33C1E16F-FDFC-41B7-B59F-5DC2B5954527} = {04815A76-24C7-4481-830D-19ED8375AA18}
 	EndGlobalSection
 EndGlobal
