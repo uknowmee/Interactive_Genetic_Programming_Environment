@@ -18,7 +18,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{04
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fitness", "src\Services\Fitness\Fitness.csproj", "{A63D42DF-83C2-4CF3-BC03-2F82D15F7122}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Evolution.Strategies", "src\Services\Evolution.Strategies\Evolution.Strategies.csproj", "{E2AD2A81-C4B1-4996-A28F-532421DB3423}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Strategies.Evolution", "src\Services\Strategies.Evolution\Strategies.Evolution.csproj", "{E2AD2A81-C4B1-4996-A28F-532421DB3423}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interpreter", "src\Services\Interpreter\Interpreter.csproj", "{C9340BBC-8066-459F-B79F-1DE8DFDBEE39}"
 EndProject
@@ -36,7 +36,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Serialization", "src\Servic
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interpreter.Tests", "tests\Interpreter.Tests\Interpreter.Tests.csproj", "{24AA63A0-7647-4E1D-AFE7-89F9D3FE5ACA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Evolution.Strategies.Tests", "tests\Evolution.Strategies.Tests\Evolution.Strategies.Tests.csproj", "{3F4DE8F5-5D63-4B13-918A-FE69E7BFCDB8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Strategies.Evolution.Tests", "tests\Strategies.Evolution.Tests\Strategies.Evolution.Tests.csproj", "{3F4DE8F5-5D63-4B13-918A-FE69E7BFCDB8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Program.Generator.Tests", "tests\Program.Generator.Tests\Program.Generator.Tests.csproj", "{C47191A4-1167-4B2E-B853-B0212887EBF1}"
 EndProject
@@ -54,7 +54,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solver.Configuration", "src
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Configuration.Service.Tests", "tests\Configuration.Service.Tests\Configuration.Service.Tests.csproj", "{33350E2E-84F0-473B-8ADB-A8B53D89E322}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Program.Generator", "src\Services\Program.Generator\Program.Generator.csproj", "{ED6D12DC-86DB-4B95-B60B-B7B9C700F837}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Generators.Program", "src\Services\Generators.Program\Generators.Program.csproj", "{ED6D12DC-86DB-4B95-B60B-B7B9C700F837}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "File", "src\Services\File\File.csproj", "{33C1E16F-FDFC-41B7-B59F-5DC2B5954527}"
 EndProject
