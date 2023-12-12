@@ -1,5 +1,6 @@
 ﻿namespace Configuration;
 
-public class Class1
+public class Configuration
 {
+    
 }

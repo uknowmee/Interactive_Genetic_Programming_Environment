@@ -1,4 +1,4 @@
-namespace Evolution.Strategies.Tests;
+namespace Strategies.Evolution.Tests;
 
 public class UnitTest1
 {

@@ -7,15 +7,15 @@ namespace Interpreter;
 
 public class InterpreterService : IInterpreterService
 {
-    public bool IsFinished { get; private set; } = false;
+    public bool IsFinished { get; private set; }
     public IEnumerable<double> Outputs => _visitor?.Outputs ?? [];
 
-    private Visitor? _visitor = null;
+    private Visitor? _visitor;
     private readonly IParseTree _parseTree;
 
     private const int DueTime = 10;
     private CancellationTokenSource? _cancellationTokenSource;
-    private readonly SemaphoreSlim _semaphore = new SemaphoreSlim(1, 1);
+    private readonly SemaphoreSlim _semaphore = new(1, 1);
 
     public void Run(List<double> inputs)
     {
