@@ -1,6 +1,6 @@
 ﻿namespace Model.Nodes.Small.Expressions.Standard;
 
-public class VarExpression
+public class VarExpression : Node
 {
     
 }
