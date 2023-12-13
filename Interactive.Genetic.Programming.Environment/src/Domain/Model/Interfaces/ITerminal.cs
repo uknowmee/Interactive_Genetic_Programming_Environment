@@ -6,7 +6,7 @@ public interface ITerminal
 {
     public string Value { get; }
 
-    public string GetType()
+    public string Type()
     {
         var node = this as Node;
         return node.Name;

@@ -1,0 +1,67 @@
+﻿using CommunityToolkit.Diagnostics;
+using Configuration;
+using Model.Extensions;
+using Model.Nodes.Big.Assignment;
+
+namespace Model.Nodes;
+
+public partial class Program
+{
+    public Program(int numOfInputs, IProgramConfiguration? config = null) 
+        : base(null, "Program", false)
+    {
+        Guard.IsNotNull(config);
+        
+        NextChildChance = config.NewChildOfProgramNodeChance;
+        NextDeepNodeChance = config.NewDeepNodeGenerationChance;
+        Inputs = numOfInputs;
+        
+        for (var i = 0; i < Inputs; i++) {
+            AddNode(new Assignment(this, false));
+        }
+        
+        AddBigNode();
+    }
+
+    public static Program FromTokens(List<Token> tokens) => new(tokens);
+
+    public Program Copy() => new(ChildrenAsNodesWithBlocks().NodesWithBlocksAsTokens());
+
+    private Program(List<Token> tokens, IProgramConfiguration? config = null)
+        : base(null, "Program", false)
+    {
+        Guard.IsNotNull(config);
+        
+        NextChildChance = config.NewChildOfProgramNodeChance;
+        NextDeepNodeChance = config.NewDeepNodeGenerationChance;
+
+        while (tokens.Count > 0)
+        {
+            var token = tokens[0];
+            
+            switch (token.Name)
+            {
+                case "Assignment":
+                    AddNode(new Assignment(this, tokens));
+                    break;
+                case "FunctionCallOut":
+                    AddNode(new FunctionCallOut(this, tokens));
+                    break;
+                case "IfStatement":
+                    var ifStatement = new IfStatement(this, tokens);
+                    AddNode(ifStatement);
+                    ifStatement.AddNodes(tokens);
+                    break;
+                case "ForStatement":
+                    var forStatement = new ForStatement(this, tokens);
+                    AddNode(forStatement);
+                    forStatement.AddNodes(tokens);
+                    break;
+            }
+
+            Inputs += ChildrenNodes?
+                .TakeWhile(node => node is not Assignment { Read: null })
+                .Count() ?? 0;
+        }
+    }
+}
