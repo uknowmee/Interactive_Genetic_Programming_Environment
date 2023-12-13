@@ -22,18 +22,18 @@ public interface IBigNode
     protected int ParentIndent { get; }
     protected double NextChildChance { get; init; }
     protected double NextDeepNodeChance { get; init; }
-    protected double ParentNextDeepNodeChance { get; init; }
+    protected double ParentNextDeepNodeChance { get; }
     
     public void AddBigNode();
     public void AddBigNodes();
     public void AddBigNodeInside();
 
-    public void GetRandomLine();
+    public int GetRandomLine();
     public void SwapTwoLines();
-    public void DeleteLine();
+    public void DeleteRandomLine();
 
     protected void SetIndent(int toSet);
-    private void ReCalculateIndent() => SetIndent(ParentIndent + 1);
+    public void ReCalculateIndent() => SetIndent(ParentIndent + 1);
 
     public void ClearVariables();
 

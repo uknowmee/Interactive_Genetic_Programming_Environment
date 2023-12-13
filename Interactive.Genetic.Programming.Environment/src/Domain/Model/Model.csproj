@@ -8,6 +8,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\..\Services\Utils\Utils.csproj" />
+      <ProjectReference Include="..\Configuration\Configuration.csproj" />
     </ItemGroup>
 
     <ItemGroup>
@@ -20,6 +21,10 @@
 
     <ItemGroup>
       <None Remove="BigNodes\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="CommunityToolkit.Diagnostics" Version="8.2.2" />
     </ItemGroup>
 
 </Project>
