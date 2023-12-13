@@ -18,6 +18,12 @@ public enum BigNodeType
 
 public interface IBigNode
 {
+    protected int Indent { get; init; }
+    protected int ParentIndent { get; }
+    protected double NextChildChance { get; init; }
+    protected double NextDeepNodeChance { get; init; }
+    protected double ParentNextDeepNodeChance { get; init; }
+    
     public void AddBigNode();
     public void AddBigNodes();
     public void AddBigNodeInside();
@@ -25,13 +31,6 @@ public interface IBigNode
     public void GetRandomLine();
     public void SwapTwoLines();
     public void DeleteLine();
-
-    protected abstract int Indent { get; set; }
-    protected abstract int ParentIndent { get; set; }
-    protected abstract double NextChildChance { get; set; }
-
-    protected abstract double NextDeepNodeChance { get; set; }
-    protected abstract double ParentNextDeepNodeChance { get; set; }
 
     protected void SetIndent(int toSet);
     private void ReCalculateIndent() => SetIndent(ParentIndent + 1);
