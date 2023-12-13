@@ -1,6 +1,3 @@
 ﻿namespace Model;
 
-public class Token
-{
-    
-}
+public record Token(string Name, string Value);
