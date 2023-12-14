@@ -10,6 +10,6 @@ public enum ExpressionChild
 
 public interface IStandardExpression
 {
-    public double NextTwoArgExpressionChance { get; set; }
+    public double NextTwoArgExpressionChance { get; init; }
     public void AddStandardExpression();
 }
