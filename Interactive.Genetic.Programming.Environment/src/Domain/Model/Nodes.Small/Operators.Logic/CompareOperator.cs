@@ -2,7 +2,7 @@
 
 namespace Model.Nodes.Small.Operators.Logic;
 
-public class CompareOperator : Operator
+public sealed class CompareOperator : Operator
 {
     private const int Bound = 6;
 

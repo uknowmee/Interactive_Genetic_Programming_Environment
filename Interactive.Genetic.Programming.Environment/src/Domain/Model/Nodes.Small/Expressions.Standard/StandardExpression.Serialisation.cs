@@ -1,11 +1,10 @@
-﻿namespace Model.Nodes.Small;
+﻿namespace Model.Nodes.Small.Expressions.Standard;
 
 public partial class StandardExpression
 {
-    public override List<Node>? ChildrenAsNodes()
+    public override List<Node> ChildrenAsNodes()
     {
-        var nodes = new List<Node>();
-        nodes.Add(this);
+        var nodes = new List<Node> { this };
 
         if (_constant != null)
         {

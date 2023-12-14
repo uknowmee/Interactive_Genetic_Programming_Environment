@@ -2,7 +2,7 @@
 using Model.Interfaces.Generation;
 using Model.Nodes.Small.Expressions.Standard;
 
-namespace Model.Nodes;
+namespace Model.Nodes.Big.Program.Root;
 
 public partial class Program : Node, IBigNode
 {

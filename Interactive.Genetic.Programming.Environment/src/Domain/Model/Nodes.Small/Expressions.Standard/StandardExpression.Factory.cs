@@ -1,9 +1,8 @@
 ﻿using CommunityToolkit.Diagnostics;
 using Configuration;
 using Model.Nodes.Small.Constants;
-using Model.Nodes.Small.Expressions.Standard;
 
-namespace Model.Nodes.Small;
+namespace Model.Nodes.Small.Expressions.Standard;
 
 public partial class StandardExpression
 {

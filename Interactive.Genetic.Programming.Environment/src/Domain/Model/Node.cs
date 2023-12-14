@@ -1,6 +1,6 @@
 ﻿using Model.Nodes.Small.Expressions.Standard;
 
-namespace Model.Nodes;
+namespace Model;
 
 public abstract class Node
 {

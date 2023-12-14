@@ -1,7 +1,7 @@
 ﻿using System.Text;
 using Model.Interfaces.Generation;
 
-namespace Model.Nodes;
+namespace Model.Nodes.Big.Program.Root;
 
 public partial class Program
 {
@@ -30,7 +30,7 @@ public partial class Program
                 program.Append('\n');
             }
         }
-        
+
         return program.ToString();
     }
 
@@ -41,10 +41,10 @@ public partial class Program
         {
             nodes.AddRange(node.ChildrenAsNodes() ?? []);
         }
-        
+
         return nodes;
     }
-    
+
     public override List<Node> ChildrenAsNodesWithBlocks()
     {
         var nodes = new List<Node>();
@@ -52,7 +52,7 @@ public partial class Program
         {
             nodes.AddRange(node.ChildrenAsNodesWithBlocks() ?? []);
         }
-        
+
         return nodes;
     }
 }
