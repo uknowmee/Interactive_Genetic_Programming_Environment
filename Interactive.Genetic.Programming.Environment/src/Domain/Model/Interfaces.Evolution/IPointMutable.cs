@@ -1,5 +1,5 @@
-﻿using Model.Nodes.Big.Assignment;
-using Model.Nodes.Big.ForStatement;
+﻿using Model.Nodes.Big.Assignments;
+using Model.Nodes.Big.For;
 using Model.Nodes.Small.Expressions.Standard;
 
 namespace Model.Interfaces.Evolution;

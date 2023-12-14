@@ -1,9 +1,8 @@
 ﻿using Model.Extensions;
-using Model.Nodes;
-using Model.Nodes.Big.Assignment;
-using Model.Nodes.Big.ForStatement;
-using Model.Nodes.Big.FunctionCallOut;
-using Model.Nodes.Big.IfStatement;
+using Model.Nodes.Big.Assignments;
+using Model.Nodes.Big.For;
+using Model.Nodes.Big.FunctionCall;
+using Model.Nodes.Big.If;
 using Utils;
 
 namespace Model.Interfaces.Generation;

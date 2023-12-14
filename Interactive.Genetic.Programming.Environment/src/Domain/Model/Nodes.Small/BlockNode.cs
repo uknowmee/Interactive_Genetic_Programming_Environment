@@ -1,4 +1,4 @@
-﻿namespace Model.Nodes;
+﻿namespace Model.Nodes.Small;
 
 public class BlockNode : Node
 {

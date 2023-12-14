@@ -1,4 +1,4 @@
-﻿using Model.Nodes.Big.Assignment;
+﻿using Model.Nodes.Big.Assignments;
 
 namespace Model.Interfaces.Evolution;
 

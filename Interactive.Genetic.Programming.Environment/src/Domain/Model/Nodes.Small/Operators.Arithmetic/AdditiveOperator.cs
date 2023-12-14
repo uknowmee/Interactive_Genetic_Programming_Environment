@@ -1,10 +1,10 @@
 ﻿using Model.Interfaces.Evolution;
-using Model.Nodes.Big.ForStatement;
+using Model.Nodes.Big.For;
 using Utils;
 
 namespace Model.Nodes.Small.Operators.Arithmetic;
 
-public class AdditiveOperator : Operator
+public sealed class AdditiveOperator : Operator
 {
     public override void Mutate()
     {
@@ -17,7 +17,7 @@ public class AdditiveOperator : Operator
                 _ => throw new InvalidOperationException()
             };
         }
-        else if (ParentNode is ITwoArgExpression twoArgExpression)
+        else if (ParentNode is TwoArgExpression twoArgExpression)
         {
             twoArgExpression.Mutate();
         }

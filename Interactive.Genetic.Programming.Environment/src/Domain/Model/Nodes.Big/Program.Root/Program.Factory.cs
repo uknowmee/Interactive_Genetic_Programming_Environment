@@ -1,25 +1,29 @@
 ﻿using CommunityToolkit.Diagnostics;
 using Configuration;
 using Model.Extensions;
-using Model.Nodes.Big.Assignment;
+using Model.Nodes.Big.Assignments;
+using Model.Nodes.Big.For;
+using Model.Nodes.Big.FunctionCall;
+using Model.Nodes.Big.If;
 
-namespace Model.Nodes;
+namespace Model.Nodes.Big.Program.Root;
 
 public partial class Program
 {
-    public Program(int numOfInputs, IProgramConfiguration? config = null) 
+    public Program(int numOfInputs, IProgramConfiguration? config = null)
         : base(null, "Program", false)
     {
         Guard.IsNotNull(config);
-        
+
         NextChildChance = config.NewChildOfProgramNodeChance;
         NextDeepNodeChance = config.NewDeepNodeGenerationChance;
         Inputs = numOfInputs;
-        
-        for (var i = 0; i < Inputs; i++) {
+
+        for (var i = 0; i < Inputs; i++)
+        {
             AddNode(new Assignment(this, false));
         }
-        
+
         AddBigNode();
     }
 
@@ -31,14 +35,14 @@ public partial class Program
         : base(null, "Program", false)
     {
         Guard.IsNotNull(config);
-        
+
         NextChildChance = config.NewChildOfProgramNodeChance;
         NextDeepNodeChance = config.NewDeepNodeGenerationChance;
 
         while (tokens.Count > 0)
         {
             var token = tokens[0];
-            
+
             switch (token.Name)
             {
                 case "Assignment":
