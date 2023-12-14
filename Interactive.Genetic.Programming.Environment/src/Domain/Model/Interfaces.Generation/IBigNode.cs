@@ -44,17 +44,17 @@ public interface IBigNode
         return randomNodeType switch
         {
             BigNodeType.Assignment => new Assignment(parent),
-            BigNodeType.FunctionCallOut => PercentagesService.RandomPercentage() < 0.5
+            BigNodeType.FunctionCallOut => RandomService.RandomPercentage() < 0.5
                 ? new Assignment(parent)
                 : new FunctionCallOut(parent),
-            BigNodeType.IfStatement => PercentagesService.RandomPercentage() < nextDeepNodeChance
+            BigNodeType.IfStatement => RandomService.RandomPercentage() < nextDeepNodeChance
                 ? new IfStatement(parent)
-                : PercentagesService.RandomPercentage() < 0.5
+                : RandomService.RandomPercentage() < 0.5
                     ? new Assignment(parent)
                     : new FunctionCallOut(parent),
-            BigNodeType.ForStatement => PercentagesService.RandomPercentage() < nextDeepNodeChance
+            BigNodeType.ForStatement => RandomService.RandomPercentage() < nextDeepNodeChance
                 ? new ForStatement(parent)
-                : PercentagesService.RandomPercentage() < 0.5
+                : RandomService.RandomPercentage() < 0.5
                     ? new Assignment(parent)
                     : new FunctionCallOut(parent),
             _ => throw new ArgumentOutOfRangeException()
