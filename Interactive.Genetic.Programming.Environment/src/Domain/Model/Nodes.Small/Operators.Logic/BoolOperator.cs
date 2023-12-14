@@ -2,7 +2,7 @@
 
 namespace Model.Nodes.Small.Operators.Logic;
 
-public class BoolOperator : Operator
+public sealed class BoolOperator : Operator
 {
     public override void Mutate()
     {

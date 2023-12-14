@@ -1,6 +1,6 @@
 ﻿using Model.Interfaces.Evolution;
 
-namespace Model.Nodes.Big.Assignment;
+namespace Model.Nodes.Big.Assignments;
 
 public class Assignment : ISubtreeMutable
 {

@@ -1,13 +1,12 @@
 ﻿using Model.Extensions;
 using Model.Interfaces.Generation;
-using Model.Nodes.Big.Assignment;
-using Model.Nodes.Big.ForStatement;
+using Model.Nodes.Big.Assignments;
+using Model.Nodes.Big.For;
 using Model.Nodes.Small.Constants;
 using Model.Nodes.Small.Expressions.Logic;
-using Model.Nodes.Small.Expressions.Standard;
 using Utils;
 
-namespace Model.Nodes.Small;
+namespace Model.Nodes.Small.Expressions.Standard;
 
 public partial class StandardExpression
 {
@@ -143,17 +142,5 @@ public partial class StandardExpression
                 break;
             }
         }
-    }
-
-    private void SetAdditiveExpression(AdditiveExpression additiveExpression)
-    {
-        _multiplicativeExpression = null;
-        _additiveExpression = additiveExpression;
-    }
-
-    private void SetMultiplicativeExpression(MultiplicativeExpression multiplicativeExpression)
-    {
-        _additiveExpression = null;
-        _multiplicativeExpression = multiplicativeExpression;
     }
 }

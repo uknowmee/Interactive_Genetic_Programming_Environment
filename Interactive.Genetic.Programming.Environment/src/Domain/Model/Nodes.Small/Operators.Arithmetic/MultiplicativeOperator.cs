@@ -3,11 +3,11 @@ using Utils;
 
 namespace Model.Nodes.Small.Operators.Arithmetic;
 
-public class MultiplicativeOperator : Operator
+public sealed class MultiplicativeOperator : Operator
 {
     public override void Mutate()
     {
-        if (ParentNode is ITwoArgExpression twoArgExpression)
+        if (ParentNode is TwoArgExpression twoArgExpression)
         {
             twoArgExpression.Mutate();
         }
