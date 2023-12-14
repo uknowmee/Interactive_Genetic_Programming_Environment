@@ -9,8 +9,8 @@ public interface ITwoArgExpression
 {
     public void Mutate()
     {
-        StandartExpression left;
-        StandartExpression right;
+        StandardExpression left;
+        StandardExpression right;
         string op;
 
         if (this is AdditiveExpression additiveExpression)
@@ -28,13 +28,13 @@ public interface ITwoArgExpression
         MutateOperator(left, right, op);
     }
 
-    private void MutateOperator(StandartExpression left, StandartExpression right, String op)
+    private void MutateOperator(StandardExpression left, StandardExpression right, String op)
     {
         var current = this as Node ?? throw new NullReferenceException();
         var parent = current.Parent;
-        var parentAsExpression = parent as StandartExpression ?? throw new NullReferenceException();
+        var parentAsExpression = parent as StandardExpression ?? throw new NullReferenceException();
         
-        if (PercentagesService.RandomPercentage() < 0.5)
+        if (RandomService.RandomPercentage() < 0.5)
         {
             var additiveExpression = new AdditiveExpression(parent, left, right, op);
             parentAsExpression.AdditiveExpression = additiveExpression;

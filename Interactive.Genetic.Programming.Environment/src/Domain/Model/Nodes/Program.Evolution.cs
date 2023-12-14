@@ -96,7 +96,7 @@ public partial class Program
 
     public void AddBigNodes()
     {
-        while (PercentagesService.RandomPercentage() < NextChildChance)
+        while (RandomService.RandomPercentage() < NextChildChance)
         {
             AddBigNode();
         }
