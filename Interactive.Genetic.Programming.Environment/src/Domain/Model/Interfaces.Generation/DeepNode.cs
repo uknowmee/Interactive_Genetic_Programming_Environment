@@ -9,22 +9,17 @@ using Utils;
 
 namespace Model.Interfaces.Generation;
 
-public abstract class DeepNode : Node, IBigNode, ICrossable, ISubtreeMutable
+public abstract class DeepNode : BigNode, ICrossable, ISubtreeMutable
 {
-    protected readonly List<VarExpression> _programVariables = [];
+    public override int Indent { get; protected set; }
 
-    public int Indent { get; protected set; }
-
-    public int ParentIndent
-        => ParentNode is IBigNode bigNode
+    protected override int ParentIndent
+        => ParentNode is BigNode bigNode
             ? bigNode.Indent
             : throw new InvalidOperationException("Parent is not IBigNode");
 
-    public double NextChildChance { get; init; }
-    public double NextDeepNodeChance { get; init; }
-
-    public double ParentNextDeepNodeChance
-        => ParentNode is IBigNode bigNode
+    public override double ParentNextDeepNodeChance
+        => ParentNode is BigNode bigNode
             ? bigNode.NextDeepNodeChance
             : throw new InvalidOperationException("Parent is not IBigNode");
 
@@ -43,17 +38,7 @@ public abstract class DeepNode : Node, IBigNode, ICrossable, ISubtreeMutable
         }
     }
 
-    public void SetIndent(int toSet)
-    {
-        Indent = toSet;
-    }
-
-    public void ClearVariables()
-    {
-        _programVariables.Clear();
-    }
-
-    public void AddBigNode()
+    public override void AddBigNode()
     {
         var bigNodeType = EnumExtensions.GetRandomValue<BigNodeType>();
         switch (bigNodeType)
@@ -100,15 +85,7 @@ public abstract class DeepNode : Node, IBigNode, ICrossable, ISubtreeMutable
         }
     }
 
-    public void AddBigNodes()
-    {
-        while (RandomService.RandomPercentage() < NextChildChance)
-        {
-            AddBigNode();
-        }
-    }
-
-    public void AddBigNodeInside()
+    public override void AddBigNodeInside()
     {
         var bigNodeType = EnumExtensions.GetRandomValue<BigNodeType>();
         var idx = GetRandomLine();
@@ -157,30 +134,13 @@ public abstract class DeepNode : Node, IBigNode, ICrossable, ISubtreeMutable
         }
     }
 
-    public int GetRandomLine()
+    public override int GetRandomLine()
     {
         return ChildrenNodes.Count == 0
             ? 0
             : RandomService.RandomInt(0, ChildrenNodes.Count);
     }
 
-    public void SwapTwoLines()
-    {
-        var node1Idx = GetRandomLine();
-        var node2Idx = GetRandomLine();
-        
-        while (node1Idx == node2Idx)
-        {
-            node2Idx = GetRandomLine();
-        }
-        
-        ChildrenNodes.Swap(node1Idx, node2Idx);
-    }
-
-    public void DeleteRandomLine()
-    {
-        ChildrenNodes.RemoveAt(GetRandomLine());
-    }
     public abstract void SubtreeMutate();
 
     public abstract void AddNodes(List<Token> tokens);

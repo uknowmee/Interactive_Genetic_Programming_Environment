@@ -4,16 +4,12 @@ using Model.Nodes.Small.Expressions.Standard;
 
 namespace Model.Nodes.Big.Program.Root;
 
-public partial class Program : Node, IBigNode
+public sealed partial class Program : BigNode
 {
-    private readonly List<VarExpression> _programVariables = [];
-    
     public int Inputs { get; private set; }
-    public int Indent { get; init; } = 0;
-    public int ParentIndent => Indent;
-    public double NextChildChance { get; init; }
-    public double NextDeepNodeChance { get; init; }
-    public double ParentNextDeepNodeChance => NextDeepNodeChance;
+    public override int Indent { get; protected set; } = 0;
+    protected override int ParentIndent => Indent;
+    public override double ParentNextDeepNodeChance => NextDeepNodeChance;
     public override List<VarExpression> ProgramVariables => _programVariables;
     public int Length => MyRegex().Split(AsString()).Length;
 

@@ -10,7 +10,7 @@ using Utils;
 
 namespace Model.Nodes.Small.Constants;
 
-public class Constant : Node, IConstant, IPointMutable, ITerminal
+public sealed class Constant : Node, IConstant, IPointMutable, ITerminal
 {
     private readonly int _maxInt;
     private string _type;

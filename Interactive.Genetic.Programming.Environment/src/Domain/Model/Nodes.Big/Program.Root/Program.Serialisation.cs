@@ -5,7 +5,7 @@ namespace Model.Nodes.Big.Program.Root;
 
 public partial class Program
 {
-    public void SetIndent(int toSet)
+    protected override void SetIndent(int toSet)
     {
     }
 
@@ -16,7 +16,7 @@ public partial class Program
 
         foreach (var node in nodes)
         {
-            if (node is IBigNode addRandomNode)
+            if (node is BigNode addRandomNode)
             {
                 addRandomNode.ReCalculateIndent();
             }
@@ -37,7 +37,7 @@ public partial class Program
     public override List<Node> ChildrenAsNodes()
     {
         var nodes = new List<Node>();
-        foreach (var node in ChildrenNodes ?? [])
+        foreach (var node in ChildrenNodes)
         {
             nodes.AddRange(node.ChildrenAsNodes() ?? []);
         }
@@ -48,7 +48,7 @@ public partial class Program
     public override List<Node> ChildrenAsNodesWithBlocks()
     {
         var nodes = new List<Node>();
-        foreach (var node in ChildrenNodes ?? [])
+        foreach (var node in ChildrenNodes)
         {
             nodes.AddRange(node.ChildrenAsNodesWithBlocks() ?? []);
         }

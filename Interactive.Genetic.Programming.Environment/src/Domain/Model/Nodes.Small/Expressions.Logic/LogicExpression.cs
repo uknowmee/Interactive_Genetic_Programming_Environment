@@ -3,7 +3,7 @@ using Model.Interfaces.Generation;
 
 namespace Model.Nodes.Small.Expressions.Logic;
 
-public partial class LogicExpression : Node, ILogicExpression, ICrossable, ISubtreeMutable
+public sealed partial class LogicExpression : Node, ILogicExpression, ICrossable, ISubtreeMutable
 {
     private ComparisonExpression? _comparisonExpression;
     private BooleanExpression? _booleanExpression;

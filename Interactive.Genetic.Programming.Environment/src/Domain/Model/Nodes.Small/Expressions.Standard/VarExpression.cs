@@ -32,7 +32,7 @@ public sealed class VarExpression : Node, IPointMutable, ITerminal
 
     public override List<Node> ChildrenAsNodes() => [this];
 
-    public string MakeAlreadyExisting()
+    private string MakeAlreadyExisting()
     {
         var variables = ProgramVariables;
 
@@ -41,7 +41,7 @@ public sealed class VarExpression : Node, IPointMutable, ITerminal
         return variables[RandomService.RandomInt(variables.Count)].Value;
     }
 
-    public string MakeNotAlreadyExisting()
+    private string MakeNotAlreadyExisting()
     {
         var idx = 0;
         var indexes = ProgramVariables.GetIndexes();
@@ -54,7 +54,7 @@ public sealed class VarExpression : Node, IPointMutable, ITerminal
         return "x_" + idx;
     }
 
-    public string MakeNew(IVariablesConfiguration? configuration = null)
+    private string MakeNew(IVariablesConfiguration? configuration = null)
     {
         Guard.IsNotNull(configuration);
         var variables = ProgramVariables;
@@ -71,27 +71,27 @@ public sealed class VarExpression : Node, IPointMutable, ITerminal
         Value = MakeNew();
         AddToProgramVariables(this);
     }
-    
+
     public VarExpression(Node parentNode, bool shouldAlreadyExist) : base(parentNode, "VarExpression", true)
     {
         Value = shouldAlreadyExist ? MakeAlreadyExisting() : MakeNotAlreadyExisting();
-        
+
         if (shouldAlreadyExist is false)
         {
             AddToProgramVariables(this);
         }
     }
-    
+
     public VarExpression(Node parentNode, IList<Token> tokens) : base(parentNode, "VarExpression", true)
     {
         Value = tokens.PopFront().Value ?? throw new InvalidOperationException("Token value is null");
         AddToProgramVariables(this);
     }
-    
+
     public VarExpression(Node parentNode, bool shouldAlreadyExist, IList<Token> tokens) : base(parentNode, "VarExpression", true)
     {
         Value = tokens.PopFront().Value ?? throw new InvalidOperationException("Token value is null");
-        
+
         if (shouldAlreadyExist is false)
         {
             AddToProgramVariables(this);

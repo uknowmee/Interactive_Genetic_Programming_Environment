@@ -2,9 +2,9 @@
 
 namespace Model.Nodes.Big.For;
 
-public class ForAssignment : Node
+public sealed class ForAssignment : Node
 {
-    public VarExpression VarExpression { get; set; }
+    private VarExpression VarExpression { get; }
     public StandardExpression Expression { private get; set; }
 
     public override List<Node> ChildrenAsNodes()

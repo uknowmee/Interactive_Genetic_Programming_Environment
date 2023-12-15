@@ -7,7 +7,7 @@ using Utils;
 
 namespace Model.Nodes.Big.For;
 
-public class ForIncrement : Node, ICrossable, ISubtreeMutable
+public sealed class ForIncrement : Node, ICrossable, ISubtreeMutable
 {
     private AdditiveOperator _additiveOperator;
     private VarExpression? _variable;

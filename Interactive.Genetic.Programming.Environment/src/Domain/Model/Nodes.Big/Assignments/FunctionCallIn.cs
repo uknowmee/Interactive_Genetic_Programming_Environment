@@ -3,7 +3,7 @@ using Model.Interfaces;
 
 namespace Model.Nodes.Big.Assignments;
 
-public class FunctionCallIn : Node, ITerminal
+public sealed class FunctionCallIn : Node, ITerminal
 {
     public string Value { get; }
 
