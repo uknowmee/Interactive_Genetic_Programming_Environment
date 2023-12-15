@@ -14,11 +14,12 @@ public partial class StandardExpression
     {
         var expressionChild = EnumExtensions.GetRandomValue<ExpressionChild>();
 
-        expressionChild switch
+        switch (expressionChild)
         {
-            ExpressionChild.Constant => _constant = new Constant(this),
-            ExpressionChild.VarExpression => () =>
-            {
+            case ExpressionChild.Constant:
+                _constant = new Constant(this);
+                break;
+            case ExpressionChild.VarExpression:
                 try
                 {
                     _varExpression = new VarExpression(this, true);
@@ -28,9 +29,8 @@ public partial class StandardExpression
                     // happens when no var exists (almost never) and u want to use it. it's fine; just generate constant instead of variable.
                     _constant = new Constant(this);
                 }
-            },
-            ExpressionChild.MulExpression => () =>
-            {
+                break;
+            case ExpressionChild.MulExpression:
                 if (RandomService.RandomPercentage() < NextTwoArgExpressionChance)
                 {
                     _multiplicativeExpression = new MultiplicativeExpression(this);
@@ -39,9 +39,8 @@ public partial class StandardExpression
                 {
                     AddConstOrVar();
                 }
-            },
-            ExpressionChild.AddExpression => () =>
-            {
+                break;
+            case ExpressionChild.AddExpression:
                 if (RandomService.RandomPercentage() < NextTwoArgExpressionChance)
                 {
                     _additiveExpression = new AdditiveExpression(this);
@@ -50,9 +49,10 @@ public partial class StandardExpression
                 {
                     AddConstOrVar();
                 }
-            },
-            _ => throw new ArgumentOutOfRangeException()
-        };
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
+        }
     }
 
     private void AddConstOrVar()

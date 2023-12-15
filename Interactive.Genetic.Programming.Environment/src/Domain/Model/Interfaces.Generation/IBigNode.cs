@@ -20,8 +20,8 @@ public interface IBigNode
     protected int Indent { get; init; }
     protected int ParentIndent { get; }
     protected double NextChildChance { get; init; }
-    protected double NextDeepNodeChance { get; init; }
-    protected double ParentNextDeepNodeChance { get; }
+    public double NextDeepNodeChance { get; init; }
+    public double ParentNextDeepNodeChance { get; }
     
     public void AddBigNode();
     public void AddBigNodes();
@@ -36,7 +36,7 @@ public interface IBigNode
 
     public void ClearVariables();
 
-    public static sealed Node GetRandomNode(Node parent, double nextDeepNodeChance)
+    public sealed Node GetRandomNode(Node parent, double nextDeepNodeChance)
     {
         var randomNodeType = EnumExtensions.GetRandomValue<BigNodeType>();
         

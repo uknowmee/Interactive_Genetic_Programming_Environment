@@ -6,6 +6,27 @@ namespace Model.Nodes.Small.Expressions.Standard;
 
 public partial class StandardExpression
 {
+    private void SetExpression(List<Token> tokens)
+    {
+        switch (tokens[0].Name)
+        {
+            case "Constant":
+                _constant = new Constant(this, tokens);
+                break;
+            case "VarExpression":
+                _varExpression = new VarExpression(this, tokens);
+                break;
+            case "MultiplicativeExpression":
+                _multiplicativeExpression = new MultiplicativeExpression(this, tokens);
+                break;
+            case "AdditiveExpression":
+                _additiveExpression = new AdditiveExpression(this, tokens);
+                break;
+            default:
+                throw new ArgumentException("Invalid token name");
+        }
+    }
+    
     public StandardExpression(Node parentNode, IStandardExpressionConfiguration? configuration = null) 
         : base(parentNode, "Expression", true)
     {
@@ -29,15 +50,7 @@ public partial class StandardExpression
         
         NextTwoArgExpressionChance = configuration.NextTwoArgExpressionChance;
         tokens.RemoveAt(0);
-        
-        tokens[0].Name switch
-        {
-            "Constant" => _constant = new Constant(this, tokens),
-            "VarExpression" => _varExpression = new VarExpression(this, tokens),
-            "MultiplicativeExpression" => _multiplicativeExpression = new MultiplicativeExpression(this, tokens),
-            "AdditiveExpression" => _additiveExpression = new AdditiveExpression(this, tokens),
-            _ => throw new ArgumentException("Invalid token name")
-        };
+        SetExpression(tokens);
     }
     
     public StandardExpression(Node parentNode, List<Token> tokens, double lastNextTwoArgExpressionChance) 
@@ -45,14 +58,6 @@ public partial class StandardExpression
     {
         NextTwoArgExpressionChance = lastNextTwoArgExpressionChance;
         tokens.RemoveAt(0);
-        
-        tokens[0].Name switch
-        {
-            "Constant" => _constant = new Constant(this, tokens),
-            "VarExpression" => _varExpression = new VarExpression(this, tokens),
-            "MultiplicativeExpression" => _multiplicativeExpression = new MultiplicativeExpression(this, tokens),
-            "AdditiveExpression" => _additiveExpression = new AdditiveExpression(this, tokens),
-            _ => throw new ArgumentException("Invalid token name")
-        };
+        SetExpression(tokens);
     }
 }

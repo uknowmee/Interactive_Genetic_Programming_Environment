@@ -8,6 +8,6 @@ public enum LogicExpressionChild
 
 public interface ILogicExpression
 {
-    public double NextLogicBooleanExpressionChance();
+    public double NextLogicBooleanExpressionChance { get; init; }
     public void AddLogicExpression();
 }

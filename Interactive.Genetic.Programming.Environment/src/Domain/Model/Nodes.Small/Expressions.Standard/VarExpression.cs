@@ -84,15 +84,13 @@ public sealed class VarExpression : Node, IPointMutable, ITerminal
     
     public VarExpression(Node parentNode, IList<Token> tokens) : base(parentNode, "VarExpression", true)
     {
-        Value = tokens[0].Value ?? throw new InvalidOperationException("Token value is null");
-        tokens.RemoveAt(0);
+        Value = tokens.PopFront().Value ?? throw new InvalidOperationException("Token value is null");
         AddToProgramVariables(this);
     }
     
     public VarExpression(Node parentNode, bool shouldAlreadyExist, IList<Token> tokens) : base(parentNode, "VarExpression", true)
     {
-        Value = tokens[0].Value ?? throw new InvalidOperationException("Token value is null");
-        tokens.RemoveAt(0);
+        Value = tokens.PopFront().Value ?? throw new InvalidOperationException("Token value is null");
         
         if (shouldAlreadyExist is false)
         {
