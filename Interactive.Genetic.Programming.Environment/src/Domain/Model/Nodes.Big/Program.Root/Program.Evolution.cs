@@ -73,7 +73,7 @@ public partial class Program
             switch (bigNodeType)
             {
                 case BigNodeType.Assignment:
-                    AddNode(new Assignment(this);
+                    AddNode(new Assignment(this));
                     return;
                 case BigNodeType.FunctionCallOut when probCounter++ > 0:
                     AddNode(new FunctionCallOut(this));
@@ -127,8 +127,8 @@ public partial class Program
                 case BigNodeType.ForStatement:
                     var forStatement = new ForStatement(this);
                     ChildrenNodes.Insert(idx, forStatement);
-                    forStatement.AddRandomNode();
-                    forStatement.AddRandomNodes();
+                    forStatement.AddBigNode();
+                    forStatement.AddBigNodes();
                     return;
             }
         }
