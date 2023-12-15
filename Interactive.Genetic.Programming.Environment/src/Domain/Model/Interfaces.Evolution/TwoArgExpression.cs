@@ -1,5 +1,4 @@
-﻿using Model.Nodes;
-using Model.Nodes.Small;
+﻿using Model.Nodes.Small;
 using Model.Nodes.Small.Expressions.Standard;
 using Utils;
 
@@ -10,7 +9,7 @@ public abstract class TwoArgExpression : Node
     public abstract StandardExpression Left { get; protected set; }
     public abstract Operator Operator { get; protected set; }
     public abstract StandardExpression Right { get; protected set; }
-    
+
     public override List<Node> ChildrenAsNodes()
     {
         var nodes = new List<Node> { this };
@@ -28,13 +27,9 @@ public abstract class TwoArgExpression : Node
         {
             Left = newExpression;
         }
-        else if (Right == oldExpression)
-        {
-            Right = newExpression;
-        }
         else
         {
-            throw new InvalidOperationException("Expression not found");
+            Right = newExpression;
         }
     }
 
@@ -45,7 +40,7 @@ public abstract class TwoArgExpression : Node
             expression.SubtreeMutateTwoArgExpression();
         }
     }
-    
+
     public void Mutate()
     {
         var (left, right, op) = this switch

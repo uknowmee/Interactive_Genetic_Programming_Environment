@@ -10,5 +10,5 @@ public enum ConstantType
 
 public interface IConstant
 {
-    public void AddConstant();
+    public void AddConstant(ConstantType constantType);
 }
