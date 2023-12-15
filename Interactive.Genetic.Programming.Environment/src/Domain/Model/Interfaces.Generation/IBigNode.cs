@@ -17,7 +17,7 @@ public enum BigNodeType
 
 public interface IBigNode
 {
-    protected int Indent { get; init; }
+    public int Indent { get; }
     protected int ParentIndent { get; }
     protected double NextChildChance { get; init; }
     public double NextDeepNodeChance { get; init; }
