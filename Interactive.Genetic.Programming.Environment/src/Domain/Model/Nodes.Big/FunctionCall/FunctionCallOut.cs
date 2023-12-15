@@ -5,7 +5,7 @@ using Model.Nodes.Small.Expressions.Standard;
 
 namespace Model.Nodes.Big.FunctionCall;
 
-public class FunctionCallOut : Node, ICrossable, ISubtreeMutable
+public sealed class FunctionCallOut : Node, ICrossable, ISubtreeMutable
 {
     private readonly VarExpression _varExpression;
 
@@ -13,10 +13,9 @@ public class FunctionCallOut : Node, ICrossable, ISubtreeMutable
 
     public void SubtreeMutate()
     {
-        var parent = ParentNode as IBigNode ?? throw new InvalidOperationException("Parent is not a big node");
+        var parent = ParentNode as BigNode ?? throw new InvalidOperationException("Parent is not a big node");
 
-        var nextDeepNodeChance = parent.NextDeepNodeChance;
-        var node = parent.GetRandomNode(this, nextDeepNodeChance);
+        var node = parent.GetRandomNode();
         parent.ReAttachSubtree(this, node);
     }
 

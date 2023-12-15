@@ -1,3 +1,3 @@
 ﻿namespace Model;
 
-public record Token(string Name, string? Value);
+public sealed record Token(string Name, string? Value);

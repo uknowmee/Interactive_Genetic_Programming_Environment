@@ -94,8 +94,8 @@ public partial class StandardExpression
     {
         ParentNode switch
         {
-            Assignment assignment => assignment.SetExpression(new StandardExpression(assignment)),
-            ForAssignment forAssignment => forAssignment.SetExpression(new StandardExpression(forAssignment)),
+            Assignment assignment => assignment.Expression = new StandardExpression(assignment),
+            ForAssignment forAssignment => forAssignment.Expression = new StandardExpression(forAssignment),
             ComparisonExpression comparisonExpression => comparisonExpression.SetExpression(
                 this,
                 new StandardExpression(comparisonExpression, NextTwoArgExpressionChance)

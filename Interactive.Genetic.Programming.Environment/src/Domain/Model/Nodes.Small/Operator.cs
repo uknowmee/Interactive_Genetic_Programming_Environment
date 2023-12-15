@@ -14,11 +14,11 @@ public abstract class Operator : Node, IPointMutable, ITerminal
 
     public abstract void Mutate();
 
-    public Operator(Node parentNode, string name) : base(parentNode, name, true)
+    protected Operator(Node parentNode, string name) : base(parentNode, name, true)
     {
     }
 
-    public Operator(Node parentNode, IList<Token> tokens) : base(parentNode, tokens[0].Name, true)
+    protected Operator(Node parentNode, IList<Token> tokens) : base(parentNode, tokens[0].Name, true)
         => Value = tokens.PopFront().Value ?? throw new NullReferenceException();
 
     public override string ToString() => Value;

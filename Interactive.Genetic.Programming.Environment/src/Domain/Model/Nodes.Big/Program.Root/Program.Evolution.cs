@@ -6,22 +6,19 @@ using Model.Nodes.Big.For;
 using Model.Nodes.Big.FunctionCall;
 using Model.Nodes.Big.If;
 using Model.Nodes.Small.Expressions.Standard;
-using Utils;
 
 namespace Model.Nodes.Big.Program.Root;
 
 public partial class Program
 {
-    public void ClearVariables() => ProgramVariables.Clear();
-
     public void UpdateVariables()
     {
-        var nodes = ChildrenAsNodes() ?? [];
+        var nodes = ChildrenAsNodes();
         ClearVariables();
 
         foreach (var node in nodes)
         {
-            if (node is IBigNode addRandomBaseNode)
+            if (node is BigNode addRandomBaseNode)
             {
                 addRandomBaseNode.ClearVariables();
             }
@@ -47,23 +44,23 @@ public partial class Program
         return true;
     }
 
-    public List<Node>? PointMutableNodes()
+    public List<Node> PointMutableNodes()
     {
-        var nodes = ChildrenAsNodes() ?? [];
+        var nodes = ChildrenAsNodes();
         nodes.RemoveAll(node => node is not IPointMutable);
         nodes.RemoveAll(node => node is IPointMutable pointMutable && pointMutable.IsMutable() is false);
         return nodes;
     }
 
-    public List<Node>? SubtreeMutableNodes()
+    public List<Node> SubtreeMutableNodes()
     {
-        var nodes = ChildrenAsNodes() ?? [];
+        var nodes = ChildrenAsNodes();
         nodes.RemoveAll(node => node is not ISubtreeMutable);
         nodes.RemoveAll(node => node is ISubtreeMutable subtreeMutable && subtreeMutable.IsMutable() is false);
         return nodes;
     }
 
-    public void AddBigNode()
+    public sealed override void AddBigNode()
     {
         var probCounter = 0;
 
@@ -94,15 +91,7 @@ public partial class Program
         }
     }
 
-    public void AddBigNodes()
-    {
-        while (RandomService.RandomPercentage() < NextChildChance)
-        {
-            AddBigNode();
-        }
-    }
-
-    public void AddBigNodeInside()
+    public override void AddBigNodeInside()
     {
         var probCounter = 0;
         var idx = GetRandomLine();
@@ -134,25 +123,10 @@ public partial class Program
         }
     }
 
-    public int GetRandomLine()
+    public override int GetRandomLine()
     {
         return ChildrenNodes?.Count == Inputs
             ? Inputs
             : new Random().Next(Inputs, ChildrenNodes?.Count ?? 0);
     }
-
-    public void SwapTwoLines()
-    {
-        var node1Idx = GetRandomLine();
-        var node2Idx = GetRandomLine();
-
-        while (node1Idx == node2Idx)
-        {
-            node2Idx = GetRandomLine();
-        }
-
-        ChildrenNodes?.Swap(node1Idx, node2Idx);
-    }
-
-    public void DeleteRandomLine() => ChildrenNodes?.RemoveAt(GetRandomLine());
 }

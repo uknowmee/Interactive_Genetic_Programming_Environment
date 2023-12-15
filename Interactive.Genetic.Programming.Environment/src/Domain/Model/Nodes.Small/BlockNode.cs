@@ -1,6 +1,6 @@
 ﻿namespace Model.Nodes.Small;
 
-public class BlockNode : Node
+public sealed class BlockNode : Node
 {
     public override List<Node>? ChildrenAsNodes() => null;
 
