@@ -34,7 +34,7 @@ public partial class Program
         return program.ToString();
     }
 
-    public override List<Node>? ChildrenAsNodes()
+    public override List<Node> ChildrenAsNodes()
     {
         var nodes = new List<Node>();
         foreach (var node in ChildrenNodes ?? [])
