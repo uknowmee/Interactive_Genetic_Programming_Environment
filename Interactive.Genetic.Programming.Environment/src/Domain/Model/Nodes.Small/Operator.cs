@@ -1,4 +1,5 @@
-﻿using Model.Interfaces;
+﻿using Model.Extensions;
+using Model.Interfaces;
 using Model.Interfaces.Evolution;
 
 namespace Model.Nodes.Small;
@@ -18,11 +19,7 @@ public abstract class Operator : Node, IPointMutable, ITerminal
     }
 
     public Operator(Node parentNode, IList<Token> tokens) : base(parentNode, tokens[0].Name, true)
-    {
-        var token = tokens[0];
-        tokens.RemoveAt(0);
-        Value = token.Value ?? throw new NullReferenceException();
-    }
+        => Value = tokens.PopFront().Value ?? throw new NullReferenceException();
 
     public override string ToString() => Value;
 }

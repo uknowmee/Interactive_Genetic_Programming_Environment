@@ -4,7 +4,7 @@ namespace Model.Interfaces;
 
 public interface ITerminal
 {
-    public string Value { get; set; }
+    public string Value { get; }
 
     public string Type()
     {
