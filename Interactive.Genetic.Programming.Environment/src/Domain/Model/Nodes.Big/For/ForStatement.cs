@@ -11,9 +11,9 @@ using Model.Nodes.Small.Expressions.Logic;
 
 namespace Model.Nodes.Big.For;
 
-public class ForStatement : DeepNode
+public sealed class ForStatement : DeepNode
 {
-    private ForAssignment _forAssignment;
+    private readonly ForAssignment _forAssignment;
     public ComparisonExpression ComparisonExpression { get; set; }
     public ForIncrement ForIncrement { get; set; }
 
@@ -72,9 +72,8 @@ public class ForStatement : DeepNode
 
     public override void SubtreeMutate()
     {
-        var parent = ParentNode as IBigNode ?? throw new InvalidOperationException("Parent is not IBigNode");
-        var nextDeepNodeChance = parent.NextDeepNodeChance;
-        var node = (this as IBigNode).GetRandomNode(ParentNode, nextDeepNodeChance);
+        var parent = ParentNode as BigNode ?? throw new InvalidOperationException("Parent is not IBigNode");
+        var node = GetRandomNode();
         parent.ReAttachSubtree(this, node);
     }
 

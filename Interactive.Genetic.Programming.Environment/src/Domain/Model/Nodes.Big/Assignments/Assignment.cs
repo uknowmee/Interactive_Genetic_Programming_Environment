@@ -1,7 +1,6 @@
 ﻿using CommunityToolkit.Diagnostics;
 using Model.Interfaces.Evolution;
 using Model.Interfaces.Generation;
-using Model.Nodes.Small.Expressions.Logic;
 using Model.Nodes.Small.Expressions.Standard;
 
 namespace Model.Nodes.Big.Assignments;
@@ -12,7 +11,7 @@ public enum AssignmentChild
     FunctionCallIn
 }
 
-public class Assignment : Node, ISubtreeMutable
+public sealed class Assignment : Node, ISubtreeMutable
 {
     public VarExpression Variable { get; set; }
     public StandardExpression? Expression { get; set; }
@@ -32,9 +31,8 @@ public class Assignment : Node, ISubtreeMutable
 
     public void SubtreeMutate()
     {
-        var parent = ParentNode as IBigNode ?? throw new InvalidOperationException("Parent is not a big node");
-        var nextDeepNodeChance = parent.NextDeepNodeChance;
-        var node = parent.GetRandomNode(this, nextDeepNodeChance);
+        var parent = ParentNode as BigNode ?? throw new InvalidOperationException("Parent is not a big node");
+        var node = parent.GetRandomNode();
         parent.ReAttachSubtree(this, node);
     }
 
