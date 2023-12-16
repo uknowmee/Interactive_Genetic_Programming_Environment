@@ -10,8 +10,10 @@ public class Visitor : IntGrammarBaseVisitor<object>
     private readonly List<double> _inputs;
 
     private int _lastLine;
+    private readonly long _startTime;
+    private readonly int DueTime;
 
-    private readonly OrderedDictionary _variables = new();
+    private readonly OrderedDictionary _variables = new(20);
     private readonly List<Scope> _scopes = [];
 
     private string AddScope()
@@ -38,15 +40,24 @@ public class Visitor : IntGrammarBaseVisitor<object>
         }
     }
 
+    private void TimeChecker()
+    {
+        if (DateTimeOffset.Now.ToUnixTimeMilliseconds() - _startTime > DueTime)
+        {
+            throw new OperationCanceledException();
+        }
+    }
+    
     public override object VisitLine(IntGrammarParser.LineContext context)
     {
         _lastLine += 1;
+        TimeChecker();
         return base.VisitLine(context);
     }
 
     public override string VisitAssignment(IntGrammarParser.AssignmentContext context)
     {
-        var name = context.IDENTIFIER().GetText();
+        string name = context.Start.Text;
 
         if (!_variables.Contains(name))
         {
@@ -59,7 +70,7 @@ public class Visitor : IntGrammarBaseVisitor<object>
 
     public override object VisitFunctionCall(IntGrammarParser.FunctionCallContext context)
     {
-        var functionName = context.IDENTIFIER().GetText();
+        string functionName = context.Start.Text;
 
         switch (functionName)
         {
@@ -80,7 +91,7 @@ public class Visitor : IntGrammarBaseVisitor<object>
 
     public override object VisitIdentifierExpression(IntGrammarParser.IdentifierExpressionContext context)
     {
-        var name = context.IDENTIFIER().ToString() ?? string.Empty;
+        string name = context.Start.Text;
 
         if (!_variables.Contains(name))
         {
@@ -100,7 +111,7 @@ public class Visitor : IntGrammarBaseVisitor<object>
     {
         var left = Convert.ToDouble(Visit(context.expression(0)));
         var right = Convert.ToDouble(Visit(context.expression(1)));
-        var @operator = context.addOp().GetText();
+        string @operator = context.addOp().GetText().ToString();
 
         switch (@operator)
         {
@@ -117,7 +128,7 @@ public class Visitor : IntGrammarBaseVisitor<object>
     {
         var left = Convert.ToDouble(Visit(context.expression(0)));
         var right = Convert.ToDouble(Visit(context.expression(1)));
-        var @operator = context.multOp().GetText();
+        string @operator = context.multOp().GetText().ToString();
 
         switch (@operator)
         {
@@ -134,7 +145,7 @@ public class Visitor : IntGrammarBaseVisitor<object>
     {
         var left = Convert.ToDouble(Visit(context.expression(0)));
         var right = Convert.ToDouble(Visit(context.expression(1)));
-        var @operator = context.compareOp().GetText();
+        var @operator = context.compareOp().GetText().ToString();
 
         switch (@operator)
         {
@@ -164,11 +175,10 @@ public class Visitor : IntGrammarBaseVisitor<object>
     public override object VisitForStatement(IntGrammarParser.ForStatementContext context)
     {
         var scopeName = AddScope();
-        var iterName = VisitAssignment(context.assignment()).ToString();
-        var operation = context.children[6].GetText();
+        string iterName = VisitAssignment(context.assignment()).ToString();
 
-        var incrementName = "";
-        var incrementValue = 0.0;
+        string incrementName = "";
+        double incrementValue = 0.0;
 
         try
         {
@@ -193,17 +203,11 @@ public class Visitor : IntGrammarBaseVisitor<object>
                 incrementValue = Convert.ToDouble(_variables[incrementName] ?? throw new InvalidOperationException());
             }
 
-            switch (operation)
+            _variables[iterName] = iterValue + incrementValue;
+
+            if (context.block().children.Count == 2)
             {
-                case "+":
-                    _variables[iterName] = iterValue + incrementValue;
-                    break;
-                case "-":
-                    _variables[iterName] = iterValue - incrementValue;
-                    break;
-                default:
-                    _variables[iterName] = _variables[iterName];
-                    break;
+                TimeChecker();
             }
         }
 
@@ -225,7 +229,7 @@ public class Visitor : IntGrammarBaseVisitor<object>
     {
         var left = Visit(context.expression(0));
         var right = Visit(context.expression(1));
-        var @operator = context.boolOp().GetText();
+        string @operator = context.boolOp().GetText();
 
         switch (@operator)
         {
@@ -238,5 +242,10 @@ public class Visitor : IntGrammarBaseVisitor<object>
         }
     }
 
-    public Visitor(List<double> inputs) => _inputs = inputs;
+    public Visitor(List<double> inputs, int dueTime)
+    {
+        _inputs = inputs;
+        DueTime = dueTime;
+        _startTime = DateTimeOffset.Now.ToUnixTimeMilliseconds();
+    }
 }
