@@ -14,25 +14,16 @@ public class InterpreterService : IInterpreterService
     private readonly IParseTree _parseTree;
 
     private const int DueTime = 10;
-    private CancellationTokenSource? _cancellationTokenSource;
-    private readonly SemaphoreSlim _semaphore = new(1, 1);
 
     public void Run(List<double> inputs)
     {
         IsFinished = false;
-        _visitor = new Visitor(inputs);
 
         try
         {
-            _cancellationTokenSource = new CancellationTokenSource(DueTime);
-            _semaphore.Wait(_cancellationTokenSource.Token);
-
-            Task.Run(() =>
-                {
-                    _visitor?.Visit(_parseTree);
-                    IsFinished = true;
-                }, _cancellationTokenSource.Token
-            ).Wait(_cancellationTokenSource.Token);
+            _visitor = new Visitor(inputs, DueTime);
+            _visitor.Visit(_parseTree);
+            IsFinished = true;
         }
         catch (OperationCanceledException exception)
         {
