@@ -2,7 +2,7 @@
 using Model.Nodes.Small.Expressions.Standard;
 using Utils;
 
-namespace Model.Interfaces.Evolution;
+namespace Model.Abstract;
 
 public abstract class TwoArgExpression : Node
 {

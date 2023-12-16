@@ -1,8 +1,7 @@
 ﻿using Model.Extensions;
 using Model.Interfaces;
-using Model.Interfaces.Evolution;
 
-namespace Model.Nodes.Small;
+namespace Model.Abstract;
 
 public abstract class Operator : Node, IPointMutable, ITerminal
 {

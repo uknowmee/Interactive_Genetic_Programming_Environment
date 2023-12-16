@@ -1,5 +1,5 @@
-﻿using Model.Interfaces.Evolution;
-using Model.Interfaces.Generation;
+﻿using Model.Abstract;
+using Model.Interfaces;
 
 namespace Model.Nodes.Small.Expressions.Logic;
 

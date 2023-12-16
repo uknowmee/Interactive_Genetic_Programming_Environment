@@ -1,5 +1,5 @@
 ﻿using Model.Extensions;
-using Model.Interfaces.Generation;
+using Model.Interfaces;
 using Model.Nodes.Big.Assignments;
 using Model.Nodes.Big.For;
 using Model.Nodes.Small.Constants;
@@ -92,24 +92,35 @@ public partial class StandardExpression
     
     public void SubtreeMutate()
     {
-        ParentNode switch
+        switch (ParentNode)
         {
-            Assignment assignment => assignment.Expression = new StandardExpression(assignment),
-            ForAssignment forAssignment => forAssignment.Expression = new StandardExpression(forAssignment),
-            ComparisonExpression comparisonExpression => comparisonExpression.SetExpression(
-                this,
-                new StandardExpression(comparisonExpression, NextTwoArgExpressionChance)
-            ),
-            AdditiveExpression additiveExpression => additiveExpression.SetExpression(
-                this,
-                new StandardExpression(additiveExpression, NextTwoArgExpressionChance)
-            ),
-            MultiplicativeExpression multiplicativeExpression => multiplicativeExpression.SetExpression(
-                this,
-                new StandardExpression(multiplicativeExpression, NextTwoArgExpressionChance)
-            ),
-            _ => throw new ArgumentOutOfRangeException()
-        };
+            case Assignment assignment:
+                assignment.Expression = new StandardExpression(assignment);
+                break;
+            case ForAssignment forAssignment:
+                forAssignment.Expression = new StandardExpression(forAssignment);
+                break;
+            case ComparisonExpression comparisonExpression:
+                comparisonExpression.SetExpression(
+                    this,
+                    new StandardExpression(comparisonExpression, NextTwoArgExpressionChance)
+                );
+                break;
+            case AdditiveExpression additiveExpression:
+                additiveExpression.SetExpression(
+                    this,
+                    new StandardExpression(additiveExpression, NextTwoArgExpressionChance)
+                );
+                break;
+            case MultiplicativeExpression multiplicativeExpression:
+                multiplicativeExpression.SetExpression(
+                    this,
+                    new StandardExpression(multiplicativeExpression, NextTwoArgExpressionChance)
+                );
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
+        }
     }
 
     public void MutateConstOrVar()

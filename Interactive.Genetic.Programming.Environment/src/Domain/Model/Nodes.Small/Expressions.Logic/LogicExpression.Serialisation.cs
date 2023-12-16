@@ -1,4 +1,6 @@
-﻿namespace Model.Nodes.Small.Expressions.Logic;
+﻿using Model.Abstract;
+
+namespace Model.Nodes.Small.Expressions.Logic;
 
 public partial class LogicExpression
 {

@@ -1,4 +1,5 @@
-﻿using Model.Extensions;
+﻿using Model.Abstract;
+using Model.Extensions;
 using Model.Interfaces;
 
 namespace Model.Nodes.Big.Assignments;
