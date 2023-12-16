@@ -19,4 +19,6 @@ public sealed class FunctionCallIn : Node, ITerminal
     {
         Value = tokens.PopFront().Value ?? throw new Exception("Token value cannot be null");
     }
+    
+    public override string ToString() => Value;
 }

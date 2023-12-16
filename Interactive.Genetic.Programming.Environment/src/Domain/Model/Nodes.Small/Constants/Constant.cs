@@ -45,9 +45,10 @@ public sealed class Constant : Node, IConstant, IPointMutable, ITerminal
 
     private string RandomInteger() => RandomService.RandomInt(_maxInt).ToString();
 
-    public Constant(Node parentNode, IConstantConfiguration? configuration = null) 
+    public Constant(Node parentNode) 
         : base(parentNode, "Constant", true)
     {
+        var configuration = ConfigurationResolver.Resolve<IConstantConfiguration>();
         Guard.IsNotNull(configuration);
         _maxInt = configuration.MaxInt;
         
@@ -55,18 +56,20 @@ public sealed class Constant : Node, IConstant, IPointMutable, ITerminal
         _type = constantType.ToString();
         _value = RandomInteger();    }
 
-    public Constant(Node parentNode, ConstantType givenConstant, IConstantConfiguration? configuration = null)
+    public Constant(Node parentNode, ConstantType givenConstant)
         : base(parentNode, "Constant", true)
     {
+        var configuration = ConfigurationResolver.Resolve<IConstantConfiguration>();
         Guard.IsNotNull(configuration);
         
         _maxInt = configuration.MaxInt;
         _type = givenConstant.ToString();
         _value = RandomInteger();    }
 
-    public Constant(Node parentNode, IList<Token> tokens, IConstantConfiguration? configuration = null)
+    public Constant(Node parentNode, IList<Token> tokens)
         : base(parentNode, "Constant", true)
     {
+        var configuration = ConfigurationResolver.Resolve<IConstantConfiguration>();
         Guard.IsNotNull(configuration);
         _maxInt = configuration.MaxInt;
 
@@ -77,9 +80,10 @@ public sealed class Constant : Node, IConstant, IPointMutable, ITerminal
         _value = data[1];
     }
 
-    public Constant(Node parentNode, ConstantType givenConstant, IList<Token> tokens, IConstantConfiguration? configuration = null)
+    public Constant(Node parentNode, ConstantType givenConstant, IList<Token> tokens)
         : base(parentNode, "Constant", true)
     {
+        var configuration = ConfigurationResolver.Resolve<IConstantConfiguration>();
         Guard.IsNotNull(configuration);
         _maxInt = configuration.MaxInt;
 
@@ -89,5 +93,5 @@ public sealed class Constant : Node, IConstant, IPointMutable, ITerminal
         _value = data[1];
     }
 
-    public override string ToString() => Value;
+    public override string ToString() => _value;
 }

@@ -14,20 +14,6 @@ public class Visitor : IntGrammarBaseVisitor<object>
     private readonly OrderedDictionary _variables = new();
     private readonly List<Scope> _scopes = [];
 
-    private double PopInput()
-    {
-        var input = _inputs[0];
-        _inputs.RemoveAt(0);
-        return input;
-    }
-
-    private object PushOutput(IntGrammarParser.FunctionCallContext context)
-    {
-        var parameters = VisitParameters(context.parameters());
-        Outputs.Add((double)Visit(parameters[0]));
-        return null;
-    }
-
     private string AddScope()
     {
         var scope = new Scope(_scopes.Count);
@@ -58,7 +44,7 @@ public class Visitor : IntGrammarBaseVisitor<object>
         return base.VisitLine(context);
     }
 
-    public override object VisitAssignment(IntGrammarParser.AssignmentContext context)
+    public override string VisitAssignment(IntGrammarParser.AssignmentContext context)
     {
         var name = context.IDENTIFIER().GetText();
 
@@ -75,13 +61,21 @@ public class Visitor : IntGrammarBaseVisitor<object>
     {
         var functionName = context.IDENTIFIER().GetText();
 
-        return (functionName switch
+        switch (functionName)
         {
-            "read" when _inputs.Count <= 0 => 0,
-            "read" => () => PopInput(),
-            "write" => PushOutput(context),
-            _ => null
-        })!;
+            case "read" when _inputs.Count <=0:
+                return 0;
+            case "read":
+                var input = _inputs[0];
+                _inputs.RemoveAt(0);
+                return input;
+            case "write":
+                var parameters = VisitParameters(context.parameters());
+                Outputs.Add(Convert.ToDouble(Visit(parameters[0])));
+                return 0;
+            default:
+                return 0;
+        }
     }
 
     public override object VisitIdentifierExpression(IntGrammarParser.IdentifierExpressionContext context)
@@ -104,50 +98,61 @@ public class Visitor : IntGrammarBaseVisitor<object>
 
     public override object VisitAdditiveExpression(IntGrammarParser.AdditiveExpressionContext context)
     {
-        var left = Visit(context.expression(0));
-        var right = Visit(context.expression(1));
+        var left = Convert.ToDouble(Visit(context.expression(0)));
+        var right = Convert.ToDouble(Visit(context.expression(1)));
         var @operator = context.addOp().GetText();
 
-        return @operator switch
+        switch (@operator)
         {
-            "+" => (double)left + (double)right,
-            "-" => (double)left - (double)right,
-            _ => 0
-        };
+            case "+":
+                return left + right;
+            case "-":
+                return left - right;
+            default:
+                return 0;
+        }
     }
 
     public override object VisitMultiplicativeExpression(IntGrammarParser.MultiplicativeExpressionContext context)
     {
-        var left = Visit(context.expression(0));
-        var right = Visit(context.expression(1));
+        var left = Convert.ToDouble(Visit(context.expression(0)));
+        var right = Convert.ToDouble(Visit(context.expression(1)));
         var @operator = context.multOp().GetText();
 
-        return @operator switch
+        switch (@operator)
         {
-            "*" => (double)left * (double)right,
-            "/" => Math.Abs((double)right) < 0.001
-                ? (double)left
-                : (double)left / (double)right,
-            _ => 0
-        };
+            case "*":
+                return left * right;
+            case "/":
+                return Math.Abs(right) < 0.001 ? left : left / right;
+            default:
+                return 0;
+        }
     }
 
     public override object VisitComparisonExpression(IntGrammarParser.ComparisonExpressionContext context)
     {
-        var left = Visit(context.expression(0));
-        var right = Visit(context.expression(1));
+        var left = Convert.ToDouble(Visit(context.expression(0)));
+        var right = Convert.ToDouble(Visit(context.expression(1)));
         var @operator = context.compareOp().GetText();
 
-        return @operator switch
+        switch (@operator)
         {
-            "<" => (double)left < (double)right,
-            ">" => (double)left > (double)right,
-            "<=" => (double)left <= (double)right,
-            ">=" => (double)left >= (double)right,
-            "==" => ((double)left).Equals((double)right),
-            "!=" => !((double)left).Equals((double)right),
-            _ => false
-        };
+            case "<":
+                return left < right;
+            case ">":
+                return left > right;
+            case "<=":
+                return left <= right;
+            case ">=":
+                return left >= right;
+            case "==":
+                return left.Equals(right);
+            case "!=":
+                return !left.Equals(right);
+            default:
+                return false;
+        }
     }
 
     public override object VisitParenthesizedExpression(IntGrammarParser.ParenthesizedExpressionContext context)
@@ -178,22 +183,28 @@ public class Visitor : IntGrammarBaseVisitor<object>
         {
             Visit(context.block());
 
-            var iterValue = (double)(
+            var iterValue = Convert.ToDouble(
                 _variables[iterName ?? throw new InvalidOperationException()]
                 ?? throw new InvalidOperationException()
             );
 
             if (!string.IsNullOrEmpty(incrementName))
             {
-                incrementValue = (double)(_variables[incrementName] ?? throw new InvalidOperationException());
+                incrementValue = Convert.ToDouble(_variables[incrementName] ?? throw new InvalidOperationException());
             }
 
-            _variables[iterName] = operation switch
+            switch (operation)
             {
-                "+" => iterValue + incrementValue,
-                "-" => iterValue - incrementValue,
-                _ => _variables[iterName]
-            };
+                case "+":
+                    _variables[iterName] = iterValue + incrementValue;
+                    break;
+                case "-":
+                    _variables[iterName] = iterValue - incrementValue;
+                    break;
+                default:
+                    _variables[iterName] = _variables[iterName];
+                    break;
+            }
         }
 
         RemoveScope(scopeName);
@@ -216,12 +227,15 @@ public class Visitor : IntGrammarBaseVisitor<object>
         var right = Visit(context.expression(1));
         var @operator = context.boolOp().GetText();
 
-        return @operator switch
+        switch (@operator)
         {
-            "and" => (bool)left && (bool)right,
-            "or" => (bool)left || (bool)right,
-            _ => false
-        };
+            case "and":
+                return (bool)left && (bool)right;
+            case "or":
+                return (bool)left || (bool)right;
+            default:
+                return false;
+        }
     }
 
     public Visitor(List<double> inputs) => _inputs = inputs;

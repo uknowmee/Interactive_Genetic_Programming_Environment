@@ -9,12 +9,11 @@ public partial class Program
     {
     }
 
-    public string AsString()
+    public override string ToString()
     {
         var program = new StringBuilder();
-        var nodes = ChildrenNodes ?? [];
 
-        foreach (var node in nodes)
+        foreach (var node in ChildrenNodes)
         {
             if (node is BigNode addRandomNode)
             {
@@ -22,10 +21,10 @@ public partial class Program
             }
         }
 
-        foreach (var node in nodes)
+        foreach (var node in ChildrenNodes)
         {
             program.Append(node);
-            if (!node.Equals(nodes[^1]))
+            if (!node.Equals(ChildrenNodes[^1]))
             {
                 program.Append('\n');
             }

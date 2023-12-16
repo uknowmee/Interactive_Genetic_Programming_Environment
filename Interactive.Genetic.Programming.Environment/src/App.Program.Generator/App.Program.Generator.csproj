@@ -7,4 +7,10 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\Domain\Configuration\Configuration.csproj" />
+      <ProjectReference Include="..\Domain\Model\Model.csproj" />
+      <ProjectReference Include="..\Services\Interpreter\Interpreter.csproj" />
+    </ItemGroup>
+
 </Project>

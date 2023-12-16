@@ -59,7 +59,7 @@ public sealed class ForStatement : DeepNode
 
         forBody.Append($"for ({_forAssignment}, {ComparisonExpression}, {ForIncrement}) {{\n");
 
-        foreach (var node in ChildrenNodes ?? [])
+        foreach (var node in ChildrenNodes)
         {
             forBody.Append('\t', Indent).Append(node).Append('\n');
         }
@@ -100,9 +100,10 @@ public sealed class ForStatement : DeepNode
         }
     }
 
-    public ForStatement(Node parentNode, IForStatementConfiguration? configuration = null)
+    public ForStatement(Node parentNode)
         : base(parentNode, "ForStatement", false)
     {
+        var configuration = ConfigurationResolver.Resolve<IForStatementConfiguration>();
         Guard.IsNotNull(configuration);
 
         NextChildChance = configuration.NewChildOfForNodeChance;
@@ -116,9 +117,10 @@ public sealed class ForStatement : DeepNode
         ForIncrement = new ForIncrement(this);
     }
 
-    public ForStatement(Node parentNode, List<Token> tokens, IForStatementConfiguration? configuration = null)
+    public ForStatement(Node parentNode, List<Token> tokens)
         : base(parentNode, "ForStatement", false)
     {
+        var configuration = ConfigurationResolver.Resolve<IForStatementConfiguration>();
         Guard.IsNotNull(configuration);
         tokens.RemoveAt(0);
 
