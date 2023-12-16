@@ -58,7 +58,7 @@ public abstract class TwoArgExpression : Node
     private void MutateOperator(StandardExpression left, StandardExpression right, string op)
     {
         var current = this as Node ?? throw new NullReferenceException();
-        var parent = current.ParentNode;
+        var parent = current.ParentNode ?? throw new NullReferenceException();
         var parentAsExpression = parent as StandardExpression ?? throw new NullReferenceException();
 
         if (RandomService.RandomPercentage() < 0.5)

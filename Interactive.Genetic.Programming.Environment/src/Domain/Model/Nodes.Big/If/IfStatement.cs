@@ -51,10 +51,10 @@ public sealed class IfStatement : DeepNode
 
         foreach (var node in ChildrenNodes)
         {
-            ifBody.Append(new string('\t', Indent)).Append(node).Append("\n");
+            ifBody.Append(new string('\t', Indent)).Append(node).Append('\n');
         }
 
-        ifBody.Append(new string('\t', Indent - 1)).Append("}");
+        ifBody.Append(new string('\t', Indent - 1)).Append('}');
 
         return ifBody.ToString();
     }
@@ -90,9 +90,10 @@ public sealed class IfStatement : DeepNode
         }
     }
 
-    public IfStatement(Node parentNode, IIfStatementConfiguration? configuration = null)
+    public IfStatement(Node parentNode)
         : base(parentNode, "IfStatement", false)
     {
+        var configuration = ConfigurationResolver.Resolve<IIfStatementConfiguration>();
         Guard.IsNotNull(configuration);
 
         NextChildChance = configuration.NewChildOfIfNodeChance;
@@ -103,9 +104,10 @@ public sealed class IfStatement : DeepNode
         LogicExpression = new LogicExpression(this);
     }
 
-    public IfStatement(Node parentNode, List<Token> tokens, IIfStatementConfiguration? configuration = null)
+    public IfStatement(Node parentNode, List<Token> tokens)
         : base(parentNode, "IfStatement", false)
     {
+        var configuration = ConfigurationResolver.Resolve<IIfStatementConfiguration>();
         Guard.IsNotNull(configuration);
         tokens.RemoveAt(0);
 

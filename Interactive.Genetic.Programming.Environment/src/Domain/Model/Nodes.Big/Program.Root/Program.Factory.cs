@@ -10,9 +10,10 @@ namespace Model.Nodes.Big.Program.Root;
 
 public partial class Program
 {
-    public Program(int numOfInputs, IProgramConfiguration? config = null)
+    public Program(int numOfInputs)
         : base(null, "Program", false)
     {
+        var config = ConfigurationResolver.Resolve<IProgramConfiguration>();
         Guard.IsNotNull(config);
 
         NextChildChance = config.NewChildOfProgramNodeChance;
@@ -31,9 +32,10 @@ public partial class Program
 
     public Program Copy() => new(ChildrenAsNodesWithBlocks().NodesWithBlocksAsTokens());
 
-    private Program(List<Token> tokens, IProgramConfiguration? config = null)
+    private Program(List<Token> tokens)
         : base(null, "Program", false)
     {
+        var config = ConfigurationResolver.Resolve<IProgramConfiguration>();
         Guard.IsNotNull(config);
 
         NextChildChance = config.NewChildOfProgramNodeChance;

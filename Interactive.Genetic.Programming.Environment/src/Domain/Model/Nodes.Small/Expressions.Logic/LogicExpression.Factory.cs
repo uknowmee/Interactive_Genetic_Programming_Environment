@@ -21,9 +21,10 @@ public partial class LogicExpression
         }
     }
 
-    public LogicExpression(Node parentNode, ILogicExpressionConfiguration? configuration = null)
+    public LogicExpression(Node parentNode)
         : base(parentNode, "LogicExpression", true)
     {
+        var configuration = ConfigurationResolver.Resolve<ILogicExpressionConfiguration>();
         Guard.IsNotNull(configuration);
 
         NextLogicBooleanExpressionChance = configuration.NewLogicExpressionChance;
@@ -37,9 +38,10 @@ public partial class LogicExpression
         AddLogicExpression();
     }
 
-    public LogicExpression(Node parentNode, List<Token> tokens, ILogicExpressionConfiguration? configuration = null)
+    public LogicExpression(Node parentNode, List<Token> tokens)
         : base(parentNode, "LogicExpression", true)
     {
+        var configuration = ConfigurationResolver.Resolve<ILogicExpressionConfiguration>();
         Guard.IsNotNull(configuration);
 
         NextLogicBooleanExpressionChance = configuration.NewLogicExpressionChance;

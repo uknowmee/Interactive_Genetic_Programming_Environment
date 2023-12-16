@@ -36,7 +36,7 @@ public sealed class VarExpression : Node, IPointMutable, ITerminal
     {
         var variables = ProgramVariables;
 
-        if (variables.Count != 0) throw new InvalidOperationException("No variables to choose from");
+        if (variables.Count == 0) throw new InvalidOperationException("No variables to choose from");
 
         return variables[RandomService.RandomInt(variables.Count)].Value;
     }
@@ -54,8 +54,9 @@ public sealed class VarExpression : Node, IPointMutable, ITerminal
         return "x_" + idx;
     }
 
-    private string MakeNew(IVariablesConfiguration? configuration = null)
+    private string MakeNew()
     {
+        var configuration = ConfigurationResolver.Resolve<IVariablesConfiguration>();
         Guard.IsNotNull(configuration);
         var variables = ProgramVariables;
 

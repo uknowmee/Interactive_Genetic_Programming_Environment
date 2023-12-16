@@ -6,6 +6,6 @@ public static class ProgramVariablesExtensions
 {
     public static List<int> GetIndexes(this IEnumerable<VarExpression> variables)
     {
-        return variables.Select(var => var.Name.Split("_")[1]).Select(int.Parse).ToList();
+        return variables.Select(var => var.Value.Split("_")[1]).Select(int.Parse).ToList();
     }
 }

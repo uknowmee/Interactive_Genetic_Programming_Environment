@@ -68,5 +68,5 @@ public class BooleanExpression : Node, ICrossable, ISubtreeMutable
         Right = new LogicExpression(this, tokens, lastNextLogicExpressionChance);
     }
 
-    public override string ToString() => $"({Left} {Operator} {Right})";
+    public override string ToString() => $"({Left}{Operator}{Right})";
 }
