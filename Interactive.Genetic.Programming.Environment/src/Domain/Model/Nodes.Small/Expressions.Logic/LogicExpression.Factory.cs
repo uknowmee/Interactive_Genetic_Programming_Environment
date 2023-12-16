@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Diagnostics;
 using Configuration;
+using Model.Abstract;
 
 namespace Model.Nodes.Small.Expressions.Logic;
 

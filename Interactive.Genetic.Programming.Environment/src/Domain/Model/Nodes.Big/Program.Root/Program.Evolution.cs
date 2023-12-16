@@ -1,6 +1,6 @@
-﻿using Model.Extensions;
-using Model.Interfaces.Evolution;
-using Model.Interfaces.Generation;
+﻿using Model.Abstract;
+using Model.Extensions;
+using Model.Interfaces;
 using Model.Nodes.Big.Assignments;
 using Model.Nodes.Big.For;
 using Model.Nodes.Big.FunctionCall;
@@ -33,14 +33,14 @@ public partial class Program
         }
     }
 
-    public override bool AddToProgramVariables(VarExpression varExpression)
+    protected override bool AddToProgramVariables(VarExpression varExpression)
     {
-        if (ProgramVariables.Any(variable => variable.Name == varExpression.Name))
+        if (Variables.Any(variable => variable.Name == varExpression.Name))
         {
             return false;
         }
 
-        ProgramVariables.Add(varExpression);
+        Variables.Add(varExpression);
         return true;
     }
 
@@ -110,8 +110,8 @@ public partial class Program
                 case BigNodeType.IfStatement:
                     var ifStatement = new IfStatement(this);
                     ChildrenNodes.Insert(idx, ifStatement);
-                    ifStatement.AddRandomNode();
-                    ifStatement.AddRandomNodes();
+                    ifStatement.AddBigNode();
+                    ifStatement.AddBigNodes();
                     return;
                 case BigNodeType.ForStatement:
                     var forStatement = new ForStatement(this);

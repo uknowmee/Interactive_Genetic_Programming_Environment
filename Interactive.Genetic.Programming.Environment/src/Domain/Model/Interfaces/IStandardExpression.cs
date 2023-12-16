@@ -1,4 +1,4 @@
-﻿namespace Model.Interfaces.Generation;
+﻿namespace Model.Interfaces;
 
 public enum ExpressionChild
 {

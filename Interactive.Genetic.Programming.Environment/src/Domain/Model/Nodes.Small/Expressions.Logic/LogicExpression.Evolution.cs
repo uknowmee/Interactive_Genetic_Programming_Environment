@@ -1,5 +1,5 @@
 ﻿using Model.Extensions;
-using Model.Interfaces.Generation;
+using Model.Interfaces;
 using Model.Nodes.Big.If;
 using Utils;
 
@@ -34,14 +34,19 @@ public partial class LogicExpression
 
     public void SubtreeMutate()
     {
-        ParentNode switch
+        switch (ParentNode)
         {
-            IfStatement ifStatement => ifStatement.SetExpression(new LogicExpression(ifStatement)),
-            BooleanExpression booleanExpression => booleanExpression.SetExpression(
-                this,
-                new LogicExpression(booleanExpression, NextLogicBooleanExpressionChance)
-            ),
-            _ => throw new ArgumentOutOfRangeException()
-        };
+            case IfStatement ifStatement:
+                ifStatement.LogicExpression = new LogicExpression(ifStatement);
+                break;
+            case BooleanExpression booleanExpression:
+                booleanExpression.SetLogicExpression(
+                    this,
+                    new LogicExpression(booleanExpression, NextLogicBooleanExpressionChance)
+                );
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
+        }
     }
 }

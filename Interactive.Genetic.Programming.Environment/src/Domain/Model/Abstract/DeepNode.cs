@@ -1,5 +1,5 @@
 ﻿using Model.Extensions;
-using Model.Interfaces.Evolution;
+using Model.Interfaces;
 using Model.Nodes.Big.Assignments;
 using Model.Nodes.Big.For;
 using Model.Nodes.Big.FunctionCall;
@@ -7,7 +7,7 @@ using Model.Nodes.Big.If;
 using Model.Nodes.Small.Expressions.Standard;
 using Utils;
 
-namespace Model.Interfaces.Generation;
+namespace Model.Abstract;
 
 public abstract class DeepNode : BigNode, ICrossable, ISubtreeMutable
 {
@@ -32,7 +32,7 @@ public abstract class DeepNode : BigNode, ICrossable, ISubtreeMutable
                 ?? throw new NullReferenceException("ParentNode is null")
             );
 
-            variables.AddRange(_programVariables);
+            variables.AddRange(Variables);
 
             return variables;
         }
@@ -141,8 +141,13 @@ public abstract class DeepNode : BigNode, ICrossable, ISubtreeMutable
             : RandomService.RandomInt(0, ChildrenNodes.Count);
     }
 
-    public abstract void SubtreeMutate();
-
+    public void SubtreeMutate()
+    {
+        var parent = ParentNode as BigNode ?? throw new InvalidOperationException("Parent is not IBigNode");
+        var node = parent.GetRandomNode();
+        parent.ReAttachSubtree(this, node);
+    }
+    
     public abstract void AddNodes(List<Token> tokens);
 
     private void AddAssignmentOrFunctionCallOut()
@@ -168,7 +173,26 @@ public abstract class DeepNode : BigNode, ICrossable, ISubtreeMutable
             ChildrenNodes.Insert(idx, new FunctionCallOut(this));
         }
     }
-    
+
+    protected override bool AddToProgramVariables(VarExpression varExpression)
+    {
+        var parentVariables = ParentNode?.ProgramVariables
+                              ?? throw new NullReferenceException("ParentNode is null");
+
+        if (Variables.Any(variable => variable.Name == varExpression.Name))
+        {
+            return false;
+        }
+        
+        if (parentVariables.Any(variable => variable.Name == varExpression.Name))
+        {
+            return false;
+        }
+        
+        Variables.Add(varExpression);
+        return true;
+    }
+
     protected DeepNode(Node parentNode, string name, bool isLast) : base(parentNode, name, isLast)
     {
     }

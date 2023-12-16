@@ -1,6 +1,6 @@
 ﻿using CommunityToolkit.Diagnostics;
-using Model.Interfaces.Evolution;
-using Model.Interfaces.Generation;
+using Model.Abstract;
+using Model.Interfaces;
 using Model.Nodes.Small.Expressions.Standard;
 
 namespace Model.Nodes.Big.Assignments;

@@ -1,4 +1,6 @@
-﻿namespace Model.Nodes.Small.Expressions.Standard;
+﻿using Model.Abstract;
+
+namespace Model.Nodes.Small.Expressions.Standard;
 
 public partial class StandardExpression
 {

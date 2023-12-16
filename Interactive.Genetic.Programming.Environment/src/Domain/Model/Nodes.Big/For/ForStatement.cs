@@ -1,8 +1,7 @@
 ﻿using System.Text;
 using CommunityToolkit.Diagnostics;
 using Configuration;
-using Model.Extensions;
-using Model.Interfaces.Generation;
+using Model.Abstract;
 using Model.Nodes.Big.Assignments;
 using Model.Nodes.Big.FunctionCall;
 using Model.Nodes.Big.If;
@@ -27,7 +26,7 @@ public sealed class ForStatement : DeepNode
         nodes.AddRange(ComparisonExpression.ChildrenAsNodes());
         nodes.AddRange(ForIncrement.ChildrenAsNodes());
 
-        foreach (var node in ChildrenNodes ?? [])
+        foreach (var node in ChildrenNodes)
         {
             nodes.AddRange(node.ChildrenAsNodes() ?? []);
         }
@@ -70,18 +69,11 @@ public sealed class ForStatement : DeepNode
         return forBody.ToString();
     }
 
-    public override void SubtreeMutate()
-    {
-        var parent = ParentNode as BigNode ?? throw new InvalidOperationException("Parent is not IBigNode");
-        var node = GetRandomNode();
-        parent.ReAttachSubtree(this, node);
-    }
-
     public override void AddNodes(List<Token> tokens)
     {
         while (tokens.Count > 0)
         {
-            var token = tokens.PopFront();
+            var token = tokens[0];
 
             switch (token.Name)
             {
@@ -102,6 +94,7 @@ public sealed class ForStatement : DeepNode
                     forStatement.AddNodes(tokens);
                     break;
                 case "End ForStatement":
+                    tokens.RemoveAt(0);
                     return;
             }
         }
@@ -113,7 +106,7 @@ public sealed class ForStatement : DeepNode
         Guard.IsNotNull(configuration);
 
         NextChildChance = configuration.NewChildOfForNodeChance;
-        NextDeepNodeChance = ParentNextDeepNodeChance * (1 - configuration.NewChildOfForNodeChance / 100);
+        NextDeepNodeChance = ParentNextDeepNodeChance * (1 - configuration.NewDeepNodeGenerationFall / 100);
         NextComparisonExpressionChance = configuration.NewExpressionInForComparisonChance;
 
         Indent = ParentIndent + 1;
@@ -130,7 +123,7 @@ public sealed class ForStatement : DeepNode
         tokens.RemoveAt(0);
 
         NextChildChance = configuration.NewChildOfForNodeChance;
-        NextDeepNodeChance = ParentNextDeepNodeChance * (1 - configuration.NewChildOfForNodeChance / 100);
+        NextDeepNodeChance = ParentNextDeepNodeChance * (1 - configuration.NewDeepNodeGenerationFall / 100);
         NextComparisonExpressionChance = configuration.NewExpressionInForComparisonChance;
 
         Indent = ParentIndent + 1;

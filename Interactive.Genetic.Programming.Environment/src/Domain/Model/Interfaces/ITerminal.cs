@@ -1,4 +1,5 @@
-﻿using Model.Nodes;
+﻿using Model.Abstract;
+using Model.Nodes;
 
 namespace Model.Interfaces;
 

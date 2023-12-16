@@ -1,5 +1,5 @@
 ﻿using System.Text;
-using Model.Interfaces.Generation;
+using Model.Abstract;
 
 namespace Model.Nodes.Big.Program.Root;
 

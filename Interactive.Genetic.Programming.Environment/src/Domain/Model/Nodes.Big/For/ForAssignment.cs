@@ -1,16 +1,17 @@
-﻿using Model.Nodes.Small.Expressions.Standard;
+﻿using Model.Abstract;
+using Model.Nodes.Small.Expressions.Standard;
 
 namespace Model.Nodes.Big.For;
 
 public sealed class ForAssignment : Node
 {
-    private VarExpression VarExpression { get; }
+    public VarExpression Variable { get; }
     public StandardExpression Expression { private get; set; }
 
     public override List<Node> ChildrenAsNodes()
     {
         var nodes = new List<Node> { this };
-        nodes.AddRange(VarExpression.ChildrenAsNodes());
+        nodes.AddRange(Variable.ChildrenAsNodes());
         nodes.AddRange(Expression.ChildrenAsNodes());
         
         return nodes;
@@ -19,15 +20,15 @@ public sealed class ForAssignment : Node
     public ForAssignment(Node parentNode) : base(parentNode, "ForAssignment", true)
     {
         Expression = new StandardExpression(this);
-        VarExpression = new VarExpression(this);
+        Variable = new VarExpression(this);
     }
     
     public ForAssignment(Node parentNode, List<Token> tokens) : base(parentNode, "ForAssignment", true)
     {
         tokens.RemoveAt(0);
-        VarExpression = new VarExpression(this, tokens);
+        Variable = new VarExpression(this, tokens);
         Expression = new StandardExpression(this, tokens);
     }
 
-    public override string ToString() => $"{VarExpression} = {Expression}";
+    public override string ToString() => $"{Variable} = {Expression}";
 }

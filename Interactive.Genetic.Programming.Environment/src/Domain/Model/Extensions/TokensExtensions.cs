@@ -1,5 +1,5 @@
-﻿using Model.Interfaces;
-using Model.Nodes;
+﻿using Model.Abstract;
+using Model.Interfaces;
 
 namespace Model.Extensions;
 
