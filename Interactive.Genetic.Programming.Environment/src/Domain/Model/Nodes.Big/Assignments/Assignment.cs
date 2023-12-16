@@ -76,6 +76,6 @@ public sealed class Assignment : Node, ISubtreeMutable
 
     public override string ToString()
         => Read is null
-            ? $"{Variable.Name} = {Expression}"
-            : $"{Variable.Name} = {Read}";
+            ? $"{Variable.Value} = {Expression};"
+            : $"{Variable.Value} = {Read};";
 }

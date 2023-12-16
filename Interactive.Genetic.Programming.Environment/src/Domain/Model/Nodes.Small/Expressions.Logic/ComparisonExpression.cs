@@ -90,5 +90,5 @@ public class ComparisonExpression : Node, ICrossable, ISubtreeMutable
         Right = new StandardExpression(this, tokens, newExpressionInForComparisonChance);
     }
 
-    public override string ToString() => $"{Left} {Operator} {Right}";
+    public override string ToString() => $"{Left}{Operator}{Right}";
 }

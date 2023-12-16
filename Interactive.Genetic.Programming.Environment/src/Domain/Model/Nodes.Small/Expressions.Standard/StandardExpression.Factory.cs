@@ -28,9 +28,10 @@ public partial class StandardExpression
         }
     }
     
-    public StandardExpression(Node parentNode, IStandardExpressionConfiguration? configuration = null) 
+    public StandardExpression(Node parentNode) 
         : base(parentNode, "Expression", true)
     {
+        var configuration = ConfigurationResolver.Resolve<IStandardExpressionConfiguration>();
         Guard.IsNotNull(configuration);
         
         NextTwoArgExpressionChance = configuration.NextTwoArgExpressionChance;
@@ -44,9 +45,10 @@ public partial class StandardExpression
         AddStandardExpression();
     }
     
-    public StandardExpression(Node parentNode, List<Token> tokens,IStandardExpressionConfiguration? configuration = null) 
+    public StandardExpression(Node parentNode, List<Token> tokens) 
         : base(parentNode, "Expression", true)
     {
+        var configuration = ConfigurationResolver.Resolve<IStandardExpressionConfiguration>();
         Guard.IsNotNull(configuration);
         
         NextTwoArgExpressionChance = configuration.NextTwoArgExpressionChance;

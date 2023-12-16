@@ -51,7 +51,7 @@ public sealed class ForIncrement : Node, ICrossable, ISubtreeMutable
     
     public ForIncrement(Node parentNode) : base(parentNode, "ForIncrement", true)
     {
-        if (RandomService.RandomPercentage() < 50)
+        if (RandomService.RandomPercentage() < 0.50)
         {
             _variable = new VarExpression(this, true);
         }

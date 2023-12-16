@@ -11,7 +11,7 @@ public sealed partial class Program : BigNode
     protected override int ParentIndent => Indent;
     public override double ParentNextDeepNodeChance => NextDeepNodeChance;
     public override List<VarExpression> ProgramVariables => Variables;
-    public int Length => MyRegex().Split(AsString()).Length;
+    public int Length => MyRegex().Split(ToString()).Length;
 
     [GeneratedRegex("\r\n|\r|\n")]
     private static partial Regex MyRegex();

@@ -96,7 +96,7 @@ public abstract class DeepNode : BigNode, ICrossable, ISubtreeMutable
                 ChildrenNodes.Insert(idx, new Assignment(this));
                 break;
             case BigNodeType.FunctionCallOut:
-                if (RandomService.RandomPercentage() < 0.5)
+                if (RandomService.RandomPercentage() < 0.50)
                 {
                     ChildrenNodes.Insert(idx, new FunctionCallOut(this));
                 }
@@ -152,7 +152,7 @@ public abstract class DeepNode : BigNode, ICrossable, ISubtreeMutable
 
     private void AddAssignmentOrFunctionCallOut()
     {
-        if (RandomService.RandomPercentage() < 0.5)
+        if (RandomService.RandomPercentage() < 0.50)
         {
             AddNode(new Assignment(this));
         }
@@ -164,7 +164,7 @@ public abstract class DeepNode : BigNode, ICrossable, ISubtreeMutable
     
     private void AddAssignmentOrFunctionCallOutInside(int idx)
     {
-        if (RandomService.RandomPercentage() < 0.5)
+        if (RandomService.RandomPercentage() < 0.50)
         {
             ChildrenNodes.Insert(idx, new Assignment(this));
         }
@@ -179,12 +179,12 @@ public abstract class DeepNode : BigNode, ICrossable, ISubtreeMutable
         var parentVariables = ParentNode?.ProgramVariables
                               ?? throw new NullReferenceException("ParentNode is null");
 
-        if (Variables.Any(variable => variable.Name == varExpression.Name))
+        if (Variables.Any(variable => variable.Value == varExpression.Value))
         {
             return false;
         }
         
-        if (parentVariables.Any(variable => variable.Name == varExpression.Name))
+        if (parentVariables.Any(variable => variable.Value == varExpression.Value))
         {
             return false;
         }

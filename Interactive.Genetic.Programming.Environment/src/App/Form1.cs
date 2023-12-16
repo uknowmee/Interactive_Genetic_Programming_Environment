@@ -2,8 +2,11 @@ namespace App;
 
 public partial class Form1 : Form
 {
-    public Form1()
+    private readonly Service1 _service1;
+    
+    public Form1(Service1 service1)
     {
+        _service1 = service1;
         InitializeComponent();
     }
 }

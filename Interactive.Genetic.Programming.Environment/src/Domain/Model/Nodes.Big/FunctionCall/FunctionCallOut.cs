@@ -30,5 +30,5 @@ public sealed class FunctionCallOut : Node, ICrossable, ISubtreeMutable
         _varExpression = new VarExpression(this, true);
     }
 
-    public override string ToString() => $"write({Name});";
+    public override string ToString() => $"write({_varExpression});";
 }
