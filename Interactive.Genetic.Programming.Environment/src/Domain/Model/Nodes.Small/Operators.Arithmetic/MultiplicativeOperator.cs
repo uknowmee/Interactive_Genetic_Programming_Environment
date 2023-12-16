@@ -1,4 +1,4 @@
-﻿using Model.Interfaces.Evolution;
+﻿using Model.Abstract;
 using Utils;
 
 namespace Model.Nodes.Small.Operators.Arithmetic;

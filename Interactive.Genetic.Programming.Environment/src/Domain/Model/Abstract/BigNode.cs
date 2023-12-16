@@ -6,7 +6,7 @@ using Model.Nodes.Big.If;
 using Model.Nodes.Small.Expressions.Standard;
 using Utils;
 
-namespace Model.Interfaces.Generation;
+namespace Model.Abstract;
 
 public enum BigNodeType
 {
@@ -18,15 +18,18 @@ public enum BigNodeType
 
 public abstract class BigNode : Node
 {
-    protected readonly List<VarExpression> _programVariables = [];
+    protected readonly List<VarExpression> Variables = [];
 
     protected List<Node> ChildrenNodes { get; } = new();
     public abstract int Indent { get; protected set; }
     protected abstract int ParentIndent { get; }
     protected double NextChildChance { get; init; }
     public double NextDeepNodeChance { get; protected init; }
+    public abstract override List<VarExpression> ProgramVariables { get; }
     public abstract double ParentNextDeepNodeChance { get; }
     
+    public abstract override List<Node> ChildrenAsNodesWithBlocks();
+
     public abstract void AddBigNode();
     
     public void AddBigNodes()
@@ -52,6 +55,7 @@ public abstract class BigNode : Node
 
         ChildrenNodes.Swap(node1Idx, node2Idx);
     }
+    
     public void DeleteRandomLine() => ChildrenNodes.RemoveAt(GetRandomLine());
 
     protected virtual void SetIndent(int toSet)
@@ -61,7 +65,7 @@ public abstract class BigNode : Node
     
     public void ReCalculateIndent() => SetIndent(ParentIndent + 1);
 
-    public void ClearVariables() => _programVariables.Clear();
+    public void ClearVariables() => Variables.Clear();
 
     protected Node AddNode(Node child)
     {
@@ -111,6 +115,8 @@ public abstract class BigNode : Node
         ChildrenNodes.Remove(oldNode);
         ChildrenNodes.Insert(nodeIdx, newNode);
     }
+
+    protected abstract override bool AddToProgramVariables(VarExpression varExpression);
 
     protected BigNode(Node? parentNode, string name, bool isLast) : base(parentNode, name, isLast)
     {

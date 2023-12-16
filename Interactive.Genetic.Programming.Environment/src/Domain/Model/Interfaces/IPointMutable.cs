@@ -2,7 +2,7 @@
 using Model.Nodes.Big.For;
 using Model.Nodes.Small.Expressions.Standard;
 
-namespace Model.Interfaces.Evolution;
+namespace Model.Interfaces;
 
 public interface IPointMutable
 {

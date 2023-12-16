@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Diagnostics;
 using Configuration;
+using Model.Abstract;
 using Model.Nodes.Small.Constants;
 
 namespace Model.Nodes.Small.Expressions.Standard;

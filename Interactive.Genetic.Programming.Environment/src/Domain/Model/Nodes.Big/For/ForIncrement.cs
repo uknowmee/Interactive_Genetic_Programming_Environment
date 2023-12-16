@@ -1,5 +1,5 @@
-﻿using Model.Interfaces.Evolution;
-using Model.Interfaces.Generation;
+﻿using Model.Abstract;
+using Model.Interfaces;
 using Model.Nodes.Small.Constants;
 using Model.Nodes.Small.Expressions.Standard;
 using Model.Nodes.Small.Operators.Arithmetic;

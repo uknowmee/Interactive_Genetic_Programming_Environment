@@ -1,4 +1,5 @@
-﻿using Utils;
+﻿using Model.Abstract;
+using Utils;
 
 namespace Model.Nodes.Small.Operators.Logic;
 

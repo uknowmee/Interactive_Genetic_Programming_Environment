@@ -1,4 +1,6 @@
-﻿namespace Model.Nodes.Small;
+﻿using Model.Abstract;
+
+namespace Model.Nodes.Small;
 
 public sealed class BlockNode : Node
 {
