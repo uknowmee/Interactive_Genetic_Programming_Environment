@@ -82,6 +82,8 @@ public abstract class DeepNode : BigNode, ICrossable, ISubtreeMutable
                     AddAssignmentOrFunctionCallOut();
                 }
                 break;
+            default:
+                throw new ArgumentOutOfRangeException();
         }
     }
 
@@ -131,6 +133,8 @@ public abstract class DeepNode : BigNode, ICrossable, ISubtreeMutable
                     AddAssignmentOrFunctionCallOutInside(idx);
                 }
                 break;
+            default:
+                throw new ArgumentOutOfRangeException();
         }
     }
 

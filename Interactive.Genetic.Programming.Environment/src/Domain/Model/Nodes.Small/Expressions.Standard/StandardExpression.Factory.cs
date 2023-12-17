@@ -24,7 +24,7 @@ public partial class StandardExpression
                 _additiveExpression = new AdditiveExpression(this, tokens);
                 break;
             default:
-                throw new ArgumentException("Invalid token name");
+                throw new InvalidOperationException($"Unknown token: {tokens[0]}");
         }
     }
     

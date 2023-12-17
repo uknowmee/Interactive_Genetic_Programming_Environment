@@ -63,6 +63,8 @@ public partial class Program
                     AddNode(forStatement);
                     forStatement.AddNodes(tokens);
                     break;
+                default:
+                    throw new InvalidOperationException($"Unknown token: {tokens[0]}");
             }
 
             Inputs += ChildrenNodes?

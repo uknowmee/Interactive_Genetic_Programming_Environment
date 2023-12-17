@@ -24,10 +24,10 @@ public sealed class FunctionCallOut : Node, ICrossable, ISubtreeMutable
         _varExpression = new VarExpression(this, true);
     }
     
-    public FunctionCallOut(Node parentNode, IList tokens) : base(parentNode, "FunctionCallOut", true)
+    public FunctionCallOut(Node parentNode, IList<Token> tokens) : base(parentNode, "FunctionCallOut", true)
     {
         tokens.RemoveAt(0);
-        _varExpression = new VarExpression(this, true);
+        _varExpression = new VarExpression(this, tokens);
     }
 
     public override string ToString() => $"write({_varExpression});";
