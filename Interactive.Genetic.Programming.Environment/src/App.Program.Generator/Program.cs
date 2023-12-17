@@ -64,3 +64,5 @@ for (var i = 0; i < capacity; i++)
 stopwatch.Stop();
 elapsedTotalSeconds = stopwatch.Elapsed.TotalSeconds;
 Console.WriteLine($"Total seconds: {elapsedTotalSeconds}");
+
+Console.Out.WriteLine("Finished");

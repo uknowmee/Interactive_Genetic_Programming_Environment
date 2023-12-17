@@ -35,7 +35,7 @@ public partial class Program
 
     protected override bool AddToProgramVariables(VarExpression varExpression)
     {
-        if (Variables.Any(variable => variable.Name == varExpression.Name))
+        if (Variables.Any(variable => variable.Value == varExpression.Value))
         {
             return false;
         }
