@@ -119,6 +119,8 @@ public partial class Program
                     forStatement.AddBigNode();
                     forStatement.AddBigNodes();
                     return;
+                default:
+                    throw new ArgumentOutOfRangeException();
             }
         }
     }

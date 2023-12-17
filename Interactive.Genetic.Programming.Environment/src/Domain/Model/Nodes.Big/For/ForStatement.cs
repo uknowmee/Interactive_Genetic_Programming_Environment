@@ -43,9 +43,9 @@ public sealed class ForStatement : DeepNode
         nodes.AddRange(ForIncrement.ChildrenAsNodes());
 
         nodes.Add(new BlockNode("Start ForStatement"));
-        foreach (var node in ChildrenNodes ?? [])
+        foreach (var node in ChildrenNodes)
         {
-            nodes.AddRange(node.ChildrenAsNodes() ?? []);
+            nodes.AddRange(node.ChildrenAsNodesWithBlocks() ?? []);
         }
 
         nodes.Add(new BlockNode("End ForStatement"));
@@ -96,6 +96,8 @@ public sealed class ForStatement : DeepNode
                 case "End ForStatement":
                     tokens.RemoveAt(0);
                     return;
+                default:
+                    throw new InvalidOperationException($"Unknown token: {tokens[0]}");
             }
         }
     }
