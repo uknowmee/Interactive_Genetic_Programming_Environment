@@ -46,6 +46,8 @@ public sealed class ForIncrement : Node, ICrossable, ISubtreeMutable
             case "Constant":
                 _constant = new Constant(this, ConstantType.Int, tokens);
                 break;
+            default:
+                throw new InvalidOperationException($"Unknown token: {tokens[0]}");
         }
     }
     
@@ -62,7 +64,7 @@ public sealed class ForIncrement : Node, ICrossable, ISubtreeMutable
         _additiveOperator = new AdditiveOperator(this);
     }
     
-    public ForIncrement(Node parentNode, List<Token> tokens) : base(parentNode, "ForIncrement", true)
+    public ForIncrement(Node parentNode, IList<Token> tokens) : base(parentNode, "ForIncrement", true)
     {
         tokens.RemoveAt(0);
         FromTokens(tokens);

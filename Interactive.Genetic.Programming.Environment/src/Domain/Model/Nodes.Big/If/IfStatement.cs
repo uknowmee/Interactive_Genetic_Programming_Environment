@@ -86,6 +86,8 @@ public sealed class IfStatement : DeepNode
                 case "End IfStatement":
                     tokens.RemoveAt(0);
                     return;
+                default:
+                    throw new InvalidOperationException($"unknown token: {tokens[0]}");
             }
         }
     }

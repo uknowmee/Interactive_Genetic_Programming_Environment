@@ -17,7 +17,7 @@ public partial class LogicExpression
                 _booleanExpression = new BooleanExpression(this, tokens);
                 break;
             default:
-                throw new ArgumentException("Invalid token name");
+                throw new InvalidOperationException($"Unknown token: {tokens[0]}");
         }
     }
 

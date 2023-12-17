@@ -49,6 +49,8 @@ public sealed class Assignment : Node, ISubtreeMutable
             case "FunctionCallIn":
                 Read = new FunctionCallIn(this, tokens);
                 break;
+            default:
+                throw new InvalidOperationException($"Unknown token: {tokens[0]}");
         }
     }
 
