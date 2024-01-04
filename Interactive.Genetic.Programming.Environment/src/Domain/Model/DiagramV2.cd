@@ -1,0 +1,289 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Model.Abstract.DeepNode" Collapsed="true">
+    <Position X="1.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIQBQAAAAAAEAAAAAQAAQAEAAAAQAAAAAAAAEAEABAA=</HashCode>
+      <FileName>Abstract\DeepNode.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Model.Abstract.Node" Collapsed="true">
+    <Position X="11.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAQQAAAQQgAAAAAAAAAAQEAA=</HashCode>
+      <FileName>Abstract\Node.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Model.Abstract.Operator" Collapsed="true">
+    <Position X="1.75" Y="13" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAACAAgAAAAEAg=</HashCode>
+      <FileName>Abstract\Operator.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Model.Abstract.TwoArgExpression" Collapsed="true">
+    <Position X="6.5" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAAAABAAAAAAAAAAAAAAACACAEAAAMAA=</HashCode>
+      <FileName>Abstract\TwoArgExpression.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Model.Nodes.Small.BlockNode" Collapsed="true">
+    <Position X="11.75" Y="15.5" Width="1.5" />
+    <InheritanceLine Type="Model.Abstract.Node" ManuallyRouted="true">
+      <Path>
+        <Point X="12.5" Y="2.312" />
+        <Point X="12.5" Y="15.52" />
+        <Point X="12.5" Y="15.52" />
+        <Point X="12.5" Y="15.5" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAEAA=</HashCode>
+      <FileName>Nodes.Small\BlockNode.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Model.Nodes.Small.Operators.Logic.BoolOperator" Collapsed="true">
+    <Position X="0.5" Y="14.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAA=</HashCode>
+      <FileName>Nodes.Small\Operators.Logic\BoolOperator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Model.Nodes.Small.Operators.Logic.CompareOperator" Collapsed="true">
+    <Position X="0.5" Y="15.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAEAAAAgA=</HashCode>
+      <FileName>Nodes.Small\Operators.Logic\CompareOperator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Model.Nodes.Small.Operators.Arithmetic.AdditiveOperator" Collapsed="true">
+    <Position X="3" Y="14.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAA=</HashCode>
+      <FileName>Nodes.Small\Operators.Arithmetic\AdditiveOperator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Model.Nodes.Small.Operators.Arithmetic.MultiplicativeOperator" Collapsed="true">
+    <Position X="2.75" Y="15.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAA=</HashCode>
+      <FileName>Nodes.Small\Operators.Arithmetic\MultiplicativeOperator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Model.Nodes.Small.Expressions.Standard.AdditiveExpression" Collapsed="true">
+    <Position X="5.25" Y="11.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAACACAAAAAIAA=</HashCode>
+      <FileName>Nodes.Small\Expressions.Standard\AdditiveExpression.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Model.Nodes.Small.Expressions.Standard.MultiplicativeExpression" Collapsed="true">
+    <Position X="7.5" Y="11.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAACACAAAAAIAA=</HashCode>
+      <FileName>Nodes.Small\Expressions.Standard\MultiplicativeExpression.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Model.Nodes.Small.Expressions.Standard.StandardExpression" Collapsed="true">
+    <Position X="8.5" Y="8.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>QwAACAAAAAAAAAAEAAAAAAAAgQAAAAAYgAEAEAAQEAA=</HashCode>
+      <FileName>Nodes.Small\Expressions.Standard\StandardExpression.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Model.Nodes.Small.Expressions.Standard.VarExpression" Collapsed="true">
+    <Position X="10.75" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAAEAAEAAAAAAAAAAAAAAAACAAgAAAgEAA=</HashCode>
+      <FileName>Nodes.Small\Expressions.Standard\VarExpression.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Model.Nodes.Small.Expressions.Logic.BooleanExpression" Collapsed="true">
+    <Position X="2.75" Y="10.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAgAAAAAAAAAACACAEAAAMAA=</HashCode>
+      <FileName>Nodes.Small\Expressions.Logic\BooleanExpression.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Model.Nodes.Small.Expressions.Logic.ComparisonExpression" Collapsed="true">
+    <Position X="0.5" Y="10.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAAAEAAAAAAAAAAAAAAAACACAEAAAMAA=</HashCode>
+      <FileName>Nodes.Small\Expressions.Logic\ComparisonExpression.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Model.Nodes.Small.Expressions.Logic.LogicExpression" Collapsed="true">
+    <Position X="1.75" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQIAEAAAAAAAAAAEQAAAAAAAAgAAAAAAAAAIEAAAEEA=</HashCode>
+      <FileName>Nodes.Small\Expressions.Logic\LogicExpression.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Model.Nodes.Small.Constants.Constant" Collapsed="true">
+    <Position X="8.75" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAACACAAAAAAQEAAAAAAAAAAAAAAAACAAgAAEAEAA=</HashCode>
+      <FileName>Nodes.Small\Constants\Constant.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Model.Nodes.Big.Program.Root.Program" Collapsed="true">
+    <Position X="4.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIQFQAAAQABEAIAEAAAAAAFAEhAQkAAAAAAAAAAAFAA=</HashCode>
+      <FileName>Nodes.Big\Program.Root\Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Model.Nodes.Big.If.IfStatement" Collapsed="true">
+    <Position X="0.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAgAAAAAAIAAEAEAA=</HashCode>
+      <FileName>Nodes.Big\If\IfStatement.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Model.Nodes.Big.FunctionCall.FunctionCallOut" Collapsed="true">
+    <Position X="6.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAEAAAEAA=</HashCode>
+      <FileName>Nodes.Big\FunctionCall\FunctionCallOut.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Model.Nodes.Big.For.ForAssignment" Collapsed="true">
+    <Position X="2.25" Y="7" Width="1.5" />
+    <InheritanceLine Type="Model.Abstract.Node" ManuallyRouted="true">
+      <Path>
+        <Point X="12.5" Y="2.312" />
+        <Point X="12.5" Y="6.872" />
+        <Point X="3" Y="6.872" />
+        <Point X="3" Y="7" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAQAAQAAAAAEAA=</HashCode>
+      <FileName>Nodes.Big\For\ForAssignment.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Model.Nodes.Big.For.ForIncrement" Collapsed="true">
+    <Position X="4.25" Y="7" Width="1.5" />
+    <InheritanceLine Type="Model.Abstract.Node" ManuallyRouted="true">
+      <Path>
+        <Point X="12.5" Y="2.312" />
+        <Point X="12.5" Y="6.874" />
+        <Point X="5" Y="6.874" />
+        <Point X="5" Y="7" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAEIAAAEAAAAAAAAAAAAEAAQAAAAEAAAEAA=</HashCode>
+      <FileName>Nodes.Big\For\ForIncrement.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Model.Nodes.Big.For.ForStatement" Collapsed="true">
+    <Position X="3.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAsAAAAAAAAAAAAEAAAAAAAAAAAAgCAAAAAAAAEAEAA=</HashCode>
+      <FileName>Nodes.Big\For\ForStatement.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Model.Nodes.Big.Assignments.FunctionCallIn" Collapsed="true">
+    <Position X="8.5" Y="7" Width="1.5" />
+    <InheritanceLine Type="Model.Abstract.Node" ManuallyRouted="true">
+      <Path>
+        <Point X="12.5" Y="2.312" />
+        <Point X="12.5" Y="6.859" />
+        <Point X="9.25" Y="6.859" />
+        <Point X="9.25" Y="7" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAgAAAAEAA=</HashCode>
+      <FileName>Nodes.Big\Assignments\FunctionCallIn.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Model.Abstract.BigNode" Collapsed="true">
+    <Position X="3.25" Y="3" Width="1.5" />
+    <InheritanceLine Type="Model.Abstract.Node" ManuallyRouted="true">
+      <Path>
+        <Point X="12.5" Y="2.312" />
+        <Point X="12.5" Y="2.858" />
+        <Point X="4" Y="2.858" />
+        <Point X="4" Y="3" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AIQBUACAAEBEQAAEAAACAAEABABQgACAAQQAAAAIBAA=</HashCode>
+      <FileName>Abstract\BigNode.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Model.Nodes.Big.Assignments.Assignment" Collapsed="true">
+    <Position X="8.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAgAAAAEAAQAAQAEAAAEAA=</HashCode>
+      <FileName>Nodes.Big\Assignments\Assignment.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="Model.Interfaces.ICrossable" Collapsed="true">
+    <Position X="0.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\ICrossable.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Model.Interfaces.IPointMutable" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\IPointMutable.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Model.Interfaces.ISubtreeMutable" Collapsed="true">
+    <Position X="0.5" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAA=</HashCode>
+      <FileName>Interfaces\ISubtreeMutable.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Model.Interfaces.ITerminal" Collapsed="true">
+    <Position X="4.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAgAAAAAAA=</HashCode>
+      <FileName>Interfaces\ITerminal.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Model.Interfaces.ILogicExpression" Collapsed="true">
+    <Position X="2.25" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\ILogicExpression.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Model.Interfaces.IConstant" Collapsed="true">
+    <Position X="4.25" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Interfaces\IConstant.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Model.Interfaces.IStandardExpression" Collapsed="true">
+    <Position X="2.25" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAEAAAAAA=</HashCode>
+      <FileName>Interfaces\IStandardExpression.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

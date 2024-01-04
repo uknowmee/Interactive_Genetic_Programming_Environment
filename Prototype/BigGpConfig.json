@@ -1,14 +1,14 @@
 {
   "outputFolder": ".\\BigGp\\Output",
   "tasksFolder": ".\\BigGp\\Tasks\\",
-  "taskFolder": "1_1_A\\",
+  "taskFolder": "1_4_A\\",
   "programToRead": "02-11-2022_04-53-33",
   "nextConfigsFolder": "",
 
   "ifWindows": true,
   "showTimeout": 3,
 
-  "error": 0.1,
+  "error": 1,
   "populationSize": 2000,
   "generations": 10000,
   "tournamentSize": 50,
