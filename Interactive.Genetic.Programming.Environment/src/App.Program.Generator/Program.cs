@@ -15,9 +15,9 @@ for (var i = 0; i < capacity; i++)
     var program = new Model.Nodes.Big.Program.Root.Program(3);
     program.AddBigNodes();
     programs.Add(program);
-    if (i % 1000 == 0)
+    if ((i + 1) % 1000 == 0)
     {
-        Console.Out.WriteLine($"Created {i} programs");
+        Console.Out.WriteLine($"Created {i + 1} programs");
     }
 }
 stopwatch.Stop();
@@ -29,9 +29,9 @@ stopwatch = Stopwatch.StartNew();
 for (var i = 0; i < capacity; i++)
 {
     programsCopy.Add(programs[i].Copy());
-    if (i % 1000 == 0)
+    if ((i + 1) % 1000 == 0)
     {
-        Console.Out.WriteLine($"Copied {i} programs");
+        Console.Out.WriteLine($"Copied {i + 1} programs");
     }
 }
 stopwatch.Stop();
@@ -56,9 +56,9 @@ for (var i = 0; i < capacity; i++)
         Console.Out.WriteLine(programsCopy[i]);
         Console.WriteLine(e);
     }
-    if (i % 1000 == 0)
+    if ((i + 1) % 1000 == 0)
     {
-        Console.Out.WriteLine($"Ran {i} programs. {loopCounter} loops.");
+        Console.Out.WriteLine($"Ran {i + 1} programs. {loopCounter} loops.");
     }
 }
 stopwatch.Stop();

@@ -13,7 +13,7 @@ public class InterpreterService : IInterpreterService
     private Visitor? _visitor;
     private readonly IParseTree _parseTree;
 
-    private const int DueTime = 10;
+    private const int DueTime = 3;
 
     public void Run(List<double> inputs)
     {
