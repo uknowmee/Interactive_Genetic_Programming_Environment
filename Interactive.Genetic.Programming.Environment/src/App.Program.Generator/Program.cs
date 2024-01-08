@@ -66,3 +66,6 @@ elapsedTotalSeconds = stopwatch.Elapsed.TotalSeconds;
 Console.WriteLine($"Total seconds: {elapsedTotalSeconds}");
 
 Console.Out.WriteLine("Finished");
+
+var avgLength = programsCopy.Average(p => p.Length);
+Console.Out.WriteLine($"Average length: {avgLength}");
