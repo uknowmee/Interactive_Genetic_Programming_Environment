@@ -1,4 +1,4 @@
-﻿namespace Solvers;
+﻿namespace Solver;
 
 public class Class1
 {
