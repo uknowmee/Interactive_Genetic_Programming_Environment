@@ -10,12 +10,12 @@ internal static class Program
         ApplicationConfiguration.Initialize();
         
         var builder = new ContainerBuilder();
-        builder.RegisterType<Form1>().AsSelf().SingleInstance();
+        builder.RegisterType<Home>().AsSelf().SingleInstance();
         builder.RegisterType<Service1>().AsSelf().SingleInstance();
         builder.RegisterType<Service2>().AsSelf().SingleInstance();
         var container = builder.Build();
         
-        var form = container.Resolve<Form1>() as Form ?? throw new Exception("Couldn't resolve form");
+        var form = container.Resolve<Home>() as Form ?? throw new Exception("Couldn't resolve form");
         Application.Run(form);
     }
 }
