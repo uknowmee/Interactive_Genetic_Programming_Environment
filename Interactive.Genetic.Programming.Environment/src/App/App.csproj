@@ -13,4 +13,19 @@
       <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="8.0.0" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Compile Update="Configuration.cs">
+        <SubType>Form</SubType>
+      </Compile>
+      <Compile Update="Fitness.cs">
+        <SubType>Form</SubType>
+      </Compile>
+      <Compile Update="Task.cs">
+        <SubType>Form</SubType>
+      </Compile>
+      <Compile Update="Saved.cs">
+        <SubType>Form</SubType>
+      </Compile>
+    </ItemGroup>
+
 </Project>
