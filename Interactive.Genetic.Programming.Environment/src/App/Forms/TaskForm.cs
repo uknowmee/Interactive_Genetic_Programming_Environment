@@ -23,7 +23,7 @@ public partial class TaskForm : Form
         Task_Load(this, EventArgs.Empty);
         base.Show();
     }
-    
+
     private void buttonHome_Click(object sender, EventArgs e)
     {
         _windowSwitcher.Switch<HomeForm>(this);
@@ -52,5 +52,10 @@ public partial class TaskForm : Form
     private void buttonQuit_Click(object sender, EventArgs e)
     {
         _windowSwitcher.Quit(this);
+    }
+
+    private void buttonUploadTask_Click(object sender, EventArgs e)
+    {
+        textBoxTaskPath.Text += "tmp";
     }
 }

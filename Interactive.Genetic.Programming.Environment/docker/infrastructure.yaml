@@ -1,0 +1,24 @@
+version: '3.9'
+name: inz-infrastructure
+
+services:
+  postgres:
+    image: postgres:latest
+    container_name: inz-postgres
+    environment:
+      POSTGRES_USER: inz
+      POSTGRES_PASSWORD: inz
+      POSTGRES_DB: postgres
+    volumes:
+      - inz_data_postgres:/var/lib/postgresql/data
+    ports:
+      - '5432:5432'
+    networks:
+      - inz
+
+networks:
+  inz:
+    external: true
+
+volumes:
+  inz_data_postgres:

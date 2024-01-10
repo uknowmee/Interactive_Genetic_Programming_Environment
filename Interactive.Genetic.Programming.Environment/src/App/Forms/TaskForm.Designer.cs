@@ -159,15 +159,15 @@ partial class TaskForm
         textBoxTaskName.Anchor = AnchorStyles.Left;
         textBoxTaskName.Location = new Point(278, 228);
         textBoxTaskName.Name = "textBoxTaskName";
-        textBoxTaskName.Size = new Size(212, 27);
+        textBoxTaskName.Size = new Size(476, 27);
         textBoxTaskName.TabIndex = 65;
         // 
         // textBoxTaskPath
         // 
         textBoxTaskPath.Anchor = AnchorStyles.Left;
-        textBoxTaskPath.Enabled = false;
         textBoxTaskPath.Location = new Point(278, 296);
         textBoxTaskPath.Name = "textBoxTaskPath";
+        textBoxTaskPath.ReadOnly = true;
         textBoxTaskPath.Size = new Size(476, 27);
         textBoxTaskPath.TabIndex = 70;
         // 
@@ -180,6 +180,7 @@ partial class TaskForm
         buttonUploadTask.TabIndex = 71;
         buttonUploadTask.Text = "Upload Task";
         buttonUploadTask.UseVisualStyleBackColor = true;
+        buttonUploadTask.Click += buttonUploadTask_Click;
         // 
         // buttonSaveTask
         // 
