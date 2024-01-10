@@ -1,8 +1,7 @@
 ﻿using System.ComponentModel;
 
-namespace App;
-
-partial class Saved
+namespace App.Forms;
+partial class ConfigurationForm
 {
     /// <summary>
     /// Required designer variable.
@@ -47,6 +46,7 @@ partial class Saved
         buttonQuit.TabIndex = 9;
         buttonQuit.Text = "Quit";
         buttonQuit.UseVisualStyleBackColor = true;
+        buttonQuit.Click += buttonQuit_Click;
         // 
         // buttonSaved
         // 
@@ -57,6 +57,7 @@ partial class Saved
         buttonSaved.TabIndex = 8;
         buttonSaved.Text = "Saved";
         buttonSaved.UseVisualStyleBackColor = true;
+        buttonSaved.Click += buttonSaved_Click;
         // 
         // buttonTask
         // 
@@ -67,6 +68,7 @@ partial class Saved
         buttonTask.TabIndex = 7;
         buttonTask.Text = "Task";
         buttonTask.UseVisualStyleBackColor = true;
+        buttonTask.Click += buttonTask_Click;
         // 
         // buttonFitness
         // 
@@ -77,6 +79,7 @@ partial class Saved
         buttonFitness.TabIndex = 6;
         buttonFitness.Text = "Fitness";
         buttonFitness.UseVisualStyleBackColor = true;
+        buttonFitness.Click += buttonFitness_Click;
         // 
         // buttonConfiguration
         // 
@@ -87,8 +90,9 @@ partial class Saved
         buttonConfiguration.TabIndex = 5;
         buttonConfiguration.Text = "Configuration";
         buttonConfiguration.UseVisualStyleBackColor = true;
+        buttonConfiguration.Click += buttonConfiguration_Click;
         // 
-        // Saved
+        // Configuration
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
@@ -98,8 +102,9 @@ partial class Saved
         Controls.Add(buttonTask);
         Controls.Add(buttonFitness);
         Controls.Add(buttonConfiguration);
-        Name = "Saved";
-        Text = "Saved";
+        Name = "ConfigurationForm";
+        Text = "Configuration";
+        Load += Configuration_Load;
         ResumeLayout(false);
     }
 

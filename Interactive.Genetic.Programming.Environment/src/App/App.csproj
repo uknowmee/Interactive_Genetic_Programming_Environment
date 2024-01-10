@@ -11,21 +11,29 @@
     <ItemGroup>
       <PackageReference Include="Autofac" Version="7.1.0" />
       <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="8.0.0" />
+      <PackageReference Include="CommunityToolkit.Diagnostics" Version="8.2.2" />
     </ItemGroup>
 
     <ItemGroup>
-      <Compile Update="Configuration.cs">
+      <Compile Update="Forms\ConfigurationForm.cs">
         <SubType>Form</SubType>
       </Compile>
-      <Compile Update="Fitness.cs">
+      <Compile Update="Forms\HomeForm.cs">
         <SubType>Form</SubType>
       </Compile>
-      <Compile Update="Task.cs">
+      <Compile Update="Forms\FitnessForm.cs">
         <SubType>Form</SubType>
       </Compile>
-      <Compile Update="Saved.cs">
+      <Compile Update="Forms\SavedForm.cs">
         <SubType>Form</SubType>
       </Compile>
+      <Compile Update="Forms\TaskForm.cs">
+        <SubType>Form</SubType>
+      </Compile>
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Domain\Configuration\Configuration.csproj" />
     </ItemGroup>
 
 </Project>

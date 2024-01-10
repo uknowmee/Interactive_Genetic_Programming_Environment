@@ -1,6 +1,6 @@
-﻿namespace App;
+﻿namespace App.Forms;
 
-partial class Home
+partial class HomeForm
 {
     /// <summary>
     ///  Required designer variable.
@@ -64,6 +64,7 @@ partial class Home
         buttonConfiguration.TabIndex = 0;
         buttonConfiguration.Text = "Configuration";
         buttonConfiguration.UseVisualStyleBackColor = true;
+        buttonConfiguration.Click += buttonConfiguration_Click;
         // 
         // buttonFitness
         // 
@@ -74,6 +75,7 @@ partial class Home
         buttonFitness.TabIndex = 1;
         buttonFitness.Text = "Fitness";
         buttonFitness.UseVisualStyleBackColor = true;
+        buttonFitness.Click += buttonFitness_Click;
         // 
         // buttonSaved
         // 
@@ -84,6 +86,7 @@ partial class Home
         buttonSaved.TabIndex = 3;
         buttonSaved.Text = "Saved";
         buttonSaved.UseVisualStyleBackColor = true;
+        buttonSaved.Click += buttonSaved_Click;
         // 
         // buttonTask
         // 
@@ -94,6 +97,7 @@ partial class Home
         buttonTask.TabIndex = 2;
         buttonTask.Text = "Task";
         buttonTask.UseVisualStyleBackColor = true;
+        buttonTask.Click += buttonTask_Click;
         // 
         // buttonQuit
         // 
@@ -104,6 +108,7 @@ partial class Home
         buttonQuit.TabIndex = 4;
         buttonQuit.Text = "Quit";
         buttonQuit.UseVisualStyleBackColor = true;
+        buttonQuit.Click += buttonQuit_Click;
         // 
         // buttonFinish
         // 
@@ -319,7 +324,7 @@ partial class Home
         Controls.Add(buttonTask);
         Controls.Add(buttonFitness);
         Controls.Add(buttonConfiguration);
-        Name = "Home";
+        Name = "HomeForm";
         Text = "Home";
         Load += Home_Load;
         ResumeLayout(false);
