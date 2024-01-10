@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel;
 
-namespace App;
+namespace App.Forms;
 
-partial class Configuration
+partial class SavedForm
 {
     /// <summary>
     /// Required designer variable.
@@ -47,6 +47,7 @@ partial class Configuration
         buttonQuit.TabIndex = 9;
         buttonQuit.Text = "Quit";
         buttonQuit.UseVisualStyleBackColor = true;
+        buttonQuit.Click += buttonQuit_Click;
         // 
         // buttonSaved
         // 
@@ -57,6 +58,7 @@ partial class Configuration
         buttonSaved.TabIndex = 8;
         buttonSaved.Text = "Saved";
         buttonSaved.UseVisualStyleBackColor = true;
+        buttonSaved.Click += buttonSaved_Click;
         // 
         // buttonTask
         // 
@@ -67,6 +69,7 @@ partial class Configuration
         buttonTask.TabIndex = 7;
         buttonTask.Text = "Task";
         buttonTask.UseVisualStyleBackColor = true;
+        buttonTask.Click += buttonTask_Click;
         // 
         // buttonFitness
         // 
@@ -77,6 +80,7 @@ partial class Configuration
         buttonFitness.TabIndex = 6;
         buttonFitness.Text = "Fitness";
         buttonFitness.UseVisualStyleBackColor = true;
+        buttonFitness.Click += buttonFitness_Click;
         // 
         // buttonConfiguration
         // 
@@ -87,8 +91,9 @@ partial class Configuration
         buttonConfiguration.TabIndex = 5;
         buttonConfiguration.Text = "Configuration";
         buttonConfiguration.UseVisualStyleBackColor = true;
+        buttonConfiguration.Click += buttonConfiguration_Click;
         // 
-        // Configuration
+        // Saved
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
@@ -98,9 +103,9 @@ partial class Configuration
         Controls.Add(buttonTask);
         Controls.Add(buttonFitness);
         Controls.Add(buttonConfiguration);
-        Name = "Configuration";
-        Text = "Configuration";
-        Load += Configuration_Load;
+        Name = "SavedForm";
+        Text = "Saved";
+        Load += Saved_Load;
         ResumeLayout(false);
     }
 

@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel;
 
-namespace App;
+namespace App.Forms;
 
-partial class Fitness
+partial class FitnessForm
 {
     /// <summary>
     /// Required designer variable.
@@ -47,6 +47,7 @@ partial class Fitness
         buttonQuit.TabIndex = 9;
         buttonQuit.Text = "Quit";
         buttonQuit.UseVisualStyleBackColor = true;
+        buttonQuit.Click += buttonQuit_Click;
         // 
         // buttonSaved
         // 
@@ -57,6 +58,7 @@ partial class Fitness
         buttonSaved.TabIndex = 8;
         buttonSaved.Text = "Saved";
         buttonSaved.UseVisualStyleBackColor = true;
+        buttonSaved.Click += buttonSaved_Click;
         // 
         // buttonTask
         // 
@@ -67,6 +69,7 @@ partial class Fitness
         buttonTask.TabIndex = 7;
         buttonTask.Text = "Task";
         buttonTask.UseVisualStyleBackColor = true;
+        buttonTask.Click += buttonTask_Click;
         // 
         // buttonFitness
         // 
@@ -77,6 +80,7 @@ partial class Fitness
         buttonFitness.TabIndex = 6;
         buttonFitness.Text = "Fitness";
         buttonFitness.UseVisualStyleBackColor = true;
+        buttonFitness.Click += buttonFitness_Click;
         // 
         // buttonConfiguration
         // 
@@ -87,6 +91,7 @@ partial class Fitness
         buttonConfiguration.TabIndex = 5;
         buttonConfiguration.Text = "Configuration";
         buttonConfiguration.UseVisualStyleBackColor = true;
+        buttonConfiguration.Click += buttonConfiguration_Click;
         // 
         // Fitness
         // 
@@ -98,8 +103,9 @@ partial class Fitness
         Controls.Add(buttonTask);
         Controls.Add(buttonFitness);
         Controls.Add(buttonConfiguration);
-        Name = "Fitness";
+        Name = "FitnessForm";
         Text = "Fitness";
+        Load += Fitness_Load;
         ResumeLayout(false);
     }
 
