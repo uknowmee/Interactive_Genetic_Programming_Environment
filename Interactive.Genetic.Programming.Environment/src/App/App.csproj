@@ -35,6 +35,7 @@
     <ItemGroup>
       <ProjectReference Include="..\Domain\Configuration.Model\Configuration.Model.csproj" />
       <ProjectReference Include="..\Services\Configuration\Configuration.csproj" />
+      <ProjectReference Include="..\Services\Database\Database.csproj" />
       <ProjectReference Include="..\Services\File\File.csproj" />
       <ProjectReference Include="..\Services\Fitness\Fitness.csproj" />
       <ProjectReference Include="..\Services\Generators.Program\Generators.Program.csproj" />

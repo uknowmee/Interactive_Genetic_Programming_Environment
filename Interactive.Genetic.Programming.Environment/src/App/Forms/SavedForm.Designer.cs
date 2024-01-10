@@ -38,18 +38,18 @@ partial class SavedForm
         buttonFitness = new Button();
         buttonConfiguration = new Button();
         buttonHome = new Button();
-        textBoxLogs = new TextBox();
+        textBoxHistory = new TextBox();
         contextMenuStrip1 = new ContextMenuStrip(components);
-        textBox1 = new TextBox();
-        textBox2 = new TextBox();
+        textBoxConfiguration = new TextBox();
+        textBoxFitness = new TextBox();
         contextMenuStrip2 = new ContextMenuStrip(components);
-        textBox3 = new TextBox();
-        comboBoxSavedTask = new ComboBox();
-        labelTaskName = new Label();
-        label1 = new Label();
-        label2 = new Label();
-        label3 = new Label();
-        label4 = new Label();
+        textBoxProgram = new TextBox();
+        comboBoxSavedSolution = new ComboBox();
+        labelConfiguration = new Label();
+        labelFitness = new Label();
+        labelSolutionName = new Label();
+        labelProgram = new Label();
+        labelHistory = new Label();
         buttonInspectTask = new Button();
         SuspendLayout();
         // 
@@ -119,16 +119,16 @@ partial class SavedForm
         buttonHome.UseVisualStyleBackColor = true;
         buttonHome.Click += buttonHome_Click;
         // 
-        // textBoxLogs
+        // textBoxHistory
         // 
-        textBoxLogs.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-        textBoxLogs.Enabled = false;
-        textBoxLogs.Location = new Point(12, 690);
-        textBoxLogs.Multiline = true;
-        textBoxLogs.Name = "textBoxLogs";
-        textBoxLogs.ScrollBars = ScrollBars.Vertical;
-        textBoxLogs.Size = new Size(995, 331);
-        textBoxLogs.TabIndex = 26;
+        textBoxHistory.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+        textBoxHistory.Location = new Point(12, 690);
+        textBoxHistory.Multiline = true;
+        textBoxHistory.Name = "textBoxHistory";
+        textBoxHistory.ReadOnly = true;
+        textBoxHistory.ScrollBars = ScrollBars.Vertical;
+        textBoxHistory.Size = new Size(995, 331);
+        textBoxHistory.TabIndex = 26;
         // 
         // contextMenuStrip1
         // 
@@ -136,27 +136,27 @@ partial class SavedForm
         contextMenuStrip1.Name = "contextMenuStrip1";
         contextMenuStrip1.Size = new Size(61, 4);
         // 
-        // textBox1
+        // textBoxConfiguration
         // 
-        textBox1.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-        textBox1.Enabled = false;
-        textBox1.Location = new Point(12, 139);
-        textBox1.Multiline = true;
-        textBox1.Name = "textBox1";
-        textBox1.ScrollBars = ScrollBars.Vertical;
-        textBox1.Size = new Size(469, 443);
-        textBox1.TabIndex = 62;
+        textBoxConfiguration.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+        textBoxConfiguration.Location = new Point(12, 139);
+        textBoxConfiguration.Multiline = true;
+        textBoxConfiguration.Name = "textBoxConfiguration";
+        textBoxConfiguration.ReadOnly = true;
+        textBoxConfiguration.ScrollBars = ScrollBars.Vertical;
+        textBoxConfiguration.Size = new Size(469, 443);
+        textBoxConfiguration.TabIndex = 62;
         // 
-        // textBox2
+        // textBoxFitness
         // 
-        textBox2.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-        textBox2.Enabled = false;
-        textBox2.Location = new Point(505, 139);
-        textBox2.Multiline = true;
-        textBox2.Name = "textBox2";
-        textBox2.ScrollBars = ScrollBars.Vertical;
-        textBox2.Size = new Size(502, 443);
-        textBox2.TabIndex = 63;
+        textBoxFitness.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+        textBoxFitness.Location = new Point(505, 139);
+        textBoxFitness.Multiline = true;
+        textBoxFitness.Name = "textBoxFitness";
+        textBoxFitness.ReadOnly = true;
+        textBoxFitness.ScrollBars = ScrollBars.Vertical;
+        textBoxFitness.Size = new Size(502, 443);
+        textBoxFitness.TabIndex = 63;
         // 
         // contextMenuStrip2
         // 
@@ -164,81 +164,81 @@ partial class SavedForm
         contextMenuStrip2.Name = "contextMenuStrip2";
         contextMenuStrip2.Size = new Size(61, 4);
         // 
-        // textBox3
+        // textBoxProgram
         // 
-        textBox3.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-        textBox3.Enabled = false;
-        textBox3.Location = new Point(1028, 351);
-        textBox3.Multiline = true;
-        textBox3.Name = "textBox3";
-        textBox3.ScrollBars = ScrollBars.Vertical;
-        textBox3.Size = new Size(871, 670);
-        textBox3.TabIndex = 65;
+        textBoxProgram.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+        textBoxProgram.Location = new Point(1028, 351);
+        textBoxProgram.Multiline = true;
+        textBoxProgram.Name = "textBoxProgram";
+        textBoxProgram.ReadOnly = true;
+        textBoxProgram.ScrollBars = ScrollBars.Vertical;
+        textBoxProgram.Size = new Size(871, 670);
+        textBoxProgram.TabIndex = 65;
         // 
-        // comboBoxSavedTask
+        // comboBoxSavedSolution
         // 
-        comboBoxSavedTask.Anchor = AnchorStyles.Left;
-        comboBoxSavedTask.DropDownStyle = ComboBoxStyle.DropDownList;
-        comboBoxSavedTask.FormattingEnabled = true;
-        comboBoxSavedTask.Location = new Point(1316, 139);
-        comboBoxSavedTask.Name = "comboBoxSavedTask";
-        comboBoxSavedTask.Size = new Size(306, 28);
-        comboBoxSavedTask.TabIndex = 68;
+        comboBoxSavedSolution.Anchor = AnchorStyles.Left;
+        comboBoxSavedSolution.DropDownStyle = ComboBoxStyle.DropDownList;
+        comboBoxSavedSolution.FormattingEnabled = true;
+        comboBoxSavedSolution.Location = new Point(1316, 139);
+        comboBoxSavedSolution.Name = "comboBoxSavedSolution";
+        comboBoxSavedSolution.Size = new Size(306, 28);
+        comboBoxSavedSolution.TabIndex = 68;
         // 
-        // labelTaskName
+        // labelConfiguration
         // 
-        labelTaskName.Anchor = AnchorStyles.Left;
-        labelTaskName.BackColor = SystemColors.Control;
-        labelTaskName.Location = new Point(12, 82);
-        labelTaskName.Name = "labelTaskName";
-        labelTaskName.Size = new Size(183, 54);
-        labelTaskName.TabIndex = 69;
-        labelTaskName.Text = "Configuration";
-        labelTaskName.TextAlign = ContentAlignment.BottomLeft;
+        labelConfiguration.Anchor = AnchorStyles.Left;
+        labelConfiguration.BackColor = SystemColors.Control;
+        labelConfiguration.Location = new Point(12, 82);
+        labelConfiguration.Name = "labelConfiguration";
+        labelConfiguration.Size = new Size(183, 54);
+        labelConfiguration.TabIndex = 69;
+        labelConfiguration.Text = "Configuration";
+        labelConfiguration.TextAlign = ContentAlignment.BottomLeft;
         // 
-        // label1
+        // labelFitness
         // 
-        label1.Anchor = AnchorStyles.Left;
-        label1.BackColor = SystemColors.Control;
-        label1.Location = new Point(505, 82);
-        label1.Name = "label1";
-        label1.Size = new Size(183, 54);
-        label1.TabIndex = 70;
-        label1.Text = "Fitness";
-        label1.TextAlign = ContentAlignment.BottomLeft;
+        labelFitness.Anchor = AnchorStyles.Left;
+        labelFitness.BackColor = SystemColors.Control;
+        labelFitness.Location = new Point(505, 82);
+        labelFitness.Name = "labelFitness";
+        labelFitness.Size = new Size(183, 54);
+        labelFitness.TabIndex = 70;
+        labelFitness.Text = "Fitness";
+        labelFitness.TextAlign = ContentAlignment.BottomLeft;
         // 
-        // label2
+        // labelSolutionName
         // 
-        label2.Anchor = AnchorStyles.Left;
-        label2.BackColor = SystemColors.Control;
-        label2.Location = new Point(1127, 125);
-        label2.Name = "label2";
-        label2.Size = new Size(183, 54);
-        label2.TabIndex = 71;
-        label2.Text = "Task Name";
-        label2.TextAlign = ContentAlignment.MiddleCenter;
+        labelSolutionName.Anchor = AnchorStyles.Left;
+        labelSolutionName.BackColor = SystemColors.Control;
+        labelSolutionName.Location = new Point(1127, 125);
+        labelSolutionName.Name = "labelSolutionName";
+        labelSolutionName.Size = new Size(183, 54);
+        labelSolutionName.TabIndex = 71;
+        labelSolutionName.Text = "Solution";
+        labelSolutionName.TextAlign = ContentAlignment.MiddleCenter;
         // 
-        // label3
+        // labelProgram
         // 
-        label3.Anchor = AnchorStyles.None;
-        label3.BackColor = SystemColors.Control;
-        label3.Location = new Point(1028, 294);
-        label3.Name = "label3";
-        label3.Size = new Size(183, 54);
-        label3.TabIndex = 72;
-        label3.Text = "Program";
-        label3.TextAlign = ContentAlignment.BottomLeft;
+        labelProgram.Anchor = AnchorStyles.None;
+        labelProgram.BackColor = SystemColors.Control;
+        labelProgram.Location = new Point(1028, 294);
+        labelProgram.Name = "labelProgram";
+        labelProgram.Size = new Size(183, 54);
+        labelProgram.TabIndex = 72;
+        labelProgram.Text = "Program";
+        labelProgram.TextAlign = ContentAlignment.BottomLeft;
         // 
-        // label4
+        // labelHistory
         // 
-        label4.Anchor = AnchorStyles.Left;
-        label4.BackColor = SystemColors.Control;
-        label4.Location = new Point(12, 633);
-        label4.Name = "label4";
-        label4.Size = new Size(183, 54);
-        label4.TabIndex = 73;
-        label4.Text = "History";
-        label4.TextAlign = ContentAlignment.BottomLeft;
+        labelHistory.Anchor = AnchorStyles.Left;
+        labelHistory.BackColor = SystemColors.Control;
+        labelHistory.Location = new Point(12, 633);
+        labelHistory.Name = "labelHistory";
+        labelHistory.Size = new Size(183, 54);
+        labelHistory.TabIndex = 73;
+        labelHistory.Text = "History";
+        labelHistory.TextAlign = ContentAlignment.BottomLeft;
         // 
         // buttonInspectTask
         // 
@@ -256,16 +256,16 @@ partial class SavedForm
         AutoScaleMode = AutoScaleMode.Font;
         ClientSize = new Size(1902, 1033);
         Controls.Add(buttonInspectTask);
-        Controls.Add(label4);
-        Controls.Add(label3);
-        Controls.Add(label2);
-        Controls.Add(label1);
-        Controls.Add(labelTaskName);
-        Controls.Add(comboBoxSavedTask);
-        Controls.Add(textBox3);
-        Controls.Add(textBox2);
-        Controls.Add(textBox1);
-        Controls.Add(textBoxLogs);
+        Controls.Add(labelHistory);
+        Controls.Add(labelProgram);
+        Controls.Add(labelSolutionName);
+        Controls.Add(labelFitness);
+        Controls.Add(labelConfiguration);
+        Controls.Add(comboBoxSavedSolution);
+        Controls.Add(textBoxProgram);
+        Controls.Add(textBoxFitness);
+        Controls.Add(textBoxConfiguration);
+        Controls.Add(textBoxHistory);
         Controls.Add(buttonHome);
         Controls.Add(buttonQuit);
         Controls.Add(buttonSaved);
@@ -287,17 +287,17 @@ partial class SavedForm
     private Button buttonFitness;
     private Button buttonConfiguration;
     private Button buttonHome;
-    private TextBox textBoxLogs;
+    private TextBox textBoxHistory;
     private ContextMenuStrip contextMenuStrip1;
-    private TextBox textBox1;
-    private TextBox textBox2;
+    private TextBox textBoxConfiguration;
+    private TextBox textBoxFitness;
     private ContextMenuStrip contextMenuStrip2;
-    private TextBox textBox3;
-    private ComboBox comboBoxSavedTask;
-    private Label labelTaskName;
-    private Label label1;
-    private Label label2;
-    private Label label3;
-    private Label label4;
+    private TextBox textBoxProgram;
+    private ComboBox comboBoxSavedSolution;
+    private Label labelConfiguration;
+    private Label labelFitness;
+    private Label labelSolutionName;
+    private Label labelProgram;
+    private Label labelHistory;
     private Button buttonInspectTask;
 }

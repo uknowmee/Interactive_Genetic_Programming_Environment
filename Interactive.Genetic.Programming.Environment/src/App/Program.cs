@@ -1,6 +1,8 @@
 using App.Services;
 using App.Services.Interfaces;
 using Autofac;
+using Database;
+using Database.Interfaces;
 using File;
 using File.Interfaces;
 using Fitness;
@@ -34,9 +36,7 @@ internal static class Program
             .RegisterViews()
             .Build();
 
-        var windowSwitcher = container.Resolve<IWindowSwitcherService>() ?? throw new Exception("Couldn't resolve form");
-
-        Application.Run(windowSwitcher.InitialView);
+        container.StartAppServices().StartApp();
     }
 
     private static ContainerBuilder RegisterViews(this ContainerBuilder builder)
@@ -47,6 +47,7 @@ internal static class Program
 
     private static ContainerBuilder RegisterServices(this ContainerBuilder builder)
     {
+        builder.RegisterType<DatabaseService>().AsImplementedInterfaces().SingleInstance();
         builder.RegisterType<FileService>().As<IFileService>().SingleInstance();
         builder.RegisterType<FitnessService>().As<IFitnessService>().SingleInstance();
         builder.RegisterType<ProgramGeneratorService>().As<IProgramGeneratorService>().SingleInstance();
@@ -60,5 +61,18 @@ internal static class Program
         builder.RegisterType<TasksService>().As<ITasksService>().SingleInstance();
         builder.RegisterType<HistoryService>().As<IHistoryService>().SingleInstance();
         return builder;
+    }
+
+    private static IContainer StartAppServices(this IContainer container)
+    {
+        var databaseCreator = container.Resolve<IDatabaseCreator>() ?? throw new Exception("Couldn't resolve database creator");
+        databaseCreator.EnsureCreated();
+        return container;
+    }
+
+    private static void StartApp(this IComponentContext container)
+    {
+        var windowSwitcher = container.Resolve<IWindowSwitcherService>() ?? throw new Exception("Couldn't resolve form");
+        Application.Run(windowSwitcher.InitialView);
     }
 }
