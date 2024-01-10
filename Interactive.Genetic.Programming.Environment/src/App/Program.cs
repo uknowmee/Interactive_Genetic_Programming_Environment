@@ -1,3 +1,5 @@
+using App.Services;
+using App.Services.Interfaces;
 using Autofac;
 
 namespace App;
@@ -8,31 +10,25 @@ internal static class Program
     private static void Main()
     {
         ApplicationConfiguration.Initialize();
-        
-        var builder = new ContainerBuilder();
-        builder.RegisterType<Home>().AsSelf().SingleInstance();
-        builder.RegisterType<Service1>().AsSelf().SingleInstance();
-        builder.RegisterType<Service2>().AsSelf().SingleInstance();
-        var container = builder.Build();
-        
-        var form = container.Resolve<Home>() as Form ?? throw new Exception("Couldn't resolve form");
-        Application.Run(form);
-    }
-}
 
-public class Service1
-{
-    private readonly Service2 _service2;
-    
-    public string Service2Information => _service2.Information;
-    
-    public Service1(Service2 service2)
+        var container = new ContainerBuilder()
+            .RegisterServices()
+            .RegisterViews()
+            .Build();
+
+        var windowSwitcher = container.Resolve<IWindowSwitcherService>() ?? throw new Exception("Couldn't resolve form");
+
+        Application.Run(windowSwitcher.InitialView);
+    }
+
+    private static ContainerBuilder RegisterViews(this ContainerBuilder builder)
     {
-        _service2 = service2;
+        builder.RegisterType<WindowSwitcherService>().As<IWindowSwitcherService>().SingleInstance();
+        return builder;
     }
-}
 
-public class Service2
-{
-    public string Information => "Service2 information";
+    private static ContainerBuilder RegisterServices(this ContainerBuilder builder)
+    {
+        return builder;
+    }
 }
