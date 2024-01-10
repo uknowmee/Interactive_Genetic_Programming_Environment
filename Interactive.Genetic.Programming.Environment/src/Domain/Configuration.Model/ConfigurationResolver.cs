@@ -11,7 +11,7 @@ public static class ConfigurationResolver
     static ConfigurationResolver()
     {
         var builder = new ContainerBuilder();
-        builder.RegisterType<Configuration>().AsImplementedInterfaces().SingleInstance();
+        builder.RegisterType<ModelConfiguration>().AsImplementedInterfaces().SingleInstance();
         Container = builder.Build();
     }
 }

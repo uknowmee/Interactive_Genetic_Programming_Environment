@@ -8,7 +8,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\..\Services\Utils\Utils.csproj" />
-      <ProjectReference Include="..\Configuration\Configuration.csproj" />
+      <ProjectReference Include="..\Configuration.Model\Configuration.Model.csproj" />
     </ItemGroup>
 
     <ItemGroup>

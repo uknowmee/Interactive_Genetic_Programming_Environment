@@ -33,7 +33,17 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Domain\Configuration\Configuration.csproj" />
+      <ProjectReference Include="..\Domain\Configuration.Model\Configuration.Model.csproj" />
+      <ProjectReference Include="..\Services\Configuration\Configuration.csproj" />
+      <ProjectReference Include="..\Services\File\File.csproj" />
+      <ProjectReference Include="..\Services\Fitness\Fitness.csproj" />
+      <ProjectReference Include="..\Services\Generators.Program\Generators.Program.csproj" />
+      <ProjectReference Include="..\Services\History\History.csproj" />
+      <ProjectReference Include="..\Services\Interpreter\Interpreter.csproj" />
+      <ProjectReference Include="..\Services\Serialization\Serialization.csproj" />
+      <ProjectReference Include="..\Services\Solvers\Solvers.csproj" />
+      <ProjectReference Include="..\Services\Strategies.Evolution\Strategies.Evolution.csproj" />
+      <ProjectReference Include="..\Tasks\Tasks.csproj" />
     </ItemGroup>
 
 </Project>

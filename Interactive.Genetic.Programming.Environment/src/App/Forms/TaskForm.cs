@@ -18,6 +18,17 @@ public partial class TaskForm : Form
         WindowState = FormWindowState.Maximized;
     }
 
+    public new void Show()
+    {
+        Task_Load(this, EventArgs.Empty);
+        base.Show();
+    }
+    
+    private void buttonHome_Click(object sender, EventArgs e)
+    {
+        _windowSwitcher.Switch<HomeForm>(this);
+    }
+
     private void buttonConfiguration_Click(object sender, EventArgs e)
     {
         _windowSwitcher.Switch<ConfigurationForm>(this);
