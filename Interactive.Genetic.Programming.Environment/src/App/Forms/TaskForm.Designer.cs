@@ -37,6 +37,14 @@ partial class TaskForm
         buttonFitness = new Button();
         buttonConfiguration = new Button();
         buttonHome = new Button();
+        buttonInspectTask = new Button();
+        labelActiveTask = new Label();
+        comboBoxSavedTask = new ComboBox();
+        labelTaskName = new Label();
+        textBoxTaskName = new TextBox();
+        textBoxTaskPath = new TextBox();
+        buttonUploadTask = new Button();
+        buttonSaveTask = new Button();
         SuspendLayout();
         // 
         // buttonQuit
@@ -105,11 +113,97 @@ partial class TaskForm
         buttonHome.UseVisualStyleBackColor = true;
         buttonHome.Click += buttonHome_Click;
         // 
+        // buttonInspectTask
+        // 
+        buttonInspectTask.Anchor = AnchorStyles.Left;
+        buttonInspectTask.Location = new Point(603, 424);
+        buttonInspectTask.Name = "buttonInspectTask";
+        buttonInspectTask.Size = new Size(151, 41);
+        buttonInspectTask.TabIndex = 69;
+        buttonInspectTask.Text = "Inspect Task";
+        buttonInspectTask.UseVisualStyleBackColor = true;
+        // 
+        // labelActiveTask
+        // 
+        labelActiveTask.Anchor = AnchorStyles.Left;
+        labelActiveTask.Location = new Point(75, 417);
+        labelActiveTask.Name = "labelActiveTask";
+        labelActiveTask.Size = new Size(183, 54);
+        labelActiveTask.TabIndex = 68;
+        labelActiveTask.Text = "Active Task";
+        labelActiveTask.TextAlign = ContentAlignment.MiddleCenter;
+        // 
+        // comboBoxSavedTask
+        // 
+        comboBoxSavedTask.Anchor = AnchorStyles.Left;
+        comboBoxSavedTask.DropDownStyle = ComboBoxStyle.DropDownList;
+        comboBoxSavedTask.FormattingEnabled = true;
+        comboBoxSavedTask.Location = new Point(278, 431);
+        comboBoxSavedTask.Name = "comboBoxSavedTask";
+        comboBoxSavedTask.Size = new Size(306, 28);
+        comboBoxSavedTask.TabIndex = 67;
+        // 
+        // labelTaskName
+        // 
+        labelTaskName.Anchor = AnchorStyles.Left;
+        labelTaskName.BackColor = SystemColors.Control;
+        labelTaskName.Location = new Point(75, 214);
+        labelTaskName.Name = "labelTaskName";
+        labelTaskName.Size = new Size(183, 54);
+        labelTaskName.TabIndex = 66;
+        labelTaskName.Text = "Task Name";
+        labelTaskName.TextAlign = ContentAlignment.MiddleCenter;
+        // 
+        // textBoxTaskName
+        // 
+        textBoxTaskName.Anchor = AnchorStyles.Left;
+        textBoxTaskName.Location = new Point(278, 228);
+        textBoxTaskName.Name = "textBoxTaskName";
+        textBoxTaskName.Size = new Size(212, 27);
+        textBoxTaskName.TabIndex = 65;
+        // 
+        // textBoxTaskPath
+        // 
+        textBoxTaskPath.Anchor = AnchorStyles.Left;
+        textBoxTaskPath.Enabled = false;
+        textBoxTaskPath.Location = new Point(278, 296);
+        textBoxTaskPath.Name = "textBoxTaskPath";
+        textBoxTaskPath.Size = new Size(476, 27);
+        textBoxTaskPath.TabIndex = 70;
+        // 
+        // buttonUploadTask
+        // 
+        buttonUploadTask.Anchor = AnchorStyles.Left;
+        buttonUploadTask.Location = new Point(104, 289);
+        buttonUploadTask.Name = "buttonUploadTask";
+        buttonUploadTask.Size = new Size(122, 41);
+        buttonUploadTask.TabIndex = 71;
+        buttonUploadTask.Text = "Upload Task";
+        buttonUploadTask.UseVisualStyleBackColor = true;
+        // 
+        // buttonSaveTask
+        // 
+        buttonSaveTask.Anchor = AnchorStyles.Left;
+        buttonSaveTask.Location = new Point(104, 350);
+        buttonSaveTask.Name = "buttonSaveTask";
+        buttonSaveTask.Size = new Size(122, 41);
+        buttonSaveTask.TabIndex = 72;
+        buttonSaveTask.Text = "Save";
+        buttonSaveTask.UseVisualStyleBackColor = true;
+        // 
         // TaskForm
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
         ClientSize = new Size(1902, 1033);
+        Controls.Add(buttonSaveTask);
+        Controls.Add(buttonUploadTask);
+        Controls.Add(textBoxTaskPath);
+        Controls.Add(buttonInspectTask);
+        Controls.Add(labelActiveTask);
+        Controls.Add(comboBoxSavedTask);
+        Controls.Add(labelTaskName);
+        Controls.Add(textBoxTaskName);
         Controls.Add(buttonHome);
         Controls.Add(buttonQuit);
         Controls.Add(buttonSaved);
@@ -120,6 +214,7 @@ partial class TaskForm
         Text = "Task";
         Load += Task_Load;
         ResumeLayout(false);
+        PerformLayout();
     }
 
     #endregion
@@ -130,4 +225,12 @@ partial class TaskForm
     private Button buttonFitness;
     private Button buttonConfiguration;
     private Button buttonHome;
+    private Button buttonInspectTask;
+    private Label labelActiveTask;
+    private ComboBox comboBoxSavedTask;
+    private Label labelTaskName;
+    private TextBox textBoxTaskName;
+    private TextBox textBoxTaskPath;
+    private Button buttonUploadTask;
+    private Button buttonSaveTask;
 }

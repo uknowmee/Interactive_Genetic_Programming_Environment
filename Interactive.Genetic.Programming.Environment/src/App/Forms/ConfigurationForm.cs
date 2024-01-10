@@ -17,7 +17,7 @@ public partial class ConfigurationForm : Form
     {
         WindowState = FormWindowState.Maximized;
     }
-    
+
     public new void Show()
     {
         Configuration_Load(this, EventArgs.Empty);

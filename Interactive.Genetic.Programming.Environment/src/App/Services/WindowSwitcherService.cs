@@ -24,20 +24,31 @@ public class WindowSwitcherService : IWindowSwitcherService
     
     public void Switch<T>(Form current) where T : Form
     {
-        if (typeof(T) == typeof(HomeForm))
+        if (typeof(T) == typeof(HomeForm) && current is not App.Forms.HomeForm)
+        {
             HomeForm.Show();
-        else if (typeof(T) == typeof(ConfigurationForm))
+            current.Hide();
+        }
+        else if (typeof(T) == typeof(ConfigurationForm) && current is not App.Forms.ConfigurationForm)
+        {
             ConfigurationForm.Show();
-        else if (typeof(T) == typeof(FitnessForm))
+            current.Hide();
+        }
+        else if (typeof(T) == typeof(FitnessForm) && current is not App.Forms.FitnessForm)
+        {
             FitnessForm.Show();
-        else if (typeof(T) == typeof(TaskForm))
+            current.Hide();
+        }
+        else if (typeof(T) == typeof(TaskForm) && current is not App.Forms.TaskForm)
+        {
             TaskForm.Show();
-        else if (typeof(T) == typeof(SavedForm))
+            current.Hide();
+        }
+        else if (typeof(T) == typeof(SavedForm) && current is not App.Forms.SavedForm)
+        {
             SavedForm.Show();
-        else
-            throw new ArgumentException(@"Invalid type", nameof(T));
-        
-        current.Hide();
+            current.Hide();
+        }
     }
 
     public void Quit(Form current)
