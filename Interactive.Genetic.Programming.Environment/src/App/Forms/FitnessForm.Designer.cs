@@ -36,12 +36,13 @@ partial class FitnessForm
         buttonTask = new Button();
         buttonFitness = new Button();
         buttonConfiguration = new Button();
+        buttonHome = new Button();
         SuspendLayout();
         // 
         // buttonQuit
         // 
         buttonQuit.Anchor = AnchorStyles.Top;
-        buttonQuit.Location = new Point(1145, 12);
+        buttonQuit.Location = new Point(1208, 12);
         buttonQuit.Name = "buttonQuit";
         buttonQuit.Size = new Size(122, 41);
         buttonQuit.TabIndex = 9;
@@ -52,7 +53,7 @@ partial class FitnessForm
         // buttonSaved
         // 
         buttonSaved.Anchor = AnchorStyles.Top;
-        buttonSaved.Location = new Point(1017, 12);
+        buttonSaved.Location = new Point(1080, 12);
         buttonSaved.Name = "buttonSaved";
         buttonSaved.Size = new Size(122, 41);
         buttonSaved.TabIndex = 8;
@@ -63,7 +64,7 @@ partial class FitnessForm
         // buttonTask
         // 
         buttonTask.Anchor = AnchorStyles.Top;
-        buttonTask.Location = new Point(889, 12);
+        buttonTask.Location = new Point(952, 12);
         buttonTask.Name = "buttonTask";
         buttonTask.Size = new Size(122, 41);
         buttonTask.TabIndex = 7;
@@ -74,7 +75,7 @@ partial class FitnessForm
         // buttonFitness
         // 
         buttonFitness.Anchor = AnchorStyles.Top;
-        buttonFitness.Location = new Point(761, 12);
+        buttonFitness.Location = new Point(824, 12);
         buttonFitness.Name = "buttonFitness";
         buttonFitness.Size = new Size(122, 41);
         buttonFitness.TabIndex = 6;
@@ -85,7 +86,7 @@ partial class FitnessForm
         // buttonConfiguration
         // 
         buttonConfiguration.Anchor = AnchorStyles.Top;
-        buttonConfiguration.Location = new Point(633, 12);
+        buttonConfiguration.Location = new Point(696, 12);
         buttonConfiguration.Name = "buttonConfiguration";
         buttonConfiguration.Size = new Size(122, 41);
         buttonConfiguration.TabIndex = 5;
@@ -93,11 +94,23 @@ partial class FitnessForm
         buttonConfiguration.UseVisualStyleBackColor = true;
         buttonConfiguration.Click += buttonConfiguration_Click;
         // 
-        // Fitness
+        // buttonHome
+        // 
+        buttonHome.Anchor = AnchorStyles.Top;
+        buttonHome.Location = new Point(568, 12);
+        buttonHome.Name = "buttonHome";
+        buttonHome.Size = new Size(122, 41);
+        buttonHome.TabIndex = 25;
+        buttonHome.Text = "Home";
+        buttonHome.UseVisualStyleBackColor = true;
+        buttonHome.Click += buttonHome_Click;
+        // 
+        // FitnessForm
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
         ClientSize = new Size(1902, 1033);
+        Controls.Add(buttonHome);
         Controls.Add(buttonQuit);
         Controls.Add(buttonSaved);
         Controls.Add(buttonTask);
@@ -116,4 +129,5 @@ partial class FitnessForm
     private Button buttonTask;
     private Button buttonFitness;
     private Button buttonConfiguration;
+    private Button buttonHome;
 }
