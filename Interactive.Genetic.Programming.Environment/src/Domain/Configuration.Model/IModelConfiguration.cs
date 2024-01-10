@@ -42,7 +42,7 @@ public interface IVariablesConfiguration
     public double NewVarExpressionChance { get; }
 }
 
-public interface IConfiguration : IConstantConfiguration, IForStatementConfiguration, IIfStatementConfiguration,
+public interface IModelConfiguration : IConstantConfiguration, IForStatementConfiguration, IIfStatementConfiguration,
     ILogicExpressionConfiguration, IProgramConfiguration, IStandardExpressionConfiguration, IVariablesConfiguration
 {
     public new int MaxInt { get; set; }

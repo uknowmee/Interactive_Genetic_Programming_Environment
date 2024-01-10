@@ -2,7 +2,7 @@
 
 namespace Configuration;
 
-public class Configuration : IConfiguration
+public class ModelConfiguration : IModelConfiguration
 {
     public int MaxInt { get; set; } = 100;
 
