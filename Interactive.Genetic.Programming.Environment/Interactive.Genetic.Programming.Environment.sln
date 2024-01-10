@@ -79,6 +79,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solver", "src\Domain\Solver
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "History", "src\Services\History\History.csproj", "{E2CDAC1F-4C40-43CB-B456-C90D6C053D4C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Database", "src\Services\Database\Database.csproj", "{29F40DF1-8461-4F6E-BF16-FAFA5EFFFF7D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docker", "docker", "{196CE699-118B-4114-B848-4E304C18A54A}"
+	ProjectSection(SolutionItems) = preProject
+		docker\infrastructure.yaml = docker\infrastructure.yaml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -205,6 +212,10 @@ Global
 		{E2CDAC1F-4C40-43CB-B456-C90D6C053D4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E2CDAC1F-4C40-43CB-B456-C90D6C053D4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E2CDAC1F-4C40-43CB-B456-C90D6C053D4C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29F40DF1-8461-4F6E-BF16-FAFA5EFFFF7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29F40DF1-8461-4F6E-BF16-FAFA5EFFFF7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29F40DF1-8461-4F6E-BF16-FAFA5EFFFF7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29F40DF1-8461-4F6E-BF16-FAFA5EFFFF7D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -242,6 +253,7 @@ Global
 		{DA99BFB4-B143-465A-8FC6-50AC42E66452} = {4F9EDE38-8714-4807-855F-9C2C704D7DAD}
 		{C0790D5A-95B0-487E-9F54-EEC9FEC10428} = {4F9EDE38-8714-4807-855F-9C2C704D7DAD}
 		{E2CDAC1F-4C40-43CB-B456-C90D6C053D4C} = {04815A76-24C7-4481-830D-19ED8375AA18}
+		{29F40DF1-8461-4F6E-BF16-FAFA5EFFFF7D} = {04815A76-24C7-4481-830D-19ED8375AA18}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {941A4D69-ABD8-4467-83D5-081E14DB0002}

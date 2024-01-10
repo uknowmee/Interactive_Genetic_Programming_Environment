@@ -144,10 +144,10 @@ partial class HomeForm
         // textBoxPreview
         // 
         textBoxPreview.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
-        textBoxPreview.Enabled = false;
         textBoxPreview.Location = new Point(1013, 109);
         textBoxPreview.Multiline = true;
         textBoxPreview.Name = "textBoxPreview";
+        textBoxPreview.ReadOnly = true;
         textBoxPreview.ScrollBars = ScrollBars.Both;
         textBoxPreview.Size = new Size(877, 912);
         textBoxPreview.TabIndex = 8;
@@ -155,10 +155,10 @@ partial class HomeForm
         // textBoxLogs
         // 
         textBoxLogs.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-        textBoxLogs.Enabled = false;
         textBoxLogs.Location = new Point(12, 771);
         textBoxLogs.Multiline = true;
         textBoxLogs.Name = "textBoxLogs";
+        textBoxLogs.ReadOnly = true;
         textBoxLogs.ScrollBars = ScrollBars.Vertical;
         textBoxLogs.Size = new Size(995, 250);
         textBoxLogs.TabIndex = 9;

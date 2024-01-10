@@ -133,7 +133,6 @@ partial class FitnessForm
         // textBoxPreview
         // 
         textBoxPreview.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
-        textBoxPreview.Enabled = false;
         textBoxPreview.Location = new Point(279, 97);
         textBoxPreview.Multiline = true;
         textBoxPreview.Name = "textBoxPreview";
@@ -144,10 +143,10 @@ partial class FitnessForm
         // textBox1
         // 
         textBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
-        textBox1.Enabled = false;
         textBox1.Location = new Point(279, 558);
         textBox1.Multiline = true;
         textBox1.Name = "textBox1";
+        textBox1.ReadOnly = true;
         textBox1.ScrollBars = ScrollBars.Vertical;
         textBox1.Size = new Size(723, 435);
         textBox1.TabIndex = 61;
