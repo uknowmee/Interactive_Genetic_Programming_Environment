@@ -3,6 +3,7 @@
 public interface IAppConfiguration
 {
     string TasksPath { get; }
+    string SolutionsPath { get; }
     string InitialDirectoryPath { get; }
     string ConnectionString { get; }
     string DbPath { get; }

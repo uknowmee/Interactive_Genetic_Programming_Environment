@@ -26,6 +26,7 @@ internal static class Program
     [STAThread]
     private static void Main()
     {
+        Application.ThreadException += ExceptionsHandler.HandleMainThreadException;
         ApplicationConfiguration.Initialize();
 
         var container = new ContainerBuilder()
