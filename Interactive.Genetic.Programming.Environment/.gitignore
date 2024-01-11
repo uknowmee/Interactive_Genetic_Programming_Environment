@@ -5,6 +5,7 @@
 *.vs/
 *logs/
 *db/
-app_tasks/
+*app_tasks/
+*build/
 *csproj.user
 *.DotSettings.user
