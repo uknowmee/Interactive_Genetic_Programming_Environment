@@ -3,6 +3,7 @@ namespace Configuration;
 public partial class SolverConfigurationService
 {
     public string TasksPath => AppConfiguration.TasksPath;
+    public string SolutionsPath => AppConfiguration.SolutionsPath;
 
     public string InitialDirectoryPath => AppConfiguration.InitialDirectoryPath;
     public string ConnectionString => AppConfiguration.ConnectionString;

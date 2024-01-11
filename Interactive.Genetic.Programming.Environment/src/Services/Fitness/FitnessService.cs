@@ -43,6 +43,11 @@ public class FitnessService : IFitnessService, IFitnessInformationPublisher, IAv
 
     public void SaveFitness(string fitnessName, string fitnessCode)
     {
+        if (_fitnessDatabaseService.FetchAll().Any(f => f.Name == fitnessName))
+        {
+            throw new CustomException("Fitness function with this name already exists");
+        }
+        
         _fitnessDatabaseService.Create(new FitnessFunctionEntity(fitnessName, fitnessCode));
         _availableFitnessFunctionsSubscriber?.AvailableFunctionsUpdate(_fitnessDatabaseService.FetchAll());
     }
