@@ -1,6 +1,24 @@
-﻿namespace Solver;
+﻿using System.Text.Json;
+using System.Text.Json.Serialization;
 
-public class Task
+namespace Solver;
+
+public class Task : IPrettySerializable
 {
-    public string Json { get; }
+    [JsonPropertyName("taskName")] public string TaskName { get; set; }
+    [JsonPropertyName("inputLength")] public int InputLength { get; set; }
+    [JsonPropertyName("testCases")] public List<TestCase> TestCases { get; set; }
+
+    [JsonIgnore] string IPrettySerializable.JsonToFile => JsonSerializer.Serialize(this, JsonSerializerOptions);
+    [JsonIgnore] public string Json => JsonSerializer.Serialize(this, JsonSerializerOptions);
+
+    [JsonIgnore] private static readonly JsonSerializerOptions JsonSerializerOptions = new()
+    {
+        WriteIndented = true
+    };
+
+    public override string ToString()
+    {
+        return TaskName;
+    }
 }

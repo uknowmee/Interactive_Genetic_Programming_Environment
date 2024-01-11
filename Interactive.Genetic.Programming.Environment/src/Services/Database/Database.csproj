@@ -14,8 +14,13 @@
 
     <ItemGroup>
       <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.1" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.1" />
       <PackageReference Include="Npgsql" Version="8.0.1" />
       <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\Domain\Configuration.App\Configuration.App.csproj" />
     </ItemGroup>
 
 </Project>

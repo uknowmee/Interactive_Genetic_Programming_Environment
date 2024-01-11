@@ -3,6 +3,8 @@
 *debug/
 *.idea/
 *.vs/
-*logs/app/
+*logs/
+*db/
+app_tasks/
 *csproj.user
 *.DotSettings.user

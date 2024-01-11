@@ -1,5 +1,6 @@
 ﻿using System.Text.Json;
 using File.Interfaces;
+using Solver;
 
 namespace File;
 
@@ -25,8 +26,36 @@ public class FileService : IFileService
         }
     }
 
-    public void SaveAsJson(string taskJson, string destinationPath)
+    public void SaveAsJson<T>(string json, string destinationPath) where T : IPrettySerializable
     {
-        System.IO.File.WriteAllText(destinationPath, taskJson);
+        var obj = JsonSerializer.Deserialize<T>(json) ?? throw new Exception("Failed to deserialize JSON content");
+        SaveAsJson(obj, destinationPath);
+    }
+
+    public void SaveAsJson<T>(T serializable, string destinationPath) where T : IPrettySerializable
+    {
+        var dirPath = Path.GetDirectoryName(destinationPath) ?? throw new Exception("Directory path is null");
+        
+        if (Directory.Exists(dirPath) is false)
+        {
+            Directory.CreateDirectory(dirPath);
+        }
+        
+        System.IO.File.WriteAllText(destinationPath, serializable.JsonToFile);
+    }
+
+    public object? ReadFromCsv<T>(string path)
+    {
+        throw new NotImplementedException();
+    }
+
+    public void DeleteAt(string path)
+    {
+        System.IO.File.Delete(path);
+    }
+
+    public bool DoesFileExist(string path)
+    {
+        return System.IO.File.Exists(path);
     }
 }

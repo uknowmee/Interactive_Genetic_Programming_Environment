@@ -10,4 +10,6 @@ public interface ITasksService
     public void ResetTask();
     public bool IsTaskActive();
     public Task GetTask();
+    void InspectTask(TaskEntity task);
+    void RemoveTask(TaskEntity task);
 }
