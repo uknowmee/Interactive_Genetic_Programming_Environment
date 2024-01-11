@@ -2,11 +2,11 @@
 
 public enum SolverStatus
 {
-    Stopped,
-    Started,
     Idle,
-    Generating,
+    Started,
+    Stopped,
+    GeneratingPopulation,
     Solving,
-    Refreshing,
+    RefreshingPopulation,
     Finished
 }

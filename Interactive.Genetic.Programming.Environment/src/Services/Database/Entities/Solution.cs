@@ -9,8 +9,8 @@ public class Solution
     public string History { get; set; }
 
     public int FitnessFunctionId { get; set; }
-    public FitnessFunction FitnessFunction { get; set; }
+    public FitnessFunctionEntity FitnessFunction { get; set; }
     
     public int TaskId { get; set; }
-    public Task Task { get; set; }
+    public TaskEntity Task { get; set; }
 }

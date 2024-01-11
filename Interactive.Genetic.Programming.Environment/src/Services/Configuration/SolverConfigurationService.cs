@@ -1,11 +1,10 @@
-﻿using Configuration;
-using Configuration.App;
+﻿using Configuration.App;
+using Configuration.Interfaces;
 using Configuration.Solver;
-using Solver.Configuration.Interfaces;
 
-namespace Solver.Configuration;
+namespace Configuration;
 
-public class SolverConfigurationService : ISolverConfigurationService
+public partial class SolverConfigurationService : ISolverConfigurationService
 {
     public IModelConfiguration ModelConfiguration { get; set; } = ConfigurationResolver.Resolve<IModelConfiguration>();
     public ISolverConfiguration SolverConfiguration { get; set; } = new SolverConfiguration();

@@ -37,8 +37,8 @@ partial class HomeForm
         buttonFinish = new Button();
         buttonStop = new Button();
         buttonStart = new Button();
-        textBoxPreview = new TextBox();
-        textBoxLogs = new TextBox();
+        textBoxBestIndividual = new TextBox();
+        textBoxHistory = new TextBox();
         labelStatus = new Label();
         labelPopulationSize = new Label();
         labelBestIndividual = new Label();
@@ -120,6 +120,7 @@ partial class HomeForm
         buttonFinish.TabIndex = 7;
         buttonFinish.Text = "Finish";
         buttonFinish.UseVisualStyleBackColor = true;
+        buttonFinish.Click += buttonFinish_Click;
         // 
         // buttonStop
         // 
@@ -130,6 +131,7 @@ partial class HomeForm
         buttonStop.TabIndex = 6;
         buttonStop.Text = "Stop";
         buttonStop.UseVisualStyleBackColor = true;
+        buttonStop.Click += buttonStop_Click;
         // 
         // buttonStart
         // 
@@ -140,28 +142,29 @@ partial class HomeForm
         buttonStart.TabIndex = 5;
         buttonStart.Text = "Start";
         buttonStart.UseVisualStyleBackColor = true;
+        buttonStart.Click += buttonStart_Click;
         // 
-        // textBoxPreview
+        // textBoxBestIndividual
         // 
-        textBoxPreview.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
-        textBoxPreview.Location = new Point(1013, 109);
-        textBoxPreview.Multiline = true;
-        textBoxPreview.Name = "textBoxPreview";
-        textBoxPreview.ReadOnly = true;
-        textBoxPreview.ScrollBars = ScrollBars.Both;
-        textBoxPreview.Size = new Size(877, 912);
-        textBoxPreview.TabIndex = 8;
+        textBoxBestIndividual.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
+        textBoxBestIndividual.Location = new Point(1013, 109);
+        textBoxBestIndividual.Multiline = true;
+        textBoxBestIndividual.Name = "textBoxBestIndividual";
+        textBoxBestIndividual.ReadOnly = true;
+        textBoxBestIndividual.ScrollBars = ScrollBars.Both;
+        textBoxBestIndividual.Size = new Size(877, 912);
+        textBoxBestIndividual.TabIndex = 8;
         // 
-        // textBoxLogs
+        // textBoxHistory
         // 
-        textBoxLogs.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-        textBoxLogs.Location = new Point(12, 771);
-        textBoxLogs.Multiline = true;
-        textBoxLogs.Name = "textBoxLogs";
-        textBoxLogs.ReadOnly = true;
-        textBoxLogs.ScrollBars = ScrollBars.Vertical;
-        textBoxLogs.Size = new Size(995, 250);
-        textBoxLogs.TabIndex = 9;
+        textBoxHistory.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+        textBoxHistory.Location = new Point(12, 771);
+        textBoxHistory.Multiline = true;
+        textBoxHistory.Name = "textBoxHistory";
+        textBoxHistory.ReadOnly = true;
+        textBoxHistory.ScrollBars = ScrollBars.Vertical;
+        textBoxHistory.Size = new Size(995, 250);
+        textBoxHistory.TabIndex = 9;
         // 
         // labelStatus
         // 
@@ -327,8 +330,8 @@ partial class HomeForm
         Controls.Add(labelBestIndividual);
         Controls.Add(labelPopulationSize);
         Controls.Add(labelStatus);
-        Controls.Add(textBoxLogs);
-        Controls.Add(textBoxPreview);
+        Controls.Add(textBoxHistory);
+        Controls.Add(textBoxBestIndividual);
         Controls.Add(buttonFinish);
         Controls.Add(buttonStop);
         Controls.Add(buttonStart);
@@ -337,6 +340,7 @@ partial class HomeForm
         Controls.Add(buttonTask);
         Controls.Add(buttonFitness);
         Controls.Add(buttonConfiguration);
+        MaximumSize = new Size(1920, 1080);
         Name = "HomeForm";
         Text = "Home";
         Load += Home_Load;
@@ -354,8 +358,8 @@ partial class HomeForm
     private Button buttonFinish;
     private Button buttonStop;
     private Button buttonStart;
-    private TextBox textBoxPreview;
-    private TextBox textBoxLogs;
+    private TextBox textBoxBestIndividual;
+    private TextBox textBoxHistory;
     private Label labelStatus;
     private Label labelPopulationSize;
     private Label labelBestIndividual;

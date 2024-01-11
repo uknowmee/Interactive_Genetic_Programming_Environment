@@ -1,6 +1,5 @@
 ﻿using Database.Entities;
 using Microsoft.EntityFrameworkCore;
-using Task = Database.Entities.Task;
 
 namespace Database.Context;
 
@@ -17,7 +16,7 @@ public class DbCtx : DbContext
     {
     }
 
-    public DbSet<Task> Tasks { get; set; }
-    public DbSet<FitnessFunction> FitnessFunctions { get; set; }
+    public DbSet<TaskEntity> Tasks { get; set; }
+    public DbSet<FitnessFunctionEntity> FitnessFunctions { get; set; }
     public DbSet<Solution> Solutions { get; set; }
 }
