@@ -16,9 +16,4 @@ public class Task : IPrettySerializable
     {
         WriteIndented = true
     };
-
-    public override string ToString()
-    {
-        return TaskName;
-    }
 }

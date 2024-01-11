@@ -4,6 +4,7 @@ using Configuration.App;
 using Database.Entities;
 using Database.Interfaces;
 using File.Interfaces;
+using Solver;
 using Tasks.Interfaces;
 using Task = Solver.Task;
 
@@ -53,6 +54,11 @@ public class TasksService : ITasksService, ITaskInformationPublisher, IAvailable
 
     public void SaveTask(string taskName, string taskPath)
     {
+        if (_taskDatabaseService.FetchAll().Any(f => f.Name == taskName))
+        {
+            throw new CustomException("Task with this name already exists");
+        }
+        
         if (ReadTask(taskPath) is not { } task) return;
 
         var destinationPath = CopyTaskToDestination(task, taskName);

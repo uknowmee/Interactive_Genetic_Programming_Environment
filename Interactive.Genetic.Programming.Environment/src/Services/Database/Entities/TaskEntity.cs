@@ -24,4 +24,9 @@ public class TaskEntity
         Path = path;
         Json = json;
     }
+    
+    public override string ToString()
+    {
+        return Name;
+    }
 }
