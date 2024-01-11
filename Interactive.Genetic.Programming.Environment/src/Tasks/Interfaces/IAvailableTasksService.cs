@@ -12,5 +12,5 @@ public interface IAvailableTasksService
 {
     public void Subscribe(IAvailableTasksSubscriber subscriber);
     public void Unsubscribe(IAvailableTasksSubscriber subscriber);
-    public IEnumerable<TaskEntity> FetchAllSubscribed();
+    public void FetchAllSubscribed();
 }

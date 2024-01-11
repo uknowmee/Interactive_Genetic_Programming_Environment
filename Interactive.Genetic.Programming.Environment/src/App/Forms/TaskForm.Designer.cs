@@ -45,6 +45,7 @@ partial class TaskForm
         textBoxTaskPath = new TextBox();
         buttonUploadTask = new Button();
         buttonSaveTask = new Button();
+        buttonRemoveTask = new Button();
         SuspendLayout();
         // 
         // buttonQuit
@@ -116,12 +117,13 @@ partial class TaskForm
         // buttonInspectTask
         // 
         buttonInspectTask.Anchor = AnchorStyles.Left;
-        buttonInspectTask.Location = new Point(603, 424);
+        buttonInspectTask.Location = new Point(603, 403);
         buttonInspectTask.Name = "buttonInspectTask";
         buttonInspectTask.Size = new Size(151, 41);
         buttonInspectTask.TabIndex = 69;
         buttonInspectTask.Text = "Inspect Task";
         buttonInspectTask.UseVisualStyleBackColor = true;
+        buttonInspectTask.Click += buttonInspectTask_Click;
         // 
         // labelActiveTask
         // 
@@ -142,6 +144,7 @@ partial class TaskForm
         comboBoxSavedTask.Name = "comboBoxSavedTask";
         comboBoxSavedTask.Size = new Size(306, 28);
         comboBoxSavedTask.TabIndex = 67;
+        comboBoxSavedTask.SelectedIndexChanged += comboBoxSavedTask_SelectedIndexChanged;
         // 
         // labelTaskName
         // 
@@ -191,12 +194,25 @@ partial class TaskForm
         buttonSaveTask.TabIndex = 72;
         buttonSaveTask.Text = "Save";
         buttonSaveTask.UseVisualStyleBackColor = true;
+        buttonSaveTask.Click += buttonSaveTask_Click;
+        // 
+        // buttonRemoveTask
+        // 
+        buttonRemoveTask.Anchor = AnchorStyles.Left;
+        buttonRemoveTask.Location = new Point(603, 450);
+        buttonRemoveTask.Name = "buttonRemoveTask";
+        buttonRemoveTask.Size = new Size(151, 41);
+        buttonRemoveTask.TabIndex = 73;
+        buttonRemoveTask.Text = "Remove Task";
+        buttonRemoveTask.UseVisualStyleBackColor = true;
+        buttonRemoveTask.Click += buttonRemoveTask_Click;
         // 
         // TaskForm
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
         ClientSize = new Size(1902, 1033);
+        Controls.Add(buttonRemoveTask);
         Controls.Add(buttonSaveTask);
         Controls.Add(buttonUploadTask);
         Controls.Add(textBoxTaskPath);
@@ -235,4 +251,5 @@ partial class TaskForm
     private TextBox textBoxTaskPath;
     private Button buttonUploadTask;
     private Button buttonSaveTask;
+    private Button buttonRemoveTask;
 }

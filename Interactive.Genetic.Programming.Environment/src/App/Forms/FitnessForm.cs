@@ -72,7 +72,7 @@ public partial class FitnessForm : Form, IAvailableFitnessFunctionsSubscriber
         var code = textBoxFitnessCode.Text;
         var name = textBoxFitnessName.Text;
 
-        _fitnessService.SaveFitness(code, name);
+        _fitnessService.SaveFitness(name, code);
 
         textBoxFitnessCode.Text = "";
         textBoxFitnessName.Text = "";
@@ -100,7 +100,6 @@ public partial class FitnessForm : Form, IAvailableFitnessFunctionsSubscriber
 
         var selected = comboBoxSavedFitness.SelectedItem as FitnessFunctionEntity;
         comboBoxSavedFitness.Items.Clear();
-        comboBoxSavedFitness.Items.Add("None");
         comboBoxSavedFitness.Items.AddRange(functionArray.Cast<object>().ToArray());
 
         if (selected == null) return;

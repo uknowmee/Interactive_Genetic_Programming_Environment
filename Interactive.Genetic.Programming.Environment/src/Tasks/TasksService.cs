@@ -1,4 +1,6 @@
-﻿using Configuration.App;
+﻿using System.Diagnostics;
+using System.Text.Json;
+using Configuration.App;
 using Database.Entities;
 using Database.Interfaces;
 using File.Interfaces;
@@ -14,6 +16,8 @@ public class TasksService : ITasksService, ITaskInformationPublisher, IAvailable
     private readonly IAppConfiguration _appConfiguration;
     private ITaskInformationSubscriber? _taskInformationSubscriber;
     private IAvailableTasksSubscriber? _availableTasksSubscriber;
+
+    private Task? _task;
     
     public TasksService(ITaskDatabaseService taskDatabaseService, IFileService fileService, IAppConfiguration appConfiguration)
     {
@@ -34,36 +38,47 @@ public class TasksService : ITasksService, ITaskInformationPublisher, IAvailable
 
     public void ActivateTask(TaskEntity task)
     {
-        _taskInformationSubscriber?.OnTaskChange(task.Name);
+        _task = JsonSerializer.Deserialize<Task>(task.Json) ?? throw new Exception("Task is null");
+        _task.TaskName = task.Name;
+        
+        _taskInformationSubscriber?.OnTaskChange(_task.TaskName);
     }
 
     public void ResetTask()
     {
+        _task = null;
         _taskInformationSubscriber?.OnTaskReset();
         _availableTasksSubscriber?.OnTaskReset();
     }
 
     public void SaveTask(string taskName, string taskPath)
     {
-        if (ReadTask(taskPath) is not { } task)
-        {
-            return;
-        }
+        if (ReadTask(taskPath) is not { } task) return;
 
         var destinationPath = CopyTaskToDestination(task, taskName);
         
         _taskDatabaseService.Create(new TaskEntity(taskName, taskPath, destinationPath, task.Json));
         _availableTasksSubscriber?.AvailableTasksUpdate(_taskDatabaseService.FetchAll());
     }
-    
+
     public bool IsTaskActive()
     {
-        throw new NotImplementedException();
+        return _task != null;
     }
 
     public Task GetTask()
     {
-        throw new NotImplementedException();
+        return IsTaskActive()
+            ? _task ?? throw new Exception("Task is null")
+            : throw new Exception("Task is not active");
+    }
+
+    public void RemoveTask(TaskEntity task)
+    {
+        _fileService.DeleteAt(task.Path);
+        _taskDatabaseService.Delete(task);
+        ResetTask();
+        _availableTasksSubscriber?.AvailableTasksUpdate(_taskDatabaseService.FetchAll());
     }
 
     public void Subscribe(IAvailableTasksSubscriber subscriber)
@@ -76,18 +91,55 @@ public class TasksService : ITasksService, ITaskInformationPublisher, IAvailable
         _availableTasksSubscriber = null;
     }
 
-    public IEnumerable<TaskEntity> FetchAllSubscribed()
+    void IAvailableTasksService.FetchAllSubscribed()
     {
-        return _taskDatabaseService.FetchAll();
+        _availableTasksSubscriber?.AvailableTasksUpdate(_taskDatabaseService.FetchAll());
     }
-    
+
+    void ITaskInformationPublisher.FetchAllSubscribed()
+    {
+        if (IsTaskActive() && _task is not null)
+        {
+            _taskInformationSubscriber?.OnTaskChange(_task.TaskName);
+            return;
+        }
+        
+        _taskInformationSubscriber?.OnTaskReset();
+    }
+
+    public void InspectTask(TaskEntity task)
+    {
+        var exists = _fileService.DoesFileExist(task.Path);
+        if (exists is false)
+        {
+            _fileService.SaveAsJson<Task>(task.Json, task.Path);
+        }
+        
+        var thread = new Thread(() =>
+        {
+            try
+            {
+                Process.Start(_appConfiguration.TaskOpener, task.Path);
+            }
+            catch (Exception e)
+            {
+            }
+        });
+
+        thread.Start();
+    }
+
     private Task? ReadTask(string taskPath)
     {
-        Task? task = null;
+        Task? task;
         
         if (_appConfiguration.ReadTaskFromJson)
         {
             task = _fileService.ReadFromJson<Task>(taskPath) as Task;
+        }
+        else
+        {
+            task = _fileService.ReadFromCsv<Task>(taskPath) as Task;
         }
 
         return task;
@@ -96,7 +148,7 @@ public class TasksService : ITasksService, ITaskInformationPublisher, IAvailable
     private string CopyTaskToDestination(Task task, string taskName)
     {
         var destinationPath = Path.Combine(_appConfiguration.TasksPath, taskName + ".json");
-        _fileService.SaveAsJson(task.Json, destinationPath);
+        _fileService.SaveAsJson(task, destinationPath);
         return destinationPath;
     }
 }

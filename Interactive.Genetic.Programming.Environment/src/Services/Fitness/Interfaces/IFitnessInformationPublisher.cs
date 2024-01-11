@@ -10,4 +10,5 @@ public interface IFitnessInformationPublisher
 {
     public void Subscribe(IFitnessInformationSubscriber subscriber);
     public void Unsubscribe(IFitnessInformationSubscriber subscriber);
+    void FetchAllSubscribed();
 }
