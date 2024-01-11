@@ -39,11 +39,12 @@ partial class FitnessForm
         buttonHome = new Button();
         labelFitnessName = new Label();
         textBoxFitnessName = new TextBox();
-        textBoxPreview = new TextBox();
-        textBox1 = new TextBox();
+        textBoxFitnessCode = new TextBox();
+        textBoxActiveFitness = new TextBox();
         comboBoxSavedFitness = new ComboBox();
         labelActiveFitness = new Label();
         buttonSaveFitness = new Button();
+        buttonRemoveFitness = new Button();
         SuspendLayout();
         // 
         // buttonQuit
@@ -130,26 +131,26 @@ partial class FitnessForm
         textBoxFitnessName.Size = new Size(212, 27);
         textBoxFitnessName.TabIndex = 58;
         // 
-        // textBoxPreview
+        // textBoxFitnessCode
         // 
-        textBoxPreview.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
-        textBoxPreview.Location = new Point(279, 97);
-        textBoxPreview.Multiline = true;
-        textBoxPreview.Name = "textBoxPreview";
-        textBoxPreview.ScrollBars = ScrollBars.Vertical;
-        textBoxPreview.Size = new Size(723, 435);
-        textBoxPreview.TabIndex = 60;
+        textBoxFitnessCode.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
+        textBoxFitnessCode.Location = new Point(279, 97);
+        textBoxFitnessCode.Multiline = true;
+        textBoxFitnessCode.Name = "textBoxFitnessCode";
+        textBoxFitnessCode.ScrollBars = ScrollBars.Vertical;
+        textBoxFitnessCode.Size = new Size(723, 435);
+        textBoxFitnessCode.TabIndex = 60;
         // 
-        // textBox1
+        // textBoxActiveFitness
         // 
-        textBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
-        textBox1.Location = new Point(279, 558);
-        textBox1.Multiline = true;
-        textBox1.Name = "textBox1";
-        textBox1.ReadOnly = true;
-        textBox1.ScrollBars = ScrollBars.Vertical;
-        textBox1.Size = new Size(723, 435);
-        textBox1.TabIndex = 61;
+        textBoxActiveFitness.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
+        textBoxActiveFitness.Location = new Point(279, 558);
+        textBoxActiveFitness.Multiline = true;
+        textBoxActiveFitness.Name = "textBoxActiveFitness";
+        textBoxActiveFitness.ReadOnly = true;
+        textBoxActiveFitness.ScrollBars = ScrollBars.Vertical;
+        textBoxActiveFitness.Size = new Size(723, 435);
+        textBoxActiveFitness.TabIndex = 61;
         // 
         // comboBoxSavedFitness
         // 
@@ -160,6 +161,7 @@ partial class FitnessForm
         comboBoxSavedFitness.Name = "comboBoxSavedFitness";
         comboBoxSavedFitness.Size = new Size(311, 28);
         comboBoxSavedFitness.TabIndex = 62;
+        comboBoxSavedFitness.SelectedIndexChanged += comboBoxSavedFitness_SelectedIndexChanged;
         // 
         // labelActiveFitness
         // 
@@ -180,17 +182,30 @@ partial class FitnessForm
         buttonSaveFitness.TabIndex = 64;
         buttonSaveFitness.Text = "Save";
         buttonSaveFitness.UseVisualStyleBackColor = true;
+        buttonSaveFitness.Click += buttonSaveFitness_Click;
+        // 
+        // buttonRemoveFitness
+        // 
+        buttonRemoveFitness.Anchor = AnchorStyles.Left;
+        buttonRemoveFitness.Location = new Point(1133, 222);
+        buttonRemoveFitness.Name = "buttonRemoveFitness";
+        buttonRemoveFitness.Size = new Size(122, 41);
+        buttonRemoveFitness.TabIndex = 65;
+        buttonRemoveFitness.Text = "Remove";
+        buttonRemoveFitness.UseVisualStyleBackColor = true;
+        buttonRemoveFitness.Click += buttonRemoveFitness_Click;
         // 
         // FitnessForm
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
         ClientSize = new Size(1902, 1033);
+        Controls.Add(buttonRemoveFitness);
         Controls.Add(buttonSaveFitness);
         Controls.Add(labelActiveFitness);
         Controls.Add(comboBoxSavedFitness);
-        Controls.Add(textBox1);
-        Controls.Add(textBoxPreview);
+        Controls.Add(textBoxActiveFitness);
+        Controls.Add(textBoxFitnessCode);
         Controls.Add(labelFitnessName);
         Controls.Add(textBoxFitnessName);
         Controls.Add(buttonHome);
@@ -199,6 +214,7 @@ partial class FitnessForm
         Controls.Add(buttonTask);
         Controls.Add(buttonFitness);
         Controls.Add(buttonConfiguration);
+        MaximumSize = new Size(1920, 1080);
         Name = "FitnessForm";
         Text = "Fitness";
         Load += Fitness_Load;
@@ -216,9 +232,10 @@ partial class FitnessForm
     private Button buttonHome;
     private Label labelFitnessName;
     private TextBox textBoxFitnessName;
-    private TextBox textBoxPreview;
-    private TextBox textBox1;
+    private TextBox textBoxFitnessCode;
+    private TextBox textBoxActiveFitness;
     private ComboBox comboBoxSavedFitness;
     private Label labelActiveFitness;
     private Button buttonSaveFitness;
+    private Button buttonRemoveFitness;
 }

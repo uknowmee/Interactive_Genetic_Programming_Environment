@@ -211,6 +211,7 @@ partial class TaskForm
         Controls.Add(buttonTask);
         Controls.Add(buttonFitness);
         Controls.Add(buttonConfiguration);
+        MaximumSize = new Size(1920, 1080);
         Name = "TaskForm";
         Text = "Task";
         Load += Task_Load;
