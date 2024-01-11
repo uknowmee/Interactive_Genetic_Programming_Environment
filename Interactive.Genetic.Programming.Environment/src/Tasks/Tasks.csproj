@@ -6,4 +6,11 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\Domain\Solver\Solver.csproj" />
+      <ProjectReference Include="..\Services\Configuration\Configuration.csproj" />
+      <ProjectReference Include="..\Services\Database\Database.csproj" />
+      <ProjectReference Include="..\Services\File\File.csproj" />
+    </ItemGroup>
+
 </Project>

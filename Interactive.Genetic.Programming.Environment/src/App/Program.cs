@@ -1,26 +1,23 @@
+using App.Forms;
 using App.Services;
 using App.Services.Interfaces;
 using Autofac;
+using Configuration;
 using Database;
 using Database.Interfaces;
 using File;
 using File.Interfaces;
 using Fitness;
-using Fitness.Interfaces;
 using Generators.Program;
 using Generators.Program.Interfaces;
 using History;
-using History.Interfaces;
 using Serialization;
 using Serialization.Interfaces;
-using Solver.Configuration;
-using Solver.Configuration.Interfaces;
 using Solvers;
 using Solvers.Interfaces;
 using Strategies.Evolution;
 using Strategies.Evolution.Interfaces;
 using Tasks;
-using Tasks.Interfaces;
 
 namespace App;
 
@@ -42,6 +39,13 @@ internal static class Program
     private static ContainerBuilder RegisterViews(this ContainerBuilder builder)
     {
         builder.RegisterType<WindowSwitcherService>().As<IWindowSwitcherService>().SingleInstance();
+        
+        builder.RegisterType<HomeForm>().AsSelf().SingleInstance();
+        builder.RegisterType<ConfigurationForm>().AsSelf().SingleInstance();
+        builder.RegisterType<FitnessForm>().AsSelf().SingleInstance();
+        builder.RegisterType<TaskForm>().AsSelf().SingleInstance();
+        builder.RegisterType<SavedForm>().AsSelf().SingleInstance();
+        
         return builder;
     }
 
@@ -49,17 +53,18 @@ internal static class Program
     {
         builder.RegisterType<DatabaseService>().AsImplementedInterfaces().SingleInstance();
         builder.RegisterType<FileService>().As<IFileService>().SingleInstance();
-        builder.RegisterType<FitnessService>().As<IFitnessService>().SingleInstance();
+        builder.RegisterType<FitnessService>().AsImplementedInterfaces().SingleInstance();
         builder.RegisterType<ProgramGeneratorService>().As<IProgramGeneratorService>().SingleInstance();
         builder.RegisterType<SerializationService>().As<ISerializationService>().SingleInstance();
-        builder.RegisterType<SolverConfigurationService>().As<ISolverConfigurationService>().SingleInstance();
+        builder.RegisterType<SolverConfigurationService>().AsImplementedInterfaces().SingleInstance();
         builder.RegisterType<SolverService>().As<ISolverService>().SingleInstance();
         builder.RegisterType<TournamentHandlerService>().As<ITournamentHandlerService>().SingleInstance();
         builder.RegisterType<CrossingService>().As<ICrossingService>().SingleInstance();
         builder.RegisterType<MutatorService>().As<IMutatorService>().SingleInstance();
         builder.RegisterType<HorizontalMutatorService>().As<IHorizontalMutatorService>().SingleInstance();
-        builder.RegisterType<TasksService>().As<ITasksService>().SingleInstance();
-        builder.RegisterType<HistoryService>().As<IHistoryService>().SingleInstance();
+        builder.RegisterType<TasksService>().AsImplementedInterfaces().SingleInstance();
+        builder.RegisterType<HistoryService>().AsImplementedInterfaces().SingleInstance();
+        
         return builder;
     }
 
@@ -73,6 +78,15 @@ internal static class Program
     private static void StartApp(this IComponentContext container)
     {
         var windowSwitcher = container.Resolve<IWindowSwitcherService>() ?? throw new Exception("Couldn't resolve form");
+        
+        windowSwitcher.InitializeWithWindows(
+            container.Resolve<HomeForm>(),
+            container.Resolve<ConfigurationForm>(),
+            container.Resolve<FitnessForm>(),
+            container.Resolve<TaskForm>(),
+            container.Resolve<SavedForm>()
+        );
+        
         Application.Run(windowSwitcher.InitialView);
     }
 }

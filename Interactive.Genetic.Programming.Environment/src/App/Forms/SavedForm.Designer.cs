@@ -272,6 +272,7 @@ partial class SavedForm
         Controls.Add(buttonTask);
         Controls.Add(buttonFitness);
         Controls.Add(buttonConfiguration);
+        MaximumSize = new Size(1920, 1080);
         Name = "SavedForm";
         Text = "Saved";
         Load += Saved_Load;
