@@ -10,4 +10,5 @@ public interface ITaskInformationPublisher
 {
     public void Subscribe(ITaskInformationSubscriber subscriber);
     public void Unsubscribe(ITaskInformationSubscriber subscriber);
+    void FetchAllSubscribed();
 }

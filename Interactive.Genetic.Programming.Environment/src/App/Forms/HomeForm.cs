@@ -42,6 +42,8 @@ public partial class HomeForm : Form, ISolverSubscriber, IHistorySubscriber, IFi
     {
         WindowState = FormWindowState.Maximized;
         _solver.FetchAllSubscribed();
+        _fitnessInformationPublisher.FetchAllSubscribed();
+        _taskInformationPublisher.FetchAllSubscribed();
     }
 
     public new void Show()
@@ -152,6 +154,6 @@ public partial class HomeForm : Form, ISolverSubscriber, IHistorySubscriber, IFi
 
     public void OnTaskReset()
     {
-        labelFitnessFunctionName.Text = @"None";
+        labelTaskName.Text = @"None";
     }
 }

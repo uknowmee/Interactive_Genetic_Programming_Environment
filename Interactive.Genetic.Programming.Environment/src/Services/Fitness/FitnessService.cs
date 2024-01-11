@@ -10,6 +10,8 @@ public class FitnessService : IFitnessService, IFitnessInformationPublisher, IAv
     private readonly IFitnessDatabaseService _fitnessDatabaseService;
     private IFitnessInformationSubscriber? _fitnessInformationSubscriber;
     private IAvailableFitnessFunctionsSubscriber? _availableFitnessFunctionsSubscriber;
+
+    private FitnessFunction? _fitnessFunction;
     
     public FitnessService(IFitnessDatabaseService fitnessDatabaseService)
     {
@@ -28,11 +30,13 @@ public class FitnessService : IFitnessService, IFitnessInformationPublisher, IAv
 
     public void ActivateFitness(FitnessFunctionEntity fitnessFunction)
     {
+        _fitnessFunction = new FitnessFunction(fitnessFunction.Name, fitnessFunction.Code);
         _fitnessInformationSubscriber?.OnFitnessFunctionChange(fitnessFunction.Name);
     }
     
     public void ResetFitness()
     {
+        _fitnessFunction = null;
         _fitnessInformationSubscriber?.OnFitnessFunctionReset();
         _availableFitnessFunctionsSubscriber?.OnFitnessFunctionReset();
     }
@@ -45,12 +49,14 @@ public class FitnessService : IFitnessService, IFitnessInformationPublisher, IAv
 
     public bool IsFitnessActive()
     {
-        throw new NotImplementedException();
+        return _fitnessFunction != null;
     }
 
     public FitnessFunction GetFitnessFunction()
     {
-        throw new NotImplementedException();
+        return IsFitnessActive()
+            ? _fitnessFunction ?? throw new Exception("Fitness function is null")
+            : throw new Exception("Fitness function is not active");
     }
 
     public void RemoveFitness(FitnessFunctionEntity fitnessFunction)
@@ -70,8 +76,19 @@ public class FitnessService : IFitnessService, IFitnessInformationPublisher, IAv
         _availableFitnessFunctionsSubscriber = null;
     }
 
-    public void FetchAllSubscribed()
+    void IAvailableFitnessFunctionsService.FetchAllSubscribed()
     {
         _availableFitnessFunctionsSubscriber?.AvailableFunctionsUpdate(_fitnessDatabaseService.FetchAll());
+    }
+
+    void IFitnessInformationPublisher.FetchAllSubscribed()
+    {
+        if (IsFitnessActive() && _fitnessFunction is not null)
+        {
+            _fitnessInformationSubscriber?.OnFitnessFunctionChange(_fitnessFunction.Name);
+            return;
+        }
+        
+        _fitnessInformationSubscriber?.OnFitnessFunctionReset();
     }
 }
