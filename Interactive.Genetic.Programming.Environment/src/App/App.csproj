@@ -1,8 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <OutputPath>Interactive_Genetic_Programming_Environment\</OutputPath>
         <AssemblyName>Interactive_Genetic_Programming_Environment</AssemblyName>
+        <PublishSingleFile>true</PublishSingleFile>
         <Optimize>true</Optimize>
         <OutputType>WinExe</OutputType>
         <TargetFramework>net8.0-windows</TargetFramework>
