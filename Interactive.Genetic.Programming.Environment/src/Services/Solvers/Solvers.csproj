@@ -7,9 +7,12 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\Domain\Solver\Solver.csproj" />
+      <ProjectReference Include="..\..\Domain\Shared\Shared.csproj" />
+      <ProjectReference Include="..\..\Tasks\Tasks.csproj" />
       <ProjectReference Include="..\Configuration\Configuration.csproj" />
+      <ProjectReference Include="..\Fitness\Fitness.csproj" />
       <ProjectReference Include="..\History\History.csproj" />
+      <ProjectReference Include="..\Solution\Solution.csproj" />
     </ItemGroup>
 
 </Project>

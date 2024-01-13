@@ -1,6 +1,6 @@
 ﻿using System.Text.Json;
 using File.Interfaces;
-using Solver;
+using Shared;
 
 namespace File;
 

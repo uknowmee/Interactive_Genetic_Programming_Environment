@@ -18,6 +18,22 @@ public class ModelConfiguration : IModelConfiguration
     public double NewLogicExpressionChance { get; set; } = 0.40;
     public double NextTwoArgExpressionChance { get; set; } = 0.40;
     public double NewVarExpressionChance { get; set; } = 0.50;
+    public IModelConfiguration Copy()
+    {
+        return new ModelConfiguration
+        {
+            MaxInt = MaxInt,
+            NewChildOfProgramNodeChance = NewChildOfProgramNodeChance,
+            NewDeepNodeGenerationChance = NewDeepNodeGenerationChance,
+            NewDeepNodeGenerationFall = NewDeepNodeGenerationFall,
+            NewChildOfForNodeChance = NewChildOfForNodeChance,
+            NewExpressionInForComparisonChance = NewExpressionInForComparisonChance,
+            NewChildOfIfNodeChance = NewChildOfIfNodeChance,
+            NewLogicExpressionChance = NewLogicExpressionChance,
+            NextTwoArgExpressionChance = NextTwoArgExpressionChance,
+            NewVarExpressionChance = NewVarExpressionChance
+        };
+    }
 
     public override string ToString()
     {
