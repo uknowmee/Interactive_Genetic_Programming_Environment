@@ -23,4 +23,6 @@ public interface ISolverConfiguration
     public double NewLineProbability { get; set; }
     public double DeleteLineProbability { get; set; }
     public double SwapLinesProbability { get; set; }
+    ISolverConfiguration Copy();
+    public string ToString();
 }

@@ -1,7 +1,7 @@
 ﻿using Database.Entities;
 using Database.Interfaces;
 using Fitness.Interfaces;
-using Solver;
+using Shared;
 
 namespace Fitness;
 

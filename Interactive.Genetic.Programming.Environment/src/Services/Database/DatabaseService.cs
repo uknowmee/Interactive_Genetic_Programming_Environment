@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Database;
 
-public class DatabaseService : IDatabaseCreator, IFitnessDatabaseService, ITaskDatabaseService
+public class DatabaseService : IDatabaseCreator, IFitnessDatabaseService, ITaskDatabaseService, ISolutionDatabaseService
 {
     private readonly DbContextOptions _options;
     private readonly string _sqliteDir;
@@ -50,6 +50,26 @@ public class DatabaseService : IDatabaseCreator, IFitnessDatabaseService, ITaskD
         using var context = new DbCtx(_options);
         context.FitnessFunctions.Remove(fitness);
         context.SaveChanges();
+    }
+
+    public void Create(SolutionEntity entity)
+    {
+        using var context = new DbCtx(_options);
+        context.Solutions.Add(entity);
+        context.SaveChanges();
+    }
+
+    public void Delete(SolutionEntity entity)
+    {
+        using var context = new DbCtx(_options);
+        context.Solutions.Remove(entity);
+        context.SaveChanges();
+    }
+
+    public IEnumerable<SolutionEntity> FetchAll()
+    {
+        using var context = new DbCtx(_options);
+        return context.Solutions.ToList();
     }
 
     IEnumerable<TaskEntity> IDatabaseService<TaskEntity>.FetchAll()

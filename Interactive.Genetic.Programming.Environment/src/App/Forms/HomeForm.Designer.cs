@@ -54,6 +54,8 @@ partial class HomeForm
         labelTask = new Label();
         labelFitnessFunction = new Label();
         buttonHome = new Button();
+        textBoxModelConfiguration = new TextBox();
+        textBoxSolverConfiguration = new TextBox();
         SuspendLayout();
         // 
         // buttonConfiguration
@@ -114,7 +116,7 @@ partial class HomeForm
         // buttonFinish
         // 
         buttonFinish.Anchor = AnchorStyles.Left;
-        buttonFinish.Location = new Point(11, 203);
+        buttonFinish.Location = new Point(11, 233);
         buttonFinish.Name = "buttonFinish";
         buttonFinish.Size = new Size(122, 41);
         buttonFinish.TabIndex = 7;
@@ -125,7 +127,7 @@ partial class HomeForm
         // buttonStop
         // 
         buttonStop.Anchor = AnchorStyles.Left;
-        buttonStop.Location = new Point(11, 156);
+        buttonStop.Location = new Point(11, 186);
         buttonStop.Name = "buttonStop";
         buttonStop.Size = new Size(122, 41);
         buttonStop.TabIndex = 6;
@@ -136,7 +138,7 @@ partial class HomeForm
         // buttonStart
         // 
         buttonStart.Anchor = AnchorStyles.Left;
-        buttonStart.Location = new Point(12, 109);
+        buttonStart.Location = new Point(12, 139);
         buttonStart.Name = "buttonStart";
         buttonStart.Size = new Size(122, 41);
         buttonStart.TabIndex = 5;
@@ -147,12 +149,12 @@ partial class HomeForm
         // textBoxBestIndividual
         // 
         textBoxBestIndividual.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
-        textBoxBestIndividual.Location = new Point(1013, 109);
+        textBoxBestIndividual.Location = new Point(1013, 139);
         textBoxBestIndividual.Multiline = true;
         textBoxBestIndividual.Name = "textBoxBestIndividual";
         textBoxBestIndividual.ReadOnly = true;
         textBoxBestIndividual.ScrollBars = ScrollBars.Both;
-        textBoxBestIndividual.Size = new Size(877, 912);
+        textBoxBestIndividual.Size = new Size(877, 882);
         textBoxBestIndividual.TabIndex = 8;
         // 
         // textBoxHistory
@@ -310,11 +312,33 @@ partial class HomeForm
         buttonHome.UseVisualStyleBackColor = true;
         buttonHome.Click += buttonHome_Click;
         // 
+        // textBoxModelConfiguration
+        // 
+        textBoxModelConfiguration.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
+        textBoxModelConfiguration.Location = new Point(295, 139);
+        textBoxModelConfiguration.Multiline = true;
+        textBoxModelConfiguration.Name = "textBoxModelConfiguration";
+        textBoxModelConfiguration.ReadOnly = true;
+        textBoxModelConfiguration.Size = new Size(352, 297);
+        textBoxModelConfiguration.TabIndex = 25;
+        // 
+        // textBoxSolverConfiguration
+        // 
+        textBoxSolverConfiguration.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
+        textBoxSolverConfiguration.Location = new Point(653, 139);
+        textBoxSolverConfiguration.Multiline = true;
+        textBoxSolverConfiguration.Name = "textBoxSolverConfiguration";
+        textBoxSolverConfiguration.ReadOnly = true;
+        textBoxSolverConfiguration.Size = new Size(352, 297);
+        textBoxSolverConfiguration.TabIndex = 26;
+        // 
         // HomeForm
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
         ClientSize = new Size(1902, 1033);
+        Controls.Add(textBoxSolverConfiguration);
+        Controls.Add(textBoxModelConfiguration);
         Controls.Add(buttonHome);
         Controls.Add(labelTaskName);
         Controls.Add(labelFitnessFunctionName);
@@ -375,4 +399,6 @@ partial class HomeForm
     private Label labelTask;
     private Label labelFitnessFunction;
     private Button buttonHome;
+    private TextBox textBoxModelConfiguration;
+    private TextBox textBoxSolverConfiguration;
 }

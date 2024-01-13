@@ -10,6 +10,7 @@
       <ProjectReference Include="..\..\Domain\Configuration.App\Configuration.App.csproj" />
       <ProjectReference Include="..\..\Domain\Configuration.Model\Configuration.Model.csproj" />
       <ProjectReference Include="..\..\Domain\Configuration.Solver\Configuration.Solver.csproj" />
+      <ProjectReference Include="..\..\Domain\Shared\Shared.csproj" />
     </ItemGroup>
 
 </Project>

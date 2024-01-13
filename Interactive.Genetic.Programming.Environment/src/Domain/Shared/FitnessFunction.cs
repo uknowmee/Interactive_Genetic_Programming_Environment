@@ -1,4 +1,4 @@
-﻿namespace Solver;
+﻿namespace Shared;
 
 public class FitnessFunction
 {

@@ -50,7 +50,8 @@ partial class SavedForm
         labelSolutionName = new Label();
         labelProgram = new Label();
         labelHistory = new Label();
-        buttonInspectTask = new Button();
+        buttonInspectSolution = new Button();
+        buttonRemoveSolution = new Button();
         SuspendLayout();
         // 
         // buttonQuit
@@ -184,6 +185,7 @@ partial class SavedForm
         comboBoxSavedSolution.Name = "comboBoxSavedSolution";
         comboBoxSavedSolution.Size = new Size(306, 28);
         comboBoxSavedSolution.TabIndex = 68;
+        comboBoxSavedSolution.SelectedIndexChanged += comboBoxSavedSolution_SelectedIndexChanged;
         // 
         // labelConfiguration
         // 
@@ -240,22 +242,35 @@ partial class SavedForm
         labelHistory.Text = "History";
         labelHistory.TextAlign = ContentAlignment.BottomLeft;
         // 
-        // buttonInspectTask
+        // buttonInspectSolution
         // 
-        buttonInspectTask.Anchor = AnchorStyles.Left;
-        buttonInspectTask.Location = new Point(1643, 132);
-        buttonInspectTask.Name = "buttonInspectTask";
-        buttonInspectTask.Size = new Size(151, 41);
-        buttonInspectTask.TabIndex = 74;
-        buttonInspectTask.Text = "Inspect Task";
-        buttonInspectTask.UseVisualStyleBackColor = true;
+        buttonInspectSolution.Anchor = AnchorStyles.Left;
+        buttonInspectSolution.Location = new Point(1645, 105);
+        buttonInspectSolution.Name = "buttonInspectSolution";
+        buttonInspectSolution.Size = new Size(151, 41);
+        buttonInspectSolution.TabIndex = 74;
+        buttonInspectSolution.Text = "Inspect Solution";
+        buttonInspectSolution.UseVisualStyleBackColor = true;
+        buttonInspectSolution.Click += buttonInspectSolution_Click;
+        // 
+        // buttonRemoveSolution
+        // 
+        buttonRemoveSolution.Anchor = AnchorStyles.Left;
+        buttonRemoveSolution.Location = new Point(1645, 152);
+        buttonRemoveSolution.Name = "buttonRemoveSolution";
+        buttonRemoveSolution.Size = new Size(151, 41);
+        buttonRemoveSolution.TabIndex = 75;
+        buttonRemoveSolution.Text = "Remove Solution";
+        buttonRemoveSolution.UseVisualStyleBackColor = true;
+        buttonRemoveSolution.Click += buttonRemoveSolution_Click;
         // 
         // SavedForm
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
         ClientSize = new Size(1902, 1033);
-        Controls.Add(buttonInspectTask);
+        Controls.Add(buttonRemoveSolution);
+        Controls.Add(buttonInspectSolution);
         Controls.Add(labelHistory);
         Controls.Add(labelProgram);
         Controls.Add(labelSolutionName);
@@ -300,5 +315,6 @@ partial class SavedForm
     private Label labelSolutionName;
     private Label labelProgram;
     private Label labelHistory;
-    private Button buttonInspectTask;
+    private Button buttonInspectSolution;
+    private Button buttonRemoveSolution;
 }

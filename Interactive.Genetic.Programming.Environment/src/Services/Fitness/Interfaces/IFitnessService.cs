@@ -1,5 +1,5 @@
 ﻿using Database.Entities;
-using Solver;
+using Shared;
 
 namespace Fitness.Interfaces;
 

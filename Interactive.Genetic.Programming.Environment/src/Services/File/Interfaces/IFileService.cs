@@ -1,4 +1,4 @@
-﻿using Solver;
+﻿using Shared;
 
 namespace File.Interfaces;
 

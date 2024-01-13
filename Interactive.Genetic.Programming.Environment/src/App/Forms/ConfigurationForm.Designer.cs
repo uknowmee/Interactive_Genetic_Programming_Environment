@@ -193,6 +193,7 @@ partial class ConfigurationForm
         textBoxNewVarExpressionChance.Name = "textBoxNewVarExpressionChance";
         textBoxNewVarExpressionChance.Size = new Size(170, 27);
         textBoxNewVarExpressionChance.TabIndex = 47;
+        textBoxNewVarExpressionChance.KeyPress += textBoxNewVarExpressionChance_KeyPress;
         // 
         // labelMaxInt
         // 
@@ -250,6 +251,7 @@ partial class ConfigurationForm
         textBoxNextTwoArgExpressionChance.Name = "textBoxNextTwoArgExpressionChance";
         textBoxNextTwoArgExpressionChance.Size = new Size(170, 27);
         textBoxNextTwoArgExpressionChance.TabIndex = 45;
+        textBoxNextTwoArgExpressionChance.KeyPress += textBoxNextTwoArgExpressionChance_KeyPress;
         // 
         // labelNewChildOfForNodeChance
         // 
@@ -277,6 +279,7 @@ partial class ConfigurationForm
         textBoxNewLogicExpressionChance.Name = "textBoxNewLogicExpressionChance";
         textBoxNewLogicExpressionChance.Size = new Size(170, 27);
         textBoxNewLogicExpressionChance.TabIndex = 44;
+        textBoxNewLogicExpressionChance.KeyPress += textBoxNewLogicExpressionChance_KeyPress;
         // 
         // labelNewChildOfIfNodeChance
         // 
@@ -304,6 +307,7 @@ partial class ConfigurationForm
         textBoxNewChildOfIfNodeChance.Name = "textBoxNewChildOfIfNodeChance";
         textBoxNewChildOfIfNodeChance.Size = new Size(170, 27);
         textBoxNewChildOfIfNodeChance.TabIndex = 43;
+        textBoxNewChildOfIfNodeChance.KeyPress += textBoxNewChildOfIfNodeChance_KeyPress;
         // 
         // labelNextTwoArgExpressionChance
         // 
@@ -321,6 +325,7 @@ partial class ConfigurationForm
         textBoxMaxInt.Name = "textBoxMaxInt";
         textBoxMaxInt.Size = new Size(170, 27);
         textBoxMaxInt.TabIndex = 37;
+        textBoxMaxInt.KeyPress += textBoxMaxInt_KeyPress;
         // 
         // textBoxNewExpressionInForComparisonChance
         // 
@@ -328,6 +333,7 @@ partial class ConfigurationForm
         textBoxNewExpressionInForComparisonChance.Name = "textBoxNewExpressionInForComparisonChance";
         textBoxNewExpressionInForComparisonChance.Size = new Size(170, 27);
         textBoxNewExpressionInForComparisonChance.TabIndex = 42;
+        textBoxNewExpressionInForComparisonChance.KeyPress += textBoxNewExpressionInForComparisonChance_KeyPress;
         // 
         // textBoxNewChildOfProgramNodeChance
         // 
@@ -335,6 +341,7 @@ partial class ConfigurationForm
         textBoxNewChildOfProgramNodeChance.Name = "textBoxNewChildOfProgramNodeChance";
         textBoxNewChildOfProgramNodeChance.Size = new Size(170, 27);
         textBoxNewChildOfProgramNodeChance.TabIndex = 38;
+        textBoxNewChildOfProgramNodeChance.KeyPress += textBoxNewChildOfProgramNodeChance_KeyPress;
         // 
         // textBoxNewDeepNodeGenerationChance
         // 
@@ -342,6 +349,7 @@ partial class ConfigurationForm
         textBoxNewDeepNodeGenerationChance.Name = "textBoxNewDeepNodeGenerationChance";
         textBoxNewDeepNodeGenerationChance.Size = new Size(170, 27);
         textBoxNewDeepNodeGenerationChance.TabIndex = 39;
+        textBoxNewDeepNodeGenerationChance.KeyPress += textBoxNewDeepNodeGenerationChance_KeyPress;
         // 
         // textBoxNewChildOfForNodeChance
         // 
@@ -349,6 +357,7 @@ partial class ConfigurationForm
         textBoxNewChildOfForNodeChance.Name = "textBoxNewChildOfForNodeChance";
         textBoxNewChildOfForNodeChance.Size = new Size(170, 27);
         textBoxNewChildOfForNodeChance.TabIndex = 41;
+        textBoxNewChildOfForNodeChance.KeyPress += textBoxNewChildOfForNodeChance_KeyPress;
         // 
         // textBoxNewDeepNodeGenerationFall
         // 
@@ -356,6 +365,7 @@ partial class ConfigurationForm
         textBoxNewDeepNodeGenerationFall.Name = "textBoxNewDeepNodeGenerationFall";
         textBoxNewDeepNodeGenerationFall.Size = new Size(170, 27);
         textBoxNewDeepNodeGenerationFall.TabIndex = 40;
+        textBoxNewDeepNodeGenerationFall.KeyPress += textBoxNewDeepNodeGenerationFall_KeyPress;
         // 
         // groupBoxSolver
         // 
@@ -402,6 +412,7 @@ partial class ConfigurationForm
         textBoxSwapLinesProbability.Name = "textBoxSwapLinesProbability";
         textBoxSwapLinesProbability.Size = new Size(170, 27);
         textBoxSwapLinesProbability.TabIndex = 75;
+        textBoxSwapLinesProbability.KeyPress += textBoxSwapLinesProbability_KeyPress;
         // 
         // labelSubtreeMutationProbability
         // 
@@ -429,6 +440,7 @@ partial class ConfigurationForm
         textBoxDeleteLineProbability.Name = "textBoxDeleteLineProbability";
         textBoxDeleteLineProbability.Size = new Size(170, 27);
         textBoxDeleteLineProbability.TabIndex = 74;
+        textBoxDeleteLineProbability.KeyPress += textBoxDeleteLineProbability_KeyPress;
         // 
         // labelDeleteLineProbability
         // 
@@ -456,6 +468,7 @@ partial class ConfigurationForm
         textBoxNewLineProbability.Name = "textBoxNewLineProbability";
         textBoxNewLineProbability.Size = new Size(170, 27);
         textBoxNewLineProbability.TabIndex = 73;
+        textBoxNewLineProbability.KeyPress += textBoxNewLineProbability_KeyPress;
         // 
         // labelHorizontalModificationProbability
         // 
@@ -473,6 +486,7 @@ partial class ConfigurationForm
         textBoxPointMutationProbability.Name = "textBoxPointMutationProbability";
         textBoxPointMutationProbability.Size = new Size(170, 27);
         textBoxPointMutationProbability.TabIndex = 70;
+        textBoxPointMutationProbability.KeyPress += textBoxPointMutationProbability_KeyPress;
         // 
         // textBoxSubtreeMutationProbability
         // 
@@ -480,6 +494,7 @@ partial class ConfigurationForm
         textBoxSubtreeMutationProbability.Name = "textBoxSubtreeMutationProbability";
         textBoxSubtreeMutationProbability.Size = new Size(170, 27);
         textBoxSubtreeMutationProbability.TabIndex = 71;
+        textBoxSubtreeMutationProbability.KeyPress += textBoxSubtreeMutationProbability_KeyPress;
         // 
         // labelPointMutationProbability
         // 
@@ -497,6 +512,7 @@ partial class ConfigurationForm
         textBoxHorizontalModificationProbability.Name = "textBoxHorizontalModificationProbability";
         textBoxHorizontalModificationProbability.Size = new Size(170, 27);
         textBoxHorizontalModificationProbability.TabIndex = 72;
+        textBoxHorizontalModificationProbability.KeyPress += textBoxHorizontalModificationProbability_KeyPress;
         // 
         // textBoxMutationProbability
         // 
@@ -504,6 +520,7 @@ partial class ConfigurationForm
         textBoxMutationProbability.Name = "textBoxMutationProbability";
         textBoxMutationProbability.Size = new Size(170, 27);
         textBoxMutationProbability.TabIndex = 63;
+        textBoxMutationProbability.KeyPress += textBoxMutationProbability_KeyPress;
         // 
         // labelPopulationSize
         // 
@@ -541,6 +558,7 @@ partial class ConfigurationForm
         textBoxNumOfTestCases.Name = "textBoxNumOfTestCases";
         textBoxNumOfTestCases.Size = new Size(170, 27);
         textBoxNumOfTestCases.TabIndex = 55;
+        textBoxNumOfTestCases.KeyPress += textBoxNumOfTestCases_KeyPress;
         // 
         // textBoxCrossoverProbability
         // 
@@ -548,6 +566,7 @@ partial class ConfigurationForm
         textBoxCrossoverProbability.Name = "textBoxCrossoverProbability";
         textBoxCrossoverProbability.Size = new Size(170, 27);
         textBoxCrossoverProbability.TabIndex = 62;
+        textBoxCrossoverProbability.KeyPress += textBoxCrossoverProbability_KeyPress;
         // 
         // labelCrossoverProbability
         // 
@@ -565,6 +584,7 @@ partial class ConfigurationForm
         textBoxInputLength.Name = "textBoxInputLength";
         textBoxInputLength.Size = new Size(170, 27);
         textBoxInputLength.TabIndex = 56;
+        textBoxInputLength.KeyPress += textBoxInputLength_KeyPress;
         // 
         // labelInputLength
         // 
@@ -592,6 +612,7 @@ partial class ConfigurationForm
         textBoxExecutionTime.Name = "textBoxExecutionTime";
         textBoxExecutionTime.Size = new Size(170, 27);
         textBoxExecutionTime.TabIndex = 57;
+        textBoxExecutionTime.KeyPress += textBoxExecutionTime_KeyPress;
         // 
         // textBoxTournamentSize
         // 
@@ -599,6 +620,7 @@ partial class ConfigurationForm
         textBoxTournamentSize.Name = "textBoxTournamentSize";
         textBoxTournamentSize.Size = new Size(170, 27);
         textBoxTournamentSize.TabIndex = 61;
+        textBoxTournamentSize.KeyPress += textBoxTournamentSize_KeyPress;
         // 
         // labelMaxGenerations
         // 
@@ -616,6 +638,7 @@ partial class ConfigurationForm
         textBoxError.Name = "textBoxError";
         textBoxError.Size = new Size(170, 27);
         textBoxError.TabIndex = 58;
+        textBoxError.KeyPress += textBoxError_KeyPress;
         // 
         // labelExecutionTime
         // 
@@ -633,6 +656,7 @@ partial class ConfigurationForm
         textBoxPopulationSize.Name = "textBoxPopulationSize";
         textBoxPopulationSize.Size = new Size(170, 27);
         textBoxPopulationSize.TabIndex = 59;
+        textBoxPopulationSize.KeyPress += textBoxPopulationSize_KeyPress;
         // 
         // labelError
         // 
@@ -650,6 +674,7 @@ partial class ConfigurationForm
         textBoxMaxGenerations.Name = "textBoxMaxGenerations";
         textBoxMaxGenerations.Size = new Size(170, 27);
         textBoxMaxGenerations.TabIndex = 60;
+        textBoxMaxGenerations.KeyPress += textBoxMaxGenerations_KeyPress;
         // 
         // ConfigurationForm
         // 
