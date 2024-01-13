@@ -55,4 +55,6 @@ public interface IModelConfiguration : IConstantConfiguration, IForStatementConf
     public new double NewDeepNodeGenerationChance { get; set; }
     public new double NextTwoArgExpressionChance { get; set; }
     public new double NewVarExpressionChance { get; set; }
+    IModelConfiguration Copy();
+    public string ToString();
 }

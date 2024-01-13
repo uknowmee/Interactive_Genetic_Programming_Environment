@@ -4,9 +4,9 @@ using Configuration.App;
 using Database.Entities;
 using Database.Interfaces;
 using File.Interfaces;
-using Solver;
+using Shared;
 using Tasks.Interfaces;
-using Task = Solver.Task;
+using Task = Shared.Task;
 
 namespace Tasks;
 
@@ -60,10 +60,11 @@ public class TasksService : ITasksService, ITaskInformationPublisher, IAvailable
         }
         
         if (ReadTask(taskPath) is not { } task) return;
+        task.TaskName = taskName;
 
-        var destinationPath = CopyTaskToDestination(task, taskName);
+        var destinationPath = CopyTaskToDestination(task);
         
-        _taskDatabaseService.Create(new TaskEntity(taskName, taskPath, destinationPath, task.Json));
+        _taskDatabaseService.Create(task.TaskToEntity(taskPath, destinationPath));
         _availableTasksSubscriber?.AvailableTasksUpdate(_taskDatabaseService.FetchAll());
     }
 
@@ -115,24 +116,18 @@ public class TasksService : ITasksService, ITaskInformationPublisher, IAvailable
 
     public void InspectTask(TaskEntity task)
     {
-        var exists = _fileService.DoesFileExist(task.Path);
-        if (exists is false)
+        if (_fileService.DoesFileExist(task.Path) is false)
         {
             _fileService.SaveAsJson<Task>(task.Json, task.Path);
         }
         
-        var thread = new Thread(() =>
+        try
         {
-            try
-            {
-                Process.Start(_appConfiguration.TaskOpener, task.Path);
-            }
-            catch (Exception e)
-            {
-            }
-        });
-
-        thread.Start();
+            Process.Start(_appConfiguration.TaskOpener, task.Path);
+        }
+        catch (Exception e)
+        {
+        }
     }
 
     private Task? ReadTask(string taskPath)
@@ -151,9 +146,9 @@ public class TasksService : ITasksService, ITaskInformationPublisher, IAvailable
         return task;
     }
     
-    private string CopyTaskToDestination(Task task, string taskName)
+    private string CopyTaskToDestination(Task task)
     {
-        var destinationPath = Path.Combine(_appConfiguration.TasksPath, taskName + ".json");
+        var destinationPath = Path.Combine(_appConfiguration.TasksPath, task.TaskName + ".json");
         _fileService.SaveAsJson(task, destinationPath);
         return destinationPath;
     }

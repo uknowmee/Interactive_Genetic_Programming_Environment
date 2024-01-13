@@ -10,12 +10,12 @@ public class AppConfiguration : IAppConfiguration
 #if DEBUG
     public string InitialDirectoryPath => Path.Combine(GoFiveUpFromCurrentDir(), InitialDirectory);
     public string TasksPath => Path.Combine(GoFiveUpFromCurrentDir(), TasksFolderName);
-    public string SolutionsPath => Path.Combine(GoFiveUpFromCurrentDir(), TasksFolderName);
+    public string SolutionsPath => Path.Combine(GoFiveUpFromCurrentDir(), SolutionsFolderName);
     public string DbPath => Path.Combine(GoFiveUpFromCurrentDir(), DbFolderName, "inzDb.db");
 #else
     public string InitialDirectoryPath { get; } = @"C:\";
     public string TasksPath => Path.Combine(Directory.GetCurrentDirectory(), TasksFolderName);
-    public string SolutionsPath => Path.Combine(Directory.GetCurrentDirectory(), TasksFolderName);
+    public string SolutionsPath => Path.Combine(Directory.GetCurrentDirectory(), SolutionsFolderName);
     public string DbPath => Path.Combine(Directory.GetCurrentDirectory(), DbFolderName, "inzDb.db");
 #endif
 

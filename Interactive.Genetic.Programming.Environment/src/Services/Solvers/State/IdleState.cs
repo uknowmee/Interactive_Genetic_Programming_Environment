@@ -6,9 +6,9 @@ public class IdleState : ISolverState
 {
     public SolverStatus Status => SolverStatus.Idle;
     
-    public SolverService Solver { get; }
+    public IGeneticSolver Solver { get; }
     
-    public IdleState(SolverService solver)
+    public IdleState(IGeneticSolver solver)
     {
         Solver = solver;
     }

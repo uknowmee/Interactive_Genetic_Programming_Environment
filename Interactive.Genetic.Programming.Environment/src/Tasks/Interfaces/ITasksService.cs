@@ -1,5 +1,5 @@
 ﻿using Database.Entities;
-using Task = Solver.Task;
+using Task = Shared.Task;
 
 namespace Tasks.Interfaces;
 

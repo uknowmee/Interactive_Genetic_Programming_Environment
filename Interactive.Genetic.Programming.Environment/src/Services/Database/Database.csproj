@@ -21,6 +21,8 @@
 
     <ItemGroup>
       <ProjectReference Include="..\..\Domain\Configuration.App\Configuration.App.csproj" />
+      <ProjectReference Include="..\..\Domain\Shared\Shared.csproj" />
+      <ProjectReference Include="..\Utils\Utils.csproj" />
     </ItemGroup>
 
 </Project>

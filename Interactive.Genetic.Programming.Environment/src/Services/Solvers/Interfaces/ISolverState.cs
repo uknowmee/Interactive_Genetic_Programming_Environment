@@ -2,6 +2,6 @@
 
 public interface ISolverState
 {
-    public SolverService Solver { get; }
+    public IGeneticSolver Solver { get; }
     public SolverStatus Status { get; }
 }

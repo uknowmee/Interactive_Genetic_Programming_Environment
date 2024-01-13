@@ -45,6 +45,7 @@
       <ProjectReference Include="..\Services\History\History.csproj" />
       <ProjectReference Include="..\Services\Interpreter\Interpreter.csproj" />
       <ProjectReference Include="..\Services\Serialization\Serialization.csproj" />
+      <ProjectReference Include="..\Services\Solution\Solution.csproj" />
       <ProjectReference Include="..\Services\Solvers\Solvers.csproj" />
       <ProjectReference Include="..\Services\Strategies.Evolution\Strategies.Evolution.csproj" />
       <ProjectReference Include="..\Tasks\Tasks.csproj" />

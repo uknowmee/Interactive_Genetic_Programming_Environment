@@ -1,26 +1,51 @@
-﻿using Configuration.Interfaces;
+﻿using Configuration;
+using Configuration.App;
+using Configuration.Solver;
+using Fitness.Interfaces;
 using History.Interfaces;
-using Solver;
+using Shared;
+using Solution.Interfaces;
 using Solvers.Interfaces;
 using Solvers.State;
+using Tasks.Interfaces;
+using Task = System.Threading.Tasks.Task;
 
 namespace Solvers;
 
-public class SolverService : ISolverService
+public class SolverService : ISolverService, IGeneticSolver
 {
     private readonly ISolverState _state;
     
-    internal ISolverPublisher Publisher { get;  } = new SolverPublisher();
-    internal ISolverConfigurationService ConfigurationService { get; }
-    internal IHistoryService HistoryService { get; }
+    private ISolverPublisher Publisher { get;  } = new SolverPublisher();
+    private ISolutionSaver SolutionSaver { get; }
+    private IAppConfiguration AppConfiguration { get; }
+    private IModelConfiguration ModelConfiguration { get; }
+    private ISolverConfiguration SolverConfiguration { get; }
+    private IHistoryService HistoryService { get; }
+    private IFitnessService FitnessService { get; }
+    private ITasksService TasksService { get; }
     
     internal Individual? BestIndividual {get; set;}
     internal double AvgFitness => 0.0;
 
-    public SolverService(ISolverConfigurationService configurationService, IHistoryService historyService)
+    public SolverService(
+        IAppConfiguration appConfiguration,
+        IModelConfiguration modelConfiguration,
+        ISolverConfiguration solverConfiguration,
+        IHistoryService historyService,
+        ISolutionSaver solutionSaver,
+        IFitnessService fitnessService,
+        ITasksService taskService
+    )
     {
-        ConfigurationService = configurationService;
+        AppConfiguration = appConfiguration;
+        ModelConfiguration = modelConfiguration;
+        SolverConfiguration = solverConfiguration;
         HistoryService = historyService;
+        SolutionSaver = solutionSaver;
+        FitnessService = fitnessService;
+        TasksService = taskService;
+        
         _state = new IdleState(this);
     }
 
@@ -40,7 +65,7 @@ public class SolverService : ISolverService
         Publisher.NotifyPopulationSize(
             _state.Status == SolverStatus.Idle
                 ? 0
-                : ConfigurationService.SolverConfiguration.PopulationSize
+                : SolverConfiguration.PopulationSize
         );
         Publisher.NotifyBestIndividual(BestIndividual?.ProgramString ?? "");
         Publisher.NotifyBestIndividualFitness(BestIndividual?.FitnessValue ?? 0.0);
@@ -48,9 +73,26 @@ public class SolverService : ISolverService
         Publisher.NotifyProceeded(0);
     }
 
-    public void Start()
+    public async void Start()
     {
-        throw new NotImplementedException();
+
+        await Task.Run(() =>
+        {
+            HistoryService.Clear();
+            
+            var initModelConfig = ModelConfiguration.Copy();
+            var initSolverConfig = SolverConfiguration.Copy();
+            var initFitness = FitnessService.GetFitnessFunction();
+            
+            Thread.Sleep(10000);
+            
+            var bestIndividual = new Individual
+            {
+                Task = TasksService.GetTask()
+            };
+            
+            SolutionSaver.SaveSolution(initModelConfig, initSolverConfig, initFitness, bestIndividual);
+        });
     }
 
     public void Stop()

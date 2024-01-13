@@ -13,6 +13,7 @@ using Generators.Program.Interfaces;
 using History;
 using Serialization;
 using Serialization.Interfaces;
+using Solution;
 using Solvers;
 using Solvers.Interfaces;
 using Strategies.Evolution;
@@ -65,6 +66,7 @@ internal static class Program
         builder.RegisterType<HorizontalMutatorService>().As<IHorizontalMutatorService>().SingleInstance();
         builder.RegisterType<TasksService>().AsImplementedInterfaces().SingleInstance();
         builder.RegisterType<HistoryService>().AsImplementedInterfaces().SingleInstance();
+        builder.RegisterType<SolutionService>().AsImplementedInterfaces().SingleInstance();
         
         return builder;
     }
