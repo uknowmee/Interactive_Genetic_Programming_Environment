@@ -31,6 +31,7 @@ partial class FitnessForm
     /// </summary>
     private void InitializeComponent()
     {
+        ComponentResourceManager resources = new ComponentResourceManager(typeof(FitnessForm));
         buttonQuit = new Button();
         buttonSaved = new Button();
         buttonTask = new Button();
@@ -45,6 +46,7 @@ partial class FitnessForm
         labelActiveFitness = new Label();
         buttonSaveFitness = new Button();
         buttonRemoveFitness = new Button();
+        textBoxFitnessReadme = new TextBox();
         SuspendLayout();
         // 
         // buttonQuit
@@ -149,7 +151,7 @@ partial class FitnessForm
         textBoxActiveFitness.Name = "textBoxActiveFitness";
         textBoxActiveFitness.ReadOnly = true;
         textBoxActiveFitness.ScrollBars = ScrollBars.Vertical;
-        textBoxActiveFitness.Size = new Size(723, 435);
+        textBoxActiveFitness.Size = new Size(723, 449);
         textBoxActiveFitness.TabIndex = 61;
         // 
         // comboBoxSavedFitness
@@ -157,7 +159,7 @@ partial class FitnessForm
         comboBoxSavedFitness.Anchor = AnchorStyles.Left;
         comboBoxSavedFitness.DropDownStyle = ComboBoxStyle.DropDownList;
         comboBoxSavedFitness.FormattingEnabled = true;
-        comboBoxSavedFitness.Location = new Point(1039, 170);
+        comboBoxSavedFitness.Location = new Point(1301, 170);
         comboBoxSavedFitness.Name = "comboBoxSavedFitness";
         comboBoxSavedFitness.Size = new Size(311, 28);
         comboBoxSavedFitness.TabIndex = 62;
@@ -166,7 +168,7 @@ partial class FitnessForm
         // labelActiveFitness
         // 
         labelActiveFitness.Anchor = AnchorStyles.Left;
-        labelActiveFitness.Location = new Point(1100, 97);
+        labelActiveFitness.Location = new Point(1362, 97);
         labelActiveFitness.Name = "labelActiveFitness";
         labelActiveFitness.Size = new Size(183, 54);
         labelActiveFitness.TabIndex = 63;
@@ -187,7 +189,7 @@ partial class FitnessForm
         // buttonRemoveFitness
         // 
         buttonRemoveFitness.Anchor = AnchorStyles.Left;
-        buttonRemoveFitness.Location = new Point(1133, 222);
+        buttonRemoveFitness.Location = new Point(1395, 222);
         buttonRemoveFitness.Name = "buttonRemoveFitness";
         buttonRemoveFitness.Size = new Size(122, 41);
         buttonRemoveFitness.TabIndex = 65;
@@ -195,11 +197,23 @@ partial class FitnessForm
         buttonRemoveFitness.UseVisualStyleBackColor = true;
         buttonRemoveFitness.Click += buttonRemoveFitness_Click;
         // 
+        // textBoxFitnessReadme
+        // 
+        textBoxFitnessReadme.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
+        textBoxFitnessReadme.Location = new Point(1080, 294);
+        textBoxFitnessReadme.Multiline = true;
+        textBoxFitnessReadme.Name = "textBoxFitnessReadme";
+        textBoxFitnessReadme.ReadOnly = true;
+        textBoxFitnessReadme.Size = new Size(777, 713);
+        textBoxFitnessReadme.TabIndex = 66;
+        textBoxFitnessReadme.Text = resources.GetString("textBoxFitnessReadme.Text");
+        // 
         // FitnessForm
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
         ClientSize = new Size(1902, 1033);
+        Controls.Add(textBoxFitnessReadme);
         Controls.Add(buttonRemoveFitness);
         Controls.Add(buttonSaveFitness);
         Controls.Add(labelActiveFitness);
@@ -238,4 +252,5 @@ partial class FitnessForm
     private Label labelActiveFitness;
     private Button buttonSaveFitness;
     private Button buttonRemoveFitness;
+    private TextBox textBoxFitnessReadme;
 }
