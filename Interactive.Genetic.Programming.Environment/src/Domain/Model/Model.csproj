@@ -6,6 +6,10 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+      <DebugType>none</DebugType>
+    </PropertyGroup>
+
     <ItemGroup>
       <ProjectReference Include="..\..\Services\Utils\Utils.csproj" />
       <ProjectReference Include="..\Configuration.Model\Configuration.Model.csproj" />

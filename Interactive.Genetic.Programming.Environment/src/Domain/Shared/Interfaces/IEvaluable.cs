@@ -7,3 +7,10 @@ public interface IEvaluable
     int NumberOfNodes { get; }
     List<ITestCase> TestCases { get; }
 }
+
+public interface ITestCase
+{
+    public List<double> Input { get; }
+    public List<double> Output { get; }
+    public List<double> Predicted { get; }
+}
