@@ -117,4 +117,42 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="textBoxFitnessReadme.Text" xml:space="preserve">
+    <value>Specify your fitness function with the correct format, remember to add all needed "using statements"!
+Interfaces IEvaluable, and ITestCase are defined below.
+
+--------------------------------------------------------------------------------
+
+using System;
+using Shared.Interfaces;
+
+namespace CustomFitness;
+
+public class FitnessFunction
+{
+    public static double Evaluate(IEvaluable individual)
+    {
+        var fitness = 0.0;
+        return fitness;
+    }
+}
+
+--------------------------------------------------------------------------------
+
+public interface IEvaluable
+{
+    int ProgramLength { get; }
+    int NumberOfVariables { get; }
+    int NumberOfNodes { get; }
+    List&lt;ITestCase&gt; TestCases { get; }
+}
+
+public interface ITestCase
+{
+    public List&lt;double&gt; Input { get; }
+    public List&lt;double&gt; Output { get; }
+    public List&lt;double&gt; Predicted { get; }
+}
+</value>
+  </data>
 </root>

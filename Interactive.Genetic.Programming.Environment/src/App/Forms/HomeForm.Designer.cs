@@ -56,6 +56,9 @@ partial class HomeForm
         buttonHome = new Button();
         textBoxModelConfiguration = new TextBox();
         textBoxSolverConfiguration = new TextBox();
+        labelModelConfiguration = new Label();
+        labelSolverConfiguration = new Label();
+        labelBestProgram = new Label();
         SuspendLayout();
         // 
         // buttonConfiguration
@@ -185,7 +188,7 @@ partial class HomeForm
         labelPopulationSize.Name = "labelPopulationSize";
         labelPopulationSize.Size = new Size(183, 54);
         labelPopulationSize.TabIndex = 11;
-        labelPopulationSize.Text = "PopulationSize";
+        labelPopulationSize.Text = "Population Size";
         labelPopulationSize.TextAlign = ContentAlignment.MiddleCenter;
         // 
         // labelBestIndividual
@@ -332,11 +335,47 @@ partial class HomeForm
         textBoxSolverConfiguration.Size = new Size(352, 297);
         textBoxSolverConfiguration.TabIndex = 26;
         // 
+        // labelModelConfiguration
+        // 
+        labelModelConfiguration.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+        labelModelConfiguration.BackColor = SystemColors.Control;
+        labelModelConfiguration.Location = new Point(295, 80);
+        labelModelConfiguration.Name = "labelModelConfiguration";
+        labelModelConfiguration.Size = new Size(183, 54);
+        labelModelConfiguration.TabIndex = 73;
+        labelModelConfiguration.Text = "Model Configuration";
+        labelModelConfiguration.TextAlign = ContentAlignment.BottomLeft;
+        // 
+        // labelSolverConfiguration
+        // 
+        labelSolverConfiguration.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+        labelSolverConfiguration.BackColor = SystemColors.Control;
+        labelSolverConfiguration.Location = new Point(653, 80);
+        labelSolverConfiguration.Name = "labelSolverConfiguration";
+        labelSolverConfiguration.Size = new Size(183, 54);
+        labelSolverConfiguration.TabIndex = 74;
+        labelSolverConfiguration.Text = "Solver Configuration";
+        labelSolverConfiguration.TextAlign = ContentAlignment.BottomLeft;
+        // 
+        // labelBestProgram
+        // 
+        labelBestProgram.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+        labelBestProgram.BackColor = SystemColors.Control;
+        labelBestProgram.Location = new Point(1013, 80);
+        labelBestProgram.Name = "labelBestProgram";
+        labelBestProgram.Size = new Size(183, 54);
+        labelBestProgram.TabIndex = 75;
+        labelBestProgram.Text = "Best Program";
+        labelBestProgram.TextAlign = ContentAlignment.BottomLeft;
+        // 
         // HomeForm
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
         ClientSize = new Size(1902, 1033);
+        Controls.Add(labelBestProgram);
+        Controls.Add(labelSolverConfiguration);
+        Controls.Add(labelModelConfiguration);
         Controls.Add(textBoxSolverConfiguration);
         Controls.Add(textBoxModelConfiguration);
         Controls.Add(buttonHome);
@@ -401,4 +440,7 @@ partial class HomeForm
     private Button buttonHome;
     private TextBox textBoxModelConfiguration;
     private TextBox textBoxSolverConfiguration;
+    private Label labelModelConfiguration;
+    private Label labelSolverConfiguration;
+    private Label labelBestProgram;
 }

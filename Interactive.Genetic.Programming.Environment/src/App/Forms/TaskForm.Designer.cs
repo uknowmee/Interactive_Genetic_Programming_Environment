@@ -31,6 +31,7 @@ partial class TaskForm
     /// </summary>
     private void InitializeComponent()
     {
+        ComponentResourceManager resources = new ComponentResourceManager(typeof(TaskForm));
         buttonQuit = new Button();
         buttonSaved = new Button();
         buttonTask = new Button();
@@ -46,6 +47,7 @@ partial class TaskForm
         buttonUploadTask = new Button();
         buttonSaveTask = new Button();
         buttonRemoveTask = new Button();
+        textBoxTaskReadme = new TextBox();
         SuspendLayout();
         // 
         // buttonQuit
@@ -117,7 +119,7 @@ partial class TaskForm
         // buttonInspectTask
         // 
         buttonInspectTask.Anchor = AnchorStyles.Left;
-        buttonInspectTask.Location = new Point(603, 403);
+        buttonInspectTask.Location = new Point(650, 510);
         buttonInspectTask.Name = "buttonInspectTask";
         buttonInspectTask.Size = new Size(151, 41);
         buttonInspectTask.TabIndex = 69;
@@ -128,7 +130,7 @@ partial class TaskForm
         // labelActiveTask
         // 
         labelActiveTask.Anchor = AnchorStyles.Left;
-        labelActiveTask.Location = new Point(75, 417);
+        labelActiveTask.Location = new Point(122, 524);
         labelActiveTask.Name = "labelActiveTask";
         labelActiveTask.Size = new Size(183, 54);
         labelActiveTask.TabIndex = 68;
@@ -140,7 +142,7 @@ partial class TaskForm
         comboBoxSavedTask.Anchor = AnchorStyles.Left;
         comboBoxSavedTask.DropDownStyle = ComboBoxStyle.DropDownList;
         comboBoxSavedTask.FormattingEnabled = true;
-        comboBoxSavedTask.Location = new Point(278, 431);
+        comboBoxSavedTask.Location = new Point(325, 538);
         comboBoxSavedTask.Name = "comboBoxSavedTask";
         comboBoxSavedTask.Size = new Size(306, 28);
         comboBoxSavedTask.TabIndex = 67;
@@ -150,7 +152,7 @@ partial class TaskForm
         // 
         labelTaskName.Anchor = AnchorStyles.Left;
         labelTaskName.BackColor = SystemColors.Control;
-        labelTaskName.Location = new Point(75, 214);
+        labelTaskName.Location = new Point(122, 321);
         labelTaskName.Name = "labelTaskName";
         labelTaskName.Size = new Size(183, 54);
         labelTaskName.TabIndex = 66;
@@ -160,7 +162,7 @@ partial class TaskForm
         // textBoxTaskName
         // 
         textBoxTaskName.Anchor = AnchorStyles.Left;
-        textBoxTaskName.Location = new Point(278, 228);
+        textBoxTaskName.Location = new Point(325, 335);
         textBoxTaskName.Name = "textBoxTaskName";
         textBoxTaskName.Size = new Size(476, 27);
         textBoxTaskName.TabIndex = 65;
@@ -168,7 +170,7 @@ partial class TaskForm
         // textBoxTaskPath
         // 
         textBoxTaskPath.Anchor = AnchorStyles.Left;
-        textBoxTaskPath.Location = new Point(278, 296);
+        textBoxTaskPath.Location = new Point(325, 403);
         textBoxTaskPath.Name = "textBoxTaskPath";
         textBoxTaskPath.ReadOnly = true;
         textBoxTaskPath.Size = new Size(476, 27);
@@ -177,7 +179,7 @@ partial class TaskForm
         // buttonUploadTask
         // 
         buttonUploadTask.Anchor = AnchorStyles.Left;
-        buttonUploadTask.Location = new Point(104, 289);
+        buttonUploadTask.Location = new Point(151, 396);
         buttonUploadTask.Name = "buttonUploadTask";
         buttonUploadTask.Size = new Size(122, 41);
         buttonUploadTask.TabIndex = 71;
@@ -188,7 +190,7 @@ partial class TaskForm
         // buttonSaveTask
         // 
         buttonSaveTask.Anchor = AnchorStyles.Left;
-        buttonSaveTask.Location = new Point(104, 350);
+        buttonSaveTask.Location = new Point(151, 457);
         buttonSaveTask.Name = "buttonSaveTask";
         buttonSaveTask.Size = new Size(122, 41);
         buttonSaveTask.TabIndex = 72;
@@ -199,7 +201,7 @@ partial class TaskForm
         // buttonRemoveTask
         // 
         buttonRemoveTask.Anchor = AnchorStyles.Left;
-        buttonRemoveTask.Location = new Point(603, 450);
+        buttonRemoveTask.Location = new Point(650, 557);
         buttonRemoveTask.Name = "buttonRemoveTask";
         buttonRemoveTask.Size = new Size(151, 41);
         buttonRemoveTask.TabIndex = 73;
@@ -207,11 +209,23 @@ partial class TaskForm
         buttonRemoveTask.UseVisualStyleBackColor = true;
         buttonRemoveTask.Click += buttonRemoveTask_Click;
         // 
+        // textBoxTaskReadme
+        // 
+        textBoxTaskReadme.Anchor = AnchorStyles.Left;
+        textBoxTaskReadme.Location = new Point(1006, 260);
+        textBoxTaskReadme.Multiline = true;
+        textBoxTaskReadme.Name = "textBoxTaskReadme";
+        textBoxTaskReadme.ReadOnly = true;
+        textBoxTaskReadme.Size = new Size(777, 487);
+        textBoxTaskReadme.TabIndex = 74;
+        textBoxTaskReadme.Text = resources.GetString("textBoxTaskReadme.Text");
+        // 
         // TaskForm
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
         ClientSize = new Size(1902, 1033);
+        Controls.Add(textBoxTaskReadme);
         Controls.Add(buttonRemoveTask);
         Controls.Add(buttonSaveTask);
         Controls.Add(buttonUploadTask);
@@ -252,4 +266,5 @@ partial class TaskForm
     private Button buttonUploadTask;
     private Button buttonSaveTask;
     private Button buttonRemoveTask;
+    private TextBox textBoxTaskReadme;
 }
