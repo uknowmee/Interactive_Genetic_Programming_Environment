@@ -1,4 +1,5 @@
 ﻿using Shared;
+using Shared.Interfaces;
 
 namespace File.Interfaces;
 

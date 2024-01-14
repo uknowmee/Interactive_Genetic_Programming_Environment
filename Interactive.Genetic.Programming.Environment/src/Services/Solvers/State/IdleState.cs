@@ -1,4 +1,5 @@
 ﻿using Shared;
+using Shared.Exceptions;
 using Solvers.Interfaces;
 
 namespace Solvers.State;
