@@ -88,6 +88,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docker", "docker", "{196CE6
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solution", "src\Services\Solution\Solution.csproj", "{FA9C2897-894B-4DB9-92BA-E43B5E9823A7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Configuration.Logging", "src\Domain\Configuration.Logging\Configuration.Logging.csproj", "{72222CB7-539E-4A94-9F55-308C6170D442}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -222,6 +224,10 @@ Global
 		{FA9C2897-894B-4DB9-92BA-E43B5E9823A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FA9C2897-894B-4DB9-92BA-E43B5E9823A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FA9C2897-894B-4DB9-92BA-E43B5E9823A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72222CB7-539E-4A94-9F55-308C6170D442}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72222CB7-539E-4A94-9F55-308C6170D442}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72222CB7-539E-4A94-9F55-308C6170D442}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72222CB7-539E-4A94-9F55-308C6170D442}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -261,6 +267,7 @@ Global
 		{E2CDAC1F-4C40-43CB-B456-C90D6C053D4C} = {04815A76-24C7-4481-830D-19ED8375AA18}
 		{29F40DF1-8461-4F6E-BF16-FAFA5EFFFF7D} = {04815A76-24C7-4481-830D-19ED8375AA18}
 		{FA9C2897-894B-4DB9-92BA-E43B5E9823A7} = {04815A76-24C7-4481-830D-19ED8375AA18}
+		{72222CB7-539E-4A94-9F55-308C6170D442} = {4F9EDE38-8714-4807-855F-9C2C704D7DAD}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {941A4D69-ABD8-4467-83D5-081E14DB0002}

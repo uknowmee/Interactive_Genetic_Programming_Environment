@@ -3,6 +3,7 @@ using App.Services;
 using App.Services.Interfaces;
 using Autofac;
 using Configuration;
+using Configuration.Logging;
 using Database;
 using Database.Interfaces;
 using File;
@@ -11,6 +12,8 @@ using Fitness;
 using Generators.Program;
 using Generators.Program.Interfaces;
 using History;
+using Interpreter;
+using Microsoft.Extensions.Logging;
 using Serialization;
 using Serialization.Interfaces;
 using Solution;
@@ -31,11 +34,39 @@ internal static class Program
         ApplicationConfiguration.Initialize();
 
         var container = new ContainerBuilder()
+            .AddLogging()
             .RegisterServices()
             .RegisterViews()
             .Build();
 
-        container.StartAppServices().StartApp();
+        container.AddExceptionHandling().StartAppServices().StartApp();
+    }
+
+    private static ContainerBuilder AddLogging(this ContainerBuilder builder)
+    {
+        builder.RegisterInstance(LoggingConfiguration.Factory).As<ILoggerFactory>();
+        return builder;
+    }
+
+    private static ContainerBuilder RegisterServices(this ContainerBuilder builder)
+    {
+        builder.RegisterType<DatabaseService>().AsImplementedInterfaces().SingleInstance();
+        builder.RegisterType<FileService>().As<IFileService>().SingleInstance();
+        builder.RegisterType<FitnessService>().AsImplementedInterfaces().SingleInstance();
+        builder.RegisterType<ProgramGeneratorService>().As<IProgramGeneratorService>().SingleInstance();
+        builder.RegisterType<InterpreterService>().As<IInterpreterService>().SingleInstance();
+        builder.RegisterType<SerializationService>().As<ISerializationService>().SingleInstance();
+        builder.RegisterType<SolverConfigurationService>().AsImplementedInterfaces().SingleInstance();
+        builder.RegisterType<SolverService>().As<ISolverService>().SingleInstance();
+        builder.RegisterType<TournamentHandlerService>().As<ITournamentHandlerService>().SingleInstance();
+        builder.RegisterType<CrossingService>().As<ICrossingService>().SingleInstance();
+        builder.RegisterType<MutatorService>().As<IMutatorService>().SingleInstance();
+        builder.RegisterType<HorizontalMutatorService>().As<IHorizontalMutatorService>().SingleInstance();
+        builder.RegisterType<TasksService>().AsImplementedInterfaces().SingleInstance();
+        builder.RegisterType<HistoryService>().AsImplementedInterfaces().SingleInstance();
+        builder.RegisterType<SolutionService>().AsImplementedInterfaces().SingleInstance();
+        
+        return builder;
     }
 
     private static ContainerBuilder RegisterViews(this ContainerBuilder builder)
@@ -51,24 +82,10 @@ internal static class Program
         return builder;
     }
 
-    private static ContainerBuilder RegisterServices(this ContainerBuilder builder)
+    private static IContainer AddExceptionHandling(this IContainer container)
     {
-        builder.RegisterType<DatabaseService>().AsImplementedInterfaces().SingleInstance();
-        builder.RegisterType<FileService>().As<IFileService>().SingleInstance();
-        builder.RegisterType<FitnessService>().AsImplementedInterfaces().SingleInstance();
-        builder.RegisterType<ProgramGeneratorService>().As<IProgramGeneratorService>().SingleInstance();
-        builder.RegisterType<SerializationService>().As<ISerializationService>().SingleInstance();
-        builder.RegisterType<SolverConfigurationService>().AsImplementedInterfaces().SingleInstance();
-        builder.RegisterType<SolverService>().As<ISolverService>().SingleInstance();
-        builder.RegisterType<TournamentHandlerService>().As<ITournamentHandlerService>().SingleInstance();
-        builder.RegisterType<CrossingService>().As<ICrossingService>().SingleInstance();
-        builder.RegisterType<MutatorService>().As<IMutatorService>().SingleInstance();
-        builder.RegisterType<HorizontalMutatorService>().As<IHorizontalMutatorService>().SingleInstance();
-        builder.RegisterType<TasksService>().AsImplementedInterfaces().SingleInstance();
-        builder.RegisterType<HistoryService>().AsImplementedInterfaces().SingleInstance();
-        builder.RegisterType<SolutionService>().AsImplementedInterfaces().SingleInstance();
-        
-        return builder;
+        ExceptionsHandler.Logger = container.Resolve<ILoggerFactory>().CreateLogger<ExceptionsHandler>();
+        return container;
     }
 
     private static IContainer StartAppServices(this IContainer container)

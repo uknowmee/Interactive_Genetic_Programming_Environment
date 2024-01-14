@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using Configuration.Solver;
 using Interpreter;
 using Interpreter.Exceptions;
 
@@ -40,11 +41,12 @@ Console.WriteLine($"Total seconds for copying: {elapsedTotalSeconds}");
 
 Console.Out.WriteLine("Starting to run programs");
 stopwatch = Stopwatch.StartNew();
+var interpreter = new InterpreterService(new SolverConfiguration());
 for (var i = 0; i < capacity; i++)
 {
     try
     {
-        var interpreter = new InterpreterService(programsCopy[i].ToString());
+        interpreter.Feed(programsCopy[i].ToString());
         interpreter.Run([..inputs]);
     }
     catch (ExecutionTimeExceededException)
