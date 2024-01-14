@@ -1,9 +1,13 @@
-﻿using Shared;
+﻿using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging.Abstractions;
+using Shared;
 
 namespace App;
 
-public static class ExceptionsHandler
+public class ExceptionsHandler
 {
+    public static ILogger<ExceptionsHandler> Logger { get; set; } = new NullLogger<ExceptionsHandler>();
+
     public static void HandleMainThreadException(object sender, ThreadExceptionEventArgs e)
     {
         var exception = e.Exception;
@@ -22,6 +26,7 @@ public static class ExceptionsHandler
     private static void HandleCustomException(Exception exception)
     {
         var message = exception.Message;
+        Logger.LogError(exception, "Custom exception occurred!");
 
         MessageBox.Show(
             $@"{message}",
@@ -34,6 +39,8 @@ public static class ExceptionsHandler
     private static void HandleException(Exception exception)
     {
         var message = exception.Message;
+        Logger.LogError(exception, "Exception occurred!");
+
 #if DEBUG
         MessageBox.Show(
             $@"{message}",

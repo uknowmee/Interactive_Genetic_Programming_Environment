@@ -34,7 +34,7 @@ partial class HomeForm
         buttonSaved = new Button();
         buttonTask = new Button();
         buttonQuit = new Button();
-        buttonFinish = new Button();
+        buttonRest = new Button();
         buttonStop = new Button();
         buttonStart = new Button();
         textBoxBestIndividual = new TextBox();
@@ -113,16 +113,16 @@ partial class HomeForm
         buttonQuit.UseVisualStyleBackColor = true;
         buttonQuit.Click += buttonQuit_Click;
         // 
-        // buttonFinish
+        // buttonRest
         // 
-        buttonFinish.Anchor = AnchorStyles.Left;
-        buttonFinish.Location = new Point(11, 233);
-        buttonFinish.Name = "buttonFinish";
-        buttonFinish.Size = new Size(122, 41);
-        buttonFinish.TabIndex = 7;
-        buttonFinish.Text = "Finish";
-        buttonFinish.UseVisualStyleBackColor = true;
-        buttonFinish.Click += buttonFinish_Click;
+        buttonRest.Anchor = AnchorStyles.Left;
+        buttonRest.Location = new Point(11, 233);
+        buttonRest.Name = "buttonRest";
+        buttonRest.Size = new Size(122, 41);
+        buttonRest.TabIndex = 7;
+        buttonRest.Text = "Reset";
+        buttonRest.UseVisualStyleBackColor = true;
+        buttonRest.Click += buttonReset_Click;
         // 
         // buttonStop
         // 
@@ -356,7 +356,7 @@ partial class HomeForm
         Controls.Add(labelStatus);
         Controls.Add(textBoxHistory);
         Controls.Add(textBoxBestIndividual);
-        Controls.Add(buttonFinish);
+        Controls.Add(buttonRest);
         Controls.Add(buttonStop);
         Controls.Add(buttonStart);
         Controls.Add(buttonQuit);
@@ -379,7 +379,7 @@ partial class HomeForm
     private Button buttonSaved;
     private Button buttonTask;
     private Button buttonQuit;
-    private Button buttonFinish;
+    private Button buttonRest;
     private Button buttonStop;
     private Button buttonStart;
     private TextBox textBoxBestIndividual;

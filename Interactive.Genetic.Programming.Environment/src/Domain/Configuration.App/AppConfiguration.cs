@@ -22,6 +22,7 @@ public class AppConfiguration : IAppConfiguration
     public bool ReadTaskFromJson { get; set; } = true;
     public bool Sqlite { get; set; } = true;
     public string TaskOpener { get; set; } = "notepad.exe";
+    
     public string ConnectionString => Sqlite
         ? $"Data Source={DbPath}" 
         : "Server=localhost;Port=5432;Database=inzDb;User Id=inz;Password=inz;";

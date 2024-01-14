@@ -7,5 +7,5 @@ public interface ISolverService
     public void FetchAllSubscribed();
     public void Start();
     public void Stop();
-    public void Finish();
+    public void Reset();
 }

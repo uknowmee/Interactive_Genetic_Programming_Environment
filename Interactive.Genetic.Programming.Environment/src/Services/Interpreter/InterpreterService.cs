@@ -1,6 +1,7 @@
 ﻿using System.Data;
 using Antlr4.Runtime;
 using Antlr4.Runtime.Tree;
+using Configuration.Solver;
 using Interpreter.Exceptions;
 
 namespace Interpreter;
@@ -11,9 +12,9 @@ public class InterpreterService : IInterpreterService
     public IEnumerable<double> Outputs => _visitor?.Outputs ?? [];
 
     private Visitor? _visitor;
-    private readonly IParseTree _parseTree;
+    private IParseTree? _parseTree;
 
-    private const int DueTime = 3;
+    private readonly int _dueTime;
 
     public void Run(List<double> inputs)
     {
@@ -21,7 +22,7 @@ public class InterpreterService : IInterpreterService
 
         try
         {
-            _visitor = new Visitor(inputs, DueTime);
+            _visitor = new Visitor(inputs, _dueTime);
             _visitor.Visit(_parseTree);
             IsFinished = true;
         }
@@ -35,8 +36,12 @@ public class InterpreterService : IInterpreterService
         }
     }
 
-    public InterpreterService(string program)
+    public void Feed(string program)
     {
+        IsFinished = false;
+        _visitor = null;
+        _parseTree = null;
+        
         var lexer = new IntGrammarLexer(new AntlrInputStream(program));
         var parser = new IntGrammarParser(new CommonTokenStream(lexer));
         _parseTree = parser.program();
@@ -45,5 +50,10 @@ public class InterpreterService : IInterpreterService
         {
             throw new SyntaxErrorException("Syntax error in program.");
         }
+    }
+    
+    public InterpreterService(ISolverConfiguration solverConfiguration)
+    {
+        _dueTime = solverConfiguration.ExecutionTime;
     }
 }

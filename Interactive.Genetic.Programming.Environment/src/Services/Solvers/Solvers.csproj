@@ -11,8 +11,11 @@
       <ProjectReference Include="..\..\Tasks\Tasks.csproj" />
       <ProjectReference Include="..\Configuration\Configuration.csproj" />
       <ProjectReference Include="..\Fitness\Fitness.csproj" />
+      <ProjectReference Include="..\Generators.Program\Generators.Program.csproj" />
       <ProjectReference Include="..\History\History.csproj" />
+      <ProjectReference Include="..\Interpreter\Interpreter.csproj" />
       <ProjectReference Include="..\Solution\Solution.csproj" />
+      <ProjectReference Include="..\Strategies.Evolution\Strategies.Evolution.csproj" />
     </ItemGroup>
 
 </Project>

@@ -1,4 +1,5 @@
-﻿using Interpreter;
+﻿using Configuration.Solver;
+using Interpreter;
 
 // const string program = "x_0 = read();\n" +
 //                        "if ((42 > (9 * (56 * 78)))) {\n" +
@@ -30,7 +31,8 @@ var inputs = new List<double> { 0.0, 2.0, 3.0 };
         //     ? program2
         //     : program
         // );
-        var interpreter = new InterpreterService(program3);
+        var interpreter = new InterpreterService(new SolverConfiguration());
+        interpreter.Feed(program3);
         interpreter.Run(inputs);
 
         Console.Out.WriteLine(
