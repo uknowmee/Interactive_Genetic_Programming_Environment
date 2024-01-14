@@ -1,6 +1,35 @@
-﻿namespace Solvers.State;
+﻿using Solvers.Interfaces;
 
-public class StartedState
+namespace Solvers.State;
+
+internal class StartedState : ISolverState
 {
+    public SolverStatus Status => SolverStatus.Idle;
+
+    public IGeneticSolver Solver { get; }
     
+    public StartedState(IGeneticSolver solver)
+    {
+        Solver = solver;
+    }
+    
+    public void Start()
+    {
+        throw new NotImplementedException();
+    }
+
+    public void Stop()
+    {
+        throw new NotImplementedException();
+    }
+
+    public void Reset()
+    {
+        throw new NotImplementedException();
+    }
+
+    public void Process()
+    {
+        throw new NotImplementedException();
+    }
 }

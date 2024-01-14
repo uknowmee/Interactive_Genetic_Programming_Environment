@@ -102,9 +102,9 @@ public partial class HomeForm : Form, ISolverSubscriber, IHistorySubscriber, IFi
         _solver.Stop();
     }
 
-    private void buttonFinish_Click(object sender, EventArgs e)
+    private void buttonReset_Click(object sender, EventArgs e)
     {
-        _solver.Finish();
+        _solver.Reset();
     }
 
     public void OnSolverStatusUpdate(SolverStatus status)
