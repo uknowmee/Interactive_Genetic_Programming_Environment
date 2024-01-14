@@ -1,28 +1,36 @@
 ﻿using App.Services.Interfaces;
 using Database.Entities;
 using Fitness.Interfaces;
+using Solvers;
+using Solvers.Interfaces;
 
 namespace App.Forms;
 
-public partial class FitnessForm : Form, IAvailableFitnessFunctionsSubscriber
+public partial class FitnessForm : Form, IAvailableFitnessFunctionsSubscriber, ISolverStatusSubscriber
 {
+    private SolverStatus _status = SolverStatus.Idle;
+    
     private readonly IWindowSwitcherService _windowSwitcher;
     private readonly IFitnessService _fitnessService;
     private readonly IAvailableFitnessFunctionsService _availableFitnessFunctionsService;
+    private readonly ISolverService _solverService;
 
     public FitnessForm(
         IWindowSwitcherService windowSwitcher,
         IFitnessService fitnessService,
-        IAvailableFitnessFunctionsService availableFitnessFunctionsService
+        IAvailableFitnessFunctionsService availableFitnessFunctionsService,
+        ISolverService solverService
     )
     {
         _windowSwitcher = windowSwitcher;
         _fitnessService = fitnessService;
         _availableFitnessFunctionsService = availableFitnessFunctionsService;
+        _solverService = solverService;
 
         InitializeComponent();
 
         _availableFitnessFunctionsService.Subscribe(this);
+        _solverService.Subscribe(this);
     }
 
     private void Fitness_Load(object sender, EventArgs e)
@@ -87,14 +95,37 @@ public partial class FitnessForm : Form, IAvailableFitnessFunctionsSubscriber
     
     private void comboBoxSavedFitness_SelectedIndexChanged(object sender, EventArgs e)
     {
-        if (comboBoxSavedFitness.SelectedItem is not FitnessFunctionEntity fitnessFunction) return;
+        if (comboBoxSavedFitness.InvokeRequired)
+        {
+            comboBoxSavedFitness.BeginInvoke(SelectedFitnessChange);
+        }
+        else
+        {
+            SelectedFitnessChange();
+        }
+    }
 
+    private void SelectedFitnessChange()
+    {
+        if (comboBoxSavedFitness.SelectedItem is not FitnessFunctionEntity fitnessFunction) return;
         _fitnessService.ActivateFitness(fitnessFunction);
 
-        textBoxActiveFitness.Text = fitnessFunction.Code;
+        textBoxActiveFitness.BeginInvoke(() => textBoxActiveFitness.Text = fitnessFunction.Code);
     }
 
     public void AvailableFunctionsUpdate(IEnumerable<FitnessFunctionEntity> functions)
+    {
+        if (comboBoxSavedFitness.InvokeRequired)
+        {
+            comboBoxSavedFitness.BeginInvoke(() => UpdateAvailableFunctions(functions));
+        }
+        else
+        {
+            UpdateAvailableFunctions(functions);
+        }
+    }
+
+    private void UpdateAvailableFunctions(IEnumerable<FitnessFunctionEntity> functions)
     {
         var functionArray = functions.ToArray();
 
@@ -110,7 +141,44 @@ public partial class FitnessForm : Form, IAvailableFitnessFunctionsSubscriber
 
     public void OnFitnessFunctionReset()
     {
-        comboBoxSavedFitness.SelectedIndex = -1;
-        textBoxActiveFitness.Text = "";
+        if (comboBoxSavedFitness.InvokeRequired)
+        {
+            comboBoxSavedFitness.BeginInvoke(() => comboBoxSavedFitness.SelectedIndex = -1);
+        }
+        else
+        {
+            comboBoxSavedFitness.SelectedIndex = -1;
+        }
+        
+        if (textBoxActiveFitness.InvokeRequired)
+        {
+            textBoxActiveFitness.BeginInvoke(() => textBoxActiveFitness.Text = "");
+        }
+        else
+        {
+            textBoxActiveFitness.Text = "";
+        }
+    }
+
+    public void OnSolverStatusUpdate(SolverStatus status)
+    {
+        _status = status;
+        if (comboBoxSavedFitness.InvokeRequired)
+        {
+            comboBoxSavedFitness.BeginInvoke(() => comboBoxSavedFitness.Enabled = _status == SolverStatus.Idle);
+        }
+        else
+        {
+            comboBoxSavedFitness.Enabled = _status == SolverStatus.Idle;
+        }
+        
+        if (buttonRemoveFitness.InvokeRequired)
+        {
+            buttonRemoveFitness.BeginInvoke(() => buttonRemoveFitness.Enabled = _status == SolverStatus.Idle);
+        }
+        else
+        {
+            buttonRemoveFitness.Enabled = _status == SolverStatus.Idle;
+        }
     }
 }

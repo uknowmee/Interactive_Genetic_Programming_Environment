@@ -77,7 +77,7 @@ public partial class SavedForm : Form, IAvailableSolutionsSubscriber
     {
         if (comboBoxSavedSolution.InvokeRequired)
         {
-            comboBoxSavedSolution.Invoke(SelectedSolutionChange);
+            comboBoxSavedSolution.BeginInvoke(SelectedSolutionChange);
         }
         else
         {
@@ -89,7 +89,7 @@ public partial class SavedForm : Form, IAvailableSolutionsSubscriber
     {
         if (comboBoxSavedSolution.InvokeRequired)
         {
-            comboBoxSavedSolution.Invoke(() => UpdateAvailableSolutions(solutions));
+            comboBoxSavedSolution.BeginInvoke(() => UpdateAvailableSolutions(solutions));
         }
         else
         {

@@ -120,7 +120,13 @@ public partial class SolverConfigurationService
     {
         return ModelConfiguration.Copy();
     }
-    
+
+    void IModelConfiguration.Reset()
+    {
+        ModelConfiguration.Reset();
+        ConfigurationReset<IModelConfiguration>();
+    }
+
     string IModelConfiguration.ToString()
     {
         return ModelConfiguration.ToString();

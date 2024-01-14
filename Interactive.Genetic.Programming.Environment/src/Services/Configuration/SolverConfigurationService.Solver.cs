@@ -175,7 +175,13 @@ public partial class SolverConfigurationService
     {
         return SolverConfiguration.Copy();
     }
-    
+
+    void ISolverConfiguration.Reset()
+    {
+        SolverConfiguration.Reset();
+        ConfigurationReset<ISolverConfiguration>();
+    }
+
     string ISolverConfiguration.ToString()
     {
         return SolverConfiguration.ToString();

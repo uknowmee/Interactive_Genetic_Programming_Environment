@@ -25,7 +25,7 @@ public class FitnessFunction
         var assemblyName = Path.GetRandomFileName();
         var assemblies = AppDomain.CurrentDomain.GetAssemblies();
         var references = assemblies
-            .Where(a => !a.IsDynamic)
+            .Where(a => !a.IsDynamic && !string.IsNullOrWhiteSpace(a.Location))
             .Select(a => MetadataReference.CreateFromFile(a.Location))
             .ToArray();
 

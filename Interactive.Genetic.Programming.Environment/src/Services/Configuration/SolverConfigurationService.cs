@@ -1,7 +1,6 @@
 ﻿using Configuration.App;
 using Configuration.Interfaces;
 using Configuration.Solver;
-using Shared;
 using Shared.Exceptions;
 
 namespace Configuration;
@@ -51,6 +50,12 @@ public partial class SolverConfigurationService :  IModelConfiguration, ISolverC
     private void ConfigurationChanged<T>(string propertyName, T newValue)
     {
         _singleSubscriber?.OnSolverConfigurationChanged($"Configuration has changed: {propertyName} {newValue}");
+        _fullSubscriber?.OnSolverConfigurationChanged(ModelConfiguration, SolverConfiguration);
+    }
+
+    private void ConfigurationReset<T>()
+    {
+        _singleSubscriber?.OnSolverConfigurationChanged($"Configuration reset: {typeof(T).Name}");
         _fullSubscriber?.OnSolverConfigurationChanged(ModelConfiguration, SolverConfiguration);
     }
 

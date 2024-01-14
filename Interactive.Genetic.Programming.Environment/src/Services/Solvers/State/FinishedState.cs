@@ -1,10 +1,11 @@
-﻿using Solvers.Interfaces;
+﻿using Shared.Exceptions;
+using Solvers.Interfaces;
 
 namespace Solvers.State;
 
 internal class FinishedState : ISolverState
 {
-    public SolverStatus Status => SolverStatus.Idle;
+    public SolverStatus Status => SolverStatus.Finished;
 
     public IGeneticSolver Solver { get; }
     
@@ -15,21 +16,21 @@ internal class FinishedState : ISolverState
     
     public void Start()
     {
-        throw new NotImplementedException();
+        throw new CustomException("Solver is already finished, cannot start it - reset it first");
     }
 
     public void Stop()
     {
-        throw new NotImplementedException();
+        throw new CustomException("Solver is not running, cannot stop it - reset it first");
     }
 
     public void Reset()
     {
-        throw new NotImplementedException();
+        Solver.State = new IdleState(Solver);
+        Solver.State.Reset();
     }
 
     public void Process()
     {
-        throw new NotImplementedException();
     }
 }

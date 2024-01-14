@@ -1,10 +1,13 @@
 ﻿using App.Forms;
 using App.Services.Interfaces;
+using Microsoft.Extensions.Logging;
 
 namespace App.Services;
 
 public class WindowSwitcherService : IWindowSwitcherService
 {
+    private readonly ILogger<WindowSwitcherService> _logger;
+    
     private bool _initialized;
 
     private HomeForm? _homeForm;
@@ -21,6 +24,11 @@ public class WindowSwitcherService : IWindowSwitcherService
 
     public Form InitialView => HomeForm;
 
+    public WindowSwitcherService(ILoggerFactory loggerFactory)
+    {
+        _logger = loggerFactory.CreateLogger<WindowSwitcherService>();
+    }
+    
     public void InitializeWithWindows(
         HomeForm homeForm,
         ConfigurationForm configurationForm,
@@ -29,6 +37,7 @@ public class WindowSwitcherService : IWindowSwitcherService
         SavedForm savedForm
     )
     {
+        _logger.LogInformation("Initializing windows.");
         _initialized = true;
         
         _homeForm = homeForm;
@@ -40,6 +49,7 @@ public class WindowSwitcherService : IWindowSwitcherService
 
     public void Switch<T>(Form current) where T : Form
     {
+        _logger.LogInformation("Trying to switch window to {Form} from {CurrentForm}.", typeof(T).Name, current.GetType().Name);
         EnsureInitialized();
         
         if (typeof(T) == typeof(HomeForm) && current is not Forms.HomeForm)
@@ -77,6 +87,7 @@ public class WindowSwitcherService : IWindowSwitcherService
     public void Quit(Form current)
     {
         EnsureInitialized();
+        _logger.LogInformation("Quitting application from {CurrentForm}.", current.GetType().Name);
         Application.Exit();
     }
 
