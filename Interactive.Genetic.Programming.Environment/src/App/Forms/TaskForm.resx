@@ -117,4 +117,30 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="textBoxTaskReadme.Text" xml:space="preserve">
+    <value>Provide, your task in following Json format. Cover the problem solution space with test cases as best as possible.
+
+{
+    "inputLength": 3,
+    "testCases": [
+        {
+            "input": {
+                "values": [
+		    1,
+		    2,
+		    3
+		]
+            },
+            "output": {
+                "values": [
+                    1.0
+                ]
+            },
+            "programOutput": {
+                "values": []
+            }
+        }
+    ]
+}</value>
+  </data>
 </root>
