@@ -31,6 +31,11 @@ public class FitnessService : IFitnessService, IFitnessInformationPublisher, IAv
 
     public void ActivateFitness(FitnessFunctionEntity fitnessFunction)
     {
+        if (_fitnessFunction?.Name == fitnessFunction.Name)
+        {
+            return;
+        }
+        
         _fitnessFunction = new FitnessFunction(fitnessFunction.Name, fitnessFunction.Code);
         _fitnessInformationSubscriber?.OnFitnessFunctionChange(fitnessFunction.Name);
     }

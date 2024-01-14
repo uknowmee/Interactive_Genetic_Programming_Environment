@@ -1,35 +1,41 @@
-﻿using Solvers.Interfaces;
+﻿using Shared.Exceptions;
+using Solvers.Interfaces;
 
 namespace Solvers.State;
 
 internal class StoppedState : ISolverState
 {
-    public SolverStatus Status => SolverStatus.Idle;
+    public SolverStatus Status => SolverStatus.Stopped;
+    
+    private readonly SolvingState _solvingState;
 
     public IGeneticSolver Solver { get; }
     
-    public StoppedState(IGeneticSolver solver)
+    public StoppedState(IGeneticSolver solver, SolvingState solvingState)
     {
         Solver = solver;
+        _solvingState = solvingState;
     }
     
     public void Start()
     {
-        throw new NotImplementedException();
+        Solver.EmitLog("Solver is starting again");
+        Solver.State = _solvingState;
+        Solver.State.Process();
     }
 
     public void Stop()
     {
-        throw new NotImplementedException();
+        throw new CustomException("Solver is already stopped");
     }
 
     public void Reset()
     {
-        throw new NotImplementedException();
+        Solver.State = new IdleState(Solver);
+        Solver.State.Reset();
     }
 
     public void Process()
     {
-        throw new NotImplementedException();
     }
 }

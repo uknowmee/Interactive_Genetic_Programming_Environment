@@ -4,7 +4,6 @@ using Configuration.App;
 using Database.Entities;
 using Database.Interfaces;
 using File.Interfaces;
-using Shared;
 using Shared.Exceptions;
 using Tasks.Interfaces;
 using Task = Shared.Task;
@@ -40,6 +39,11 @@ public class TasksService : ITasksService, ITaskInformationPublisher, IAvailable
 
     public void ActivateTask(TaskEntity task)
     {
+        if (_task?.TaskName == task.Name)
+        {
+            return;
+        }
+        
         _task = JsonSerializer.Deserialize<Task>(task.Json) ?? throw new Exception("Task is null");
         _task.TaskName = task.Name;
         

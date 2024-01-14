@@ -1,32 +1,40 @@
 ﻿using App.Services.Interfaces;
 using Configuration.App;
 using Database.Entities;
+using Solvers;
+using Solvers.Interfaces;
 using Tasks.Interfaces;
 
 namespace App.Forms;
 
-public partial class TaskForm : Form, IAvailableTasksSubscriber
+public partial class TaskForm : Form, IAvailableTasksSubscriber, ISolverStatusSubscriber
 {
+    private SolverStatus _status = SolverStatus.Idle;
+    
     private readonly IWindowSwitcherService _windowSwitcher;
     private readonly ITasksService _tasksService;
     private readonly IAvailableTasksService _availableTasksService;
     private readonly IAppConfiguration _appConfiguration;
+    private readonly ISolverService _solverService;
 
     public TaskForm(
         IWindowSwitcherService windowSwitcher,
         ITasksService tasksService,
         IAvailableTasksService availableTasksService,
-        IAppConfiguration appConfiguration
+        IAppConfiguration appConfiguration,
+        ISolverService solverService
     )
     {
         _windowSwitcher = windowSwitcher;
         _tasksService = tasksService;
         _availableTasksService = availableTasksService;
         _appConfiguration = appConfiguration;
+        _solverService = solverService;
 
         InitializeComponent();
 
         _availableTasksService.Subscribe(this);
+        _solverService.Subscribe(this);
     }
 
     private void Task_Load(object sender, EventArgs e)
@@ -114,12 +122,36 @@ public partial class TaskForm : Form, IAvailableTasksSubscriber
 
     private void comboBoxSavedTask_SelectedIndexChanged(object sender, EventArgs e)
     {
-        if (comboBoxSavedTask.SelectedItem is not TaskEntity task) return;
+        if (comboBoxSavedTask.InvokeRequired)
+        {
+            comboBoxSavedTask.BeginInvoke(SelectedTaskChange);
+        }
+        else
+        {
+            SelectedTaskChange();
+        }
+    }
 
+    private void SelectedTaskChange()
+    {
+        if (comboBoxSavedTask.SelectedItem is not TaskEntity task) return;
         _tasksService.ActivateTask(task);
     }
 
+
     public void AvailableTasksUpdate(IEnumerable<TaskEntity> tasks)
+    {
+        if (comboBoxSavedTask.InvokeRequired)
+        {
+            comboBoxSavedTask.BeginInvoke(() => UpdateComboBox(tasks));
+        }
+        else
+        {
+            UpdateComboBox(tasks);
+        }
+    }
+
+    private void UpdateComboBox(IEnumerable<TaskEntity> tasks)
     {
         var tasksArray = tasks.ToArray();
 
@@ -135,6 +167,35 @@ public partial class TaskForm : Form, IAvailableTasksSubscriber
 
     public void OnTaskReset()
     {
-        comboBoxSavedTask.SelectedIndex = -1;
+        if (comboBoxSavedTask.InvokeRequired)
+        {
+            comboBoxSavedTask.BeginInvoke(() => comboBoxSavedTask.SelectedIndex = -1);
+        }
+        else
+        {
+            comboBoxSavedTask.SelectedIndex = -1;
+        }
+    }
+
+    public void OnSolverStatusUpdate(SolverStatus status)
+    {
+        _status = status;
+        if (comboBoxSavedTask.InvokeRequired)
+        {
+            comboBoxSavedTask.BeginInvoke(() => comboBoxSavedTask.Enabled = _status == SolverStatus.Idle);
+        }
+        else
+        {
+            comboBoxSavedTask.Enabled = _status == SolverStatus.Idle;
+        }
+        
+        if (buttonRemoveTask.InvokeRequired)
+        {
+            buttonRemoveTask.BeginInvoke(() => buttonRemoveTask.Enabled = _status == SolverStatus.Idle);
+        }
+        else
+        {
+            buttonRemoveTask.Enabled = _status == SolverStatus.Idle;
+        }
     }
 }

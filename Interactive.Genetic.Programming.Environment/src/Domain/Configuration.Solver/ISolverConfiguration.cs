@@ -25,4 +25,5 @@ public interface ISolverConfiguration
     public double SwapLinesProbability { get; set; }
     ISolverConfiguration Copy();
     public string ToString();
+    void Reset();
 }
