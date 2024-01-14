@@ -5,6 +5,7 @@ using Fitness.Interfaces;
 using Generators.Program.Interfaces;
 using History.Interfaces;
 using Interpreter;
+using Microsoft.Extensions.Logging;
 using Shared;
 using Solution.Interfaces;
 using Solvers.Interfaces;
@@ -14,13 +15,15 @@ using Tasks.Interfaces;
 
 namespace Solvers;
 
-public class SolverService : ISolverService, IGeneticSolver
+public class SolverService : ISolverService, IGeneticSolver, ILogEmitter
 {
+    private readonly ILogger<SolverService> _logger;
+
     private ISolverState _state;
-    
-    private readonly List<Individual> _population = [];
+
     private Individual? _bestIndividual;
-    
+    public int AdditionalPopulation { get; set; }
+
     public ISolverPublisher Publisher { get; } = new SolverPublisher();
     public IAppConfiguration AppConfiguration { get; }
     public IModelConfiguration ModelConfiguration { get; }
@@ -35,14 +38,18 @@ public class SolverService : ISolverService, IGeneticSolver
     public IMutatorService MutatorService { get; }
     public IHorizontalMutatorService HorizontalMutatorService { get; }
     public ITournamentHandlerService TournamentHandlerService { get; }
-    
+
     ISolverState IGeneticSolver.State
     {
         get => _state;
-        set => _state = value;
+        set
+        {
+            _state = value;
+            Publisher.NotifyStatus(_state.Status);
+        }
     }
-    
-    public List<Individual> Population => _population;
+
+    public List<Individual> Population { get; } = [];
 
     public Individual? BestIndividual
     {
@@ -54,10 +61,11 @@ public class SolverService : ISolverService, IGeneticSolver
             Publisher.NotifyBestIndividualFitness(_bestIndividual?.FitnessValue ?? 0.0);
         }
     }
-    
-    public double AvgFitness => Population.Count == 0 
-        ? 0.0 
-        : Population.Average(i => i.FitnessValue);
+
+    public double AvgFitness
+        => Population.Count == 0
+            ? double.NegativeInfinity
+            : Population.Average(i => i.FitnessValue);
 
     public SolverService(
         IAppConfiguration appConfiguration,
@@ -72,9 +80,12 @@ public class SolverService : ISolverService, IGeneticSolver
         ICrossingService crossingService,
         IMutatorService mutatorService,
         IHorizontalMutatorService horizontalMutatorService,
-        ITournamentHandlerService tournamentHandlerService
+        ITournamentHandlerService tournamentHandlerService,
+        ILoggerFactory loggerFactory
     )
     {
+        _logger = loggerFactory.CreateLogger<SolverService>();
+
         AppConfiguration = appConfiguration;
         ModelConfiguration = modelConfiguration;
         SolverConfiguration = solverConfiguration;
@@ -88,10 +99,20 @@ public class SolverService : ISolverService, IGeneticSolver
         MutatorService = mutatorService;
         HorizontalMutatorService = horizontalMutatorService;
         TournamentHandlerService = tournamentHandlerService;
-        
+
         _state = new IdleState(this);
     }
 
+    public void Subscribe(ISolverStatusSubscriber subscriber)
+    {
+        Publisher.Subscribe(subscriber);
+    }
+    
+    public void Unsubscribe(ISolverStatusSubscriber subscriber)
+    {
+        Publisher.Unsubscribe(subscriber);
+    }
+    
     public void Subscribe(ISolverSubscriber subscriber)
     {
         Publisher.Subscribe(subscriber);
@@ -108,12 +129,19 @@ public class SolverService : ISolverService, IGeneticSolver
         Publisher.NotifyPopulationSize(
             _state.Status == SolverStatus.Idle
                 ? 0
-                : SolverConfiguration.PopulationSize
+                : SolverConfiguration.PopulationSize + AdditionalPopulation
         );
         Publisher.NotifyBestIndividual(BestIndividual?.ProgramString ?? "");
-        Publisher.NotifyBestIndividualFitness(BestIndividual?.FitnessValue ?? 0.0);
-        Publisher.NotifyAvgFitness(AvgFitness);
-        Publisher.NotifyProceeded(0);
+        Publisher.NotifyBestIndividualFitness(
+            _state.Status == SolverStatus.Idle
+                ? 0.0
+                : BestIndividual?.FitnessValue ?? double.NegativeInfinity
+        );
+        Publisher.NotifyAvgFitness(_state.Status == SolverStatus.Idle ? 0.0 : AvgFitness);
+        if (_state.Status == SolverStatus.Idle)
+        {
+            Publisher.NotifyProceeded(0);
+        }
     }
 
     public void Start()
@@ -133,6 +161,7 @@ public class SolverService : ISolverService, IGeneticSolver
 
     public void EmitLog(string log)
     {
+        _logger.LogInformation("SolverService: emitted log: {log}", log);
         HistoryService.PushEntry(log);
     }
 }

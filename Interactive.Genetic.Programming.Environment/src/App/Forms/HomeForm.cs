@@ -111,7 +111,7 @@ public partial class HomeForm : Form, ISolverSubscriber, IHistorySubscriber, IFi
     {
         if (labelStatusValue.InvokeRequired)
         {
-            labelStatusValue.Invoke(new Action(() => labelStatusValue.Text = status.ToString()));
+            labelStatusValue.BeginInvoke(() => labelStatusValue.Text = status.ToString());
         }
         else
         {
@@ -123,7 +123,7 @@ public partial class HomeForm : Form, ISolverSubscriber, IHistorySubscriber, IFi
     {
         if (labelPopulationSizeValue.InvokeRequired)
         {
-            labelPopulationSizeValue.Invoke(new Action(() => labelPopulationSizeValue.Text = size.ToString()));
+            labelPopulationSizeValue.BeginInvoke(() => labelPopulationSizeValue.Text = size.ToString());
         }
         else
         {
@@ -135,7 +135,7 @@ public partial class HomeForm : Form, ISolverSubscriber, IHistorySubscriber, IFi
     {
         if (textBoxBestIndividual.InvokeRequired)
         {
-            textBoxBestIndividual.Invoke(new Action(() => textBoxBestIndividual.Text = program));
+            textBoxBestIndividual.BeginInvoke(() => textBoxBestIndividual.Text = program);
         }
         else
         {
@@ -147,7 +147,7 @@ public partial class HomeForm : Form, ISolverSubscriber, IHistorySubscriber, IFi
     {
         if (labelBestIndividualValue.InvokeRequired)
         {
-            labelBestIndividualValue.Invoke(new Action(() => labelBestIndividualValue.Text = fitness.ToString(CultureInfo.InvariantCulture)));
+            labelBestIndividualValue.BeginInvoke(() => labelBestIndividualValue.Text = fitness.ToString(CultureInfo.InvariantCulture));
         }
         else
         {
@@ -159,7 +159,7 @@ public partial class HomeForm : Form, ISolverSubscriber, IHistorySubscriber, IFi
     {
         if (labelAvgFitnessValue.InvokeRequired)
         {
-            labelAvgFitnessValue.Invoke(new Action(() => labelAvgFitnessValue.Text = avgFitness.ToString(CultureInfo.InvariantCulture)));
+            labelAvgFitnessValue.BeginInvoke(() => labelAvgFitnessValue.Text = avgFitness.ToString(CultureInfo.InvariantCulture));
         }
         else
         {
@@ -171,7 +171,7 @@ public partial class HomeForm : Form, ISolverSubscriber, IHistorySubscriber, IFi
     {
         if (labelProcedeedValue.InvokeRequired)
         {
-            labelProcedeedValue.Invoke(new Action(() => labelProcedeedValue.Text = $@"{percent}%"));
+            labelProcedeedValue.BeginInvoke(() => labelProcedeedValue.Text = $@"{percent}%");
         }
         else
         {
@@ -183,11 +183,16 @@ public partial class HomeForm : Form, ISolverSubscriber, IHistorySubscriber, IFi
     {
         if (textBoxHistory.InvokeRequired)
         {
-            textBoxHistory.Invoke(new Action(() => textBoxHistory.Text += update));
+            textBoxHistory.BeginInvoke(() =>
+            {
+                textBoxHistory.Text += update;
+                ScrollHistoryDown();
+            });
         }
         else
         {
             textBoxHistory.Text += update;
+            ScrollHistoryDown();
         }
     }
 
@@ -195,7 +200,7 @@ public partial class HomeForm : Form, ISolverSubscriber, IHistorySubscriber, IFi
     {
         if (textBoxHistory.InvokeRequired)
         {
-            textBoxHistory.Invoke(new Action(() => textBoxHistory.Text = string.Empty));
+            textBoxHistory.BeginInvoke(() => textBoxHistory.Text = string.Empty);
         }
         else
         {
@@ -205,28 +210,71 @@ public partial class HomeForm : Form, ISolverSubscriber, IHistorySubscriber, IFi
 
     public void OnFitnessFunctionChange(string functionName)
     {
-        labelFitnessFunctionName.Text = functionName;
+        if (labelFitnessFunctionName.InvokeRequired)
+        {
+            labelFitnessFunctionName.BeginInvoke(() => labelFitnessFunctionName.Text = functionName);
+        }
+        else
+        {
+            labelFitnessFunctionName.Text = functionName;
+        }
     }
 
     public void OnFitnessFunctionReset()
     {
-        labelFitnessFunctionName.Text = @"None";
+        if (labelFitnessFunctionName.InvokeRequired)
+        {
+            labelFitnessFunctionName.BeginInvoke(() => labelFitnessFunctionName.Text = @"None");
+        }
+        else
+        {
+            labelFitnessFunctionName.Text = @"None";
+        }
     }
 
     public void OnTaskChange(string taskName)
     {
-        labelTaskName.Text = taskName;
+        if (labelTaskName.InvokeRequired)
+        {
+            labelTaskName.BeginInvoke(() => labelTaskName.Text = taskName);
+        }
+        else
+        {
+            labelTaskName.Text = taskName;
+        }
     }
 
     public void OnTaskReset()
     {
-        labelTaskName.Text = @"None";
+        if (labelTaskName.InvokeRequired)
+        {
+            labelTaskName.BeginInvoke(() => labelTaskName.Text = @"None");
+        }
+        else
+        {
+            labelTaskName.Text = @"None";
+        }
     }
 
     public void OnSolverConfigurationChanged(IModelConfiguration modelConfiguration, ISolverConfiguration solverConfiguration)
     {
-        textBoxModelConfiguration.Text = modelConfiguration.ToString();
-        textBoxSolverConfiguration.Text = solverConfiguration.ToString();
+        if (textBoxModelConfiguration.InvokeRequired)
+        {
+            textBoxModelConfiguration.BeginInvoke(() => textBoxModelConfiguration.Text = modelConfiguration.ToString());
+        }
+        else
+        {
+            textBoxModelConfiguration.Text = modelConfiguration.ToString();
+        }
+        
+        if (textBoxSolverConfiguration.InvokeRequired)
+        {
+            textBoxSolverConfiguration.BeginInvoke(() => textBoxSolverConfiguration.Text = solverConfiguration.ToString());
+        }
+        else
+        {
+            textBoxSolverConfiguration.Text = solverConfiguration.ToString();
+        }
     }
     
     private void ScrollHistoryDown()

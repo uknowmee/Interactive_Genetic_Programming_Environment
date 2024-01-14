@@ -57,4 +57,5 @@ public interface IModelConfiguration : IConstantConfiguration, IForStatementConf
     public new double NewVarExpressionChance { get; set; }
     IModelConfiguration Copy();
     public string ToString();
+    void Reset();
 }

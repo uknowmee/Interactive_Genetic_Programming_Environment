@@ -5,7 +5,18 @@ namespace Solvers;
 public class SolverPublisher : ISolverPublisher
 {
     private ISolverSubscriber? _subscriber;
+    private readonly List<ISolverStatusSubscriber> _statusSubscribers = new();
 
+    public void Subscribe(ISolverStatusSubscriber subscriber)
+    {
+        _statusSubscribers.Add(subscriber);
+    }
+
+    public void Unsubscribe(ISolverStatusSubscriber subscriber)
+    {
+        _statusSubscribers.Remove(subscriber);
+    }
+    
     public void Subscribe(ISolverSubscriber subscriber)
     {
         _subscriber = subscriber;
@@ -18,6 +29,10 @@ public class SolverPublisher : ISolverPublisher
 
     public void NotifyStatus(SolverStatus status)
     {
+        foreach (var subscriber in _statusSubscribers)
+        {
+            subscriber.OnSolverStatusUpdate(status);
+        }
         _subscriber?.OnSolverStatusUpdate(status);
     }
 

@@ -16,6 +16,7 @@ internal interface IGeneticSolver
 {
     public List<Individual> Population { get; }
     public Individual? BestIndividual { get; set; }
+    public int AdditionalPopulation { get; set; }
     public double AvgFitness { get; }
     
     public ISolverPublisher Publisher { get; }

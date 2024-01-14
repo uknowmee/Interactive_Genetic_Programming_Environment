@@ -35,6 +35,17 @@ public class ModelConfiguration : IModelConfiguration
         };
     }
 
+    public void Reset()
+    {
+        var newConfig = new ModelConfiguration();
+        var properties = GetType().GetProperties();
+        foreach (var property in properties)
+        {
+            var value = property.GetValue(newConfig);
+            property.SetValue(this, value);
+        }
+    }
+
     public override string ToString()
     {
         var properties = GetType().GetProperties();
