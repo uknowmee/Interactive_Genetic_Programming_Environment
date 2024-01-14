@@ -2,6 +2,7 @@
 using Database.Interfaces;
 using Fitness.Interfaces;
 using Shared;
+using Shared.Exceptions;
 
 namespace Fitness;
 

@@ -2,6 +2,7 @@
 using Configuration.Interfaces;
 using Configuration.Solver;
 using Shared;
+using Shared.Exceptions;
 
 namespace Configuration;
 
