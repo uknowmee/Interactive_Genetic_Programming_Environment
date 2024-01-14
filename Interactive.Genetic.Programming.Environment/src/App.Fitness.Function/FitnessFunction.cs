@@ -1,5 +1,5 @@
 ﻿using System;
-using LangTests;
+using Shared.Interfaces;
 
 namespace CustomFitness.Example;
 

@@ -5,6 +5,7 @@ using Database.Entities;
 using Database.Interfaces;
 using File.Interfaces;
 using Shared;
+using Shared.Exceptions;
 using Tasks.Interfaces;
 using Task = Shared.Task;
 
