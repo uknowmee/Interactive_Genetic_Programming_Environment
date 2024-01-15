@@ -1,0 +1,18 @@
+{
+  "inputLength": 1,
+  "testCases": [
+    {
+      "input": {
+        "values": []
+      },
+      "output": {
+        "values": [
+          1.0
+        ]
+      },
+      "programOutput": {
+        "values": []
+      }
+    }
+  ]
+}
