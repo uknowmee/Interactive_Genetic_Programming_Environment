@@ -4,7 +4,7 @@ using Serilog.Core;
 using Serilog.Events;
 using Serilog.Extensions.Logging;
 
-namespace MyApp.Solver;
+namespace App.Solver;
 
 public static class LoggingConfiguration
 {
