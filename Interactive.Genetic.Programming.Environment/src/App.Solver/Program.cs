@@ -53,11 +53,11 @@ catch (Exception e)
 }
 Console.Out.WriteLine("Finished");
 
-public static class App
+public static class Application
 {
     public static ContainerBuilder AddLogging(this ContainerBuilder builder)
     {
-        builder.RegisterInstance(MyApp.Solver.LoggingConfiguration.Factory).As<ILoggerFactory>();
+        builder.RegisterInstance(App.Solver.LoggingConfiguration.Factory).As<ILoggerFactory>();
         return builder;
     }
     
