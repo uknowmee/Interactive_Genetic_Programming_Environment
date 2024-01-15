@@ -1,0 +1,69 @@
+{
+  "inputLength": 2,
+  "testCases": [
+    {
+      "input": {
+        "values": [
+          0.0,
+          0.0
+        ]
+      },
+      "output": {
+        "values": [
+          0.0
+        ]
+      },
+      "programOutput": {
+        "values": []
+      }
+    },
+    {
+      "input": {
+        "values": [
+          0.0,
+          1.0
+        ]
+      },
+      "output": {
+        "values": [
+          0.0
+        ]
+      },
+      "programOutput": {
+        "values": []
+      }
+    },
+    {
+      "input": {
+        "values": [
+          1.0,
+          0.0
+        ]
+      },
+      "output": {
+        "values": [
+          0.0
+        ]
+      },
+      "programOutput": {
+        "values": []
+      }
+    },
+    {
+      "input": {
+        "values": [
+          1.0,
+          1.0
+        ]
+      },
+      "output": {
+        "values": [
+          1.0
+        ]
+      },
+      "programOutput": {
+        "values": []
+      }
+    }
+  ]
+}
