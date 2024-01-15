@@ -30,7 +30,8 @@ internal class FinishedState : ISolverState
         Solver.State.Reset();
     }
 
-    public void Process()
+    public Task Process()
     {
+        return Task.CompletedTask;
     }
 }

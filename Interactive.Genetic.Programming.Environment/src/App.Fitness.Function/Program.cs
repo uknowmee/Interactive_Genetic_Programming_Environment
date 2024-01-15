@@ -18,7 +18,7 @@ const string text = """
                                 var output = testCase.Output;
                                 var predicted = testCase.Predicted;
                     
-                                if (output.Count == 0)
+                                if (predicted.Count == 0)
                                 {
                                     fitness -= 1000;
                                     fitness -= individual.ProgramLength * 5;
@@ -38,7 +38,7 @@ const string text = """
                     }
                     """;
 
-var evaluable = new Individual();
+Individual evaluable = new Individual(null, null);
 var returned1 = new FitnessFunction("1_3_B", text).Run([evaluable]);
 
 evaluable.Task.TestCases[0].ProgramOutput.Values = [1, 2, 3];

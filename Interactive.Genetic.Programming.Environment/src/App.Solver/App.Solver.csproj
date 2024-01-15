@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Autofac" Version="7.1.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Domain\Configuration.Logging\Configuration.Logging.csproj" />
+      <ProjectReference Include="..\Services\Configuration\Configuration.csproj" />
+      <ProjectReference Include="..\Services\Database\Database.csproj" />
+      <ProjectReference Include="..\Services\File\File.csproj" />
+      <ProjectReference Include="..\Services\Fitness\Fitness.csproj" />
+      <ProjectReference Include="..\Services\Generators.Program\Generators.Program.csproj" />
+      <ProjectReference Include="..\Services\Interpreter\Interpreter.csproj" />
+      <ProjectReference Include="..\Services\Serialization\Serialization.csproj" />
+      <ProjectReference Include="..\Services\Solvers\Solvers.csproj" />
+    </ItemGroup>
+
+</Project>

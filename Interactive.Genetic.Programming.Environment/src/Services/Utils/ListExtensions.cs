@@ -1,8 +1,4 @@
-﻿var intList = new List<int> { 1, 2, 3, 4, 5 };
-
-intList.Set(3, 666);
-
-Console.Out.WriteLine("intList: " + string.Join(", ", intList));
+﻿namespace Utils;
 
 public static class ListExtensions
 {

@@ -47,11 +47,11 @@ public sealed class IfStatement : DeepNode
     {
         var ifBody = new StringBuilder();
 
-        ifBody.Append($"if ({LogicExpression}) {{\n");
+        ifBody.Append($"if ({LogicExpression}) {{{Environment.NewLine}");
 
         foreach (var node in ChildrenNodes)
         {
-            ifBody.Append(new string('\t', Indent)).Append(node).Append('\n');
+            ifBody.Append(new string('\t', Indent)).Append(node).Append(Environment.NewLine);
         }
 
         ifBody.Append(new string('\t', Indent - 1)).Append('}');

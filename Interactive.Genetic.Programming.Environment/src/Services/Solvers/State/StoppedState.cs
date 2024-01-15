@@ -35,7 +35,8 @@ internal class StoppedState : ISolverState
         Solver.State.Reset();
     }
 
-    public void Process()
+    public Task Process()
     {
+        return Task.CompletedTask;
     }
 }

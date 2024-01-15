@@ -27,8 +27,19 @@ internal abstract class SolvingState : ISolverState
         }
     }
     protected int TotalPopulationSize => BasePopulationSize + AdditionalPopulationSize;
+    protected List<Individual> Population
+    {
+        get => Solver.Population;
+        set => Solver.Population = value;
+    }
+
+    protected Individual? BestIndividual
+    {
+        get => Solver.BestIndividual;
+        set => Solver.BestIndividual = value;
+    }
+    protected List<Individual> BestIndividuals { get; } = [];
     
-    protected List<Individual> Population => Solver.Population;
     protected ISolverConfiguration SolverConfiguration => Solver.SolverConfiguration;
     protected IProgramGeneratorService ProgramGeneratorService => Solver.ProgramGeneratorService;
     protected IInterpreterService InterpreterService => Solver.InterpreterService;
@@ -93,11 +104,29 @@ internal abstract class SolvingState : ISolverState
         EmitLog("Solver reset has been queued up");
     }
 
-    public void Process()
+    public async Task Process()
     {
-        NotifyAll();
-        PreEvolution();
-        new Task(Evolution).Start();
+        try
+        {
+            NotifyAll();
+            await Task.Run(() =>
+            {
+                PreEvolution();
+                Evolution();
+            });
+        }
+        catch (ErrorDuringFitnessFunctionExecution e)
+        {
+            EmitLog($"Error during fitness function execution, finishing evolution: {e.Message}");
+            Solver.State = new FinishedState(Solver);
+            await Solver.State.Process();
+        }
+        catch (Exception e)
+        {
+            EmitLog($"Unexpected error, finishing evolution: {e}");
+            Solver.State = new FinishedState(Solver);
+            await Solver.State.Process();
+        }
     }
     
     private void PreEvolution()
@@ -118,7 +147,8 @@ internal abstract class SolvingState : ISolverState
     {
         while (true)
         {
-            EmitLog($"{Environment.NewLine}Generation number: {Epoch} / {SolverConfiguration.MaxGenerations}, population size: {BasePopulationSize} + {AdditionalPopulationSize}");
+            EmitLog($"Generation number: {Epoch} / {SolverConfiguration.MaxGenerations}, " +
+                    $"population size: {BasePopulationSize} + {AdditionalPopulationSize}");
             EmitLog($"Best individual fitness: {Solver.BestIndividual?.FitnessValue ?? double.NegativeInfinity}");
             EmitLog($"Avg fitness: {Solver.AvgFitness}");
             NotifyAvgFitness();
@@ -149,6 +179,8 @@ internal abstract class SolvingState : ISolverState
             
             EmitLog("Evolution step has been started");
             EvolutionStep();
+            Epoch++;
+            EmitLog($"Evolution step has been finished {Environment.NewLine}");
         }
     }
     
@@ -197,7 +229,7 @@ internal abstract class SolvingState : ISolverState
     private void NotifyPopulationSize() => Solver.Publisher.NotifyPopulationSize(TotalPopulationSize);
     private void NotifyAvgFitness() => Solver.Publisher.NotifyAvgFitness(Solver.AvgFitness);
     
-    protected void NotifyProceeded(int proceededPercent) => Solver.Publisher.NotifyProceeded(proceededPercent);
+    protected void NotifyProceeded(double proceededPercent) => Solver.Publisher.NotifyProceeded(proceededPercent);
     protected void EmitLog(string log) => Solver.EmitLog(log);
     
     protected virtual bool EpochLimitExceeded() => Epoch > SolverConfiguration.MaxGenerations;

@@ -7,6 +7,7 @@ using History.Interfaces;
 using Interpreter;
 using Microsoft.Extensions.Logging;
 using Shared;
+using Shared.Interfaces;
 using Solution.Interfaces;
 using Solvers.Interfaces;
 using Solvers.State;
@@ -49,7 +50,7 @@ public class SolverService : ISolverService, IGeneticSolver, ILogEmitter
         }
     }
 
-    public List<Individual> Population { get; } = [];
+    public List<Individual> Population { get; set; } = [];
 
     public Individual? BestIndividual
     {

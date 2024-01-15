@@ -167,7 +167,7 @@ public partial class HomeForm : Form, ISolverSubscriber, IHistorySubscriber, IFi
         }
     }
 
-    public void OnProceededUpdate(int percent)
+    public void OnProceededUpdate(double percent)
     {
         if (labelProcedeedValue.InvokeRequired)
         {

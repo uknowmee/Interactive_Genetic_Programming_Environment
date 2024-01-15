@@ -14,7 +14,7 @@ public class FitnessFunction
             var output = testCase.Output;
             var predicted = testCase.Predicted;
 
-            if (output.Count == 0)
+            if (predicted.Count == 0)
             {
                 fitness -= 1000;
                 fitness -= individual.ProgramLength * 5;

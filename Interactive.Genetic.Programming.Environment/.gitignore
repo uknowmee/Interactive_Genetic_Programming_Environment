@@ -6,6 +6,7 @@
 *logs/
 *db/
 *app_tasks/
+app_solutions/
 *build/
 *csproj.user
 *.DotSettings.user
