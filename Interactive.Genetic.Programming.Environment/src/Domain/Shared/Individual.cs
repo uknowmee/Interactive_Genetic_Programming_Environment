@@ -1,37 +1,33 @@
-﻿using Shared.Interfaces;
+﻿using Model.Nodes.Big.Program.Root;
+using Shared.Interfaces;
 
 namespace Shared;
 
 public class Individual : IEvaluable
 {
-    public double FitnessValue { get; set; } = 0.0;
+    public bool FinishedAllCasesRun { get; set; }
+    public double FitnessValue { get; set; } = double.NegativeInfinity;
 
-    public string ProgramString => "Mock program";
-    public int ProgramLength => 3;
-    public int NumberOfVariables => 2;
-    public int NumberOfNodes => 1;
+    public string ProgramString => Program.ToString();
+    public int ProgramLength => Program.Length;
+    public int NumberOfVariables => Program.ProgramVariables.Count;
+    public int NumberOfNodes => Program.ChildrenAsNodes().Count;
     
-    public Task Task { get; set; } = new()
-    {
-        InputLength = 2,
-        TaskName = "Mock task",
-        TestCases =
-        [
-            new TestCase
-            {
-                Input = new Vector { Values = [1, 2] },
-                Output = new Vector { Values = [3] },
-                ProgramOutput = new Vector { Values = [3] }
-            },
-
-            new TestCase
-            {
-                Input = new Vector { Values = [2, 3] },
-                Output = new Vector { Values = [5] },
-                ProgramOutput = new Vector { Values = [6] }
-            }
-        ]
-    };
+    public Task Task { get; }
+    
+    public Program Program { get; }
 
     public List<ITestCase> TestCases => [..Task.TestCases];
+    
+    public Individual(Program program, Task solvingTask)
+    {
+        Program = program;
+        Task = solvingTask;
+    }
+
+    public override string ToString()
+    {
+        return $"Fitness: {FitnessValue},{Environment.NewLine}" +
+               $"Program: {ProgramString}";
+    }
 }

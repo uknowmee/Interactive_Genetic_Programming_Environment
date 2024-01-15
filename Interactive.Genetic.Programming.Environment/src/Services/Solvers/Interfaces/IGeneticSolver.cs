@@ -14,7 +14,7 @@ namespace Solvers.Interfaces;
 
 internal interface IGeneticSolver
 {
-    public List<Individual> Population { get; }
+    public List<Individual> Population { get; set; }
     public Individual? BestIndividual { get; set; }
     public int AdditionalPopulation { get; set; }
     public double AvgFitness { get; }

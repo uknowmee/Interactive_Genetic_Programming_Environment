@@ -1,4 +1,4 @@
-﻿namespace Solvers.Interfaces;
+﻿namespace Shared.Interfaces;
 
 public interface ILogEmitter
 {

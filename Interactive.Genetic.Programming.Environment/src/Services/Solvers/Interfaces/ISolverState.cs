@@ -7,5 +7,5 @@ internal interface ISolverState
     public void Start();
     public void Stop();
     public void Reset();
-    protected internal void Process();
+    protected internal Task Process();
 }

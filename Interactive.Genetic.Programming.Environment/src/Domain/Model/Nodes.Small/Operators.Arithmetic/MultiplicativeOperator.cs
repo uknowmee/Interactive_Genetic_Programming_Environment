@@ -15,7 +15,7 @@ public sealed class MultiplicativeOperator : Operator
 
     public MultiplicativeOperator(Node parentNode) : base(parentNode, "MultiplicativeOperator")
     {
-        Value = RandomService.RandomPercentage() < 50
+        Value = RandomService.RandomPercentage() < 0.5
             ? " * "
             : " / ";
     }

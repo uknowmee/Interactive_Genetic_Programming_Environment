@@ -11,7 +11,7 @@ public interface ISolverSubscriber : ISolverStatusSubscriber
     public void OnBestIndividualUpdate(string program);
     public void BestIndividualFitnessUpdate(double fitness);
     public void OnAvgFitnessUpdate(double avgFitness);
-    public void OnProceededUpdate(int percent);
+    public void OnProceededUpdate(double percent);
 }
 
 public interface ISolverPublisher
@@ -27,5 +27,5 @@ public interface ISolverPublisher
     public void NotifyBestIndividual(string program);
     public void NotifyBestIndividualFitness(double fitness);
     public void NotifyAvgFitness(double avgFitness);
-    public void NotifyProceeded(int percent);
+    public void NotifyProceeded(double percent);
 }

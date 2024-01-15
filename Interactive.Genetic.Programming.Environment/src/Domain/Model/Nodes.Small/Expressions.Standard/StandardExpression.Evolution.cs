@@ -57,7 +57,7 @@ public partial class StandardExpression
 
     private void AddConstOrVar()
     {
-        if (RandomService.RandomPercentage() < 50)
+        if (RandomService.RandomPercentage() < 0.5)
         {
             _constant = new Constant(this);
         }
@@ -80,7 +80,7 @@ public partial class StandardExpression
         _multiplicativeExpression = null;
         _additiveExpression = null;
         
-        if (RandomService.RandomPercentage() < 50)
+        if (RandomService.RandomPercentage() < 0.5)
         {
             _multiplicativeExpression = new MultiplicativeExpression(this);
         }

@@ -9,7 +9,7 @@ namespace Interpreter;
 public class InterpreterService : IInterpreterService
 {
     public bool IsFinished { get; private set; }
-    public IEnumerable<double> Outputs => _visitor?.Outputs ?? [];
+    public List<double> Outputs => _visitor?.Outputs ?? [];
 
     private Visitor? _visitor;
     private IParseTree? _parseTree;

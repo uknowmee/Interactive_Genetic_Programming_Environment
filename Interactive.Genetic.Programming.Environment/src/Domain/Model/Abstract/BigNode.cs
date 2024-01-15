@@ -20,7 +20,7 @@ public abstract class BigNode : Node
 {
     protected readonly List<VarExpression> Variables = [];
 
-    protected List<Node> ChildrenNodes { get; } = new();
+    public List<Node> ChildrenNodes { get; } = [];
     public abstract int Indent { get; protected set; }
     protected abstract int ParentIndent { get; }
     protected double NextChildChance { get; init; }

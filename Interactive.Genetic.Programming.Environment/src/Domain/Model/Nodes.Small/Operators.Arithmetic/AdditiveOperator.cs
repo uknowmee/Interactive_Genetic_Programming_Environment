@@ -25,7 +25,7 @@ public sealed class AdditiveOperator : Operator
     
     public AdditiveOperator(Node parentNode) : base(parentNode, "AdditiveOperator")
     {
-        Value = RandomService.RandomPercentage() < 50
+        Value = RandomService.RandomPercentage() < 0.5
             ? " + "
             : " - ";
     }

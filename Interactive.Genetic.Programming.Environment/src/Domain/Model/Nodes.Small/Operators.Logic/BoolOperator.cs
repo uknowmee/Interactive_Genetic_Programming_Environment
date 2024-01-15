@@ -17,7 +17,7 @@ public sealed class BoolOperator : Operator
 
     public BoolOperator(Node parentNode) : base(parentNode, "BoolOperator")
     {
-        Value = RandomService.RandomPercentage() < 50
+        Value = RandomService.RandomPercentage() < 0.5
             ? " and "
             : " or ";
     }

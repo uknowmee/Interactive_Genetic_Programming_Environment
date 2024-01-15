@@ -1,7 +1,10 @@
 ﻿using System.Diagnostics;
+using App.Program.Generator;
 using Configuration.Solver;
 using Interpreter;
 using Interpreter.Exceptions;
+using Strategies.Evolution;
+using Utils;
 
 const int capacity = 10000;
 var inputs = new List<double> { 0.0, 2.0, 3.0 };
