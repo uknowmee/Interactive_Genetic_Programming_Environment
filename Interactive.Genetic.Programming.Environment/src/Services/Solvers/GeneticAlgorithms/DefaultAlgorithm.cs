@@ -36,6 +36,11 @@ internal sealed class DefaultAlgorithm : SolvingState
             MakeAllRunnable();
         }
 
+        if (TotalPopulationSize != Population.Count)
+        {
+            MakeAllRunnable();
+        }
+        
         GeneticOperationsStep();
         BestIndividual = GetBestIndividual();
         BestIndividuals.Add(BestIndividual);
@@ -114,7 +119,8 @@ internal sealed class DefaultAlgorithm : SolvingState
 
         InterpreterService.Feed(individual.Program.ToString());
 
-        foreach (var testCase in individual.Task.TestCases)
+        var testCases = individual.Task.TestCases.Take(SolverConfiguration.NumOfTestCases).AsEnumerable();
+        foreach (var testCase in testCases)
         {
             try
             {
