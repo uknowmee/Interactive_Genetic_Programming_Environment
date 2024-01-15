@@ -56,7 +56,7 @@ public class SolverPublisher : ISolverPublisher
         _subscriber?.OnAvgFitnessUpdate(avgFitness);
     }
 
-    public void NotifyProceeded(int percent)
+    public void NotifyProceeded(double percent)
     {
         _subscriber?.OnProceededUpdate(percent);
     }

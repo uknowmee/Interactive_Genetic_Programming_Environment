@@ -11,6 +11,14 @@
       <ProjectReference Include="..\Domain\Configuration.Model\Configuration.Model.csproj" />
       <ProjectReference Include="..\Domain\Model\Model.csproj" />
       <ProjectReference Include="..\Services\Interpreter\Interpreter.csproj" />
+      <ProjectReference Include="..\Services\Strategies.Evolution\Strategies.Evolution.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Serilog" Version="3.1.1" />
+      <PackageReference Include="Serilog.AspNetCore" Version="8.0.0" />
+      <PackageReference Include="Serilog.Extensions.Logging" Version="8.0.0" />
+      <PackageReference Include="Serilog.Sinks.Async" Version="1.5.0" />
     </ItemGroup>
 
 </Project>

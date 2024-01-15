@@ -12,4 +12,14 @@ public class TestCase : ITestCase
     [JsonIgnore] List<double> ITestCase.Input => Input.Values;
     [JsonIgnore] List<double> ITestCase.Output => Output.Values;
     [JsonIgnore] List<double> ITestCase.Predicted => ProgramOutput.Values;
+
+    public TestCase Copy()
+    {
+        return new TestCase
+        {
+            Input = Input.Copy(),
+            Output = Output.Copy(),
+            ProgramOutput = ProgramOutput.Copy()
+        };
+    }
 }

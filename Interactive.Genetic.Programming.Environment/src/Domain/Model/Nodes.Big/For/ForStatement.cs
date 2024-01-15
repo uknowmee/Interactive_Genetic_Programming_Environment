@@ -57,11 +57,11 @@ public sealed class ForStatement : DeepNode
     {
         var forBody = new StringBuilder();
 
-        forBody.Append($"for ({_forAssignment}, {ComparisonExpression}, {ForIncrement}) {{\n");
+        forBody.Append($"for ({_forAssignment}, {ComparisonExpression}, {ForIncrement}) {{{Environment.NewLine}");
 
         foreach (var node in ChildrenNodes)
         {
-            forBody.Append('\t', Indent).Append(node).Append('\n');
+            forBody.Append('\t', Indent).Append(node).Append(Environment.NewLine);
         }
 
         forBody.Append('\t', Indent - 1).Append('}');

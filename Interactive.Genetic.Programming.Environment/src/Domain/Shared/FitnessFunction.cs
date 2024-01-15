@@ -2,6 +2,7 @@
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.Emit;
+using Shared.Exceptions;
 
 namespace Shared;
 
@@ -50,12 +51,19 @@ public class FitnessFunction
     
     public object? Run(object?[]? args)
     {
-        return _type?.InvokeMember(FitnessFunctionName,
-            BindingFlags.Default | BindingFlags.InvokeMethod,
-            null,
-            _instance,
-            args
-        );
+        try
+        {
+            return _type?.InvokeMember(FitnessFunctionName,
+                BindingFlags.Default | BindingFlags.InvokeMethod,
+                null,
+                _instance,
+                args
+            );
+        }
+        catch (Exception e)
+        {
+            throw new ErrorDuringFitnessFunctionExecution("Error during fitness function execution", e);
+        }
     }
     
     private static void AssureSuccess(EmitResult result)

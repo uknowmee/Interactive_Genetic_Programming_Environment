@@ -52,8 +52,9 @@ internal class IdleState : ISolverState
         Solver.EmitLog("Solver has been reset");
     }
 
-    public void Process()
+    public Task Process()
     {
+        return Task.CompletedTask;
     }
 
     private void NotifyAll()
@@ -67,6 +68,6 @@ internal class IdleState : ISolverState
 
     private ISolverState CreateSolverBasedOnConfiguration()
     {
-        return new Default(Solver);
+        return new DefaultAlgorithm(Solver);
     }
 }

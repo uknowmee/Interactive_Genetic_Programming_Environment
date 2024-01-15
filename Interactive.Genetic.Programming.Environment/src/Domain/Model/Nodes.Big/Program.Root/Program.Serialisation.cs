@@ -26,7 +26,7 @@ public partial class Program
             program.Append(node);
             if (!node.Equals(ChildrenNodes[^1]))
             {
-                program.Append('\n');
+                program.Append(Environment.NewLine);
             }
         }
 

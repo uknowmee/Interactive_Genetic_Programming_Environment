@@ -17,4 +17,14 @@ public class Task : IPrettySerializable
     {
         WriteIndented = true
     };
+
+    public Task Copy()
+    {
+        return new Task
+        {
+            TaskName = TaskName,
+            InputLength = InputLength,
+            TestCases = TestCases.Select(t => t.Copy()).ToList()
+        };
+    }
 }

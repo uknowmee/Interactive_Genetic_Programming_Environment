@@ -20,7 +20,7 @@ public class HistoryService : IHistoryService, IHistoryPublisher, IConfiguration
     
     public void PushEntry(string entry)
     {
-        var entryLine = $"[{DateTime.Now.ToString("HH:mm:ss", CultureInfo.InvariantCulture)}] {entry}{Environment.NewLine}";
+        var entryLine = $"[{DateTime.Now.ToString("K-HH:mm:ss.fff", CultureInfo.InvariantCulture)}] {entry}{Environment.NewLine}";
         _history.Append(entryLine);
         _subscriber?.OnHistoryUpdate(entryLine);
     }

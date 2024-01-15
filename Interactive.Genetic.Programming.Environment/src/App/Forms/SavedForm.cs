@@ -131,7 +131,7 @@ public partial class SavedForm : Form, IAvailableSolutionsSubscriber
         textBoxConfiguration.Text = $@"{solution.InitialModelConfiguration}" +
                                     $@"{Environment.NewLine}{Environment.NewLine}" +
                                     $@"{solution.InitialSolverConfiguration}";
-        textBoxFitness.Text = solution.InitialFitness.ToString();
+        textBoxFitness.Text = solution.InitialFitness.Code;
         textBoxHistory.Text = solution.History;
         textBoxProgram.Text = solution.BestIndividual;
     }
