@@ -36,14 +36,37 @@ internal sealed class DefaultAlgorithm : SolvingState
             MakeAllRunnable();
         }
 
-        if (TotalPopulationSize != Population.Count)
+        if (TotalPopulationSize != Population.Count && TotalPopulationSize > Population.Count)
         {
             MakeAllRunnable();
         }
-        
+        else if (TotalPopulationSize != Population.Count && TotalPopulationSize < Population.Count)
+        {
+            DecreasePopulation();
+        }
+
         GeneticOperationsStep();
         BestIndividual = GetBestIndividual();
         BestIndividuals.Add(BestIndividual);
+    }
+
+    private void DecreasePopulation()
+    {
+        var oldPopulation = new List<Individual>(Population);
+
+        Population.Clear();
+        if (BestIndividual is not null)
+        {
+            oldPopulation.Remove(BestIndividual);
+            Population.Add(BestIndividual);
+        }
+
+        while (Population.Count != TotalPopulationSize)
+        {
+            var individual = TournamentHandlerService.Tournament(oldPopulation);
+            Population.Add(individual);
+            oldPopulation.Remove(individual);
+        }
     }
 
     protected override void GeneticOperationsStep()
@@ -276,7 +299,7 @@ internal sealed class DefaultAlgorithm : SolvingState
     private void Progress(int i, int max)
     {
         if ((i + 1) % 10 != 0) return;
-        
+
         if (i + 1 != max)
         {
             var percent = (i + 1) / (double)max * 100;
