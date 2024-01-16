@@ -4,11 +4,11 @@ using Shared.Interfaces;
 
 namespace Shared;
 
-public class Task : IPrettySerializable
+public class Task : IPrettySerializable, ICsvSerializable
 {
-    [JsonPropertyName("taskName")] public string TaskName { get; set; }
+    [JsonPropertyName("taskName")] public string TaskName { get; set; } = string.Empty;
     [JsonPropertyName("inputLength")] public int InputLength { get; set; }
-    [JsonPropertyName("testCases")] public List<TestCase> TestCases { get; set; }
+    [JsonPropertyName("testCases")] public List<TestCase> TestCases { get; set; } = [];
 
     [JsonIgnore] string IPrettySerializable.JsonToFile => JsonSerializer.Serialize(this, JsonSerializerOptions);
     [JsonIgnore] public string Json => JsonSerializer.Serialize(this, JsonSerializerOptions);

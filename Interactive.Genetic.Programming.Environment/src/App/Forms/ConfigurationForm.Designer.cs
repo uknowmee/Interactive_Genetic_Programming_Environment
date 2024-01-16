@@ -89,8 +89,12 @@ partial class ConfigurationForm
         labelError = new Label();
         textBoxMaxGenerations = new TextBox();
         buttonInterpreter = new Button();
+        groupBox1 = new GroupBox();
+        labelTaskFormat = new Label();
+        buttonTaskFormatSwitcher = new Button();
         groupBoxModel.SuspendLayout();
         groupBoxSolver.SuspendLayout();
+        groupBox1.SuspendLayout();
         SuspendLayout();
         // 
         // buttonQuit
@@ -163,27 +167,27 @@ partial class ConfigurationForm
         // 
         groupBoxModel.Controls.Add(textBoxNewVarExpressionChance);
         groupBoxModel.Controls.Add(labelMaxInt);
-        groupBoxModel.Controls.Add(labelNewChildOfProgramNodeChance);
-        groupBoxModel.Controls.Add(labelNewVarExpressionChance);
-        groupBoxModel.Controls.Add(labelNewDeepNodeGenerationChance);
-        groupBoxModel.Controls.Add(labelNewDeepNodeGenerationFall);
-        groupBoxModel.Controls.Add(textBoxNextTwoArgExpressionChance);
-        groupBoxModel.Controls.Add(labelNewChildOfForNodeChance);
-        groupBoxModel.Controls.Add(labelNewExpressionInForComparisonChance);
-        groupBoxModel.Controls.Add(textBoxNewLogicExpressionChance);
-        groupBoxModel.Controls.Add(labelNewChildOfIfNodeChance);
-        groupBoxModel.Controls.Add(labelNewLogicExpressionChance);
-        groupBoxModel.Controls.Add(textBoxNewChildOfIfNodeChance);
-        groupBoxModel.Controls.Add(labelNextTwoArgExpressionChance);
-        groupBoxModel.Controls.Add(textBoxMaxInt);
-        groupBoxModel.Controls.Add(textBoxNewExpressionInForComparisonChance);
-        groupBoxModel.Controls.Add(textBoxNewChildOfProgramNodeChance);
-        groupBoxModel.Controls.Add(textBoxNewDeepNodeGenerationChance);
-        groupBoxModel.Controls.Add(textBoxNewChildOfForNodeChance);
         groupBoxModel.Controls.Add(textBoxNewDeepNodeGenerationFall);
+        groupBoxModel.Controls.Add(textBoxNewChildOfForNodeChance);
+        groupBoxModel.Controls.Add(textBoxNewDeepNodeGenerationChance);
+        groupBoxModel.Controls.Add(labelNewChildOfProgramNodeChance);
+        groupBoxModel.Controls.Add(textBoxNewChildOfProgramNodeChance);
+        groupBoxModel.Controls.Add(textBoxNewExpressionInForComparisonChance);
+        groupBoxModel.Controls.Add(labelNewVarExpressionChance);
+        groupBoxModel.Controls.Add(textBoxMaxInt);
+        groupBoxModel.Controls.Add(labelNextTwoArgExpressionChance);
+        groupBoxModel.Controls.Add(labelNewDeepNodeGenerationChance);
+        groupBoxModel.Controls.Add(textBoxNewChildOfIfNodeChance);
+        groupBoxModel.Controls.Add(labelNewLogicExpressionChance);
+        groupBoxModel.Controls.Add(labelNewDeepNodeGenerationFall);
+        groupBoxModel.Controls.Add(labelNewChildOfIfNodeChance);
+        groupBoxModel.Controls.Add(textBoxNewLogicExpressionChance);
+        groupBoxModel.Controls.Add(textBoxNextTwoArgExpressionChance);
+        groupBoxModel.Controls.Add(labelNewExpressionInForComparisonChance);
+        groupBoxModel.Controls.Add(labelNewChildOfForNodeChance);
         groupBoxModel.Location = new Point(67, 117);
         groupBoxModel.Name = "groupBoxModel";
-        groupBoxModel.Size = new Size(828, 904);
+        groupBoxModel.Size = new Size(828, 616);
         groupBoxModel.TabIndex = 26;
         groupBoxModel.TabStop = false;
         groupBoxModel.Text = "Model Configuration";
@@ -688,11 +692,43 @@ partial class ConfigurationForm
         buttonInterpreter.UseVisualStyleBackColor = true;
         buttonInterpreter.Click += buttonInterpreter_Click;
         // 
+        // groupBox1
+        // 
+        groupBox1.Controls.Add(buttonTaskFormatSwitcher);
+        groupBox1.Controls.Add(labelTaskFormat);
+        groupBox1.Location = new Point(67, 746);
+        groupBox1.Name = "groupBox1";
+        groupBox1.Size = new Size(828, 275);
+        groupBox1.TabIndex = 80;
+        groupBox1.TabStop = false;
+        groupBox1.Text = "App Configuration";
+        // 
+        // labelTaskFormat
+        // 
+        labelTaskFormat.Anchor = AnchorStyles.Left;
+        labelTaskFormat.Location = new Point(19, 23);
+        labelTaskFormat.Name = "labelTaskFormat";
+        labelTaskFormat.Size = new Size(310, 54);
+        labelTaskFormat.TabIndex = 81;
+        labelTaskFormat.Text = "Task Format";
+        labelTaskFormat.TextAlign = ContentAlignment.MiddleCenter;
+        // 
+        // buttonTaskFormatSwitcher
+        // 
+        buttonTaskFormatSwitcher.Anchor = AnchorStyles.Top;
+        buttonTaskFormatSwitcher.Location = new Point(355, 30);
+        buttonTaskFormatSwitcher.Name = "buttonTaskFormatSwitcher";
+        buttonTaskFormatSwitcher.Size = new Size(122, 41);
+        buttonTaskFormatSwitcher.TabIndex = 81;
+        buttonTaskFormatSwitcher.UseVisualStyleBackColor = true;
+        buttonTaskFormatSwitcher.Click += buttonTaskFormatSwitcher_Click;
+        // 
         // ConfigurationForm
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
         ClientSize = new Size(1902, 1033);
+        Controls.Add(groupBox1);
         Controls.Add(buttonInterpreter);
         Controls.Add(groupBoxSolver);
         Controls.Add(groupBoxModel);
@@ -710,6 +746,7 @@ partial class ConfigurationForm
         groupBoxModel.PerformLayout();
         groupBoxSolver.ResumeLayout(false);
         groupBoxSolver.PerformLayout();
+        groupBox1.ResumeLayout(false);
         ResumeLayout(false);
     }
 
@@ -774,4 +811,7 @@ partial class ConfigurationForm
     private Label labelPointMutationProbability;
     private TextBox textBoxHorizontalModificationProbability;
     private Button buttonInterpreter;
+    private GroupBox groupBox1;
+    private Label labelTaskFormat;
+    private Button buttonTaskFormatSwitcher;
 }

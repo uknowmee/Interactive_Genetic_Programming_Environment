@@ -160,7 +160,7 @@ partial class FitnessForm
         comboBoxSavedFitness.Anchor = AnchorStyles.Left;
         comboBoxSavedFitness.DropDownStyle = ComboBoxStyle.DropDownList;
         comboBoxSavedFitness.FormattingEnabled = true;
-        comboBoxSavedFitness.Location = new Point(1301, 170);
+        comboBoxSavedFitness.Location = new Point(1302, 169);
         comboBoxSavedFitness.Name = "comboBoxSavedFitness";
         comboBoxSavedFitness.Size = new Size(311, 28);
         comboBoxSavedFitness.TabIndex = 62;
@@ -169,7 +169,7 @@ partial class FitnessForm
         // labelActiveFitness
         // 
         labelActiveFitness.Anchor = AnchorStyles.Left;
-        labelActiveFitness.Location = new Point(1362, 97);
+        labelActiveFitness.Location = new Point(1363, 96);
         labelActiveFitness.Name = "labelActiveFitness";
         labelActiveFitness.Size = new Size(183, 54);
         labelActiveFitness.TabIndex = 63;
@@ -190,7 +190,7 @@ partial class FitnessForm
         // buttonRemoveFitness
         // 
         buttonRemoveFitness.Anchor = AnchorStyles.Left;
-        buttonRemoveFitness.Location = new Point(1395, 222);
+        buttonRemoveFitness.Location = new Point(1396, 221);
         buttonRemoveFitness.Name = "buttonRemoveFitness";
         buttonRemoveFitness.Size = new Size(122, 41);
         buttonRemoveFitness.TabIndex = 65;
@@ -201,11 +201,12 @@ partial class FitnessForm
         // textBoxFitnessReadme
         // 
         textBoxFitnessReadme.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
-        textBoxFitnessReadme.Location = new Point(1080, 294);
+        textBoxFitnessReadme.Location = new Point(1076, 281);
         textBoxFitnessReadme.Multiline = true;
         textBoxFitnessReadme.Name = "textBoxFitnessReadme";
         textBoxFitnessReadme.ReadOnly = true;
-        textBoxFitnessReadme.Size = new Size(777, 713);
+        textBoxFitnessReadme.ScrollBars = ScrollBars.Vertical;
+        textBoxFitnessReadme.Size = new Size(777, 726);
         textBoxFitnessReadme.TabIndex = 66;
         textBoxFitnessReadme.Text = resources.GetString("textBoxFitnessReadme.Text");
         // 

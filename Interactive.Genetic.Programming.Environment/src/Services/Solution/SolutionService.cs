@@ -95,19 +95,32 @@ public class SolutionService : ISolutionSaver, IAvailableSolutionsService
     private string CopyTaskAsSolutionToDestination(Task task, DateTime creationDate)
     {
         var destinationPath = GetSolutionPath(task.TaskName, creationDate);
-        _fileService.SaveAsJson(task, destinationPath);
+        
+        if (_appConfiguration.ReadTaskFromJson)
+        {
+            _fileService.SaveAsJson(task, destinationPath);
+        }
+        else
+        {
+            _fileService.SaveAsCsv(task, destinationPath);
+        }
+        
         return destinationPath;
     }
 
     private string GetSolutionPath(SolutionEntity solutionEntity)
     {
         var name = solutionEntity.ToString();
-        return Path.Combine(_appConfiguration.SolutionsPath, name + ".json");
+        var format = _appConfiguration.ReadTaskFromJson ? ".json" : ".csv";
+
+        return Path.Combine(_appConfiguration.SolutionsPath, name + format);
     }
 
     private string GetSolutionPath(string taskName, DateTime creationDate)
     {
         var name = SolutionEntity.ToString(taskName, creationDate);
-        return Path.Combine(_appConfiguration.SolutionsPath, name + ".json");
+        var format = _appConfiguration.ReadTaskFromJson ? ".json" : ".csv";
+
+        return Path.Combine(_appConfiguration.SolutionsPath, name + format);
     }
 }

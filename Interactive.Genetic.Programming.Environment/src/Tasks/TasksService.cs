@@ -123,7 +123,14 @@ public class TasksService : ITasksService, ITaskInformationPublisher, IAvailable
     {
         if (_fileService.DoesFileExist(task.Path) is false)
         {
-            _fileService.SaveAsJson<Task>(task.Json, task.Path);
+            if (task.Path.Contains("json"))
+            {
+                _fileService.SaveAsJson<Task>(task.Json, task.Path);
+            }
+            else
+            {
+                _fileService.SaveAsCsv<Task>(task.Json, task.Path);
+            }
         }
         
         try
@@ -153,8 +160,18 @@ public class TasksService : ITasksService, ITaskInformationPublisher, IAvailable
     
     private string CopyTaskToDestination(Task task)
     {
-        var destinationPath = Path.Combine(_appConfiguration.TasksPath, task.TaskName + ".json");
-        _fileService.SaveAsJson(task, destinationPath);
+        var format = _appConfiguration.ReadTaskFromJson ? ".json" : ".csv";
+        var destinationPath = Path.Combine(_appConfiguration.TasksPath, task.TaskName + format);
+
+        if (_appConfiguration.ReadTaskFromJson)
+        {
+            _fileService.SaveAsJson(task, destinationPath);
+        }
+        else
+        {
+            _fileService.SaveAsCsv(task, destinationPath);
+        }
+        
         return destinationPath;
     }
 }
