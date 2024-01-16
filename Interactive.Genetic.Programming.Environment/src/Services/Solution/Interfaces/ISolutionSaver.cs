@@ -10,6 +10,7 @@ public interface ISolutionSaver
         IModelConfiguration initialModelConfiguration,
         ISolverConfiguration initialSolverConfiguration,
         IEnumerable<FitnessFunction> fitnessFunctions,
+        IEnumerable<double> fitnessHistory,
         Individual bestIndividual
     );
 }

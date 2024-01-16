@@ -27,7 +27,6 @@ internal sealed class DefaultAlgorithm : SolvingState
         MakeAllRunnable();
 
         BestIndividual = GetBestIndividual();
-        BestIndividuals.Add(BestIndividual);
     }
 
     protected override void EvolutionStep()
@@ -50,7 +49,6 @@ internal sealed class DefaultAlgorithm : SolvingState
 
         GeneticOperationsStep();
         BestIndividual = GetBestIndividual();
-        BestIndividuals.Add(BestIndividual);
     }
 
     private void DecreasePopulation()

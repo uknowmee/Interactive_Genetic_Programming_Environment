@@ -16,14 +16,23 @@ public class DbCtx : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<SolutionEntity>()
-            .ComplexProperty<TaskEntity>(
+        modelBuilder.Entity<SolutionEntity>(entity =>
+        {
+            entity.ComplexProperty<TaskEntity>(
                 solution => solution.SolvedTask,
                 task =>
                 {
                     task.Ignore(t => t.Id);
                 }
             );
+            entity.Property(solution => solution.FitnessHistory)
+                .HasConversion(
+                    history => string.Join(";", history),
+                    history => history.Split(";", StringSplitOptions.RemoveEmptyEntries)
+                        .Select(double.Parse)
+                        .ToList()
+                );
+        });
 
         modelBuilder.Entity<FitnessFunctionEntity>()
             .ToTable("FitnessFunctions");
