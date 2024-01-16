@@ -58,6 +58,11 @@ public partial class ConfigurationForm : Form
         _windowSwitcher.Switch<SavedForm>(this);
     }
 
+    private void buttonInterpreter_Click(object sender, EventArgs e)
+    {
+        _windowSwitcher.Switch<InterpreterForm>(this);
+    }
+
     private void buttonQuit_Click(object sender, EventArgs e)
     {
         _windowSwitcher.Quit(this);

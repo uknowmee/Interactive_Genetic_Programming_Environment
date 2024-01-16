@@ -77,6 +77,6 @@ public class FitnessFunction
             
         var errors = failures.Select(diagnostic => $"{diagnostic.Id}: {diagnostic.GetMessage()}");
         var message = string.Join(Environment.NewLine, errors);
-        throw new Exception(message);
+        throw new CustomException(message);
     }
 }

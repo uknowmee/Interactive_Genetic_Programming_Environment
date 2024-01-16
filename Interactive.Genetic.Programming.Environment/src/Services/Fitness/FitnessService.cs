@@ -49,6 +49,8 @@ public class FitnessService : IFitnessService, IFitnessInformationPublisher, IAv
 
     public void SaveFitness(string fitnessName, string fitnessCode)
     {
+        _ = new FitnessFunction(fitnessName, fitnessCode);
+        
         if (_fitnessDatabaseService.FetchAll().Any(f => f.Name == fitnessName))
         {
             throw new CustomException("Fitness function with this name already exists");

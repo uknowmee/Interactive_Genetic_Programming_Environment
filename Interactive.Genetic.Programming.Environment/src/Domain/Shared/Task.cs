@@ -15,7 +15,8 @@ public class Task : IPrettySerializable
 
     [JsonIgnore] private static readonly JsonSerializerOptions JsonSerializerOptions = new()
     {
-        WriteIndented = true
+        WriteIndented = true,
+        NumberHandling = JsonNumberHandling.AllowNamedFloatingPointLiterals
     };
 
     public Task Copy()

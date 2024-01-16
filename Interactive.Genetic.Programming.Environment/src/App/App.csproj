@@ -39,6 +39,9 @@
       <Compile Update="Forms\TaskForm.cs">
         <SubType>Form</SubType>
       </Compile>
+      <Compile Update="Forms\InterpreterForm.cs">
+        <SubType>Form</SubType>
+      </Compile>
     </ItemGroup>
 
     <ItemGroup>

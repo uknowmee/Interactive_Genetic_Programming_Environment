@@ -32,7 +32,7 @@ internal sealed class DefaultAlgorithm : SolvingState
         if (IsSolverStuck())
         {
             EmitLog("Refreshing population...");
-            AdditionalPopulationSize = TotalPopulationSize / 2;
+            AdditionalPopulationSize += TotalPopulationSize / 2;
             MakeAllRunnable();
         }
 
@@ -117,14 +117,22 @@ internal sealed class DefaultAlgorithm : SolvingState
     {
         individual.FinishedAllCasesRun = true;
 
-        InterpreterService.Feed(individual.Program.ToString());
+        try
+        {
+            InterpreterService.Feed(individual.Program.ToString());
+        }
+        catch (Exception e)
+        {
+            individual.FitnessValue = double.NegativeInfinity;
+            return;
+        }
 
         var testCases = individual.Task.TestCases.Take(SolverConfiguration.NumOfTestCases).AsEnumerable();
         foreach (var testCase in testCases)
         {
             try
             {
-                InterpreterService.Run(testCase.Input.Values);
+                InterpreterService.Run([..testCase.Input.Values]);
                 if (InterpreterService.IsFinished)
                 {
                     testCase.ProgramOutput.Values = InterpreterService.Outputs;

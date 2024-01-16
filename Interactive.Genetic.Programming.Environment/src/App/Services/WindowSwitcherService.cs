@@ -15,12 +15,14 @@ public class WindowSwitcherService : IWindowSwitcherService
     private FitnessForm? _fitnessForm;
     private TaskForm? _taskForm;
     private SavedForm? _savedForm;
+    private InterpreterForm? _interpreterForm;
     
     private HomeForm HomeForm => _homeForm ?? FailNotInitialized<HomeForm>();
     private ConfigurationForm ConfigurationForm => _configurationForm ?? FailNotInitialized<ConfigurationForm>();
     private FitnessForm FitnessForm => _fitnessForm ?? FailNotInitialized<FitnessForm>();
     private TaskForm TaskForm => _taskForm ?? FailNotInitialized<TaskForm>();
     private SavedForm SavedForm => _savedForm ?? FailNotInitialized<SavedForm>();
+    private InterpreterForm InterpreterForm => _interpreterForm ?? FailNotInitialized<InterpreterForm>();
 
     public Form InitialView => HomeForm;
 
@@ -34,7 +36,8 @@ public class WindowSwitcherService : IWindowSwitcherService
         ConfigurationForm configurationForm,
         FitnessForm fitnessForm,
         TaskForm taskForm,
-        SavedForm savedForm
+        SavedForm savedForm,
+        InterpreterForm interpreterForm
     )
     {
         _logger.LogInformation("Initializing windows.");
@@ -45,6 +48,7 @@ public class WindowSwitcherService : IWindowSwitcherService
         _fitnessForm = fitnessForm;
         _taskForm = taskForm;
         _savedForm = savedForm;
+        _interpreterForm = interpreterForm;
     }
 
     public void Switch<T>(Form current) where T : Form
@@ -80,6 +84,12 @@ public class WindowSwitcherService : IWindowSwitcherService
         {
             SavedForm.Show();
             SavedForm.Location = current.Location;
+            current.Hide();
+        }
+        else if (typeof(T) == typeof(InterpreterForm) && current is not Forms.InterpreterForm)
+        {
+            InterpreterForm.Show();
+            InterpreterForm.Location = current.Location;
             current.Hide();
         }
     }

@@ -48,7 +48,7 @@ public partial class HomeForm : Form, ISolverSubscriber, IHistorySubscriber, IFi
     private void Home_Load(object sender, EventArgs e)
     {
         WindowState = FormWindowState.Maximized;
-        
+
         _solver.FetchAllSubscribed();
         _fitnessInformationPublisher.FetchAllSubscribed();
         _taskInformationPublisher.FetchAllSubscribed();
@@ -85,6 +85,11 @@ public partial class HomeForm : Form, ISolverSubscriber, IHistorySubscriber, IFi
     private void buttonSaved_Click(object sender, EventArgs e)
     {
         _windowSwitcher.Switch<SavedForm>(this);
+    }
+
+    private void buttonInterpreter_Click(object sender, EventArgs e)
+    {
+        _windowSwitcher.Switch<InterpreterForm>(this);
     }
 
     private void buttonQuit_Click(object sender, EventArgs e)
@@ -266,7 +271,7 @@ public partial class HomeForm : Form, ISolverSubscriber, IHistorySubscriber, IFi
         {
             textBoxModelConfiguration.Text = modelConfiguration.ToString();
         }
-        
+
         if (textBoxSolverConfiguration.InvokeRequired)
         {
             textBoxSolverConfiguration.BeginInvoke(() => textBoxSolverConfiguration.Text = solverConfiguration.ToString());
@@ -276,7 +281,7 @@ public partial class HomeForm : Form, ISolverSubscriber, IHistorySubscriber, IFi
             textBoxSolverConfiguration.Text = solverConfiguration.ToString();
         }
     }
-    
+
     private void ScrollHistoryDown()
     {
         textBoxHistory.SelectionStart = textBoxHistory.Text.Length;
