@@ -1,4 +1,5 @@
-﻿using Configuration.App;
+﻿using CommunityToolkit.Diagnostics;
+using Configuration.App;
 using Database.Context;
 using Database.Entities;
 using Database.Interfaces;
@@ -69,7 +70,10 @@ public class DatabaseService : IDatabaseCreator, IFitnessDatabaseService, ITaskD
     public IEnumerable<SolutionEntity> FetchAll()
     {
         using var context = new DbCtx(_options);
-        return context.Solutions.OrderBy(s => s.SolvedTask.Name).ToList();
+        return context.Solutions
+            .Include(s => s.FitnessFunctions)
+            .OrderBy(s => s.SolvedTask.Name)
+            .ToList();
     }
 
     IEnumerable<TaskEntity> IDatabaseService<TaskEntity>.FetchAll()
@@ -86,7 +90,9 @@ public class DatabaseService : IDatabaseCreator, IFitnessDatabaseService, ITaskD
 
     IEnumerable<FitnessFunctionEntity> IDatabaseService<FitnessFunctionEntity>.FetchAll()
     {
-        return FetchAll<FitnessFunctionEntity>().OrderBy(f => f.Name);
+        return FetchAll<FitnessFunctionEntity>()
+            .Where(function => function is not SolutionFitnessFunction)
+            .OrderBy(f => f.Name);
     }
 
     private List<T> FetchAll<T>() where T : class

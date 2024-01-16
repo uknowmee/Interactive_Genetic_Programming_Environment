@@ -10,7 +10,7 @@ public class SolutionEntity
     public string InitialSolverConfiguration { get; set; }
     public string History { get; set; }
     public string BestIndividual { get; set; }
-    [Required] public FitnessFunctionEntity InitialFitness { get; set; }
+    [Required] public ICollection<SolutionFitnessFunction> FitnessFunctions { get; set; }
     [Required] public TaskEntity SolvedTask { get; set; }
     public DateTime CreationDate { get; set; }
 
@@ -24,7 +24,7 @@ public class SolutionEntity
         string initialSolverConfiguration,
         string history,
         string bestIndividual,
-        FitnessFunctionEntity initialFitness,
+        IEnumerable<SolutionFitnessFunction> initialFitness,
         TaskEntity solvedTask,
         DateTime creationDate
     )
@@ -33,7 +33,7 @@ public class SolutionEntity
         InitialSolverConfiguration = initialSolverConfiguration;
         History = history;
         BestIndividual = bestIndividual;
-        InitialFitness = initialFitness;
+        FitnessFunctions = initialFitness.ToList();
         SolvedTask = solvedTask;
         CreationDate = creationDate;
     }
