@@ -1,23 +1,14 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-using Shared;
+﻿namespace Database.Entities;
 
-namespace Database.Entities;
-
-public class FitnessFunctionEntity
+public class FitnessFunctionEntity : FitnessFunctionEntityBase
 {
-    public int Id { get; set; }
-    public string Name { get; set; }
-    public string Code { get; set; }
-
     [Obsolete("Only for EF")]
     public FitnessFunctionEntity()
     {
     }
     
-    public FitnessFunctionEntity(string fitnessName, string fitnessCode)
+    public FitnessFunctionEntity(string fitnessName, string fitnessCode): base(fitnessName, fitnessCode)
     {
-        Name = fitnessName;
-        Code = fitnessCode;
     }
 
     public override string ToString()

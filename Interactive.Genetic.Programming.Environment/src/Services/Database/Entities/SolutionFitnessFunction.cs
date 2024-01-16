@@ -2,7 +2,7 @@
 
 namespace Database.Entities;
 
-public class SolutionFitnessFunction : FitnessFunctionEntity
+public class SolutionFitnessFunction : FitnessFunctionEntityBase
 {
     public Guid Hash { get; set; }
     

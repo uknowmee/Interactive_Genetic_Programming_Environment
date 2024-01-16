@@ -6,6 +6,7 @@ namespace Database.Entities;
 [ComplexType]
 public class TaskEntity
 {
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int Id { get; set; }
     public string Name { get; set; }
     public string Json { get; set; }

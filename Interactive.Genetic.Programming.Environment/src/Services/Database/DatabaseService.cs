@@ -1,5 +1,4 @@
-﻿using CommunityToolkit.Diagnostics;
-using Configuration.App;
+﻿using Configuration.App;
 using Database.Context;
 using Database.Entities;
 using Database.Interfaces;
@@ -91,7 +90,6 @@ public class DatabaseService : IDatabaseCreator, IFitnessDatabaseService, ITaskD
     IEnumerable<FitnessFunctionEntity> IDatabaseService<FitnessFunctionEntity>.FetchAll()
     {
         return FetchAll<FitnessFunctionEntity>()
-            .Where(function => function is not SolutionFitnessFunction)
             .OrderBy(f => f.Name);
     }
 
