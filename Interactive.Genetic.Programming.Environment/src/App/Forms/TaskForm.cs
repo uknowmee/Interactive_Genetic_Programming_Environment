@@ -10,7 +10,7 @@ namespace App.Forms;
 public partial class TaskForm : Form, IAvailableTasksSubscriber, ISolverStatusSubscriber
 {
     private SolverStatus _status = SolverStatus.Idle;
-    
+
     private readonly IWindowSwitcherService _windowSwitcher;
     private readonly ITasksService _tasksService;
     private readonly IAvailableTasksService _availableTasksService;
@@ -72,6 +72,11 @@ public partial class TaskForm : Form, IAvailableTasksSubscriber, ISolverStatusSu
     private void buttonSaved_Click(object sender, EventArgs e)
     {
         _windowSwitcher.Switch<SavedForm>(this);
+    }
+
+    private void buttonInterpreter_Click(object sender, EventArgs e)
+    {
+        _windowSwitcher.Switch<InterpreterForm>(this);
     }
 
     private void buttonQuit_Click(object sender, EventArgs e)
@@ -188,7 +193,7 @@ public partial class TaskForm : Form, IAvailableTasksSubscriber, ISolverStatusSu
         {
             comboBoxSavedTask.Enabled = _status == SolverStatus.Idle;
         }
-        
+
         if (buttonRemoveTask.InvokeRequired)
         {
             buttonRemoveTask.BeginInvoke(() => buttonRemoveTask.Enabled = _status == SolverStatus.Idle);

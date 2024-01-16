@@ -88,6 +88,7 @@ partial class ConfigurationForm
         textBoxPopulationSize = new TextBox();
         labelError = new Label();
         textBoxMaxGenerations = new TextBox();
+        buttonInterpreter = new Button();
         groupBoxModel.SuspendLayout();
         groupBoxSolver.SuspendLayout();
         SuspendLayout();
@@ -95,7 +96,7 @@ partial class ConfigurationForm
         // buttonQuit
         // 
         buttonQuit.Anchor = AnchorStyles.Top;
-        buttonQuit.Location = new Point(1208, 12);
+        buttonQuit.Location = new Point(1269, 12);
         buttonQuit.Name = "buttonQuit";
         buttonQuit.Size = new Size(122, 41);
         buttonQuit.TabIndex = 9;
@@ -106,7 +107,7 @@ partial class ConfigurationForm
         // buttonSaved
         // 
         buttonSaved.Anchor = AnchorStyles.Top;
-        buttonSaved.Location = new Point(1080, 12);
+        buttonSaved.Location = new Point(1013, 12);
         buttonSaved.Name = "buttonSaved";
         buttonSaved.Size = new Size(122, 41);
         buttonSaved.TabIndex = 8;
@@ -117,7 +118,7 @@ partial class ConfigurationForm
         // buttonTask
         // 
         buttonTask.Anchor = AnchorStyles.Top;
-        buttonTask.Location = new Point(952, 12);
+        buttonTask.Location = new Point(885, 12);
         buttonTask.Name = "buttonTask";
         buttonTask.Size = new Size(122, 41);
         buttonTask.TabIndex = 7;
@@ -128,7 +129,7 @@ partial class ConfigurationForm
         // buttonFitness
         // 
         buttonFitness.Anchor = AnchorStyles.Top;
-        buttonFitness.Location = new Point(824, 12);
+        buttonFitness.Location = new Point(757, 12);
         buttonFitness.Name = "buttonFitness";
         buttonFitness.Size = new Size(122, 41);
         buttonFitness.TabIndex = 6;
@@ -139,7 +140,7 @@ partial class ConfigurationForm
         // buttonConfiguration
         // 
         buttonConfiguration.Anchor = AnchorStyles.Top;
-        buttonConfiguration.Location = new Point(696, 12);
+        buttonConfiguration.Location = new Point(629, 12);
         buttonConfiguration.Name = "buttonConfiguration";
         buttonConfiguration.Size = new Size(122, 41);
         buttonConfiguration.TabIndex = 5;
@@ -150,7 +151,7 @@ partial class ConfigurationForm
         // buttonHome
         // 
         buttonHome.Anchor = AnchorStyles.Top;
-        buttonHome.Location = new Point(568, 12);
+        buttonHome.Location = new Point(501, 12);
         buttonHome.Name = "buttonHome";
         buttonHome.Size = new Size(122, 41);
         buttonHome.TabIndex = 25;
@@ -647,7 +648,7 @@ partial class ConfigurationForm
         labelExecutionTime.Name = "labelExecutionTime";
         labelExecutionTime.Size = new Size(310, 54);
         labelExecutionTime.TabIndex = 48;
-        labelExecutionTime.Text = "ExecutionTime";
+        labelExecutionTime.Text = "ExecutionTime [ms]";
         labelExecutionTime.TextAlign = ContentAlignment.MiddleCenter;
         // 
         // textBoxPopulationSize
@@ -676,11 +677,23 @@ partial class ConfigurationForm
         textBoxMaxGenerations.TabIndex = 60;
         textBoxMaxGenerations.KeyPress += textBoxMaxGenerations_KeyPress;
         // 
+        // buttonInterpreter
+        // 
+        buttonInterpreter.Anchor = AnchorStyles.Top;
+        buttonInterpreter.Location = new Point(1141, 12);
+        buttonInterpreter.Name = "buttonInterpreter";
+        buttonInterpreter.Size = new Size(122, 41);
+        buttonInterpreter.TabIndex = 79;
+        buttonInterpreter.Text = "Interpreter";
+        buttonInterpreter.UseVisualStyleBackColor = true;
+        buttonInterpreter.Click += buttonInterpreter_Click;
+        // 
         // ConfigurationForm
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
         ClientSize = new Size(1902, 1033);
+        Controls.Add(buttonInterpreter);
         Controls.Add(groupBoxSolver);
         Controls.Add(groupBoxModel);
         Controls.Add(buttonHome);
@@ -760,4 +773,5 @@ partial class ConfigurationForm
     private TextBox textBoxSubtreeMutationProbability;
     private Label labelPointMutationProbability;
     private TextBox textBoxHorizontalModificationProbability;
+    private Button buttonInterpreter;
 }

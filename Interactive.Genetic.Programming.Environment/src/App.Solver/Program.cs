@@ -1,4 +1,5 @@
-﻿using Autofac;
+﻿using App.Solver;
+using Autofac;
 using Configuration;
 using Configuration.Solver;
 using Database;
@@ -35,29 +36,25 @@ var tasksService = container.Resolve<ITasksService>();
 var fitnessService = container.Resolve<IFitnessService>();
 var solver = container.Resolve<ISolverService>();
 
-solverConfiguration.PopulationSize = 100;
-solverConfiguration.CrossoverProbability = 0.01;
-solverConfiguration.MutationProbability = 0.98;
-solverConfiguration.HorizontalModificationProbability = 0.01;
-
 tasksService.ActivateTask(taskDatabase.FetchAll().Single(t => t.Name == "1_3_B"));
 fitnessService.ActivateFitness(fitnessDatabase.FetchAll().Single(f => f.Name == "1_3_B"));
 
 try
 {
-    solver.Start();
+    Task.Run(() => solver.Start()).Wait();
 }
 catch (Exception e)
 {
     Console.WriteLine(e);
 }
+Task.Delay(1000 * 60 * 60 * 10).Wait();
 Console.Out.WriteLine("Finished");
 
 public static class Application
 {
     public static ContainerBuilder AddLogging(this ContainerBuilder builder)
     {
-        builder.RegisterInstance(App.Solver.LoggingConfiguration.Factory).As<ILoggerFactory>();
+        builder.RegisterInstance(LoggingConfiguration.Factory).As<ILoggerFactory>();
         return builder;
     }
     

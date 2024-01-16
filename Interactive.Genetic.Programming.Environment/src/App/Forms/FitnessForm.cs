@@ -9,7 +9,7 @@ namespace App.Forms;
 public partial class FitnessForm : Form, IAvailableFitnessFunctionsSubscriber, ISolverStatusSubscriber
 {
     private SolverStatus _status = SolverStatus.Idle;
-    
+
     private readonly IWindowSwitcherService _windowSwitcher;
     private readonly IFitnessService _fitnessService;
     private readonly IAvailableFitnessFunctionsService _availableFitnessFunctionsService;
@@ -70,6 +70,11 @@ public partial class FitnessForm : Form, IAvailableFitnessFunctionsSubscriber, I
         _windowSwitcher.Switch<SavedForm>(this);
     }
 
+    private void buttonInterpreter_Click(object sender, EventArgs e)
+    {
+        _windowSwitcher.Switch<InterpreterForm>(this);
+    }
+
     private void buttonQuit_Click(object sender, EventArgs e)
     {
         _windowSwitcher.Quit(this);
@@ -89,10 +94,10 @@ public partial class FitnessForm : Form, IAvailableFitnessFunctionsSubscriber, I
     private void buttonRemoveFitness_Click(object sender, EventArgs e)
     {
         if (comboBoxSavedFitness.SelectedItem is not FitnessFunctionEntity fitnessFunction) return;
-        
+
         _fitnessService.RemoveFitness(fitnessFunction);
     }
-    
+
     private void comboBoxSavedFitness_SelectedIndexChanged(object sender, EventArgs e)
     {
         if (comboBoxSavedFitness.InvokeRequired)
@@ -149,7 +154,7 @@ public partial class FitnessForm : Form, IAvailableFitnessFunctionsSubscriber, I
         {
             comboBoxSavedFitness.SelectedIndex = -1;
         }
-        
+
         if (textBoxActiveFitness.InvokeRequired)
         {
             textBoxActiveFitness.BeginInvoke(() => textBoxActiveFitness.Text = "");
@@ -171,7 +176,7 @@ public partial class FitnessForm : Form, IAvailableFitnessFunctionsSubscriber, I
         {
             comboBoxSavedFitness.Enabled = _status == SolverStatus.Idle;
         }
-        
+
         if (buttonRemoveFitness.InvokeRequired)
         {
             buttonRemoveFitness.BeginInvoke(() => buttonRemoveFitness.Enabled = _status == SolverStatus.Idle);

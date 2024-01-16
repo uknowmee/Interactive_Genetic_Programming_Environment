@@ -54,7 +54,7 @@ internal static class Program
         builder.RegisterType<FileService>().As<IFileService>().SingleInstance();
         builder.RegisterType<FitnessService>().AsImplementedInterfaces().SingleInstance();
         builder.RegisterType<ProgramGeneratorService>().As<IProgramGeneratorService>().SingleInstance();
-        builder.RegisterType<InterpreterService>().As<IInterpreterService>().SingleInstance();
+        builder.RegisterType<InterpreterService>().As<IInterpreterService>().InstancePerDependency();
         builder.RegisterType<SerializationService>().As<ISerializationService>().SingleInstance();
         builder.RegisterType<SolverConfigurationService>().AsImplementedInterfaces().SingleInstance();
         builder.RegisterType<SolverService>().As<ISolverService>().SingleInstance();
@@ -78,6 +78,7 @@ internal static class Program
         builder.RegisterType<FitnessForm>().AsSelf().SingleInstance();
         builder.RegisterType<TaskForm>().AsSelf().SingleInstance();
         builder.RegisterType<SavedForm>().AsSelf().SingleInstance();
+        builder.RegisterType<InterpreterForm>().AsSelf().SingleInstance();
         
         return builder;
     }
@@ -104,7 +105,8 @@ internal static class Program
             container.Resolve<ConfigurationForm>(),
             container.Resolve<FitnessForm>(),
             container.Resolve<TaskForm>(),
-            container.Resolve<SavedForm>()
+            container.Resolve<SavedForm>(),
+            container.Resolve<InterpreterForm>()
         );
         
         Application.Run(windowSwitcher.InitialView);
