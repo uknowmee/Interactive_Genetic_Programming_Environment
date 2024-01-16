@@ -118,7 +118,20 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="textBoxTaskReadme.Text" xml:space="preserve">
-    <value>Provide, your task in following Json format. Cover the problem solution space with test cases as best as possible.
+    <value>Provide, your task in either .csv or .json format. You can change formats in Configuration view.
+Cover the problem solution space with test cases as best as possible.
+
+--------------------------------------------------------------------------------
+
+i0,i1,i2,o0,o1,o2
+107,-88,158,107,0,158
+-80,-45,-62,0,0,0
+-64,-151,-179,0,0,0
+-2,56,-71,0,56,0
+-8,74,-109,0,74,0
+-50,77,-73,0,77,0
+
+--------------------------------------------------------------------------------
 
 {
     "inputLength": 3,
