@@ -4,7 +4,7 @@ namespace Shared;
 
 public class Vector
 {
-    [JsonPropertyName("values")] public List<double> Values { get; set; }
+    [JsonPropertyName("values")] public List<double> Values { get; set; } = [];
 
     public Vector Copy()
     {

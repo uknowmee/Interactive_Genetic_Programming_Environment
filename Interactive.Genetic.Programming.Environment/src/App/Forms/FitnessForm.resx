@@ -133,6 +133,7 @@ public class FitnessFunction
     public static double Evaluate(IEvaluable individual)
     {
         var fitness = 0.0;
+
         return fitness;
     }
 }

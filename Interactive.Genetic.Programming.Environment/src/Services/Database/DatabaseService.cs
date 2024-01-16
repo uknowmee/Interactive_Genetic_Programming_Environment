@@ -69,12 +69,12 @@ public class DatabaseService : IDatabaseCreator, IFitnessDatabaseService, ITaskD
     public IEnumerable<SolutionEntity> FetchAll()
     {
         using var context = new DbCtx(_options);
-        return context.Solutions.ToList();
+        return context.Solutions.OrderBy(s => s.SolvedTask.Name).ToList();
     }
 
     IEnumerable<TaskEntity> IDatabaseService<TaskEntity>.FetchAll()
     {
-        return FetchAll<TaskEntity>();
+        return FetchAll<TaskEntity>().OrderBy(t => t.Name);
     }
 
     public void Create(FitnessFunctionEntity fitness)
@@ -86,7 +86,7 @@ public class DatabaseService : IDatabaseCreator, IFitnessDatabaseService, ITaskD
 
     IEnumerable<FitnessFunctionEntity> IDatabaseService<FitnessFunctionEntity>.FetchAll()
     {
-        return FetchAll<FitnessFunctionEntity>();
+        return FetchAll<FitnessFunctionEntity>().OrderBy(f => f.Name);
     }
 
     private List<T> FetchAll<T>() where T : class
