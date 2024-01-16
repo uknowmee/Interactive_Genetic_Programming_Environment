@@ -3,8 +3,8 @@
 public class AppConfiguration : IAppConfiguration
 {
     private const string DbFolderName = "db";
-    private const string TasksFolderName = "app_tasks";
-    private const string SolutionsFolderName = "app_solutions";
+    private string TasksFolderName => ReadTaskFromJson ? "app_tasks" : "app_tasks_csv";
+    private string SolutionsFolderName => ReadTaskFromJson ? "app_solutions" : "app_solutions_csv";
     private string InitialDirectory => ReadTaskFromJson ? "tasks" : "tasks_csv";
 
 #if DEBUG
@@ -19,7 +19,7 @@ public class AppConfiguration : IAppConfiguration
     public string DbPath => Path.Combine(Directory.GetCurrentDirectory(), DbFolderName, "inzDb.db");
 #endif
 
-    public bool ReadTaskFromJson { get; set; } = true;
+    public bool ReadTaskFromJson { get; set; } = false;
     public bool Sqlite { get; set; } = true;
     public string TaskOpener { get; set; } = "notepad.exe";
     

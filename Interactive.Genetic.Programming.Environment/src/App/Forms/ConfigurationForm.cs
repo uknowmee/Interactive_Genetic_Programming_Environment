@@ -1,5 +1,6 @@
 ﻿using App.Services.Interfaces;
 using Configuration;
+using Configuration.App;
 using Configuration.Solver;
 
 namespace App.Forms;
@@ -9,13 +10,19 @@ public partial class ConfigurationForm : Form
     private readonly IWindowSwitcherService _windowSwitcher;
     private readonly IModelConfiguration _modelConfiguration;
     private readonly ISolverConfiguration _solverConfiguration;
+    private readonly IAppConfiguration _appConfiguration;
 
-    public ConfigurationForm(IWindowSwitcherService windowSwitcher, IModelConfiguration modelConfiguration,
-        ISolverConfiguration solverConfiguration)
+    public ConfigurationForm(
+        IWindowSwitcherService windowSwitcher,
+        IModelConfiguration modelConfiguration,
+        ISolverConfiguration solverConfiguration,
+        IAppConfiguration appConfiguration
+    )
     {
         _windowSwitcher = windowSwitcher;
         _modelConfiguration = modelConfiguration;
         _solverConfiguration = solverConfiguration;
+        _appConfiguration = appConfiguration;
 
         InitializeComponent();
     }
@@ -25,6 +32,8 @@ public partial class ConfigurationForm : Form
         WindowState = FormWindowState.Maximized;
         LoadModelConfiguration();
         LoadSolverConfiguration();
+        
+        buttonTaskFormatSwitcher.Text = _appConfiguration.ReadTaskFromJson ? "JSON" : "CSV";
     }
 
     public new void Show()
@@ -97,5 +106,11 @@ public partial class ConfigurationForm : Form
         }
 
         e.Handled = true;
+    }
+
+    private void buttonTaskFormatSwitcher_Click(object sender, EventArgs e)
+    {
+        _appConfiguration.ReadTaskFromJson = !_appConfiguration.ReadTaskFromJson;
+        buttonTaskFormatSwitcher.Text = _appConfiguration.ReadTaskFromJson ? "JSON" : "CSV";
     }
 }
