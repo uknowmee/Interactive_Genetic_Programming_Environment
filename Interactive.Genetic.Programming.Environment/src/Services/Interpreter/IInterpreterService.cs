@@ -6,4 +6,5 @@ public interface IInterpreterService
     public List<double> Outputs { get; }
     public void Feed(string program);
     public void Run(List<double> inputs);
+    void Run(List<double> programInput, int executionTime);
 }

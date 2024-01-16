@@ -56,6 +56,11 @@ public partial class SavedForm : Form, IAvailableSolutionsSubscriber
         _windowSwitcher.Switch<SavedForm>(this);
     }
 
+    private void buttonInterpreter_Click(object sender, EventArgs e)
+    {
+        _windowSwitcher.Switch<InterpreterForm>(this);
+    }
+
     private void buttonQuit_Click(object sender, EventArgs e)
     {
         _windowSwitcher.Quit(this);
@@ -84,7 +89,7 @@ public partial class SavedForm : Form, IAvailableSolutionsSubscriber
             SelectedSolutionChange();
         }
     }
-    
+
     public void AvailableSolutionsUpdate(IEnumerable<SolutionEntity> solutions)
     {
         if (comboBoxSavedSolution.InvokeRequired)
@@ -115,7 +120,7 @@ public partial class SavedForm : Form, IAvailableSolutionsSubscriber
         comboBoxSavedSolution.SelectedItem = newSelected;
 
     }
-    
+
     private void SelectedSolutionChange()
     {
         if (comboBoxSavedSolution.SelectedItem is not SolutionEntity solution)
@@ -125,7 +130,7 @@ public partial class SavedForm : Form, IAvailableSolutionsSubscriber
         }
         LoadSolution(solution);
     }
-    
+
     private void LoadSolution(SolutionEntity solution)
     {
         textBoxConfiguration.Text = $@"{solution.InitialModelConfiguration}" +
@@ -135,7 +140,7 @@ public partial class SavedForm : Form, IAvailableSolutionsSubscriber
         textBoxHistory.Text = solution.History;
         textBoxProgram.Text = solution.BestIndividual;
     }
-    
+
     private void UnLoadSolution()
     {
         textBoxConfiguration.Text = string.Empty;

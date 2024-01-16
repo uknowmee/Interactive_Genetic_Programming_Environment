@@ -18,11 +18,16 @@ public class InterpreterService : IInterpreterService
 
     public void Run(List<double> inputs)
     {
+        Run(inputs, _dueTime);
+    }
+
+    public void Run(List<double> inputs, int executionTime)
+    {
         IsFinished = false;
 
         try
         {
-            _visitor = new Visitor(inputs, _dueTime);
+            _visitor = new Visitor(inputs, executionTime);
             _visitor.Visit(_parseTree);
             IsFinished = true;
         }

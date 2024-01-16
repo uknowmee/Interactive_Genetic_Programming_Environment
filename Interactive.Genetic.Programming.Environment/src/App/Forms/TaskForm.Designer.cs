@@ -48,12 +48,13 @@ partial class TaskForm
         buttonSaveTask = new Button();
         buttonRemoveTask = new Button();
         textBoxTaskReadme = new TextBox();
+        buttonInterpreter = new Button();
         SuspendLayout();
         // 
         // buttonQuit
         // 
         buttonQuit.Anchor = AnchorStyles.Top;
-        buttonQuit.Location = new Point(1208, 12);
+        buttonQuit.Location = new Point(1269, 12);
         buttonQuit.Name = "buttonQuit";
         buttonQuit.Size = new Size(122, 41);
         buttonQuit.TabIndex = 9;
@@ -64,7 +65,7 @@ partial class TaskForm
         // buttonSaved
         // 
         buttonSaved.Anchor = AnchorStyles.Top;
-        buttonSaved.Location = new Point(1080, 12);
+        buttonSaved.Location = new Point(1013, 12);
         buttonSaved.Name = "buttonSaved";
         buttonSaved.Size = new Size(122, 41);
         buttonSaved.TabIndex = 8;
@@ -75,7 +76,7 @@ partial class TaskForm
         // buttonTask
         // 
         buttonTask.Anchor = AnchorStyles.Top;
-        buttonTask.Location = new Point(952, 12);
+        buttonTask.Location = new Point(885, 12);
         buttonTask.Name = "buttonTask";
         buttonTask.Size = new Size(122, 41);
         buttonTask.TabIndex = 7;
@@ -86,7 +87,7 @@ partial class TaskForm
         // buttonFitness
         // 
         buttonFitness.Anchor = AnchorStyles.Top;
-        buttonFitness.Location = new Point(824, 12);
+        buttonFitness.Location = new Point(757, 12);
         buttonFitness.Name = "buttonFitness";
         buttonFitness.Size = new Size(122, 41);
         buttonFitness.TabIndex = 6;
@@ -97,7 +98,7 @@ partial class TaskForm
         // buttonConfiguration
         // 
         buttonConfiguration.Anchor = AnchorStyles.Top;
-        buttonConfiguration.Location = new Point(696, 12);
+        buttonConfiguration.Location = new Point(629, 12);
         buttonConfiguration.Name = "buttonConfiguration";
         buttonConfiguration.Size = new Size(122, 41);
         buttonConfiguration.TabIndex = 5;
@@ -108,7 +109,7 @@ partial class TaskForm
         // buttonHome
         // 
         buttonHome.Anchor = AnchorStyles.Top;
-        buttonHome.Location = new Point(568, 12);
+        buttonHome.Location = new Point(501, 12);
         buttonHome.Name = "buttonHome";
         buttonHome.Size = new Size(122, 41);
         buttonHome.TabIndex = 25;
@@ -220,11 +221,23 @@ partial class TaskForm
         textBoxTaskReadme.TabIndex = 74;
         textBoxTaskReadme.Text = resources.GetString("textBoxTaskReadme.Text");
         // 
+        // buttonInterpreter
+        // 
+        buttonInterpreter.Anchor = AnchorStyles.Top;
+        buttonInterpreter.Location = new Point(1141, 12);
+        buttonInterpreter.Name = "buttonInterpreter";
+        buttonInterpreter.Size = new Size(122, 41);
+        buttonInterpreter.TabIndex = 79;
+        buttonInterpreter.Text = "Interpreter";
+        buttonInterpreter.UseVisualStyleBackColor = true;
+        buttonInterpreter.Click += buttonInterpreter_Click;
+        // 
         // TaskForm
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
         ClientSize = new Size(1902, 1033);
+        Controls.Add(buttonInterpreter);
         Controls.Add(textBoxTaskReadme);
         Controls.Add(buttonRemoveTask);
         Controls.Add(buttonSaveTask);
@@ -267,4 +280,5 @@ partial class TaskForm
     private Button buttonSaveTask;
     private Button buttonRemoveTask;
     private TextBox textBoxTaskReadme;
+    private Button buttonInterpreter;
 }
