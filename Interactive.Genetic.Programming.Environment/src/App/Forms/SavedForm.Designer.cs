@@ -54,6 +54,7 @@ partial class SavedForm
         buttonRemoveSolution = new Button();
         buttonInterpreter = new Button();
         comboBoxFitness = new ComboBox();
+        buttonPlotFitness = new Button();
         SuspendLayout();
         // 
         // buttonQuit
@@ -247,7 +248,7 @@ partial class SavedForm
         // buttonInspectSolution
         // 
         buttonInspectSolution.Anchor = AnchorStyles.Left;
-        buttonInspectSolution.Location = new Point(1645, 105);
+        buttonInspectSolution.Location = new Point(1473, 186);
         buttonInspectSolution.Name = "buttonInspectSolution";
         buttonInspectSolution.Size = new Size(151, 41);
         buttonInspectSolution.TabIndex = 74;
@@ -258,7 +259,7 @@ partial class SavedForm
         // buttonRemoveSolution
         // 
         buttonRemoveSolution.Anchor = AnchorStyles.Left;
-        buttonRemoveSolution.Location = new Point(1645, 152);
+        buttonRemoveSolution.Location = new Point(1645, 132);
         buttonRemoveSolution.Name = "buttonRemoveSolution";
         buttonRemoveSolution.Size = new Size(151, 41);
         buttonRemoveSolution.TabIndex = 75;
@@ -288,11 +289,23 @@ partial class SavedForm
         comboBoxFitness.TabIndex = 80;
         comboBoxFitness.SelectedIndexChanged += comboBoxFitness_SelectedIndexChanged;
         // 
+        // buttonPlotFitness
+        // 
+        buttonPlotFitness.Anchor = AnchorStyles.Left;
+        buttonPlotFitness.Location = new Point(1316, 186);
+        buttonPlotFitness.Name = "buttonPlotFitness";
+        buttonPlotFitness.Size = new Size(151, 41);
+        buttonPlotFitness.TabIndex = 81;
+        buttonPlotFitness.Text = "Plot Fitness";
+        buttonPlotFitness.UseVisualStyleBackColor = true;
+        buttonPlotFitness.Click += buttonPlot_Click;
+        // 
         // SavedForm
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
         ClientSize = new Size(1902, 1033);
+        Controls.Add(buttonPlotFitness);
         Controls.Add(comboBoxFitness);
         Controls.Add(buttonInterpreter);
         Controls.Add(buttonRemoveSolution);
@@ -345,4 +358,5 @@ partial class SavedForm
     private Button buttonRemoveSolution;
     private Button buttonInterpreter;
     private ComboBox comboBoxFitness;
+    private Button buttonPlotFitness;
 }

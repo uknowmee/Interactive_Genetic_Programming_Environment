@@ -8,10 +8,12 @@ public class SolutionEntity
 {
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int Id { get; set; }
+
     public string InitialModelConfiguration { get; set; }
     public string InitialSolverConfiguration { get; set; }
     public string History { get; set; }
     public string BestIndividual { get; set; }
+    [Required] public ICollection<double> FitnessHistory { get; set; }
     [Required] public ICollection<SolutionFitnessFunction> FitnessFunctions { get; set; }
     [Required] public TaskEntity SolvedTask { get; set; }
     public DateTime CreationDate { get; set; }
@@ -25,6 +27,7 @@ public class SolutionEntity
         string initialModelConfiguration,
         string initialSolverConfiguration,
         string history,
+        IEnumerable<double> fitnessHistory,
         string bestIndividual,
         IEnumerable<SolutionFitnessFunction> initialFitness,
         TaskEntity solvedTask,
@@ -34,6 +37,7 @@ public class SolutionEntity
         InitialModelConfiguration = initialModelConfiguration;
         InitialSolverConfiguration = initialSolverConfiguration;
         History = history;
+        FitnessHistory = fitnessHistory.ToList();
         BestIndividual = bestIndividual;
         FitnessFunctions = initialFitness.ToList();
         SolvedTask = solvedTask;

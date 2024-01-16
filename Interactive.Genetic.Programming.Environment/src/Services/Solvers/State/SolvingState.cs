@@ -41,7 +41,15 @@ internal abstract class SolvingState : ISolverState, IFitnessChangeSubscriber
     protected Individual? BestIndividual
     {
         get => Solver.BestIndividual;
-        set => Solver.BestIndividual = value;
+        set
+        {
+            if (value != null)
+            {
+                _fitnessHistory.Add(value.FitnessValue);
+                BestIndividuals.Add(value);
+            }
+            Solver.BestIndividual = value;
+        }
     }
 
     protected List<Individual> BestIndividuals { get; } = [];
@@ -54,6 +62,7 @@ internal abstract class SolvingState : ISolverState, IFitnessChangeSubscriber
     protected IHorizontalMutatorService HorizontalMutatorService => Solver.HorizontalMutatorService;
     protected ITournamentHandlerService TournamentHandlerService => Solver.TournamentHandlerService;
 
+    private readonly List<double> _fitnessHistory = [];
     private readonly ConcurrentQueue<FitnessFunction> _fitnessFunctions;
     private bool _evolutionStarted = false;
     private bool _shouldStop = false;
@@ -227,6 +236,7 @@ internal abstract class SolvingState : ISolverState, IFitnessChangeSubscriber
             _initialModelConfiguration,
             _initialSolverConfiguration,
             _fitnessFunctions.ToArray(),
+            _fitnessHistory.ToArray(),
             Solver.BestIndividual ?? throw new InvalidOperationException("Best individual is not known - this should not happen")
         );
         Solver.State = new FinishedState(Solver);
