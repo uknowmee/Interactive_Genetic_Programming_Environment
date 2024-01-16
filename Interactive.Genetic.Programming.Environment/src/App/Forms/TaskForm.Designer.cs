@@ -213,11 +213,12 @@ partial class TaskForm
         // textBoxTaskReadme
         // 
         textBoxTaskReadme.Anchor = AnchorStyles.Left;
-        textBoxTaskReadme.Location = new Point(1006, 260);
+        textBoxTaskReadme.Location = new Point(1013, 178);
         textBoxTaskReadme.Multiline = true;
         textBoxTaskReadme.Name = "textBoxTaskReadme";
         textBoxTaskReadme.ReadOnly = true;
-        textBoxTaskReadme.Size = new Size(777, 487);
+        textBoxTaskReadme.ScrollBars = ScrollBars.Vertical;
+        textBoxTaskReadme.Size = new Size(795, 757);
         textBoxTaskReadme.TabIndex = 74;
         textBoxTaskReadme.Text = resources.GetString("textBoxTaskReadme.Text");
         // 
