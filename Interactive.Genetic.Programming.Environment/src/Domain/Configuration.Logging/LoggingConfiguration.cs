@@ -28,6 +28,8 @@ public static class LoggingConfiguration
                 .File(
                     FullLogsPath,
                     rollingInterval: RollingInterval.Day,
+                    rollOnFileSizeLimit: true,
+                    fileSizeLimitBytes: 104_857_600,
                     levelSwitch: LevelSwitch
                 )
             )

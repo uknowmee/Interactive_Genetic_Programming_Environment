@@ -27,7 +27,7 @@ public class DbCtx : DbContext
 
         modelBuilder.Entity<FitnessFunctionEntity>()
             .ToTable("FitnessFunctions");
-        
+
         modelBuilder.Entity<SolutionFitnessFunction>()
             .ToTable("SolutionsFitnessFunctions");
     }

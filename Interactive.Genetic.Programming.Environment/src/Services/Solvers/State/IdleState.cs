@@ -30,6 +30,7 @@ internal class IdleState : ISolverState
             throw new CustomException("Task is not active, cannot start solver");
         }
         
+        Solver.HistoryService.Clear();
         Solver.EmitLog("Solver is starting");
         Solver.State = CreateSolverBasedOnConfiguration();
         Solver.State.Process();

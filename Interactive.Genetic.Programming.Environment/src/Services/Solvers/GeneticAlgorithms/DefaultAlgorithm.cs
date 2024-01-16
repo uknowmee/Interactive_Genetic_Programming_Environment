@@ -1,4 +1,5 @@
-﻿using Shared;
+﻿using Microsoft.Extensions.Logging;
+using Shared;
 using Solvers.Interfaces;
 using Solvers.State;
 using Utils;
@@ -7,8 +8,10 @@ namespace Solvers.GeneticAlgorithms;
 
 internal sealed class DefaultAlgorithm : SolvingState
 {
+    private readonly ILogger<DefaultAlgorithm> _logger;
     public DefaultAlgorithm(IGeneticSolver solver) : base(solver)
     {
+        _logger = solver.LoggerFactory.CreateLogger<DefaultAlgorithm>();
     }
 
     protected override bool GotSolution()
@@ -75,6 +78,11 @@ internal sealed class DefaultAlgorithm : SolvingState
         var mutation = SolverConfiguration.MutationProbability;
         var horizontalModification = SolverConfiguration.HorizontalModificationProbability;
 
+        _logger.LogDebug(
+            "Crossover: {CrossoverProbability}, Mutation: {MutationProbability}, Horizontal Modification: {HorizontalModificationProbability}",
+            crossover, mutation, horizontalModification
+        );
+        
         for (var i = 0; i < Population.Count; i++)
         {
             Progress(i, Population.Count);
@@ -183,7 +191,6 @@ internal sealed class DefaultAlgorithm : SolvingState
         individual.FitnessValue = fitness;
     }
 
-
     private void Cross()
     {
         var parent1 = TournamentHandlerService.Tournament(Population);
@@ -216,6 +223,11 @@ internal sealed class DefaultAlgorithm : SolvingState
         var pointMutation = SolverConfiguration.PointMutationProbability;
         var subtreeMutation = SolverConfiguration.SubtreeMutationProbability;
 
+        _logger.LogDebug(
+            "Point Mutation: {PointMutationProbability}, Subtree Mutation: {SubtreeMutationProbability}",
+            pointMutation, subtreeMutation
+        );
+        
         if (offspring.Program.ChildrenNodes.Count == 1)
         {
             return;
@@ -244,6 +256,11 @@ internal sealed class DefaultAlgorithm : SolvingState
         var deleteLine = SolverConfiguration.DeleteLineProbability;
         var swapLines = SolverConfiguration.SwapLinesProbability;
 
+        _logger.LogDebug(
+            "New Line: {NewLineProbability}, Delete Line: {DeleteLineProbability}, Swap Lines: {SwapLinesProbability}",
+            newLine, deleteLine, swapLines
+        );
+        
         if (chance < newLine)
         {
             HorizontalMutatorService.GrowOnceInsideBlock(offspring.Program);
