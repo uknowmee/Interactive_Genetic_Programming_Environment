@@ -3,7 +3,6 @@ using Shared;
 
 namespace Database.Entities;
 
-[ComplexType]
 public class FitnessFunctionEntity
 {
     public int Id { get; set; }
@@ -24,13 +23,5 @@ public class FitnessFunctionEntity
     public override string ToString()
     {
         return Name;
-    }
-}
-
-public static partial class MappingExtensions
-{
-    public static FitnessFunctionEntity ToEntity(this FitnessFunction fitnessFunction)
-    {
-        return new FitnessFunctionEntity(fitnessFunction.Name, fitnessFunction.Code);
     }
 }

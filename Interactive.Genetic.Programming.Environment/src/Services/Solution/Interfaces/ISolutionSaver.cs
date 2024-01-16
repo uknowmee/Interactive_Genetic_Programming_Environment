@@ -9,7 +9,7 @@ public interface ISolutionSaver
     public void SaveSolution(
         IModelConfiguration initialModelConfiguration,
         ISolverConfiguration initialSolverConfiguration,
-        FitnessFunction initialFitness,
+        IEnumerable<FitnessFunction> fitnessFunctions,
         Individual bestIndividual
     );
 }

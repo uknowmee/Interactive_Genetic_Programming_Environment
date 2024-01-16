@@ -11,6 +11,7 @@ public class DbCtx : DbContext
 
     public DbSet<TaskEntity> Tasks { get; set; }
     public DbSet<FitnessFunctionEntity> FitnessFunctions { get; set; }
+    public DbSet<SolutionFitnessFunction> SolutionsFitnessFunctions { get; set; }
     public DbSet<SolutionEntity> Solutions { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -24,13 +25,10 @@ public class DbCtx : DbContext
                 }
             );
 
-        modelBuilder.Entity<SolutionEntity>()
-            .ComplexProperty<FitnessFunctionEntity>(
-                solution => solution.InitialFitness,
-                fitness =>
-                {
-                    fitness.Ignore(f => f.Id);
-                }
-            );
+        modelBuilder.Entity<FitnessFunctionEntity>()
+            .ToTable("FitnessFunctions");
+        
+        modelBuilder.Entity<SolutionFitnessFunction>()
+            .ToTable("SolutionsFitnessFunctions");
     }
 }

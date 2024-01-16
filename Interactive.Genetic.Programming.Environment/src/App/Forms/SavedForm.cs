@@ -136,16 +136,27 @@ public partial class SavedForm : Form, IAvailableSolutionsSubscriber
         textBoxConfiguration.Text = $@"{solution.InitialModelConfiguration}" +
                                     $@"{Environment.NewLine}{Environment.NewLine}" +
                                     $@"{solution.InitialSolverConfiguration}";
-        textBoxFitness.Text = solution.InitialFitness.Code;
         textBoxHistory.Text = solution.History;
         textBoxProgram.Text = solution.BestIndividual;
+        
+        comboBoxFitness.Items.Clear();
+        comboBoxFitness.Items.AddRange(solution.FitnessFunctions.Cast<object>().ToArray());
+        comboBoxFitness.SelectedItem = solution.FitnessFunctions.First();
     }
 
     private void UnLoadSolution()
     {
         textBoxConfiguration.Text = string.Empty;
-        textBoxFitness.Text = string.Empty;
         textBoxHistory.Text = string.Empty;
         textBoxProgram.Text = string.Empty;
+        
+        textBoxFitness.Text = string.Empty;
+        comboBoxFitness.Items.Clear();
+    }
+
+    private void comboBoxFitness_SelectedIndexChanged(object sender, EventArgs e)
+    {
+         if (comboBoxFitness.SelectedItem is not SolutionFitnessFunction fitness) return;
+          textBoxFitness.Text = fitness.Code;
     }
 }

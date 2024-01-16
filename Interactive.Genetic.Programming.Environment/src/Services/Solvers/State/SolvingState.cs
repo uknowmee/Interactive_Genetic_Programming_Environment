@@ -1,5 +1,6 @@
 ﻿using Configuration;
 using Configuration.Solver;
+using Fitness.Interfaces;
 using Generators.Program.Interfaces;
 using Interpreter;
 using Shared;
@@ -10,10 +11,10 @@ using Task = System.Threading.Tasks.Task;
 
 namespace Solvers.State;
 
-internal abstract class SolvingState : ISolverState
+internal abstract class SolvingState : ISolverState, IFitnessChangeSubscriber
 {    
     protected int Epoch { get; private set; } = 0;
-    protected readonly FitnessFunction FitnessFunction;
+    protected FitnessFunction FitnessFunction => _fitnessFunctions[^1];
     protected readonly Shared.Task SolvingTask;
     
     protected int BasePopulationSize => Solver.SolverConfiguration.PopulationSize;
@@ -48,6 +49,7 @@ internal abstract class SolvingState : ISolverState
     protected IHorizontalMutatorService HorizontalMutatorService => Solver.HorizontalMutatorService;
     protected ITournamentHandlerService TournamentHandlerService => Solver.TournamentHandlerService;
     
+    private readonly List<FitnessFunction> _fitnessFunctions = [];
     private bool _evolutionStarted = false;
     private bool _shouldStop = false;
     private bool _shouldReset = false;
@@ -61,10 +63,22 @@ internal abstract class SolvingState : ISolverState
     protected SolvingState(IGeneticSolver solver)
     {
         Solver = solver;
-        FitnessFunction = Solver.FitnessService.GetFitnessFunction();
+        _fitnessFunctions.Add(Solver.FitnessService.GetFitnessFunction());
         SolvingTask = Solver.TasksService.GetTask();
         _initialModelConfiguration = Solver.ModelConfiguration.Copy();
         _initialSolverConfiguration = Solver.SolverConfiguration.Copy();
+        
+        solver.FitnessService.Subscribe(this);
+    }
+    
+    ~SolvingState()
+    {
+        Solver.FitnessService.Unsubscribe(this);
+    }
+
+    public void OnFitnessFunctionChange(FitnessFunction fitnessFunction)
+    {
+        _fitnessFunctions.Add(fitnessFunction);
     }
 
     public void Start()
@@ -205,7 +219,7 @@ internal abstract class SolvingState : ISolverState
         Solver.SolutionSaver.SaveSolution(
             _initialModelConfiguration,
             _initialSolverConfiguration,
-            FitnessFunction,
+            _fitnessFunctions,
             Solver.BestIndividual ?? throw new InvalidOperationException("Best individual is not known - this should not happen")
         );
         Solver.State = new FinishedState(Solver);
