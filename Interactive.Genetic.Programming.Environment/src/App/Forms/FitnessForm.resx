@@ -119,7 +119,7 @@
   </resheader>
   <data name="textBoxFitnessReadme.Text" xml:space="preserve">
     <value>Specify your fitness function with the correct format, remember to add all needed "using statements"!
-Interfaces IEvaluable, and ITestCase are defined below.
+You can change the fitness function, during evolution! Interfaces IEvaluable, and ITestCase are defined below.
 
 --------------------------------------------------------------------------------
 
@@ -153,7 +153,6 @@ public interface ITestCase
     public List&lt;double&gt; Input { get; }
     public List&lt;double&gt; Output { get; }
     public List&lt;double&gt; Predicted { get; }
-}
-</value>
+}</value>
   </data>
 </root>
