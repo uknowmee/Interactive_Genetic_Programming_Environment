@@ -53,6 +53,7 @@ partial class SavedForm
         buttonInspectSolution = new Button();
         buttonRemoveSolution = new Button();
         buttonInterpreter = new Button();
+        comboBoxFitness = new ComboBox();
         SuspendLayout();
         // 
         // buttonQuit
@@ -146,7 +147,7 @@ partial class SavedForm
         textBoxConfiguration.Name = "textBoxConfiguration";
         textBoxConfiguration.ReadOnly = true;
         textBoxConfiguration.ScrollBars = ScrollBars.Vertical;
-        textBoxConfiguration.Size = new Size(469, 443);
+        textBoxConfiguration.Size = new Size(469, 516);
         textBoxConfiguration.TabIndex = 62;
         // 
         // textBoxFitness
@@ -157,7 +158,7 @@ partial class SavedForm
         textBoxFitness.Name = "textBoxFitness";
         textBoxFitness.ReadOnly = true;
         textBoxFitness.ScrollBars = ScrollBars.Vertical;
-        textBoxFitness.Size = new Size(502, 443);
+        textBoxFitness.Size = new Size(502, 516);
         textBoxFitness.TabIndex = 63;
         // 
         // contextMenuStrip2
@@ -192,9 +193,9 @@ partial class SavedForm
         // 
         labelConfiguration.Anchor = AnchorStyles.Left;
         labelConfiguration.BackColor = SystemColors.Control;
-        labelConfiguration.Location = new Point(12, 82);
+        labelConfiguration.Location = new Point(12, 105);
         labelConfiguration.Name = "labelConfiguration";
-        labelConfiguration.Size = new Size(183, 54);
+        labelConfiguration.Size = new Size(183, 31);
         labelConfiguration.TabIndex = 69;
         labelConfiguration.Text = "Configuration";
         labelConfiguration.TextAlign = ContentAlignment.BottomLeft;
@@ -203,9 +204,9 @@ partial class SavedForm
         // 
         labelFitness.Anchor = AnchorStyles.Left;
         labelFitness.BackColor = SystemColors.Control;
-        labelFitness.Location = new Point(505, 82);
+        labelFitness.Location = new Point(505, 71);
         labelFitness.Name = "labelFitness";
-        labelFitness.Size = new Size(183, 54);
+        labelFitness.Size = new Size(183, 31);
         labelFitness.TabIndex = 70;
         labelFitness.Text = "Fitness";
         labelFitness.TextAlign = ContentAlignment.BottomLeft;
@@ -276,11 +277,23 @@ partial class SavedForm
         buttonInterpreter.UseVisualStyleBackColor = true;
         buttonInterpreter.Click += buttonInterpreter_Click;
         // 
+        // comboBoxFitness
+        // 
+        comboBoxFitness.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+        comboBoxFitness.DropDownStyle = ComboBoxStyle.DropDownList;
+        comboBoxFitness.FormattingEnabled = true;
+        comboBoxFitness.Location = new Point(505, 105);
+        comboBoxFitness.Name = "comboBoxFitness";
+        comboBoxFitness.Size = new Size(502, 28);
+        comboBoxFitness.TabIndex = 80;
+        comboBoxFitness.SelectedIndexChanged += comboBoxFitness_SelectedIndexChanged;
+        // 
         // SavedForm
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
         ClientSize = new Size(1902, 1033);
+        Controls.Add(comboBoxFitness);
         Controls.Add(buttonInterpreter);
         Controls.Add(buttonRemoveSolution);
         Controls.Add(buttonInspectSolution);
@@ -331,4 +344,5 @@ partial class SavedForm
     private Button buttonInspectSolution;
     private Button buttonRemoveSolution;
     private Button buttonInterpreter;
+    private ComboBox comboBoxFitness;
 }

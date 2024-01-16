@@ -31,7 +31,7 @@ public class SolutionService : ISolutionSaver, IAvailableSolutionsService
     public void SaveSolution(
         IModelConfiguration initialModelConfiguration,
         ISolverConfiguration initialSolverConfiguration,
-        FitnessFunction initialFitness,
+        IEnumerable<FitnessFunction> fitnessFunctions,
         Individual bestIndividual)
     {
         var creationDate = DateTime.Now;
@@ -42,7 +42,7 @@ public class SolutionService : ISolutionSaver, IAvailableSolutionsService
             initialSolverConfiguration.ToString(),
             _historyService.GetHistory(),
             bestIndividual.ProgramString,
-            initialFitness.ToEntity(),
+            fitnessFunctions.Select(f => f.ToEntity()),
             bestIndividual.Task.SolutionToEntity(solutionPath),
             creationDate.ToUniversalTime()
         );

@@ -1,6 +1,7 @@
 ﻿using Database.Entities;
 using Database.Interfaces;
 using Fitness.Interfaces;
+using History.Interfaces;
 using Shared;
 using Shared.Exceptions;
 
@@ -9,14 +10,18 @@ namespace Fitness;
 public class FitnessService : IFitnessService, IFitnessInformationPublisher, IAvailableFitnessFunctionsService
 {
     private readonly IFitnessDatabaseService _fitnessDatabaseService;
+    private readonly IHistoryService _historyService;
+    
     private IFitnessInformationSubscriber? _fitnessInformationSubscriber;
     private IAvailableFitnessFunctionsSubscriber? _availableFitnessFunctionsSubscriber;
+    private IFitnessChangeSubscriber? _fitnessChangeSubscriber;
 
     private FitnessFunction? _fitnessFunction;
     
-    public FitnessService(IFitnessDatabaseService fitnessDatabaseService)
+    public FitnessService(IFitnessDatabaseService fitnessDatabaseService, IHistoryService historyService)
     {
         _fitnessDatabaseService = fitnessDatabaseService;
+        _historyService = historyService;
     }
     
     public void Subscribe(IFitnessInformationSubscriber subscriber)
@@ -37,7 +42,12 @@ public class FitnessService : IFitnessService, IFitnessInformationPublisher, IAv
         }
         
         _fitnessFunction = new FitnessFunction(fitnessFunction.Name, fitnessFunction.Code);
-        _fitnessInformationSubscriber?.OnFitnessFunctionChange(fitnessFunction.Name);
+        
+        _historyService.PushEntry("----------------------------------------------------------------------------");
+        _historyService.PushEntry($"Fitness function changed: {_fitnessFunction.Name} - {_fitnessFunction.Hash}");
+        
+        _fitnessInformationSubscriber?.OnFitnessFunctionChange(_fitnessFunction.Name);
+        _fitnessChangeSubscriber?.OnFitnessFunctionChange(_fitnessFunction);
     }
     
     public void ResetFitness()
@@ -70,6 +80,16 @@ public class FitnessService : IFitnessService, IFitnessInformationPublisher, IAv
         return IsFitnessActive()
             ? _fitnessFunction ?? throw new Exception("Fitness function is null")
             : throw new Exception("Fitness function is not active");
+    }
+
+    public void Subscribe(IFitnessChangeSubscriber subscriber)
+    {
+        _fitnessChangeSubscriber = subscriber;
+    }
+
+    public void Unsubscribe(IFitnessChangeSubscriber subscriber)
+    {
+        _fitnessChangeSubscriber = null;
     }
 
     public void RemoveFitness(FitnessFunctionEntity fitnessFunction)

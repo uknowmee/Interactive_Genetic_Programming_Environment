@@ -168,14 +168,6 @@ public partial class FitnessForm : Form, IAvailableFitnessFunctionsSubscriber, I
     public void OnSolverStatusUpdate(SolverStatus status)
     {
         _status = status;
-        if (comboBoxSavedFitness.InvokeRequired)
-        {
-            comboBoxSavedFitness.BeginInvoke(() => comboBoxSavedFitness.Enabled = _status == SolverStatus.Idle);
-        }
-        else
-        {
-            comboBoxSavedFitness.Enabled = _status == SolverStatus.Idle;
-        }
 
         if (buttonRemoveFitness.InvokeRequired)
         {
