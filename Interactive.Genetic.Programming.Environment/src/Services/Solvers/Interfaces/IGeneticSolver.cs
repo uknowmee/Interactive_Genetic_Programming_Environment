@@ -5,6 +5,7 @@ using Fitness.Interfaces;
 using Generators.Program.Interfaces;
 using History.Interfaces;
 using Interpreter;
+using Microsoft.Extensions.Logging;
 using Shared;
 using Solution.Interfaces;
 using Strategies.Evolution.Interfaces;
@@ -19,6 +20,7 @@ internal interface IGeneticSolver
     public int AdditionalPopulation { get; set; }
     public double AvgFitness { get; }
     
+    public ILoggerFactory LoggerFactory { get; }
     public ISolverPublisher Publisher { get; }
     public IAppConfiguration AppConfiguration { get; }
     public IModelConfiguration ModelConfiguration { get; }

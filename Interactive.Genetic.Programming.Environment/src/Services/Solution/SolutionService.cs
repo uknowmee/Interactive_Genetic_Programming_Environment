@@ -42,7 +42,7 @@ public class SolutionService : ISolutionSaver, IAvailableSolutionsService
             initialSolverConfiguration.ToString(),
             _historyService.GetHistory(),
             bestIndividual.ProgramString,
-            fitnessFunctions.Select(f => f.ToEntity()),
+            fitnessFunctions.Select(f => f.ToEntity()).ToList(),
             bestIndividual.Task.SolutionToEntity(solutionPath),
             creationDate.ToUniversalTime()
         );

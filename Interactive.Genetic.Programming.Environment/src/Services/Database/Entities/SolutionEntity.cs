@@ -1,10 +1,12 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using Utils;
 
 namespace Database.Entities;
 
 public class SolutionEntity
 {
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int Id { get; set; }
     public string InitialModelConfiguration { get; set; }
     public string InitialSolverConfiguration { get; set; }

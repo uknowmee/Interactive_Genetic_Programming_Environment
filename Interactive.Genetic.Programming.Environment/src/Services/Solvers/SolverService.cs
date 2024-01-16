@@ -39,6 +39,7 @@ public class SolverService : ISolverService, IGeneticSolver, ILogEmitter
     public IMutatorService MutatorService { get; }
     public IHorizontalMutatorService HorizontalMutatorService { get; }
     public ITournamentHandlerService TournamentHandlerService { get; }
+    public ILoggerFactory LoggerFactory { get; }
 
     ISolverState IGeneticSolver.State
     {
@@ -66,7 +67,9 @@ public class SolverService : ISolverService, IGeneticSolver, ILogEmitter
     public double AvgFitness
         => Population.Count == 0
             ? double.NegativeInfinity
-            : Population.Average(i => i.FitnessValue);
+            : Population.ToList()
+                .Where(i => double.IsNegativeInfinity(i.FitnessValue) is false && i.FinishedAllCasesRun)
+                .Average(i => i.FitnessValue);
 
     public SolverService(
         IAppConfiguration appConfiguration,
@@ -85,6 +88,7 @@ public class SolverService : ISolverService, IGeneticSolver, ILogEmitter
         ILoggerFactory loggerFactory
     )
     {
+        LoggerFactory = loggerFactory;
         _logger = loggerFactory.CreateLogger<SolverService>();
 
         AppConfiguration = appConfiguration;

@@ -2,6 +2,7 @@
 using Database.Interfaces;
 using Fitness.Interfaces;
 using History.Interfaces;
+using Microsoft.Extensions.Logging;
 using Shared;
 using Shared.Exceptions;
 
@@ -9,6 +10,8 @@ namespace Fitness;
 
 public class FitnessService : IFitnessService, IFitnessInformationPublisher, IAvailableFitnessFunctionsService
 {
+    private readonly ILogger<FitnessService> _logger;
+    
     private readonly IFitnessDatabaseService _fitnessDatabaseService;
     private readonly IHistoryService _historyService;
     
@@ -18,10 +21,11 @@ public class FitnessService : IFitnessService, IFitnessInformationPublisher, IAv
 
     private FitnessFunction? _fitnessFunction;
     
-    public FitnessService(IFitnessDatabaseService fitnessDatabaseService, IHistoryService historyService)
+    public FitnessService(IFitnessDatabaseService fitnessDatabaseService, IHistoryService historyService, ILoggerFactory loggerFactory)
     {
         _fitnessDatabaseService = fitnessDatabaseService;
         _historyService = historyService;
+        _logger = loggerFactory.CreateLogger<FitnessService>();
     }
     
     public void Subscribe(IFitnessInformationSubscriber subscriber)
@@ -43,11 +47,20 @@ public class FitnessService : IFitnessService, IFitnessInformationPublisher, IAv
         
         _fitnessFunction = new FitnessFunction(fitnessFunction.Name, fitnessFunction.Code);
         
-        _historyService.PushEntry("----------------------------------------------------------------------------");
+        _historyService.PushEntry("----------------------------------------------------------------------------------------");
         _historyService.PushEntry($"Fitness function changed: {_fitnessFunction.Name} - {_fitnessFunction.Hash}");
         
         _fitnessInformationSubscriber?.OnFitnessFunctionChange(_fitnessFunction.Name);
-        _fitnessChangeSubscriber?.OnFitnessFunctionChange(_fitnessFunction);
+
+        try
+        {
+            _fitnessChangeSubscriber?.OnFitnessFunctionChange(_fitnessFunction);
+        }
+        catch (Exception e)
+        {
+            _logger.LogError(e, "Error while notifying subscriber about fitness function change");
+            _fitnessChangeSubscriber = null;
+        }
     }
     
     public void ResetFitness()
