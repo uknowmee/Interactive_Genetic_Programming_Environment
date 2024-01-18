@@ -11,10 +11,10 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Domain\Shared\Shared.csproj" />
-      <ProjectReference Include="..\Services\Configuration\Configuration.csproj" />
-      <ProjectReference Include="..\Services\Database\Database.csproj" />
-      <ProjectReference Include="..\Services\File\File.csproj" />
+      <ProjectReference Include="..\..\Domain\Shared\Shared.csproj" />
+      <ProjectReference Include="..\Configuration\Configuration.csproj" />
+      <ProjectReference Include="..\Database\Database.csproj" />
+      <ProjectReference Include="..\File\File.csproj" />
     </ItemGroup>
 
 </Project>

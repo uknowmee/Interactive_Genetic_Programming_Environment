@@ -1,4 +1,5 @@
-﻿using Generators.Program.Interfaces;
+﻿using Configuration.Solver;
+using Generators.Program.Interfaces;
 using Shared;
 using Task = Shared.Task;
 
@@ -6,6 +7,13 @@ namespace Generators.Program;
 
 public class ProgramGeneratorService : IProgramGeneratorService
 {
+    private ISolverConfiguration SolverConfiguration { get; }
+
+    public ProgramGeneratorService(ISolverConfiguration solverConfiguration)
+    {
+        SolverConfiguration = solverConfiguration;
+    }
+
     public void GeneratePopulation(List<Individual> population, int basePopulationSize, Task solvingTask)
     {
         var individuals = GenerateAdditionalPopulation(basePopulationSize, solvingTask);
@@ -18,7 +26,11 @@ public class ProgramGeneratorService : IProgramGeneratorService
 
         for (var i = 0; i < addPopulationSize; i++)
         {
-            var program = new Model.Nodes.Big.Program.Root.Program(solvingTask.InputLength);
+            var program = new Model.Nodes.Big.Program.Root.Program(
+                SolverConfiguration.InputLength > solvingTask.InputLength
+                    ? SolverConfiguration.InputLength
+                    : solvingTask.InputLength
+            );
             program.AddBigNodes();
             var individual = new Individual(program, solvingTask.Copy());
             population.Add(individual);

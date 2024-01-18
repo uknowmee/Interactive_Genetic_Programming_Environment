@@ -63,8 +63,11 @@ public class TasksService : ITasksService, ITaskInformationPublisher, IAvailable
         {
             throw new CustomException("Task with this name already exists");
         }
-        
-        if (ReadTask(taskPath) is not { } task) return;
+
+        if (ReadTask(taskPath) is not { } task)
+        {
+            throw new CustomException("Failed to read task, check if it truly exists or if it's format is correct");
+        }
         task.TaskName = taskName;
 
         var destinationPath = CopyTaskToDestination(task);

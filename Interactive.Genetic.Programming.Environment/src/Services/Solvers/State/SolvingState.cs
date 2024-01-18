@@ -4,6 +4,7 @@ using Configuration.Solver;
 using Fitness.Interfaces;
 using Generators.Program.Interfaces;
 using Interpreter;
+using Microsoft.Extensions.Logging;
 using Shared;
 using Shared.Exceptions;
 using Solvers.Interfaces;
@@ -17,8 +18,9 @@ internal abstract class SolvingState : ISolverState, IFitnessChangeSubscriber
     protected int Epoch { get; private set; } = 0;
     protected FitnessFunction FitnessFunction => _fitnessFunctions.Last();
     protected readonly Shared.Task SolvingTask;
-
     protected int BasePopulationSize => Solver.SolverConfiguration.PopulationSize;
+    protected int TotalPopulationSize => BasePopulationSize + AdditionalPopulationSize;
+    protected List<Individual> BestIndividuals { get; } = [];
 
     protected int AdditionalPopulationSize
     {
@@ -29,9 +31,7 @@ internal abstract class SolvingState : ISolverState, IFitnessChangeSubscriber
             NotifyPopulationSize();
         }
     }
-
-    protected int TotalPopulationSize => BasePopulationSize + AdditionalPopulationSize;
-
+    
     protected List<Individual> Population
     {
         get => Solver.Population;
@@ -51,9 +51,7 @@ internal abstract class SolvingState : ISolverState, IFitnessChangeSubscriber
             Solver.BestIndividual = value;
         }
     }
-
-    protected List<Individual> BestIndividuals { get; } = [];
-
+    
     protected ISolverConfiguration SolverConfiguration => Solver.SolverConfiguration;
     protected IProgramGeneratorService ProgramGeneratorService => Solver.ProgramGeneratorService;
     protected IInterpreterService InterpreterService => Solver.InterpreterService;
@@ -62,6 +60,7 @@ internal abstract class SolvingState : ISolverState, IFitnessChangeSubscriber
     protected IHorizontalMutatorService HorizontalMutatorService => Solver.HorizontalMutatorService;
     protected ITournamentHandlerService TournamentHandlerService => Solver.TournamentHandlerService;
 
+    private readonly ILogger<SolvingState> _logger;
     private readonly List<double> _fitnessHistory = [];
     private readonly ConcurrentQueue<FitnessFunction> _fitnessFunctions;
     private bool _evolutionStarted = false;
@@ -76,6 +75,8 @@ internal abstract class SolvingState : ISolverState, IFitnessChangeSubscriber
 
     protected SolvingState(IGeneticSolver solver)
     {
+        _logger = solver.LoggerFactory.CreateLogger<SolvingState>();
+        
         Solver = solver;
         SolvingTask = Solver.TasksService.GetTask();
         _initialModelConfiguration = Solver.ModelConfiguration.Copy();
@@ -149,7 +150,8 @@ internal abstract class SolvingState : ISolverState, IFitnessChangeSubscriber
         }
         catch (Exception e)
         {
-            EmitLog($"Unexpected error, finishing evolution: {e}");
+            _logger.LogError(e, "Unexpected error during evolution");
+            EmitLog("Unexpected error, finishing evolution.");
             Solver.State = new FinishedState(Solver);
             await Solver.State.Process();
         }
@@ -177,7 +179,7 @@ internal abstract class SolvingState : ISolverState, IFitnessChangeSubscriber
                     $"population size: {BasePopulationSize} + {AdditionalPopulationSize}"
             );
             EmitLog($"Best individual fitness: {Solver.BestIndividual?.FitnessValue ?? double.NegativeInfinity}");
-            EmitLog($"Avg fitness: {Solver.AvgFitness}");
+            EmitLog($"Avg fitness: {Solver.GetAvgFitness()}");
             NotifyAvgFitness();
 
             if (_shouldStop)
@@ -258,7 +260,7 @@ internal abstract class SolvingState : ISolverState, IFitnessChangeSubscriber
     }
 
     private void NotifyPopulationSize() => Solver.Publisher.NotifyPopulationSize(TotalPopulationSize);
-    private void NotifyAvgFitness() => Solver.Publisher.NotifyAvgFitness(Solver.AvgFitness);
+    private void NotifyAvgFitness() => Solver.Publisher.NotifyAvgFitness(Solver.GetAvgFitness());
 
     protected void NotifyProceeded(double proceededPercent) => Solver.Publisher.NotifyProceeded(proceededPercent);
     protected void EmitLog(string log) => Solver.EmitLog(log);

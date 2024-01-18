@@ -15,7 +15,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App.Tasks.Generator", "src\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App.Program.Generator", "src\App.Program.Generator\App.Program.Generator.csproj", "{81BEE6AE-0A2D-4857-839C-4C6C5F5FC52A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tasks", "src\Tasks\Tasks.csproj", "{0A70BD5E-E9D8-439E-B3FF-A01C2F250670}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tasks", "src\Services\Tasks\Tasks.csproj", "{0A70BD5E-E9D8-439E-B3FF-A01C2F250670}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{04815A76-24C7-4481-830D-19ED8375AA18}"
 EndProject
