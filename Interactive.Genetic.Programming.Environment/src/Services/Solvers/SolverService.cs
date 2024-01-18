@@ -64,12 +64,22 @@ public class SolverService : ISolverService, IGeneticSolver, ILogEmitter
         }
     }
 
-    public double AvgFitness
-        => Population.Count == 0
-            ? double.NegativeInfinity
-            : Population.ToList()
-                .Where(i => double.IsNegativeInfinity(i.FitnessValue) is false && i.FinishedAllCasesRun)
-                .Average(i => i.FitnessValue);
+    public double GetAvgFitness()
+    {
+        try
+        {
+            var avgFitness = Population.Count == 0
+                ? double.NegativeInfinity
+                : Population.ToList()
+                    .Where(i => double.IsNegativeInfinity(i.FitnessValue) is false && i.FinishedAllCasesRun)
+                    .Average(i => i.FitnessValue);
+            return avgFitness;
+        }
+        catch
+        {
+            return double.NegativeInfinity;
+        }
+    }
 
     public SolverService(
         IAppConfiguration appConfiguration,
@@ -142,7 +152,7 @@ public class SolverService : ISolverService, IGeneticSolver, ILogEmitter
                 ? 0.0
                 : BestIndividual?.FitnessValue ?? double.NegativeInfinity
         );
-        Publisher.NotifyAvgFitness(_state.Status == SolverStatus.Idle ? 0.0 : AvgFitness);
+        Publisher.NotifyAvgFitness(_state.Status == SolverStatus.Idle ? 0.0 : GetAvgFitness());
         if (_state.Status == SolverStatus.Idle)
         {
             Publisher.NotifyProceeded(0);

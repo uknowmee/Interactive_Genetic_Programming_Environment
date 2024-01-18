@@ -63,7 +63,7 @@ public class FitnessFunction
         }
         catch (Exception e)
         {
-            throw new ErrorDuringFitnessFunctionExecution("Error during fitness function execution", e);
+            throw new ErrorDuringFitnessFunctionExecution(e.Message, e);
         }
     }
 

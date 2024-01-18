@@ -5,7 +5,7 @@ namespace Solvers;
 public class SolverPublisher : ISolverPublisher
 {
     private ISolverSubscriber? _subscriber;
-    private readonly List<ISolverStatusSubscriber> _statusSubscribers = new();
+    private readonly List<ISolverStatusSubscriber> _statusSubscribers = [];
 
     public void Subscribe(ISolverStatusSubscriber subscriber)
     {

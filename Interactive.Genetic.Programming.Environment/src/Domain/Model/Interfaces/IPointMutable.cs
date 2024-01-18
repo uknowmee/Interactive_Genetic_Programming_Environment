@@ -11,20 +11,12 @@ public interface IPointMutable
     public sealed bool IsMutable()
     {
         if (this is not VarExpression varExpression) return true;
-        
-        if (varExpression.ParentNode is Assignment assignment)
-        {
-            if (assignment.Variable == varExpression)
-            {
-                return false;
-            }
-        }
-            
-        if (varExpression.ParentNode is ForAssignment forAssignment)
-        {
-            return forAssignment.Variable != varExpression;
-        }
 
-        return true;
+        return varExpression.ParentNode switch
+        {
+            Assignment assignment when assignment.Variable == varExpression => false,
+            ForAssignment forAssignment => forAssignment.Variable != varExpression,
+            _ => true
+        };
     }
 }

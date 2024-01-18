@@ -148,7 +148,7 @@ partial class SavedForm
         textBoxConfiguration.Name = "textBoxConfiguration";
         textBoxConfiguration.ReadOnly = true;
         textBoxConfiguration.ScrollBars = ScrollBars.Vertical;
-        textBoxConfiguration.Size = new Size(469, 516);
+        textBoxConfiguration.Size = new Size(469, 504);
         textBoxConfiguration.TabIndex = 62;
         // 
         // textBoxFitness
@@ -159,7 +159,7 @@ partial class SavedForm
         textBoxFitness.Name = "textBoxFitness";
         textBoxFitness.ReadOnly = true;
         textBoxFitness.ScrollBars = ScrollBars.Vertical;
-        textBoxFitness.Size = new Size(502, 516);
+        textBoxFitness.Size = new Size(502, 504);
         textBoxFitness.TabIndex = 63;
         // 
         // contextMenuStrip2
@@ -238,9 +238,9 @@ partial class SavedForm
         // 
         labelHistory.Anchor = AnchorStyles.Left;
         labelHistory.BackColor = SystemColors.Control;
-        labelHistory.Location = new Point(12, 633);
+        labelHistory.Location = new Point(12, 658);
         labelHistory.Name = "labelHistory";
-        labelHistory.Size = new Size(183, 54);
+        labelHistory.Size = new Size(183, 29);
         labelHistory.TabIndex = 73;
         labelHistory.Text = "History";
         labelHistory.TextAlign = ContentAlignment.BottomLeft;

@@ -302,7 +302,6 @@ internal sealed class DefaultAlgorithm : SolvingState
         return Population
             .Where(individual => !double.IsNaN(individual.FitnessValue))
             .OrderByDescending(individual => individual.FitnessValue)
-            .ThenBy(individual => individual.ProgramLength)
             .First();
     }
 
