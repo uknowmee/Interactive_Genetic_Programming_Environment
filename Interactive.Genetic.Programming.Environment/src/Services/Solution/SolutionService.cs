@@ -73,7 +73,14 @@ public class SolutionService : ISolutionSaver, IAvailableSolutionsService
         
         if (_fileService.DoesFileExist(solutionPath) is false)
         {
-            _fileService.SaveAsJson<Task>(solution.SolvedTask.Json, solutionPath);
+            if (solutionPath.Contains("json"))
+            {
+                _fileService.SaveAsJson<Task>(solution.SolvedTask.Json, solutionPath);
+            }
+            else
+            {
+                _fileService.SaveAsCsv<Task>(solution.SolvedTask.Json, solutionPath);
+            }
         }
         
         try
