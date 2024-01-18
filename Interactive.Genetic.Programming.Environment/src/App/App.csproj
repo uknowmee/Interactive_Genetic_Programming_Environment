@@ -59,7 +59,7 @@
       <ProjectReference Include="..\Services\Solution\Solution.csproj" />
       <ProjectReference Include="..\Services\Solvers\Solvers.csproj" />
       <ProjectReference Include="..\Services\Strategies.Evolution\Strategies.Evolution.csproj" />
-      <ProjectReference Include="..\Tasks\Tasks.csproj" />
+      <ProjectReference Include="..\Services\Tasks\Tasks.csproj" />
     </ItemGroup>
 
 </Project>

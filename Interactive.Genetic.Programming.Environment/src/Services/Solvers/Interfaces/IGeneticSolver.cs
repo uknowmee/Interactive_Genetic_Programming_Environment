@@ -18,8 +18,8 @@ internal interface IGeneticSolver
     public List<Individual> Population { get; set; }
     public Individual? BestIndividual { get; set; }
     public int AdditionalPopulation { get; set; }
-    public double AvgFitness { get; }
-    
+    public double GetAvgFitness();
+
     public ILoggerFactory LoggerFactory { get; }
     public ISolverPublisher Publisher { get; }
     public IAppConfiguration AppConfiguration { get; }

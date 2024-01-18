@@ -12,7 +12,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\..\Domain\Shared\Shared.csproj" />
-      <ProjectReference Include="..\..\Tasks\Tasks.csproj" />
+      <ProjectReference Include="..\Tasks\Tasks.csproj" />
       <ProjectReference Include="..\Configuration\Configuration.csproj" />
       <ProjectReference Include="..\Fitness\Fitness.csproj" />
       <ProjectReference Include="..\Generators.Program\Generators.Program.csproj" />
