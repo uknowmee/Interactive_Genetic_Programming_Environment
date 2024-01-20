@@ -1,12 +1,15 @@
-﻿using App.Services.Interfaces;
+﻿using App.Forms.Scaling;
+using App.Services.Interfaces;
 using Configuration;
 using Configuration.App;
 using Configuration.Solver;
 
 namespace App.Forms;
 
-public partial class ConfigurationForm : Form
+public partial class ConfigurationForm : Form, IFormPropertiesProvider<ConfigurationForm>
 {
+    public FormProperties<ConfigurationForm> FormProperties { get; set; }
+
     private readonly IWindowSwitcherService _windowSwitcher;
     private readonly IModelConfiguration _modelConfiguration;
     private readonly ISolverConfiguration _solverConfiguration;
@@ -25,6 +28,8 @@ public partial class ConfigurationForm : Form
         _appConfiguration = appConfiguration;
 
         InitializeComponent();
+
+        FormProperties = new FormProperties<ConfigurationForm>(this);
     }
 
     private void Configuration_Load(object sender, EventArgs e)
@@ -32,7 +37,7 @@ public partial class ConfigurationForm : Form
         WindowState = FormWindowState.Maximized;
         LoadModelConfiguration();
         LoadSolverConfiguration();
-        
+
         buttonTaskFormatSwitcher.Text = _appConfiguration.ReadTaskFromJson ? "JSON" : "CSV";
     }
 
@@ -42,6 +47,11 @@ public partial class ConfigurationForm : Form
         base.Show();
     }
 
+    private void ConfigurationForm_Resize(object sender, EventArgs e)
+    {
+        FormProperties.MinimizeMaximizeChange = this.ResizeDecision();
+    }
+    
     private void buttonHome_Click(object sender, EventArgs e)
     {
         _windowSwitcher.Switch<HomeForm>(this);

@@ -206,6 +206,7 @@ partial class InterpreterForm
         Name = "InterpreterForm";
         Text = "Interpreter";
         Load += InterpreterForm_Load;
+        Resize += InterpreterForm_Resize;
         ResumeLayout(false);
         PerformLayout();
     }
