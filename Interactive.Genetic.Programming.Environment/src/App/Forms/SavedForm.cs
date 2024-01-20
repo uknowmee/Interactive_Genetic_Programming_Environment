@@ -1,4 +1,5 @@
-﻿using App.Services.Interfaces;
+﻿using App.Forms.Scaling;
+using App.Services.Interfaces;
 using Database.Entities;
 using Solution.Interfaces;
 
@@ -6,8 +7,11 @@ namespace App.Forms;
 
 public partial class SavedForm :
     Form,
+    IFormPropertiesProvider<SavedForm>,
     IAvailableSolutionsSubscriber
 {
+    public FormProperties<SavedForm> FormProperties { get; set; }
+
     private readonly IWindowSwitcherService _windowSwitcher;
     private readonly IAvailableSolutionsService _solutionService;
 
@@ -20,6 +24,7 @@ public partial class SavedForm :
         _solutionService = solutionService;
 
         InitializeComponent();
+        FormProperties = new FormProperties<SavedForm>(this);
 
         _solutionService.Subscribe(this);
     }
@@ -34,6 +39,11 @@ public partial class SavedForm :
     {
         Saved_Load(this, EventArgs.Empty);
         base.Show();
+    }
+
+    private void SavedForm_Resize(object sender, EventArgs e)
+    {
+        FormProperties.MinimizeMaximizeChange = this.ResizeDecision();
     }
 
     private void buttonHome_Click(object sender, EventArgs e)

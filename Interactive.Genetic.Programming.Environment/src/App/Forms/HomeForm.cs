@@ -1,5 +1,5 @@
 using System.Globalization;
-using App.Forms.Extensions;
+using App.Forms.Scaling;
 using App.Services.Interfaces;
 using Configuration;
 using Configuration.Interfaces;
@@ -21,6 +21,8 @@ public partial class HomeForm :
     ITaskInformationSubscriber,
     IConfigurationChangeFullSubscriber
 {
+    public FormProperties<HomeForm> FormProperties { get; set; }
+
     private readonly IWindowSwitcherService _windowSwitcher;
     private readonly ISolverService _solver;
     private readonly IHistoryPublisher _historyPublisher;
@@ -46,6 +48,8 @@ public partial class HomeForm :
 
         InitializeComponent();
 
+        FormProperties = new FormProperties<HomeForm>(this);
+
         _solver.Subscribe(this);
         _historyPublisher.Subscribe(this);
         _fitnessInformationPublisher.Subscribe(this);
@@ -70,6 +74,11 @@ public partial class HomeForm :
         ScrollHistoryDown();
     }
 
+    private void HomeForm_Resize(object sender, EventArgs e)
+    {
+        FormProperties.MinimizeMaximizeChange = this.ResizeDecision();
+    }
+    
     private void buttonHome_Click(object sender, EventArgs e)
     {
         _windowSwitcher.Switch<HomeForm>(this);

@@ -1,4 +1,5 @@
-﻿using App.Services.Interfaces;
+﻿using App.Forms.Scaling;
+using App.Services.Interfaces;
 using Configuration.App;
 using Database.Entities;
 using Solvers;
@@ -9,9 +10,12 @@ namespace App.Forms;
 
 public partial class TaskForm :
     Form,
+    IFormPropertiesProvider<TaskForm>,
     IAvailableTasksSubscriber,
     ISolverStatusSubscriber
 {
+    public FormProperties<TaskForm> FormProperties { get; set; }
+
     private SolverStatus _status = SolverStatus.Idle;
 
     private readonly IWindowSwitcherService _windowSwitcher;
@@ -35,6 +39,7 @@ public partial class TaskForm :
         _solverService = solverService;
 
         InitializeComponent();
+        FormProperties = new FormProperties<TaskForm>(this);
 
         _availableTasksService.Subscribe(this);
         _solverService.Subscribe(this);
@@ -52,6 +57,11 @@ public partial class TaskForm :
         base.Show();
     }
 
+    private void TaskForm_Resize(object sender, EventArgs e)
+    {
+        FormProperties.MinimizeMaximizeChange = this.ResizeDecision();
+    }
+    
     private void buttonHome_Click(object sender, EventArgs e)
     {
         _windowSwitcher.Switch<HomeForm>(this);
