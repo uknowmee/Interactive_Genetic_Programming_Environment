@@ -89,12 +89,12 @@ partial class ConfigurationForm
         labelError = new Label();
         textBoxMaxGenerations = new TextBox();
         buttonInterpreter = new Button();
-        groupBox1 = new GroupBox();
+        groupBoxApp = new GroupBox();
         buttonTaskFormatSwitcher = new Button();
         labelTaskFormat = new Label();
         groupBoxModel.SuspendLayout();
         groupBoxSolver.SuspendLayout();
-        groupBox1.SuspendLayout();
+        groupBoxApp.SuspendLayout();
         SuspendLayout();
         // 
         // buttonQuit
@@ -719,17 +719,17 @@ partial class ConfigurationForm
         buttonInterpreter.UseVisualStyleBackColor = true;
         buttonInterpreter.Click += buttonInterpreter_Click;
         // 
-        // groupBox1
+        // groupBoxApp
         // 
-        groupBox1.Anchor = AnchorStyles.None;
-        groupBox1.Controls.Add(buttonTaskFormatSwitcher);
-        groupBox1.Controls.Add(labelTaskFormat);
-        groupBox1.Location = new Point(67, 746);
-        groupBox1.Name = "groupBox1";
-        groupBox1.Size = new Size(828, 275);
-        groupBox1.TabIndex = 80;
-        groupBox1.TabStop = false;
-        groupBox1.Text = "App Configuration";
+        groupBoxApp.Anchor = AnchorStyles.None;
+        groupBoxApp.Controls.Add(buttonTaskFormatSwitcher);
+        groupBoxApp.Controls.Add(labelTaskFormat);
+        groupBoxApp.Location = new Point(67, 746);
+        groupBoxApp.Name = "groupBoxApp";
+        groupBoxApp.Size = new Size(828, 275);
+        groupBoxApp.TabIndex = 80;
+        groupBoxApp.TabStop = false;
+        groupBoxApp.Text = "App Configuration";
         // 
         // buttonTaskFormatSwitcher
         // 
@@ -756,7 +756,7 @@ partial class ConfigurationForm
         AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
         ClientSize = new Size(1902, 1033);
-        Controls.Add(groupBox1);
+        Controls.Add(groupBoxApp);
         Controls.Add(buttonInterpreter);
         Controls.Add(groupBoxSolver);
         Controls.Add(groupBoxModel);
@@ -766,15 +766,15 @@ partial class ConfigurationForm
         Controls.Add(buttonTask);
         Controls.Add(buttonFitness);
         Controls.Add(buttonConfiguration);
-        MaximumSize = new Size(1920, 1080);
         Name = "ConfigurationForm";
         Text = "Configuration";
         Load += Configuration_Load;
+        Resize += ConfigurationForm_Resize;
         groupBoxModel.ResumeLayout(false);
         groupBoxModel.PerformLayout();
         groupBoxSolver.ResumeLayout(false);
         groupBoxSolver.PerformLayout();
-        groupBox1.ResumeLayout(false);
+        groupBoxApp.ResumeLayout(false);
         ResumeLayout(false);
     }
 
@@ -839,7 +839,7 @@ partial class ConfigurationForm
     private Label labelPointMutationProbability;
     private TextBox textBoxHorizontalModificationProbability;
     private Button buttonInterpreter;
-    private GroupBox groupBox1;
+    private GroupBox groupBoxApp;
     private Label labelTaskFormat;
     private Button buttonTaskFormatSwitcher;
 }

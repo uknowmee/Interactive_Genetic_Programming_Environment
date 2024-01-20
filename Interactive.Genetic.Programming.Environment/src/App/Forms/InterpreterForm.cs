@@ -1,11 +1,14 @@
-﻿using App.Services.Interfaces;
+﻿using App.Forms.Scaling;
+using App.Services.Interfaces;
 using Interpreter;
 using Shared.Exceptions;
 
 namespace App.Forms;
 
-public partial class InterpreterForm : Form
+public partial class InterpreterForm : Form, IFormPropertiesProvider<InterpreterForm>
 {
+    public FormProperties<InterpreterForm> FormProperties { get; set; }
+
     private const int MinExecutionTime = 3;
     private const int MaxExecutionTime = 10000;
     private readonly IWindowSwitcherService _windowSwitcher;
@@ -17,6 +20,7 @@ public partial class InterpreterForm : Form
         _interpreterService = interpreterService;
 
         InitializeComponent();
+        FormProperties = new FormProperties<InterpreterForm>(this);
     }
 
     private void InterpreterForm_Load(object sender, EventArgs e)
@@ -35,6 +39,11 @@ public partial class InterpreterForm : Form
         base.Show();
     }
 
+    private void InterpreterForm_Resize(object sender, EventArgs e)
+    {
+        FormProperties.MinimizeMaximizeChange = this.ResizeDecision();
+    }
+    
     private void buttonHome_Click(object sender, EventArgs e)
     {
         _windowSwitcher.Switch<HomeForm>(this);
@@ -93,9 +102,9 @@ public partial class InterpreterForm : Form
     {
         var programCode = textBoxProgramCode.Text;
         var programInput = GetInputs();
-        
+
         textBoxProgramOutput.Text = string.Empty;
-        
+
         try
         {
             _interpreterService.Feed(programCode);

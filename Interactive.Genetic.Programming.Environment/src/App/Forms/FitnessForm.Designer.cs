@@ -242,10 +242,10 @@ partial class FitnessForm
         Controls.Add(buttonTask);
         Controls.Add(buttonFitness);
         Controls.Add(buttonConfiguration);
-        MaximumSize = new Size(1920, 1080);
         Name = "FitnessForm";
         Text = "Fitness";
         Load += Fitness_Load;
+        Resize += FitnessForm_Resize;
         ResumeLayout(false);
         PerformLayout();
     }

@@ -323,6 +323,7 @@ partial class HomeForm
         textBoxModelConfiguration.Multiline = true;
         textBoxModelConfiguration.Name = "textBoxModelConfiguration";
         textBoxModelConfiguration.ReadOnly = true;
+        textBoxModelConfiguration.ScrollBars = ScrollBars.Vertical;
         textBoxModelConfiguration.Size = new Size(352, 332);
         textBoxModelConfiguration.TabIndex = 25;
         // 
@@ -333,6 +334,7 @@ partial class HomeForm
         textBoxSolverConfiguration.Multiline = true;
         textBoxSolverConfiguration.Name = "textBoxSolverConfiguration";
         textBoxSolverConfiguration.ReadOnly = true;
+        textBoxSolverConfiguration.ScrollBars = ScrollBars.Vertical;
         textBoxSolverConfiguration.Size = new Size(352, 332);
         textBoxSolverConfiguration.TabIndex = 26;
         // 
@@ -416,10 +418,10 @@ partial class HomeForm
         Controls.Add(buttonTask);
         Controls.Add(buttonFitness);
         Controls.Add(buttonConfiguration);
-        MaximumSize = new Size(1920, 1080);
         Name = "HomeForm";
         Text = "Home";
         Load += Home_Load;
+        Resize += HomeForm_Resize;
         ResumeLayout(false);
         PerformLayout();
     }

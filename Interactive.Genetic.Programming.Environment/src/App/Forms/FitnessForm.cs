@@ -1,4 +1,5 @@
-﻿using App.Services.Interfaces;
+﻿using App.Forms.Scaling;
+using App.Services.Interfaces;
 using Database.Entities;
 using Fitness.Interfaces;
 using Solvers;
@@ -8,9 +9,12 @@ namespace App.Forms;
 
 public partial class FitnessForm :
     Form,
+    IFormPropertiesProvider<FitnessForm>,
     IAvailableFitnessFunctionsSubscriber,
     ISolverStatusSubscriber
 {
+    public FormProperties<FitnessForm> FormProperties { get; set; }
+
     private SolverStatus _status = SolverStatus.Idle;
 
     private readonly IWindowSwitcherService _windowSwitcher;
@@ -31,6 +35,7 @@ public partial class FitnessForm :
         _solverService = solverService;
 
         InitializeComponent();
+        FormProperties = new FormProperties<FitnessForm>(this);
 
         _availableFitnessFunctionsService.Subscribe(this);
         _solverService.Subscribe(this);
@@ -48,6 +53,11 @@ public partial class FitnessForm :
         base.Show();
     }
 
+    private void FitnessForm_Resize(object sender, EventArgs e)
+    {
+        FormProperties.MinimizeMaximizeChange = this.ResizeDecision();
+    }
+    
     private void buttonHome_Click(object sender, EventArgs e)
     {
         _windowSwitcher.Switch<HomeForm>(this);
