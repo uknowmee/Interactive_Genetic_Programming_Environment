@@ -64,7 +64,7 @@ partial class HomeForm
         // 
         // buttonConfiguration
         // 
-        buttonConfiguration.Anchor = AnchorStyles.Top;
+        buttonConfiguration.Anchor = AnchorStyles.None;
         buttonConfiguration.Location = new Point(629, 12);
         buttonConfiguration.Name = "buttonConfiguration";
         buttonConfiguration.Size = new Size(122, 41);
@@ -75,7 +75,7 @@ partial class HomeForm
         // 
         // buttonFitness
         // 
-        buttonFitness.Anchor = AnchorStyles.Top;
+        buttonFitness.Anchor = AnchorStyles.None;
         buttonFitness.Location = new Point(757, 12);
         buttonFitness.Name = "buttonFitness";
         buttonFitness.Size = new Size(122, 41);
@@ -86,7 +86,7 @@ partial class HomeForm
         // 
         // buttonSaved
         // 
-        buttonSaved.Anchor = AnchorStyles.Top;
+        buttonSaved.Anchor = AnchorStyles.None;
         buttonSaved.Location = new Point(1013, 12);
         buttonSaved.Name = "buttonSaved";
         buttonSaved.Size = new Size(122, 41);
@@ -97,7 +97,7 @@ partial class HomeForm
         // 
         // buttonTask
         // 
-        buttonTask.Anchor = AnchorStyles.Top;
+        buttonTask.Anchor = AnchorStyles.None;
         buttonTask.Location = new Point(885, 12);
         buttonTask.Name = "buttonTask";
         buttonTask.Size = new Size(122, 41);
@@ -108,7 +108,7 @@ partial class HomeForm
         // 
         // buttonQuit
         // 
-        buttonQuit.Anchor = AnchorStyles.Top;
+        buttonQuit.Anchor = AnchorStyles.None;
         buttonQuit.Location = new Point(1269, 12);
         buttonQuit.Name = "buttonQuit";
         buttonQuit.Size = new Size(122, 41);
@@ -119,7 +119,7 @@ partial class HomeForm
         // 
         // buttonRest
         // 
-        buttonRest.Anchor = AnchorStyles.Left;
+        buttonRest.Anchor = AnchorStyles.None;
         buttonRest.Location = new Point(11, 233);
         buttonRest.Name = "buttonRest";
         buttonRest.Size = new Size(122, 41);
@@ -130,7 +130,7 @@ partial class HomeForm
         // 
         // buttonStop
         // 
-        buttonStop.Anchor = AnchorStyles.Left;
+        buttonStop.Anchor = AnchorStyles.None;
         buttonStop.Location = new Point(11, 186);
         buttonStop.Name = "buttonStop";
         buttonStop.Size = new Size(122, 41);
@@ -141,7 +141,7 @@ partial class HomeForm
         // 
         // buttonStart
         // 
-        buttonStart.Anchor = AnchorStyles.Left;
+        buttonStart.Anchor = AnchorStyles.None;
         buttonStart.Location = new Point(12, 139);
         buttonStart.Name = "buttonStart";
         buttonStart.Size = new Size(122, 41);
@@ -152,7 +152,7 @@ partial class HomeForm
         // 
         // textBoxBestIndividual
         // 
-        textBoxBestIndividual.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
+        textBoxBestIndividual.Anchor = AnchorStyles.None;
         textBoxBestIndividual.Location = new Point(1013, 139);
         textBoxBestIndividual.Multiline = true;
         textBoxBestIndividual.Name = "textBoxBestIndividual";
@@ -163,7 +163,7 @@ partial class HomeForm
         // 
         // textBoxHistory
         // 
-        textBoxHistory.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+        textBoxHistory.Anchor = AnchorStyles.None;
         textBoxHistory.Location = new Point(12, 771);
         textBoxHistory.Multiline = true;
         textBoxHistory.Name = "textBoxHistory";
@@ -174,7 +174,7 @@ partial class HomeForm
         // 
         // labelStatus
         // 
-        labelStatus.Anchor = AnchorStyles.Left;
+        labelStatus.Anchor = AnchorStyles.None;
         labelStatus.Location = new Point(11, 487);
         labelStatus.Name = "labelStatus";
         labelStatus.Size = new Size(183, 54);
@@ -184,7 +184,7 @@ partial class HomeForm
         // 
         // labelPopulationSize
         // 
-        labelPopulationSize.Anchor = AnchorStyles.Left;
+        labelPopulationSize.Anchor = AnchorStyles.None;
         labelPopulationSize.Location = new Point(11, 541);
         labelPopulationSize.Name = "labelPopulationSize";
         labelPopulationSize.Size = new Size(183, 54);
@@ -194,7 +194,7 @@ partial class HomeForm
         // 
         // labelBestIndividual
         // 
-        labelBestIndividual.Anchor = AnchorStyles.Left;
+        labelBestIndividual.Anchor = AnchorStyles.None;
         labelBestIndividual.Location = new Point(10, 595);
         labelBestIndividual.Name = "labelBestIndividual";
         labelBestIndividual.Size = new Size(183, 54);
@@ -204,7 +204,7 @@ partial class HomeForm
         // 
         // labelAvgFitness
         // 
-        labelAvgFitness.Anchor = AnchorStyles.Left;
+        labelAvgFitness.Anchor = AnchorStyles.None;
         labelAvgFitness.Location = new Point(10, 649);
         labelAvgFitness.Name = "labelAvgFitness";
         labelAvgFitness.Size = new Size(183, 54);
@@ -214,7 +214,7 @@ partial class HomeForm
         // 
         // LabelProceeded
         // 
-        LabelProceeded.Anchor = AnchorStyles.Left;
+        LabelProceeded.Anchor = AnchorStyles.None;
         LabelProceeded.Location = new Point(11, 703);
         LabelProceeded.Name = "LabelProceeded";
         LabelProceeded.Size = new Size(183, 54);
@@ -224,7 +224,7 @@ partial class HomeForm
         // 
         // labelProcedeedValue
         // 
-        labelProcedeedValue.Anchor = AnchorStyles.Left;
+        labelProcedeedValue.Anchor = AnchorStyles.None;
         labelProcedeedValue.Location = new Point(200, 703);
         labelProcedeedValue.Name = "labelProcedeedValue";
         labelProcedeedValue.Size = new Size(183, 54);
@@ -233,7 +233,7 @@ partial class HomeForm
         // 
         // labelAvgFitnessValue
         // 
-        labelAvgFitnessValue.Anchor = AnchorStyles.Left;
+        labelAvgFitnessValue.Anchor = AnchorStyles.None;
         labelAvgFitnessValue.Location = new Point(199, 649);
         labelAvgFitnessValue.Name = "labelAvgFitnessValue";
         labelAvgFitnessValue.Size = new Size(183, 54);
@@ -242,7 +242,7 @@ partial class HomeForm
         // 
         // labelBestIndividualValue
         // 
-        labelBestIndividualValue.Anchor = AnchorStyles.Left;
+        labelBestIndividualValue.Anchor = AnchorStyles.None;
         labelBestIndividualValue.Location = new Point(199, 595);
         labelBestIndividualValue.Name = "labelBestIndividualValue";
         labelBestIndividualValue.Size = new Size(183, 54);
@@ -251,7 +251,7 @@ partial class HomeForm
         // 
         // labelPopulationSizeValue
         // 
-        labelPopulationSizeValue.Anchor = AnchorStyles.Left;
+        labelPopulationSizeValue.Anchor = AnchorStyles.None;
         labelPopulationSizeValue.Location = new Point(200, 541);
         labelPopulationSizeValue.Name = "labelPopulationSizeValue";
         labelPopulationSizeValue.Size = new Size(183, 54);
@@ -260,7 +260,7 @@ partial class HomeForm
         // 
         // labelStatusValue
         // 
-        labelStatusValue.Anchor = AnchorStyles.Left;
+        labelStatusValue.Anchor = AnchorStyles.None;
         labelStatusValue.Location = new Point(200, 487);
         labelStatusValue.Name = "labelStatusValue";
         labelStatusValue.Size = new Size(183, 54);
@@ -269,7 +269,7 @@ partial class HomeForm
         // 
         // labelTaskName
         // 
-        labelTaskName.Anchor = AnchorStyles.Left;
+        labelTaskName.Anchor = AnchorStyles.None;
         labelTaskName.Location = new Point(822, 703);
         labelTaskName.Name = "labelTaskName";
         labelTaskName.Size = new Size(183, 54);
@@ -278,7 +278,7 @@ partial class HomeForm
         // 
         // labelFitnessFunctionName
         // 
-        labelFitnessFunctionName.Anchor = AnchorStyles.Left;
+        labelFitnessFunctionName.Anchor = AnchorStyles.None;
         labelFitnessFunctionName.Location = new Point(822, 649);
         labelFitnessFunctionName.Name = "labelFitnessFunctionName";
         labelFitnessFunctionName.Size = new Size(183, 54);
@@ -287,7 +287,7 @@ partial class HomeForm
         // 
         // labelTask
         // 
-        labelTask.Anchor = AnchorStyles.Left;
+        labelTask.Anchor = AnchorStyles.None;
         labelTask.Location = new Point(633, 703);
         labelTask.Name = "labelTask";
         labelTask.Size = new Size(183, 54);
@@ -297,7 +297,7 @@ partial class HomeForm
         // 
         // labelFitnessFunction
         // 
-        labelFitnessFunction.Anchor = AnchorStyles.Left;
+        labelFitnessFunction.Anchor = AnchorStyles.None;
         labelFitnessFunction.Location = new Point(633, 649);
         labelFitnessFunction.Name = "labelFitnessFunction";
         labelFitnessFunction.Size = new Size(183, 54);
@@ -307,7 +307,7 @@ partial class HomeForm
         // 
         // buttonHome
         // 
-        buttonHome.Anchor = AnchorStyles.Top;
+        buttonHome.Anchor = AnchorStyles.None;
         buttonHome.Location = new Point(501, 12);
         buttonHome.Name = "buttonHome";
         buttonHome.Size = new Size(122, 41);
@@ -318,27 +318,27 @@ partial class HomeForm
         // 
         // textBoxModelConfiguration
         // 
-        textBoxModelConfiguration.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
+        textBoxModelConfiguration.Anchor = AnchorStyles.None;
         textBoxModelConfiguration.Location = new Point(295, 139);
         textBoxModelConfiguration.Multiline = true;
         textBoxModelConfiguration.Name = "textBoxModelConfiguration";
         textBoxModelConfiguration.ReadOnly = true;
-        textBoxModelConfiguration.Size = new Size(352, 297);
+        textBoxModelConfiguration.Size = new Size(352, 332);
         textBoxModelConfiguration.TabIndex = 25;
         // 
         // textBoxSolverConfiguration
         // 
-        textBoxSolverConfiguration.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
+        textBoxSolverConfiguration.Anchor = AnchorStyles.None;
         textBoxSolverConfiguration.Location = new Point(653, 139);
         textBoxSolverConfiguration.Multiline = true;
         textBoxSolverConfiguration.Name = "textBoxSolverConfiguration";
         textBoxSolverConfiguration.ReadOnly = true;
-        textBoxSolverConfiguration.Size = new Size(352, 297);
+        textBoxSolverConfiguration.Size = new Size(352, 332);
         textBoxSolverConfiguration.TabIndex = 26;
         // 
         // labelModelConfiguration
         // 
-        labelModelConfiguration.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+        labelModelConfiguration.Anchor = AnchorStyles.None;
         labelModelConfiguration.BackColor = SystemColors.Control;
         labelModelConfiguration.Location = new Point(295, 80);
         labelModelConfiguration.Name = "labelModelConfiguration";
@@ -349,7 +349,7 @@ partial class HomeForm
         // 
         // labelSolverConfiguration
         // 
-        labelSolverConfiguration.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+        labelSolverConfiguration.Anchor = AnchorStyles.None;
         labelSolverConfiguration.BackColor = SystemColors.Control;
         labelSolverConfiguration.Location = new Point(653, 80);
         labelSolverConfiguration.Name = "labelSolverConfiguration";
@@ -360,7 +360,7 @@ partial class HomeForm
         // 
         // labelBestProgram
         // 
-        labelBestProgram.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+        labelBestProgram.Anchor = AnchorStyles.None;
         labelBestProgram.BackColor = SystemColors.Control;
         labelBestProgram.Location = new Point(1013, 80);
         labelBestProgram.Name = "labelBestProgram";
@@ -371,7 +371,7 @@ partial class HomeForm
         // 
         // buttonInterpreter
         // 
-        buttonInterpreter.Anchor = AnchorStyles.Top;
+        buttonInterpreter.Anchor = AnchorStyles.None;
         buttonInterpreter.Location = new Point(1141, 12);
         buttonInterpreter.Name = "buttonInterpreter";
         buttonInterpreter.Size = new Size(122, 41);

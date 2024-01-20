@@ -48,7 +48,7 @@ partial class InterpreterForm
         // 
         // buttonHome
         // 
-        buttonHome.Anchor = AnchorStyles.Top;
+        buttonHome.Anchor = AnchorStyles.None;
         buttonHome.Location = new Point(501, 12);
         buttonHome.Name = "buttonHome";
         buttonHome.Size = new Size(122, 41);
@@ -59,7 +59,7 @@ partial class InterpreterForm
         // 
         // buttonQuit
         // 
-        buttonQuit.Anchor = AnchorStyles.Top;
+        buttonQuit.Anchor = AnchorStyles.None;
         buttonQuit.Location = new Point(1269, 12);
         buttonQuit.Name = "buttonQuit";
         buttonQuit.Size = new Size(122, 41);
@@ -70,7 +70,7 @@ partial class InterpreterForm
         // 
         // buttonSaved
         // 
-        buttonSaved.Anchor = AnchorStyles.Top;
+        buttonSaved.Anchor = AnchorStyles.None;
         buttonSaved.Location = new Point(1013, 12);
         buttonSaved.Name = "buttonSaved";
         buttonSaved.Size = new Size(122, 41);
@@ -81,7 +81,7 @@ partial class InterpreterForm
         // 
         // buttonTask
         // 
-        buttonTask.Anchor = AnchorStyles.Top;
+        buttonTask.Anchor = AnchorStyles.None;
         buttonTask.Location = new Point(885, 12);
         buttonTask.Name = "buttonTask";
         buttonTask.Size = new Size(122, 41);
@@ -92,7 +92,7 @@ partial class InterpreterForm
         // 
         // buttonFitness
         // 
-        buttonFitness.Anchor = AnchorStyles.Top;
+        buttonFitness.Anchor = AnchorStyles.None;
         buttonFitness.Location = new Point(757, 12);
         buttonFitness.Name = "buttonFitness";
         buttonFitness.Size = new Size(122, 41);
@@ -103,7 +103,7 @@ partial class InterpreterForm
         // 
         // buttonConfiguration
         // 
-        buttonConfiguration.Anchor = AnchorStyles.Top;
+        buttonConfiguration.Anchor = AnchorStyles.None;
         buttonConfiguration.Location = new Point(629, 12);
         buttonConfiguration.Name = "buttonConfiguration";
         buttonConfiguration.Size = new Size(122, 41);
@@ -176,7 +176,7 @@ partial class InterpreterForm
         // 
         // buttonInterpreter
         // 
-        buttonInterpreter.Anchor = AnchorStyles.Top;
+        buttonInterpreter.Anchor = AnchorStyles.None;
         buttonInterpreter.Location = new Point(1141, 12);
         buttonInterpreter.Name = "buttonInterpreter";
         buttonInterpreter.Size = new Size(122, 41);

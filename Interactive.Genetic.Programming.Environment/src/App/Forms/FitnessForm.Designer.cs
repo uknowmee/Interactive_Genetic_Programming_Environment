@@ -52,7 +52,7 @@ partial class FitnessForm
         // 
         // buttonQuit
         // 
-        buttonQuit.Anchor = AnchorStyles.Top;
+        buttonQuit.Anchor = AnchorStyles.None;
         buttonQuit.Location = new Point(1269, 12);
         buttonQuit.Name = "buttonQuit";
         buttonQuit.Size = new Size(122, 41);
@@ -63,7 +63,7 @@ partial class FitnessForm
         // 
         // buttonSaved
         // 
-        buttonSaved.Anchor = AnchorStyles.Top;
+        buttonSaved.Anchor = AnchorStyles.None;
         buttonSaved.Location = new Point(1013, 12);
         buttonSaved.Name = "buttonSaved";
         buttonSaved.Size = new Size(122, 41);
@@ -74,7 +74,7 @@ partial class FitnessForm
         // 
         // buttonTask
         // 
-        buttonTask.Anchor = AnchorStyles.Top;
+        buttonTask.Anchor = AnchorStyles.None;
         buttonTask.Location = new Point(885, 12);
         buttonTask.Name = "buttonTask";
         buttonTask.Size = new Size(122, 41);
@@ -85,7 +85,7 @@ partial class FitnessForm
         // 
         // buttonFitness
         // 
-        buttonFitness.Anchor = AnchorStyles.Top;
+        buttonFitness.Anchor = AnchorStyles.None;
         buttonFitness.Location = new Point(757, 12);
         buttonFitness.Name = "buttonFitness";
         buttonFitness.Size = new Size(122, 41);
@@ -96,7 +96,7 @@ partial class FitnessForm
         // 
         // buttonConfiguration
         // 
-        buttonConfiguration.Anchor = AnchorStyles.Top;
+        buttonConfiguration.Anchor = AnchorStyles.None;
         buttonConfiguration.Location = new Point(629, 12);
         buttonConfiguration.Name = "buttonConfiguration";
         buttonConfiguration.Size = new Size(122, 41);
@@ -107,7 +107,7 @@ partial class FitnessForm
         // 
         // buttonHome
         // 
-        buttonHome.Anchor = AnchorStyles.Top;
+        buttonHome.Anchor = AnchorStyles.None;
         buttonHome.Location = new Point(501, 12);
         buttonHome.Name = "buttonHome";
         buttonHome.Size = new Size(122, 41);
@@ -118,7 +118,7 @@ partial class FitnessForm
         // 
         // labelFitnessName
         // 
-        labelFitnessName.Anchor = AnchorStyles.Left;
+        labelFitnessName.Anchor = AnchorStyles.None;
         labelFitnessName.Location = new Point(49, 97);
         labelFitnessName.Name = "labelFitnessName";
         labelFitnessName.Size = new Size(183, 54);
@@ -128,7 +128,7 @@ partial class FitnessForm
         // 
         // textBoxFitnessName
         // 
-        textBoxFitnessName.Anchor = AnchorStyles.Left;
+        textBoxFitnessName.Anchor = AnchorStyles.None;
         textBoxFitnessName.Location = new Point(35, 170);
         textBoxFitnessName.Name = "textBoxFitnessName";
         textBoxFitnessName.Size = new Size(212, 27);
@@ -136,7 +136,7 @@ partial class FitnessForm
         // 
         // textBoxFitnessCode
         // 
-        textBoxFitnessCode.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
+        textBoxFitnessCode.Anchor = AnchorStyles.None;
         textBoxFitnessCode.Location = new Point(279, 97);
         textBoxFitnessCode.Multiline = true;
         textBoxFitnessCode.Name = "textBoxFitnessCode";
@@ -146,7 +146,7 @@ partial class FitnessForm
         // 
         // textBoxActiveFitness
         // 
-        textBoxActiveFitness.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
+        textBoxActiveFitness.Anchor = AnchorStyles.None;
         textBoxActiveFitness.Location = new Point(279, 558);
         textBoxActiveFitness.Multiline = true;
         textBoxActiveFitness.Name = "textBoxActiveFitness";
@@ -157,7 +157,7 @@ partial class FitnessForm
         // 
         // comboBoxSavedFitness
         // 
-        comboBoxSavedFitness.Anchor = AnchorStyles.Left;
+        comboBoxSavedFitness.Anchor = AnchorStyles.None;
         comboBoxSavedFitness.DropDownStyle = ComboBoxStyle.DropDownList;
         comboBoxSavedFitness.FormattingEnabled = true;
         comboBoxSavedFitness.Location = new Point(1302, 169);
@@ -168,7 +168,7 @@ partial class FitnessForm
         // 
         // labelActiveFitness
         // 
-        labelActiveFitness.Anchor = AnchorStyles.Left;
+        labelActiveFitness.Anchor = AnchorStyles.None;
         labelActiveFitness.Location = new Point(1363, 96);
         labelActiveFitness.Name = "labelActiveFitness";
         labelActiveFitness.Size = new Size(183, 54);
@@ -178,7 +178,7 @@ partial class FitnessForm
         // 
         // buttonSaveFitness
         // 
-        buttonSaveFitness.Anchor = AnchorStyles.Left;
+        buttonSaveFitness.Anchor = AnchorStyles.None;
         buttonSaveFitness.Location = new Point(79, 222);
         buttonSaveFitness.Name = "buttonSaveFitness";
         buttonSaveFitness.Size = new Size(122, 41);
@@ -189,7 +189,7 @@ partial class FitnessForm
         // 
         // buttonRemoveFitness
         // 
-        buttonRemoveFitness.Anchor = AnchorStyles.Left;
+        buttonRemoveFitness.Anchor = AnchorStyles.None;
         buttonRemoveFitness.Location = new Point(1396, 221);
         buttonRemoveFitness.Name = "buttonRemoveFitness";
         buttonRemoveFitness.Size = new Size(122, 41);
@@ -200,7 +200,7 @@ partial class FitnessForm
         // 
         // textBoxFitnessReadme
         // 
-        textBoxFitnessReadme.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
+        textBoxFitnessReadme.Anchor = AnchorStyles.None;
         textBoxFitnessReadme.Location = new Point(1076, 281);
         textBoxFitnessReadme.Multiline = true;
         textBoxFitnessReadme.Name = "textBoxFitnessReadme";
@@ -212,7 +212,7 @@ partial class FitnessForm
         // 
         // buttonInterpreter
         // 
-        buttonInterpreter.Anchor = AnchorStyles.Top;
+        buttonInterpreter.Anchor = AnchorStyles.None;
         buttonInterpreter.Location = new Point(1141, 12);
         buttonInterpreter.Name = "buttonInterpreter";
         buttonInterpreter.Size = new Size(122, 41);
