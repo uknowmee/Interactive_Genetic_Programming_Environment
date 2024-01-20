@@ -205,6 +205,7 @@ partial class InterpreterForm
         Controls.Add(buttonConfiguration);
         Name = "InterpreterForm";
         Text = "Interpreter";
+        FormClosed += InterpreterForm_FormClosed;
         Load += InterpreterForm_Load;
         Resize += InterpreterForm_Resize;
         ResumeLayout(false);

@@ -328,6 +328,7 @@ partial class SavedForm
         Controls.Add(buttonConfiguration);
         Name = "SavedForm";
         Text = "Saved";
+        FormClosed += SavedForm_FormClosed;
         Load += Saved_Load;
         Resize += SavedForm_Resize;
         ResumeLayout(false);

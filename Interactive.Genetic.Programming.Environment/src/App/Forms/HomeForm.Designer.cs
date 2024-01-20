@@ -420,6 +420,7 @@ partial class HomeForm
         Controls.Add(buttonConfiguration);
         Name = "HomeForm";
         Text = "Home";
+        FormClosed += HomeForm_FormClosed;
         Load += Home_Load;
         Resize += HomeForm_Resize;
         ResumeLayout(false);

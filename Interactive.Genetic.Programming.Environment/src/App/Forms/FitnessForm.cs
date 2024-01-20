@@ -2,6 +2,7 @@
 using App.Services.Interfaces;
 using Database.Entities;
 using Fitness.Interfaces;
+using Shared.Exceptions;
 using Solvers;
 using Solvers.Interfaces;
 
@@ -58,7 +59,7 @@ public partial class FitnessForm :
         if (this.CanResize() is false) return;
         FormProperties.MinimizeMaximizeChange = this.ResizeDecision();
     }
-    
+
     private void buttonHome_Click(object sender, EventArgs e)
     {
         _windowSwitcher.Switch<HomeForm>(this);
@@ -99,10 +100,15 @@ public partial class FitnessForm :
         var code = textBoxFitnessCode.Text;
         var name = textBoxFitnessName.Text;
 
+        if (string.IsNullOrWhiteSpace(code)) throw new CustomException("Fitness code cannot be empty");
+        if (string.IsNullOrWhiteSpace(name)) throw new CustomException("Fitness name cannot be empty");
+
         _fitnessService.SaveFitness(name, code);
 
         textBoxFitnessCode.Text = "";
         textBoxFitnessName.Text = "";
+
+        MessageBox.Show(@"Fitness function saved successfully", @"Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
     }
 
     private void buttonRemoveFitness_Click(object sender, EventArgs e)
@@ -191,5 +197,10 @@ public partial class FitnessForm :
         {
             buttonRemoveFitness.Enabled = _status == SolverStatus.Idle;
         }
+    }
+
+    private void FitnessForm_FormClosed(object sender, FormClosedEventArgs e)
+    {
+        _windowSwitcher.Quit(this);
     }
 }

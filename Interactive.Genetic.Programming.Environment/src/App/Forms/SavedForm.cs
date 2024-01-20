@@ -182,4 +182,9 @@ public partial class SavedForm :
 
         PrintPlot(solution);
     }
+
+    private void SavedForm_FormClosed(object sender, FormClosedEventArgs e)
+    {
+        _windowSwitcher.Quit(this);
+    }
 }
