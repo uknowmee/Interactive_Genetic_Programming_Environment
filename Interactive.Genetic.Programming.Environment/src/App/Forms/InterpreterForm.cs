@@ -44,7 +44,7 @@ public partial class InterpreterForm : Form, IFormPropertiesProvider<Interpreter
         if (this.CanResize() is false) return;
         FormProperties.MinimizeMaximizeChange = this.ResizeDecision();
     }
-    
+
     private void buttonHome_Click(object sender, EventArgs e)
     {
         _windowSwitcher.Switch<HomeForm>(this);
@@ -134,5 +134,10 @@ public partial class InterpreterForm : Form, IFormPropertiesProvider<Interpreter
         {
             throw new CustomException("Input must be a list of numbers separated by spaces!");
         }
+    }
+
+    private void InterpreterForm_FormClosed(object sender, FormClosedEventArgs e)
+    {
+        _windowSwitcher.Quit(this);
     }
 }

@@ -2,6 +2,7 @@
 using App.Services.Interfaces;
 using Configuration.App;
 using Database.Entities;
+using Shared.Exceptions;
 using Solvers;
 using Solvers.Interfaces;
 using Tasks.Interfaces;
@@ -62,7 +63,7 @@ public partial class TaskForm :
         if (this.CanResize() is false) return;
         FormProperties.MinimizeMaximizeChange = this.ResizeDecision();
     }
-    
+
     private void buttonHome_Click(object sender, EventArgs e)
     {
         _windowSwitcher.Switch<HomeForm>(this);
@@ -120,6 +121,9 @@ public partial class TaskForm :
         var taskName = textBoxTaskName.Text;
         var taskPath = textBoxTaskPath.Text;
 
+        if (string.IsNullOrWhiteSpace(taskName)) throw new CustomException("Task name cannot be empty");
+        if (string.IsNullOrWhiteSpace(taskPath)) throw new CustomException("Task path cannot be empty");
+
         _tasksService.SaveTask(taskName, taskPath);
 
         textBoxTaskName.Text = "";
@@ -156,7 +160,6 @@ public partial class TaskForm :
         if (comboBoxSavedTask.SelectedItem is not TaskEntity task) return;
         _tasksService.ActivateTask(task);
     }
-
 
     public void AvailableTasksUpdate(IEnumerable<TaskEntity> tasks)
     {
@@ -216,5 +219,10 @@ public partial class TaskForm :
         {
             buttonRemoveTask.Enabled = _status == SolverStatus.Idle;
         }
+    }
+
+    private void TaskForm_FormClosed(object sender, FormClosedEventArgs e)
+    {
+        _windowSwitcher.Quit(this);
     }
 }

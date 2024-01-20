@@ -79,7 +79,7 @@ public partial class HomeForm :
         if (this.CanResize() is false) return;
         FormProperties.MinimizeMaximizeChange = this.ResizeDecision();
     }
-    
+
     private void buttonHome_Click(object sender, EventArgs e)
     {
         _windowSwitcher.Switch<HomeForm>(this);
@@ -306,5 +306,10 @@ public partial class HomeForm :
         textBoxHistory.SelectionStart = textBoxHistory.Text.Length;
         textBoxHistory.ScrollToCaret();
         textBoxHistory.Refresh();
+    }
+
+    private void HomeForm_FormClosed(object sender, FormClosedEventArgs e)
+    {
+        _windowSwitcher.Quit(this);
     }
 }

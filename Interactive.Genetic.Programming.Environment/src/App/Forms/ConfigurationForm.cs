@@ -52,7 +52,7 @@ public partial class ConfigurationForm : Form, IFormPropertiesProvider<Configura
         if (this.CanResize() is false) return;
         FormProperties.MinimizeMaximizeChange = this.ResizeDecision();
     }
-    
+
     private void buttonHome_Click(object sender, EventArgs e)
     {
         _windowSwitcher.Switch<HomeForm>(this);
@@ -123,5 +123,10 @@ public partial class ConfigurationForm : Form, IFormPropertiesProvider<Configura
     {
         _appConfiguration.ReadTaskFromJson = !_appConfiguration.ReadTaskFromJson;
         buttonTaskFormatSwitcher.Text = _appConfiguration.ReadTaskFromJson ? "JSON" : "CSV";
+    }
+
+    private void ConfigurationForm_FormClosed(object sender, FormClosedEventArgs e)
+    {
+        _windowSwitcher.Quit(this);
     }
 }

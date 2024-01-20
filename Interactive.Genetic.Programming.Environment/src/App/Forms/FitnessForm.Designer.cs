@@ -244,6 +244,7 @@ partial class FitnessForm
         Controls.Add(buttonConfiguration);
         Name = "FitnessForm";
         Text = "Fitness";
+        FormClosed += FitnessForm_FormClosed;
         Load += Fitness_Load;
         Resize += FitnessForm_Resize;
         ResumeLayout(false);

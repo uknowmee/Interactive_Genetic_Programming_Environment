@@ -768,6 +768,7 @@ partial class ConfigurationForm
         Controls.Add(buttonConfiguration);
         Name = "ConfigurationForm";
         Text = "Configuration";
+        FormClosed += ConfigurationForm_FormClosed;
         Load += Configuration_Load;
         Resize += ConfigurationForm_Resize;
         groupBoxModel.ResumeLayout(false);

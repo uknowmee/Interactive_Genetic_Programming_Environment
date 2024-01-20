@@ -257,6 +257,7 @@ partial class TaskForm
         Controls.Add(buttonConfiguration);
         Name = "TaskForm";
         Text = "Task";
+        FormClosed += TaskForm_FormClosed;
         Load += Task_Load;
         Resize += TaskForm_Resize;
         ResumeLayout(false);
