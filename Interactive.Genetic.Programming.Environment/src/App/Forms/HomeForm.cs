@@ -1,4 +1,5 @@
 using System.Globalization;
+using App.Forms.Extensions;
 using App.Services.Interfaces;
 using Configuration;
 using Configuration.Interfaces;
@@ -11,7 +12,14 @@ using Tasks.Interfaces;
 
 namespace App.Forms;
 
-public partial class HomeForm : Form, ISolverSubscriber, IHistorySubscriber, IFitnessInformationSubscriber, ITaskInformationSubscriber, IConfigurationChangeFullSubscriber
+public partial class HomeForm :
+    Form,
+    IFormPropertiesProvider<HomeForm>,
+    ISolverSubscriber,
+    IHistorySubscriber,
+    IFitnessInformationSubscriber,
+    ITaskInformationSubscriber,
+    IConfigurationChangeFullSubscriber
 {
     private readonly IWindowSwitcherService _windowSwitcher;
     private readonly ISolverService _solver;
@@ -189,10 +197,11 @@ public partial class HomeForm : Form, ISolverSubscriber, IHistorySubscriber, IFi
         if (textBoxHistory.InvokeRequired)
         {
             textBoxHistory.BeginInvoke(() =>
-            {
-                textBoxHistory.Text += update;
-                ScrollHistoryDown();
-            });
+                {
+                    textBoxHistory.Text += update;
+                    ScrollHistoryDown();
+                }
+            );
         }
         else
         {

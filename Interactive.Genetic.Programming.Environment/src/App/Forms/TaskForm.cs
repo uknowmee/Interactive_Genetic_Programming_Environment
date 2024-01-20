@@ -7,7 +7,10 @@ using Tasks.Interfaces;
 
 namespace App.Forms;
 
-public partial class TaskForm : Form, IAvailableTasksSubscriber, ISolverStatusSubscriber
+public partial class TaskForm :
+    Form,
+    IAvailableTasksSubscriber,
+    ISolverStatusSubscriber
 {
     private SolverStatus _status = SolverStatus.Idle;
 

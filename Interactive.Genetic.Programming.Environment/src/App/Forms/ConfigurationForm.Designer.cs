@@ -39,24 +39,24 @@ partial class ConfigurationForm
         groupBoxModel = new GroupBox();
         textBoxNewVarExpressionChance = new TextBox();
         labelMaxInt = new Label();
-        labelNewChildOfProgramNodeChance = new Label();
-        labelNewVarExpressionChance = new Label();
-        labelNewDeepNodeGenerationChance = new Label();
-        labelNewDeepNodeGenerationFall = new Label();
-        textBoxNextTwoArgExpressionChance = new TextBox();
-        labelNewChildOfForNodeChance = new Label();
-        labelNewExpressionInForComparisonChance = new Label();
-        textBoxNewLogicExpressionChance = new TextBox();
-        labelNewChildOfIfNodeChance = new Label();
-        labelNewLogicExpressionChance = new Label();
-        textBoxNewChildOfIfNodeChance = new TextBox();
-        labelNextTwoArgExpressionChance = new Label();
-        textBoxMaxInt = new TextBox();
-        textBoxNewExpressionInForComparisonChance = new TextBox();
-        textBoxNewChildOfProgramNodeChance = new TextBox();
-        textBoxNewDeepNodeGenerationChance = new TextBox();
-        textBoxNewChildOfForNodeChance = new TextBox();
         textBoxNewDeepNodeGenerationFall = new TextBox();
+        textBoxNewChildOfForNodeChance = new TextBox();
+        textBoxNewDeepNodeGenerationChance = new TextBox();
+        labelNewChildOfProgramNodeChance = new Label();
+        textBoxNewChildOfProgramNodeChance = new TextBox();
+        textBoxNewExpressionInForComparisonChance = new TextBox();
+        labelNewVarExpressionChance = new Label();
+        textBoxMaxInt = new TextBox();
+        labelNextTwoArgExpressionChance = new Label();
+        labelNewDeepNodeGenerationChance = new Label();
+        textBoxNewChildOfIfNodeChance = new TextBox();
+        labelNewLogicExpressionChance = new Label();
+        labelNewDeepNodeGenerationFall = new Label();
+        labelNewChildOfIfNodeChance = new Label();
+        textBoxNewLogicExpressionChance = new TextBox();
+        textBoxNextTwoArgExpressionChance = new TextBox();
+        labelNewExpressionInForComparisonChance = new Label();
+        labelNewChildOfForNodeChance = new Label();
         groupBoxSolver = new GroupBox();
         textBoxSwapLinesProbability = new TextBox();
         labelSubtreeMutationProbability = new Label();
@@ -90,8 +90,8 @@ partial class ConfigurationForm
         textBoxMaxGenerations = new TextBox();
         buttonInterpreter = new Button();
         groupBox1 = new GroupBox();
-        labelTaskFormat = new Label();
         buttonTaskFormatSwitcher = new Button();
+        labelTaskFormat = new Label();
         groupBoxModel.SuspendLayout();
         groupBoxSolver.SuspendLayout();
         groupBox1.SuspendLayout();
@@ -99,7 +99,7 @@ partial class ConfigurationForm
         // 
         // buttonQuit
         // 
-        buttonQuit.Anchor = AnchorStyles.Top;
+        buttonQuit.Anchor = AnchorStyles.None;
         buttonQuit.Location = new Point(1269, 12);
         buttonQuit.Name = "buttonQuit";
         buttonQuit.Size = new Size(122, 41);
@@ -110,7 +110,7 @@ partial class ConfigurationForm
         // 
         // buttonSaved
         // 
-        buttonSaved.Anchor = AnchorStyles.Top;
+        buttonSaved.Anchor = AnchorStyles.None;
         buttonSaved.Location = new Point(1013, 12);
         buttonSaved.Name = "buttonSaved";
         buttonSaved.Size = new Size(122, 41);
@@ -121,7 +121,7 @@ partial class ConfigurationForm
         // 
         // buttonTask
         // 
-        buttonTask.Anchor = AnchorStyles.Top;
+        buttonTask.Anchor = AnchorStyles.None;
         buttonTask.Location = new Point(885, 12);
         buttonTask.Name = "buttonTask";
         buttonTask.Size = new Size(122, 41);
@@ -132,7 +132,7 @@ partial class ConfigurationForm
         // 
         // buttonFitness
         // 
-        buttonFitness.Anchor = AnchorStyles.Top;
+        buttonFitness.Anchor = AnchorStyles.None;
         buttonFitness.Location = new Point(757, 12);
         buttonFitness.Name = "buttonFitness";
         buttonFitness.Size = new Size(122, 41);
@@ -143,7 +143,7 @@ partial class ConfigurationForm
         // 
         // buttonConfiguration
         // 
-        buttonConfiguration.Anchor = AnchorStyles.Top;
+        buttonConfiguration.Anchor = AnchorStyles.None;
         buttonConfiguration.Location = new Point(629, 12);
         buttonConfiguration.Name = "buttonConfiguration";
         buttonConfiguration.Size = new Size(122, 41);
@@ -154,7 +154,7 @@ partial class ConfigurationForm
         // 
         // buttonHome
         // 
-        buttonHome.Anchor = AnchorStyles.Top;
+        buttonHome.Anchor = AnchorStyles.None;
         buttonHome.Location = new Point(501, 12);
         buttonHome.Name = "buttonHome";
         buttonHome.Size = new Size(122, 41);
@@ -165,6 +165,7 @@ partial class ConfigurationForm
         // 
         // groupBoxModel
         // 
+        groupBoxModel.Anchor = AnchorStyles.None;
         groupBoxModel.Controls.Add(textBoxNewVarExpressionChance);
         groupBoxModel.Controls.Add(labelMaxInt);
         groupBoxModel.Controls.Add(textBoxNewDeepNodeGenerationFall);
@@ -194,6 +195,7 @@ partial class ConfigurationForm
         // 
         // textBoxNewVarExpressionChance
         // 
+        textBoxNewVarExpressionChance.Anchor = AnchorStyles.None;
         textBoxNewVarExpressionChance.Location = new Point(335, 535);
         textBoxNewVarExpressionChance.Name = "textBoxNewVarExpressionChance";
         textBoxNewVarExpressionChance.Size = new Size(170, 27);
@@ -202,7 +204,7 @@ partial class ConfigurationForm
         // 
         // labelMaxInt
         // 
-        labelMaxInt.Anchor = AnchorStyles.Left;
+        labelMaxInt.Anchor = AnchorStyles.None;
         labelMaxInt.Location = new Point(19, 35);
         labelMaxInt.Name = "labelMaxInt";
         labelMaxInt.Size = new Size(310, 54);
@@ -210,9 +212,36 @@ partial class ConfigurationForm
         labelMaxInt.Text = "MaxInt";
         labelMaxInt.TextAlign = ContentAlignment.MiddleCenter;
         // 
+        // textBoxNewDeepNodeGenerationFall
+        // 
+        textBoxNewDeepNodeGenerationFall.Anchor = AnchorStyles.None;
+        textBoxNewDeepNodeGenerationFall.Location = new Point(335, 211);
+        textBoxNewDeepNodeGenerationFall.Name = "textBoxNewDeepNodeGenerationFall";
+        textBoxNewDeepNodeGenerationFall.Size = new Size(170, 27);
+        textBoxNewDeepNodeGenerationFall.TabIndex = 40;
+        textBoxNewDeepNodeGenerationFall.KeyPress += textBoxNewDeepNodeGenerationFall_KeyPress;
+        // 
+        // textBoxNewChildOfForNodeChance
+        // 
+        textBoxNewChildOfForNodeChance.Anchor = AnchorStyles.None;
+        textBoxNewChildOfForNodeChance.Location = new Point(335, 265);
+        textBoxNewChildOfForNodeChance.Name = "textBoxNewChildOfForNodeChance";
+        textBoxNewChildOfForNodeChance.Size = new Size(170, 27);
+        textBoxNewChildOfForNodeChance.TabIndex = 41;
+        textBoxNewChildOfForNodeChance.KeyPress += textBoxNewChildOfForNodeChance_KeyPress;
+        // 
+        // textBoxNewDeepNodeGenerationChance
+        // 
+        textBoxNewDeepNodeGenerationChance.Anchor = AnchorStyles.None;
+        textBoxNewDeepNodeGenerationChance.Location = new Point(335, 157);
+        textBoxNewDeepNodeGenerationChance.Name = "textBoxNewDeepNodeGenerationChance";
+        textBoxNewDeepNodeGenerationChance.Size = new Size(170, 27);
+        textBoxNewDeepNodeGenerationChance.TabIndex = 39;
+        textBoxNewDeepNodeGenerationChance.KeyPress += textBoxNewDeepNodeGenerationChance_KeyPress;
+        // 
         // labelNewChildOfProgramNodeChance
         // 
-        labelNewChildOfProgramNodeChance.Anchor = AnchorStyles.Left;
+        labelNewChildOfProgramNodeChance.Anchor = AnchorStyles.None;
         labelNewChildOfProgramNodeChance.Location = new Point(19, 89);
         labelNewChildOfProgramNodeChance.Name = "labelNewChildOfProgramNodeChance";
         labelNewChildOfProgramNodeChance.Size = new Size(310, 54);
@@ -220,9 +249,27 @@ partial class ConfigurationForm
         labelNewChildOfProgramNodeChance.Text = "NewChildOfProgramNodeChance";
         labelNewChildOfProgramNodeChance.TextAlign = ContentAlignment.MiddleCenter;
         // 
+        // textBoxNewChildOfProgramNodeChance
+        // 
+        textBoxNewChildOfProgramNodeChance.Anchor = AnchorStyles.None;
+        textBoxNewChildOfProgramNodeChance.Location = new Point(335, 103);
+        textBoxNewChildOfProgramNodeChance.Name = "textBoxNewChildOfProgramNodeChance";
+        textBoxNewChildOfProgramNodeChance.Size = new Size(170, 27);
+        textBoxNewChildOfProgramNodeChance.TabIndex = 38;
+        textBoxNewChildOfProgramNodeChance.KeyPress += textBoxNewChildOfProgramNodeChance_KeyPress;
+        // 
+        // textBoxNewExpressionInForComparisonChance
+        // 
+        textBoxNewExpressionInForComparisonChance.Anchor = AnchorStyles.None;
+        textBoxNewExpressionInForComparisonChance.Location = new Point(335, 319);
+        textBoxNewExpressionInForComparisonChance.Name = "textBoxNewExpressionInForComparisonChance";
+        textBoxNewExpressionInForComparisonChance.Size = new Size(170, 27);
+        textBoxNewExpressionInForComparisonChance.TabIndex = 42;
+        textBoxNewExpressionInForComparisonChance.KeyPress += textBoxNewExpressionInForComparisonChance_KeyPress;
+        // 
         // labelNewVarExpressionChance
         // 
-        labelNewVarExpressionChance.Anchor = AnchorStyles.Left;
+        labelNewVarExpressionChance.Anchor = AnchorStyles.None;
         labelNewVarExpressionChance.Location = new Point(19, 521);
         labelNewVarExpressionChance.Name = "labelNewVarExpressionChance";
         labelNewVarExpressionChance.Size = new Size(310, 54);
@@ -230,93 +277,18 @@ partial class ConfigurationForm
         labelNewVarExpressionChance.Text = "NewVarExpressionChance";
         labelNewVarExpressionChance.TextAlign = ContentAlignment.MiddleCenter;
         // 
-        // labelNewDeepNodeGenerationChance
+        // textBoxMaxInt
         // 
-        labelNewDeepNodeGenerationChance.Anchor = AnchorStyles.Left;
-        labelNewDeepNodeGenerationChance.Location = new Point(19, 143);
-        labelNewDeepNodeGenerationChance.Name = "labelNewDeepNodeGenerationChance";
-        labelNewDeepNodeGenerationChance.Size = new Size(310, 54);
-        labelNewDeepNodeGenerationChance.TabIndex = 30;
-        labelNewDeepNodeGenerationChance.Text = "NewDeepNodeGenerationChance";
-        labelNewDeepNodeGenerationChance.TextAlign = ContentAlignment.MiddleCenter;
-        // 
-        // labelNewDeepNodeGenerationFall
-        // 
-        labelNewDeepNodeGenerationFall.Anchor = AnchorStyles.Left;
-        labelNewDeepNodeGenerationFall.Location = new Point(19, 197);
-        labelNewDeepNodeGenerationFall.Name = "labelNewDeepNodeGenerationFall";
-        labelNewDeepNodeGenerationFall.Size = new Size(310, 54);
-        labelNewDeepNodeGenerationFall.TabIndex = 31;
-        labelNewDeepNodeGenerationFall.Text = "NewDeepNodeGenerationFall";
-        labelNewDeepNodeGenerationFall.TextAlign = ContentAlignment.MiddleCenter;
-        // 
-        // textBoxNextTwoArgExpressionChance
-        // 
-        textBoxNextTwoArgExpressionChance.Location = new Point(335, 481);
-        textBoxNextTwoArgExpressionChance.Name = "textBoxNextTwoArgExpressionChance";
-        textBoxNextTwoArgExpressionChance.Size = new Size(170, 27);
-        textBoxNextTwoArgExpressionChance.TabIndex = 45;
-        textBoxNextTwoArgExpressionChance.KeyPress += textBoxNextTwoArgExpressionChance_KeyPress;
-        // 
-        // labelNewChildOfForNodeChance
-        // 
-        labelNewChildOfForNodeChance.Anchor = AnchorStyles.Left;
-        labelNewChildOfForNodeChance.Location = new Point(19, 251);
-        labelNewChildOfForNodeChance.Name = "labelNewChildOfForNodeChance";
-        labelNewChildOfForNodeChance.Size = new Size(310, 54);
-        labelNewChildOfForNodeChance.TabIndex = 32;
-        labelNewChildOfForNodeChance.Text = "NewChildOfForNodeChance";
-        labelNewChildOfForNodeChance.TextAlign = ContentAlignment.MiddleCenter;
-        // 
-        // labelNewExpressionInForComparisonChance
-        // 
-        labelNewExpressionInForComparisonChance.Anchor = AnchorStyles.Left;
-        labelNewExpressionInForComparisonChance.Location = new Point(19, 305);
-        labelNewExpressionInForComparisonChance.Name = "labelNewExpressionInForComparisonChance";
-        labelNewExpressionInForComparisonChance.Size = new Size(310, 54);
-        labelNewExpressionInForComparisonChance.TabIndex = 33;
-        labelNewExpressionInForComparisonChance.Text = "NewExpressionInForComparisonChance";
-        labelNewExpressionInForComparisonChance.TextAlign = ContentAlignment.MiddleCenter;
-        // 
-        // textBoxNewLogicExpressionChance
-        // 
-        textBoxNewLogicExpressionChance.Location = new Point(335, 427);
-        textBoxNewLogicExpressionChance.Name = "textBoxNewLogicExpressionChance";
-        textBoxNewLogicExpressionChance.Size = new Size(170, 27);
-        textBoxNewLogicExpressionChance.TabIndex = 44;
-        textBoxNewLogicExpressionChance.KeyPress += textBoxNewLogicExpressionChance_KeyPress;
-        // 
-        // labelNewChildOfIfNodeChance
-        // 
-        labelNewChildOfIfNodeChance.Anchor = AnchorStyles.Left;
-        labelNewChildOfIfNodeChance.Location = new Point(19, 359);
-        labelNewChildOfIfNodeChance.Name = "labelNewChildOfIfNodeChance";
-        labelNewChildOfIfNodeChance.Size = new Size(310, 54);
-        labelNewChildOfIfNodeChance.TabIndex = 34;
-        labelNewChildOfIfNodeChance.Text = "NewChildOfIfNodeChance";
-        labelNewChildOfIfNodeChance.TextAlign = ContentAlignment.MiddleCenter;
-        // 
-        // labelNewLogicExpressionChance
-        // 
-        labelNewLogicExpressionChance.Anchor = AnchorStyles.Left;
-        labelNewLogicExpressionChance.Location = new Point(19, 413);
-        labelNewLogicExpressionChance.Name = "labelNewLogicExpressionChance";
-        labelNewLogicExpressionChance.Size = new Size(310, 54);
-        labelNewLogicExpressionChance.TabIndex = 35;
-        labelNewLogicExpressionChance.Text = "NewLogicExpressionChance";
-        labelNewLogicExpressionChance.TextAlign = ContentAlignment.MiddleCenter;
-        // 
-        // textBoxNewChildOfIfNodeChance
-        // 
-        textBoxNewChildOfIfNodeChance.Location = new Point(335, 373);
-        textBoxNewChildOfIfNodeChance.Name = "textBoxNewChildOfIfNodeChance";
-        textBoxNewChildOfIfNodeChance.Size = new Size(170, 27);
-        textBoxNewChildOfIfNodeChance.TabIndex = 43;
-        textBoxNewChildOfIfNodeChance.KeyPress += textBoxNewChildOfIfNodeChance_KeyPress;
+        textBoxMaxInt.Anchor = AnchorStyles.None;
+        textBoxMaxInt.Location = new Point(335, 49);
+        textBoxMaxInt.Name = "textBoxMaxInt";
+        textBoxMaxInt.Size = new Size(170, 27);
+        textBoxMaxInt.TabIndex = 37;
+        textBoxMaxInt.KeyPress += textBoxMaxInt_KeyPress;
         // 
         // labelNextTwoArgExpressionChance
         // 
-        labelNextTwoArgExpressionChance.Anchor = AnchorStyles.Left;
+        labelNextTwoArgExpressionChance.Anchor = AnchorStyles.None;
         labelNextTwoArgExpressionChance.Location = new Point(19, 467);
         labelNextTwoArgExpressionChance.Name = "labelNextTwoArgExpressionChance";
         labelNextTwoArgExpressionChance.Size = new Size(310, 54);
@@ -324,56 +296,96 @@ partial class ConfigurationForm
         labelNextTwoArgExpressionChance.Text = "NextTwoArgExpressionChance";
         labelNextTwoArgExpressionChance.TextAlign = ContentAlignment.MiddleCenter;
         // 
-        // textBoxMaxInt
+        // labelNewDeepNodeGenerationChance
         // 
-        textBoxMaxInt.Location = new Point(335, 49);
-        textBoxMaxInt.Name = "textBoxMaxInt";
-        textBoxMaxInt.Size = new Size(170, 27);
-        textBoxMaxInt.TabIndex = 37;
-        textBoxMaxInt.KeyPress += textBoxMaxInt_KeyPress;
+        labelNewDeepNodeGenerationChance.Anchor = AnchorStyles.None;
+        labelNewDeepNodeGenerationChance.Location = new Point(19, 143);
+        labelNewDeepNodeGenerationChance.Name = "labelNewDeepNodeGenerationChance";
+        labelNewDeepNodeGenerationChance.Size = new Size(310, 54);
+        labelNewDeepNodeGenerationChance.TabIndex = 30;
+        labelNewDeepNodeGenerationChance.Text = "NewDeepNodeGenerationChance";
+        labelNewDeepNodeGenerationChance.TextAlign = ContentAlignment.MiddleCenter;
         // 
-        // textBoxNewExpressionInForComparisonChance
+        // textBoxNewChildOfIfNodeChance
         // 
-        textBoxNewExpressionInForComparisonChance.Location = new Point(335, 319);
-        textBoxNewExpressionInForComparisonChance.Name = "textBoxNewExpressionInForComparisonChance";
-        textBoxNewExpressionInForComparisonChance.Size = new Size(170, 27);
-        textBoxNewExpressionInForComparisonChance.TabIndex = 42;
-        textBoxNewExpressionInForComparisonChance.KeyPress += textBoxNewExpressionInForComparisonChance_KeyPress;
+        textBoxNewChildOfIfNodeChance.Anchor = AnchorStyles.None;
+        textBoxNewChildOfIfNodeChance.Location = new Point(335, 373);
+        textBoxNewChildOfIfNodeChance.Name = "textBoxNewChildOfIfNodeChance";
+        textBoxNewChildOfIfNodeChance.Size = new Size(170, 27);
+        textBoxNewChildOfIfNodeChance.TabIndex = 43;
+        textBoxNewChildOfIfNodeChance.KeyPress += textBoxNewChildOfIfNodeChance_KeyPress;
         // 
-        // textBoxNewChildOfProgramNodeChance
+        // labelNewLogicExpressionChance
         // 
-        textBoxNewChildOfProgramNodeChance.Location = new Point(335, 103);
-        textBoxNewChildOfProgramNodeChance.Name = "textBoxNewChildOfProgramNodeChance";
-        textBoxNewChildOfProgramNodeChance.Size = new Size(170, 27);
-        textBoxNewChildOfProgramNodeChance.TabIndex = 38;
-        textBoxNewChildOfProgramNodeChance.KeyPress += textBoxNewChildOfProgramNodeChance_KeyPress;
+        labelNewLogicExpressionChance.Anchor = AnchorStyles.None;
+        labelNewLogicExpressionChance.Location = new Point(19, 413);
+        labelNewLogicExpressionChance.Name = "labelNewLogicExpressionChance";
+        labelNewLogicExpressionChance.Size = new Size(310, 54);
+        labelNewLogicExpressionChance.TabIndex = 35;
+        labelNewLogicExpressionChance.Text = "NewLogicExpressionChance";
+        labelNewLogicExpressionChance.TextAlign = ContentAlignment.MiddleCenter;
         // 
-        // textBoxNewDeepNodeGenerationChance
+        // labelNewDeepNodeGenerationFall
         // 
-        textBoxNewDeepNodeGenerationChance.Location = new Point(335, 157);
-        textBoxNewDeepNodeGenerationChance.Name = "textBoxNewDeepNodeGenerationChance";
-        textBoxNewDeepNodeGenerationChance.Size = new Size(170, 27);
-        textBoxNewDeepNodeGenerationChance.TabIndex = 39;
-        textBoxNewDeepNodeGenerationChance.KeyPress += textBoxNewDeepNodeGenerationChance_KeyPress;
+        labelNewDeepNodeGenerationFall.Anchor = AnchorStyles.None;
+        labelNewDeepNodeGenerationFall.Location = new Point(19, 197);
+        labelNewDeepNodeGenerationFall.Name = "labelNewDeepNodeGenerationFall";
+        labelNewDeepNodeGenerationFall.Size = new Size(310, 54);
+        labelNewDeepNodeGenerationFall.TabIndex = 31;
+        labelNewDeepNodeGenerationFall.Text = "NewDeepNodeGenerationFall";
+        labelNewDeepNodeGenerationFall.TextAlign = ContentAlignment.MiddleCenter;
         // 
-        // textBoxNewChildOfForNodeChance
+        // labelNewChildOfIfNodeChance
         // 
-        textBoxNewChildOfForNodeChance.Location = new Point(335, 265);
-        textBoxNewChildOfForNodeChance.Name = "textBoxNewChildOfForNodeChance";
-        textBoxNewChildOfForNodeChance.Size = new Size(170, 27);
-        textBoxNewChildOfForNodeChance.TabIndex = 41;
-        textBoxNewChildOfForNodeChance.KeyPress += textBoxNewChildOfForNodeChance_KeyPress;
+        labelNewChildOfIfNodeChance.Anchor = AnchorStyles.None;
+        labelNewChildOfIfNodeChance.Location = new Point(19, 359);
+        labelNewChildOfIfNodeChance.Name = "labelNewChildOfIfNodeChance";
+        labelNewChildOfIfNodeChance.Size = new Size(310, 54);
+        labelNewChildOfIfNodeChance.TabIndex = 34;
+        labelNewChildOfIfNodeChance.Text = "NewChildOfIfNodeChance";
+        labelNewChildOfIfNodeChance.TextAlign = ContentAlignment.MiddleCenter;
         // 
-        // textBoxNewDeepNodeGenerationFall
+        // textBoxNewLogicExpressionChance
         // 
-        textBoxNewDeepNodeGenerationFall.Location = new Point(335, 211);
-        textBoxNewDeepNodeGenerationFall.Name = "textBoxNewDeepNodeGenerationFall";
-        textBoxNewDeepNodeGenerationFall.Size = new Size(170, 27);
-        textBoxNewDeepNodeGenerationFall.TabIndex = 40;
-        textBoxNewDeepNodeGenerationFall.KeyPress += textBoxNewDeepNodeGenerationFall_KeyPress;
+        textBoxNewLogicExpressionChance.Anchor = AnchorStyles.None;
+        textBoxNewLogicExpressionChance.Location = new Point(335, 427);
+        textBoxNewLogicExpressionChance.Name = "textBoxNewLogicExpressionChance";
+        textBoxNewLogicExpressionChance.Size = new Size(170, 27);
+        textBoxNewLogicExpressionChance.TabIndex = 44;
+        textBoxNewLogicExpressionChance.KeyPress += textBoxNewLogicExpressionChance_KeyPress;
+        // 
+        // textBoxNextTwoArgExpressionChance
+        // 
+        textBoxNextTwoArgExpressionChance.Anchor = AnchorStyles.None;
+        textBoxNextTwoArgExpressionChance.Location = new Point(335, 481);
+        textBoxNextTwoArgExpressionChance.Name = "textBoxNextTwoArgExpressionChance";
+        textBoxNextTwoArgExpressionChance.Size = new Size(170, 27);
+        textBoxNextTwoArgExpressionChance.TabIndex = 45;
+        textBoxNextTwoArgExpressionChance.KeyPress += textBoxNextTwoArgExpressionChance_KeyPress;
+        // 
+        // labelNewExpressionInForComparisonChance
+        // 
+        labelNewExpressionInForComparisonChance.Anchor = AnchorStyles.None;
+        labelNewExpressionInForComparisonChance.Location = new Point(19, 305);
+        labelNewExpressionInForComparisonChance.Name = "labelNewExpressionInForComparisonChance";
+        labelNewExpressionInForComparisonChance.Size = new Size(310, 54);
+        labelNewExpressionInForComparisonChance.TabIndex = 33;
+        labelNewExpressionInForComparisonChance.Text = "NewExpressionInForComparisonChance";
+        labelNewExpressionInForComparisonChance.TextAlign = ContentAlignment.MiddleCenter;
+        // 
+        // labelNewChildOfForNodeChance
+        // 
+        labelNewChildOfForNodeChance.Anchor = AnchorStyles.None;
+        labelNewChildOfForNodeChance.Location = new Point(19, 251);
+        labelNewChildOfForNodeChance.Name = "labelNewChildOfForNodeChance";
+        labelNewChildOfForNodeChance.Size = new Size(310, 54);
+        labelNewChildOfForNodeChance.TabIndex = 32;
+        labelNewChildOfForNodeChance.Text = "NewChildOfForNodeChance";
+        labelNewChildOfForNodeChance.TextAlign = ContentAlignment.MiddleCenter;
         // 
         // groupBoxSolver
         // 
+        groupBoxSolver.Anchor = AnchorStyles.None;
         groupBoxSolver.Controls.Add(textBoxSwapLinesProbability);
         groupBoxSolver.Controls.Add(labelSubtreeMutationProbability);
         groupBoxSolver.Controls.Add(labelSwapLinesProbability);
@@ -413,6 +425,7 @@ partial class ConfigurationForm
         // 
         // textBoxSwapLinesProbability
         // 
+        textBoxSwapLinesProbability.Anchor = AnchorStyles.None;
         textBoxSwapLinesProbability.Location = new Point(335, 805);
         textBoxSwapLinesProbability.Name = "textBoxSwapLinesProbability";
         textBoxSwapLinesProbability.Size = new Size(170, 27);
@@ -421,7 +434,7 @@ partial class ConfigurationForm
         // 
         // labelSubtreeMutationProbability
         // 
-        labelSubtreeMutationProbability.Anchor = AnchorStyles.Left;
+        labelSubtreeMutationProbability.Anchor = AnchorStyles.None;
         labelSubtreeMutationProbability.Location = new Point(19, 575);
         labelSubtreeMutationProbability.Name = "labelSubtreeMutationProbability";
         labelSubtreeMutationProbability.Size = new Size(310, 54);
@@ -431,7 +444,7 @@ partial class ConfigurationForm
         // 
         // labelSwapLinesProbability
         // 
-        labelSwapLinesProbability.Anchor = AnchorStyles.Left;
+        labelSwapLinesProbability.Anchor = AnchorStyles.None;
         labelSwapLinesProbability.Location = new Point(19, 791);
         labelSwapLinesProbability.Name = "labelSwapLinesProbability";
         labelSwapLinesProbability.Size = new Size(310, 54);
@@ -441,6 +454,7 @@ partial class ConfigurationForm
         // 
         // textBoxDeleteLineProbability
         // 
+        textBoxDeleteLineProbability.Anchor = AnchorStyles.None;
         textBoxDeleteLineProbability.Location = new Point(335, 751);
         textBoxDeleteLineProbability.Name = "textBoxDeleteLineProbability";
         textBoxDeleteLineProbability.Size = new Size(170, 27);
@@ -449,7 +463,7 @@ partial class ConfigurationForm
         // 
         // labelDeleteLineProbability
         // 
-        labelDeleteLineProbability.Anchor = AnchorStyles.Left;
+        labelDeleteLineProbability.Anchor = AnchorStyles.None;
         labelDeleteLineProbability.Location = new Point(19, 737);
         labelDeleteLineProbability.Name = "labelDeleteLineProbability";
         labelDeleteLineProbability.Size = new Size(310, 54);
@@ -459,7 +473,7 @@ partial class ConfigurationForm
         // 
         // labelNewLineProbability
         // 
-        labelNewLineProbability.Anchor = AnchorStyles.Left;
+        labelNewLineProbability.Anchor = AnchorStyles.None;
         labelNewLineProbability.Location = new Point(19, 683);
         labelNewLineProbability.Name = "labelNewLineProbability";
         labelNewLineProbability.Size = new Size(310, 54);
@@ -469,6 +483,7 @@ partial class ConfigurationForm
         // 
         // textBoxNewLineProbability
         // 
+        textBoxNewLineProbability.Anchor = AnchorStyles.None;
         textBoxNewLineProbability.Location = new Point(335, 697);
         textBoxNewLineProbability.Name = "textBoxNewLineProbability";
         textBoxNewLineProbability.Size = new Size(170, 27);
@@ -477,7 +492,7 @@ partial class ConfigurationForm
         // 
         // labelHorizontalModificationProbability
         // 
-        labelHorizontalModificationProbability.Anchor = AnchorStyles.Left;
+        labelHorizontalModificationProbability.Anchor = AnchorStyles.None;
         labelHorizontalModificationProbability.Location = new Point(19, 629);
         labelHorizontalModificationProbability.Name = "labelHorizontalModificationProbability";
         labelHorizontalModificationProbability.Size = new Size(310, 54);
@@ -487,6 +502,7 @@ partial class ConfigurationForm
         // 
         // textBoxPointMutationProbability
         // 
+        textBoxPointMutationProbability.Anchor = AnchorStyles.None;
         textBoxPointMutationProbability.Location = new Point(335, 535);
         textBoxPointMutationProbability.Name = "textBoxPointMutationProbability";
         textBoxPointMutationProbability.Size = new Size(170, 27);
@@ -495,6 +511,7 @@ partial class ConfigurationForm
         // 
         // textBoxSubtreeMutationProbability
         // 
+        textBoxSubtreeMutationProbability.Anchor = AnchorStyles.None;
         textBoxSubtreeMutationProbability.Location = new Point(335, 589);
         textBoxSubtreeMutationProbability.Name = "textBoxSubtreeMutationProbability";
         textBoxSubtreeMutationProbability.Size = new Size(170, 27);
@@ -503,7 +520,7 @@ partial class ConfigurationForm
         // 
         // labelPointMutationProbability
         // 
-        labelPointMutationProbability.Anchor = AnchorStyles.Left;
+        labelPointMutationProbability.Anchor = AnchorStyles.None;
         labelPointMutationProbability.Location = new Point(19, 521);
         labelPointMutationProbability.Name = "labelPointMutationProbability";
         labelPointMutationProbability.Size = new Size(310, 54);
@@ -513,6 +530,7 @@ partial class ConfigurationForm
         // 
         // textBoxHorizontalModificationProbability
         // 
+        textBoxHorizontalModificationProbability.Anchor = AnchorStyles.None;
         textBoxHorizontalModificationProbability.Location = new Point(335, 643);
         textBoxHorizontalModificationProbability.Name = "textBoxHorizontalModificationProbability";
         textBoxHorizontalModificationProbability.Size = new Size(170, 27);
@@ -521,6 +539,7 @@ partial class ConfigurationForm
         // 
         // textBoxMutationProbability
         // 
+        textBoxMutationProbability.Anchor = AnchorStyles.None;
         textBoxMutationProbability.Location = new Point(335, 481);
         textBoxMutationProbability.Name = "textBoxMutationProbability";
         textBoxMutationProbability.Size = new Size(170, 27);
@@ -529,7 +548,7 @@ partial class ConfigurationForm
         // 
         // labelPopulationSize
         // 
-        labelPopulationSize.Anchor = AnchorStyles.Left;
+        labelPopulationSize.Anchor = AnchorStyles.None;
         labelPopulationSize.Location = new Point(19, 251);
         labelPopulationSize.Name = "labelPopulationSize";
         labelPopulationSize.Size = new Size(310, 54);
@@ -539,7 +558,7 @@ partial class ConfigurationForm
         // 
         // labelMutationProbability
         // 
-        labelMutationProbability.Anchor = AnchorStyles.Left;
+        labelMutationProbability.Anchor = AnchorStyles.None;
         labelMutationProbability.Location = new Point(19, 467);
         labelMutationProbability.Name = "labelMutationProbability";
         labelMutationProbability.Size = new Size(310, 54);
@@ -549,7 +568,7 @@ partial class ConfigurationForm
         // 
         // labelNumOfTestCases
         // 
-        labelNumOfTestCases.Anchor = AnchorStyles.Left;
+        labelNumOfTestCases.Anchor = AnchorStyles.None;
         labelNumOfTestCases.Location = new Point(19, 35);
         labelNumOfTestCases.Name = "labelNumOfTestCases";
         labelNumOfTestCases.Size = new Size(310, 54);
@@ -559,6 +578,7 @@ partial class ConfigurationForm
         // 
         // textBoxNumOfTestCases
         // 
+        textBoxNumOfTestCases.Anchor = AnchorStyles.None;
         textBoxNumOfTestCases.Location = new Point(335, 49);
         textBoxNumOfTestCases.Name = "textBoxNumOfTestCases";
         textBoxNumOfTestCases.Size = new Size(170, 27);
@@ -567,6 +587,7 @@ partial class ConfigurationForm
         // 
         // textBoxCrossoverProbability
         // 
+        textBoxCrossoverProbability.Anchor = AnchorStyles.None;
         textBoxCrossoverProbability.Location = new Point(335, 427);
         textBoxCrossoverProbability.Name = "textBoxCrossoverProbability";
         textBoxCrossoverProbability.Size = new Size(170, 27);
@@ -575,7 +596,7 @@ partial class ConfigurationForm
         // 
         // labelCrossoverProbability
         // 
-        labelCrossoverProbability.Anchor = AnchorStyles.Left;
+        labelCrossoverProbability.Anchor = AnchorStyles.None;
         labelCrossoverProbability.Location = new Point(19, 413);
         labelCrossoverProbability.Name = "labelCrossoverProbability";
         labelCrossoverProbability.Size = new Size(310, 54);
@@ -585,6 +606,7 @@ partial class ConfigurationForm
         // 
         // textBoxInputLength
         // 
+        textBoxInputLength.Anchor = AnchorStyles.None;
         textBoxInputLength.Location = new Point(335, 103);
         textBoxInputLength.Name = "textBoxInputLength";
         textBoxInputLength.Size = new Size(170, 27);
@@ -593,7 +615,7 @@ partial class ConfigurationForm
         // 
         // labelInputLength
         // 
-        labelInputLength.Anchor = AnchorStyles.Left;
+        labelInputLength.Anchor = AnchorStyles.None;
         labelInputLength.Location = new Point(19, 89);
         labelInputLength.Name = "labelInputLength";
         labelInputLength.Size = new Size(310, 54);
@@ -603,7 +625,7 @@ partial class ConfigurationForm
         // 
         // labelTournamentSize
         // 
-        labelTournamentSize.Anchor = AnchorStyles.Left;
+        labelTournamentSize.Anchor = AnchorStyles.None;
         labelTournamentSize.Location = new Point(19, 359);
         labelTournamentSize.Name = "labelTournamentSize";
         labelTournamentSize.Size = new Size(310, 54);
@@ -613,6 +635,7 @@ partial class ConfigurationForm
         // 
         // textBoxExecutionTime
         // 
+        textBoxExecutionTime.Anchor = AnchorStyles.None;
         textBoxExecutionTime.Location = new Point(335, 157);
         textBoxExecutionTime.Name = "textBoxExecutionTime";
         textBoxExecutionTime.Size = new Size(170, 27);
@@ -621,6 +644,7 @@ partial class ConfigurationForm
         // 
         // textBoxTournamentSize
         // 
+        textBoxTournamentSize.Anchor = AnchorStyles.None;
         textBoxTournamentSize.Location = new Point(335, 373);
         textBoxTournamentSize.Name = "textBoxTournamentSize";
         textBoxTournamentSize.Size = new Size(170, 27);
@@ -629,7 +653,7 @@ partial class ConfigurationForm
         // 
         // labelMaxGenerations
         // 
-        labelMaxGenerations.Anchor = AnchorStyles.Left;
+        labelMaxGenerations.Anchor = AnchorStyles.None;
         labelMaxGenerations.Location = new Point(19, 305);
         labelMaxGenerations.Name = "labelMaxGenerations";
         labelMaxGenerations.Size = new Size(310, 54);
@@ -639,6 +663,7 @@ partial class ConfigurationForm
         // 
         // textBoxError
         // 
+        textBoxError.Anchor = AnchorStyles.None;
         textBoxError.Location = new Point(335, 211);
         textBoxError.Name = "textBoxError";
         textBoxError.Size = new Size(170, 27);
@@ -647,7 +672,7 @@ partial class ConfigurationForm
         // 
         // labelExecutionTime
         // 
-        labelExecutionTime.Anchor = AnchorStyles.Left;
+        labelExecutionTime.Anchor = AnchorStyles.None;
         labelExecutionTime.Location = new Point(19, 143);
         labelExecutionTime.Name = "labelExecutionTime";
         labelExecutionTime.Size = new Size(310, 54);
@@ -657,6 +682,7 @@ partial class ConfigurationForm
         // 
         // textBoxPopulationSize
         // 
+        textBoxPopulationSize.Anchor = AnchorStyles.None;
         textBoxPopulationSize.Location = new Point(335, 265);
         textBoxPopulationSize.Name = "textBoxPopulationSize";
         textBoxPopulationSize.Size = new Size(170, 27);
@@ -665,7 +691,7 @@ partial class ConfigurationForm
         // 
         // labelError
         // 
-        labelError.Anchor = AnchorStyles.Left;
+        labelError.Anchor = AnchorStyles.None;
         labelError.Location = new Point(19, 197);
         labelError.Name = "labelError";
         labelError.Size = new Size(310, 54);
@@ -675,6 +701,7 @@ partial class ConfigurationForm
         // 
         // textBoxMaxGenerations
         // 
+        textBoxMaxGenerations.Anchor = AnchorStyles.None;
         textBoxMaxGenerations.Location = new Point(335, 319);
         textBoxMaxGenerations.Name = "textBoxMaxGenerations";
         textBoxMaxGenerations.Size = new Size(170, 27);
@@ -683,7 +710,7 @@ partial class ConfigurationForm
         // 
         // buttonInterpreter
         // 
-        buttonInterpreter.Anchor = AnchorStyles.Top;
+        buttonInterpreter.Anchor = AnchorStyles.None;
         buttonInterpreter.Location = new Point(1141, 12);
         buttonInterpreter.Name = "buttonInterpreter";
         buttonInterpreter.Size = new Size(122, 41);
@@ -694,6 +721,7 @@ partial class ConfigurationForm
         // 
         // groupBox1
         // 
+        groupBox1.Anchor = AnchorStyles.None;
         groupBox1.Controls.Add(buttonTaskFormatSwitcher);
         groupBox1.Controls.Add(labelTaskFormat);
         groupBox1.Location = new Point(67, 746);
@@ -703,25 +731,25 @@ partial class ConfigurationForm
         groupBox1.TabStop = false;
         groupBox1.Text = "App Configuration";
         // 
-        // labelTaskFormat
-        // 
-        labelTaskFormat.Anchor = AnchorStyles.Left;
-        labelTaskFormat.Location = new Point(19, 23);
-        labelTaskFormat.Name = "labelTaskFormat";
-        labelTaskFormat.Size = new Size(310, 54);
-        labelTaskFormat.TabIndex = 81;
-        labelTaskFormat.Text = "Task Format";
-        labelTaskFormat.TextAlign = ContentAlignment.MiddleCenter;
-        // 
         // buttonTaskFormatSwitcher
         // 
-        buttonTaskFormatSwitcher.Anchor = AnchorStyles.Top;
+        buttonTaskFormatSwitcher.Anchor = AnchorStyles.None;
         buttonTaskFormatSwitcher.Location = new Point(355, 30);
         buttonTaskFormatSwitcher.Name = "buttonTaskFormatSwitcher";
         buttonTaskFormatSwitcher.Size = new Size(122, 41);
         buttonTaskFormatSwitcher.TabIndex = 81;
         buttonTaskFormatSwitcher.UseVisualStyleBackColor = true;
         buttonTaskFormatSwitcher.Click += buttonTaskFormatSwitcher_Click;
+        // 
+        // labelTaskFormat
+        // 
+        labelTaskFormat.Anchor = AnchorStyles.None;
+        labelTaskFormat.Location = new Point(19, 23);
+        labelTaskFormat.Name = "labelTaskFormat";
+        labelTaskFormat.Size = new Size(310, 54);
+        labelTaskFormat.TabIndex = 81;
+        labelTaskFormat.Text = "Task Format";
+        labelTaskFormat.TextAlign = ContentAlignment.MiddleCenter;
         // 
         // ConfigurationForm
         // 
