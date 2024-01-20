@@ -41,6 +41,7 @@ public partial class InterpreterForm : Form, IFormPropertiesProvider<Interpreter
 
     private void InterpreterForm_Resize(object sender, EventArgs e)
     {
+        if (this.CanResize() is false) return;
         FormProperties.MinimizeMaximizeChange = this.ResizeDecision();
     }
     

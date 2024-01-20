@@ -55,6 +55,7 @@ public partial class FitnessForm :
 
     private void FitnessForm_Resize(object sender, EventArgs e)
     {
+        if (this.CanResize() is false) return;
         FormProperties.MinimizeMaximizeChange = this.ResizeDecision();
     }
     

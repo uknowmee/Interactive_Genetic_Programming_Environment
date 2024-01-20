@@ -76,6 +76,7 @@ public partial class HomeForm :
 
     private void HomeForm_Resize(object sender, EventArgs e)
     {
+        if (this.CanResize() is false) return;
         FormProperties.MinimizeMaximizeChange = this.ResizeDecision();
     }
     

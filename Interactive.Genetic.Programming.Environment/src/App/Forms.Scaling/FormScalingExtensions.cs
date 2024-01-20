@@ -2,6 +2,12 @@
 
 public static class FormScalingExtensions
 {
+    public static bool CanResize<T>(this IFormPropertiesProvider<T> form) where T : Form
+    {
+        // some weird stuff with win 11.
+        return form.FormProperties is not null;
+    }
+    
     public static bool ResizeDecision<T>(this IFormPropertiesProvider<T> form) where T : Form
     {
         if (form.FormProperties.Loaded is false)
