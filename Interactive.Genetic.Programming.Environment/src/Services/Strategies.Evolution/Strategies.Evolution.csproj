@@ -11,7 +11,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\Domain\Configuration.Solver\Configuration.Solver.csproj" />
+        <ProjectReference Include="..\Configuration\Configuration.csproj" />
       <ProjectReference Include="..\..\Domain\Shared\Shared.csproj" />
     </ItemGroup>
 
