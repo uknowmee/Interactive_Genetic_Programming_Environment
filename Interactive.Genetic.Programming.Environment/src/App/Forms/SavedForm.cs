@@ -4,12 +4,17 @@ using Solution.Interfaces;
 
 namespace App.Forms;
 
-public partial class SavedForm : Form, IAvailableSolutionsSubscriber
+public partial class SavedForm :
+    Form,
+    IAvailableSolutionsSubscriber
 {
     private readonly IWindowSwitcherService _windowSwitcher;
     private readonly IAvailableSolutionsService _solutionService;
 
-    public SavedForm(IWindowSwitcherService windowSwitcher, IAvailableSolutionsService solutionService)
+    public SavedForm(
+        IWindowSwitcherService windowSwitcher,
+        IAvailableSolutionsService solutionService
+    )
     {
         _windowSwitcher = windowSwitcher;
         _solutionService = solutionService;
@@ -118,7 +123,6 @@ public partial class SavedForm : Form, IAvailableSolutionsSubscriber
         }
 
         comboBoxSavedSolution.SelectedItem = newSelected;
-
     }
 
     private void SelectedSolutionChange()
@@ -128,6 +132,7 @@ public partial class SavedForm : Form, IAvailableSolutionsSubscriber
             UnLoadSolution();
             return;
         }
+
         LoadSolution(solution);
     }
 
@@ -163,7 +168,7 @@ public partial class SavedForm : Form, IAvailableSolutionsSubscriber
     private void buttonPlot_Click(object sender, EventArgs e)
     {
         if (comboBoxSavedSolution.SelectedItem is not SolutionEntity solution) return;
-        
+
         PrintPlot(solution);
-    } 
+    }
 }

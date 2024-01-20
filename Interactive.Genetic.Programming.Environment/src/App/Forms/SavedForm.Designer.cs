@@ -59,7 +59,7 @@ partial class SavedForm
         // 
         // buttonQuit
         // 
-        buttonQuit.Anchor = AnchorStyles.Top;
+        buttonQuit.Anchor = AnchorStyles.None;
         buttonQuit.Location = new Point(1269, 12);
         buttonQuit.Name = "buttonQuit";
         buttonQuit.Size = new Size(122, 41);
@@ -70,7 +70,7 @@ partial class SavedForm
         // 
         // buttonSaved
         // 
-        buttonSaved.Anchor = AnchorStyles.Top;
+        buttonSaved.Anchor = AnchorStyles.None;
         buttonSaved.Location = new Point(1013, 12);
         buttonSaved.Name = "buttonSaved";
         buttonSaved.Size = new Size(122, 41);
@@ -81,7 +81,7 @@ partial class SavedForm
         // 
         // buttonTask
         // 
-        buttonTask.Anchor = AnchorStyles.Top;
+        buttonTask.Anchor = AnchorStyles.None;
         buttonTask.Location = new Point(885, 12);
         buttonTask.Name = "buttonTask";
         buttonTask.Size = new Size(122, 41);
@@ -92,7 +92,7 @@ partial class SavedForm
         // 
         // buttonFitness
         // 
-        buttonFitness.Anchor = AnchorStyles.Top;
+        buttonFitness.Anchor = AnchorStyles.None;
         buttonFitness.Location = new Point(757, 12);
         buttonFitness.Name = "buttonFitness";
         buttonFitness.Size = new Size(122, 41);
@@ -103,7 +103,7 @@ partial class SavedForm
         // 
         // buttonConfiguration
         // 
-        buttonConfiguration.Anchor = AnchorStyles.Top;
+        buttonConfiguration.Anchor = AnchorStyles.None;
         buttonConfiguration.Location = new Point(629, 12);
         buttonConfiguration.Name = "buttonConfiguration";
         buttonConfiguration.Size = new Size(122, 41);
@@ -114,7 +114,7 @@ partial class SavedForm
         // 
         // buttonHome
         // 
-        buttonHome.Anchor = AnchorStyles.Top;
+        buttonHome.Anchor = AnchorStyles.None;
         buttonHome.Location = new Point(501, 12);
         buttonHome.Name = "buttonHome";
         buttonHome.Size = new Size(122, 41);
@@ -125,7 +125,7 @@ partial class SavedForm
         // 
         // textBoxHistory
         // 
-        textBoxHistory.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+        textBoxHistory.Anchor = AnchorStyles.None;
         textBoxHistory.Location = new Point(12, 690);
         textBoxHistory.Multiline = true;
         textBoxHistory.Name = "textBoxHistory";
@@ -142,7 +142,7 @@ partial class SavedForm
         // 
         // textBoxConfiguration
         // 
-        textBoxConfiguration.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+        textBoxConfiguration.Anchor = AnchorStyles.None;
         textBoxConfiguration.Location = new Point(12, 139);
         textBoxConfiguration.Multiline = true;
         textBoxConfiguration.Name = "textBoxConfiguration";
@@ -153,7 +153,7 @@ partial class SavedForm
         // 
         // textBoxFitness
         // 
-        textBoxFitness.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+        textBoxFitness.Anchor = AnchorStyles.None;
         textBoxFitness.Location = new Point(505, 139);
         textBoxFitness.Multiline = true;
         textBoxFitness.Name = "textBoxFitness";
@@ -170,7 +170,7 @@ partial class SavedForm
         // 
         // textBoxProgram
         // 
-        textBoxProgram.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+        textBoxProgram.Anchor = AnchorStyles.None;
         textBoxProgram.Location = new Point(1028, 351);
         textBoxProgram.Multiline = true;
         textBoxProgram.Name = "textBoxProgram";
@@ -181,7 +181,7 @@ partial class SavedForm
         // 
         // comboBoxSavedSolution
         // 
-        comboBoxSavedSolution.Anchor = AnchorStyles.Left;
+        comboBoxSavedSolution.Anchor = AnchorStyles.None;
         comboBoxSavedSolution.DropDownStyle = ComboBoxStyle.DropDownList;
         comboBoxSavedSolution.FormattingEnabled = true;
         comboBoxSavedSolution.Location = new Point(1316, 139);
@@ -203,7 +203,7 @@ partial class SavedForm
         // 
         // labelFitness
         // 
-        labelFitness.Anchor = AnchorStyles.Left;
+        labelFitness.Anchor = AnchorStyles.None;
         labelFitness.BackColor = SystemColors.Control;
         labelFitness.Location = new Point(505, 71);
         labelFitness.Name = "labelFitness";
@@ -214,7 +214,7 @@ partial class SavedForm
         // 
         // labelSolutionName
         // 
-        labelSolutionName.Anchor = AnchorStyles.Left;
+        labelSolutionName.Anchor = AnchorStyles.None;
         labelSolutionName.BackColor = SystemColors.Control;
         labelSolutionName.Location = new Point(1127, 125);
         labelSolutionName.Name = "labelSolutionName";
@@ -247,7 +247,7 @@ partial class SavedForm
         // 
         // buttonInspectSolution
         // 
-        buttonInspectSolution.Anchor = AnchorStyles.Left;
+        buttonInspectSolution.Anchor = AnchorStyles.None;
         buttonInspectSolution.Location = new Point(1473, 186);
         buttonInspectSolution.Name = "buttonInspectSolution";
         buttonInspectSolution.Size = new Size(151, 41);
@@ -258,7 +258,7 @@ partial class SavedForm
         // 
         // buttonRemoveSolution
         // 
-        buttonRemoveSolution.Anchor = AnchorStyles.Left;
+        buttonRemoveSolution.Anchor = AnchorStyles.None;
         buttonRemoveSolution.Location = new Point(1645, 132);
         buttonRemoveSolution.Name = "buttonRemoveSolution";
         buttonRemoveSolution.Size = new Size(151, 41);
@@ -269,7 +269,7 @@ partial class SavedForm
         // 
         // buttonInterpreter
         // 
-        buttonInterpreter.Anchor = AnchorStyles.Top;
+        buttonInterpreter.Anchor = AnchorStyles.None;
         buttonInterpreter.Location = new Point(1141, 12);
         buttonInterpreter.Name = "buttonInterpreter";
         buttonInterpreter.Size = new Size(122, 41);
@@ -280,7 +280,7 @@ partial class SavedForm
         // 
         // comboBoxFitness
         // 
-        comboBoxFitness.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+        comboBoxFitness.Anchor = AnchorStyles.None;
         comboBoxFitness.DropDownStyle = ComboBoxStyle.DropDownList;
         comboBoxFitness.FormattingEnabled = true;
         comboBoxFitness.Location = new Point(505, 105);
@@ -291,7 +291,7 @@ partial class SavedForm
         // 
         // buttonPlotFitness
         // 
-        buttonPlotFitness.Anchor = AnchorStyles.Left;
+        buttonPlotFitness.Anchor = AnchorStyles.None;
         buttonPlotFitness.Location = new Point(1316, 186);
         buttonPlotFitness.Name = "buttonPlotFitness";
         buttonPlotFitness.Size = new Size(151, 41);

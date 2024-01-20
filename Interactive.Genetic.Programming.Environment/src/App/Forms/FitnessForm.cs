@@ -6,7 +6,10 @@ using Solvers.Interfaces;
 
 namespace App.Forms;
 
-public partial class FitnessForm : Form, IAvailableFitnessFunctionsSubscriber, ISolverStatusSubscriber
+public partial class FitnessForm :
+    Form,
+    IAvailableFitnessFunctionsSubscriber,
+    ISolverStatusSubscriber
 {
     private SolverStatus _status = SolverStatus.Idle;
 

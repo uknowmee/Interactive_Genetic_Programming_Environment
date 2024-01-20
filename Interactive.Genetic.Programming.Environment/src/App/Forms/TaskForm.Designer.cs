@@ -53,7 +53,7 @@ partial class TaskForm
         // 
         // buttonQuit
         // 
-        buttonQuit.Anchor = AnchorStyles.Top;
+        buttonQuit.Anchor = AnchorStyles.None;
         buttonQuit.Location = new Point(1269, 12);
         buttonQuit.Name = "buttonQuit";
         buttonQuit.Size = new Size(122, 41);
@@ -64,7 +64,7 @@ partial class TaskForm
         // 
         // buttonSaved
         // 
-        buttonSaved.Anchor = AnchorStyles.Top;
+        buttonSaved.Anchor = AnchorStyles.None;
         buttonSaved.Location = new Point(1013, 12);
         buttonSaved.Name = "buttonSaved";
         buttonSaved.Size = new Size(122, 41);
@@ -75,7 +75,7 @@ partial class TaskForm
         // 
         // buttonTask
         // 
-        buttonTask.Anchor = AnchorStyles.Top;
+        buttonTask.Anchor = AnchorStyles.None;
         buttonTask.Location = new Point(885, 12);
         buttonTask.Name = "buttonTask";
         buttonTask.Size = new Size(122, 41);
@@ -86,7 +86,7 @@ partial class TaskForm
         // 
         // buttonFitness
         // 
-        buttonFitness.Anchor = AnchorStyles.Top;
+        buttonFitness.Anchor = AnchorStyles.None;
         buttonFitness.Location = new Point(757, 12);
         buttonFitness.Name = "buttonFitness";
         buttonFitness.Size = new Size(122, 41);
@@ -97,7 +97,7 @@ partial class TaskForm
         // 
         // buttonConfiguration
         // 
-        buttonConfiguration.Anchor = AnchorStyles.Top;
+        buttonConfiguration.Anchor = AnchorStyles.None;
         buttonConfiguration.Location = new Point(629, 12);
         buttonConfiguration.Name = "buttonConfiguration";
         buttonConfiguration.Size = new Size(122, 41);
@@ -108,7 +108,7 @@ partial class TaskForm
         // 
         // buttonHome
         // 
-        buttonHome.Anchor = AnchorStyles.Top;
+        buttonHome.Anchor = AnchorStyles.None;
         buttonHome.Location = new Point(501, 12);
         buttonHome.Name = "buttonHome";
         buttonHome.Size = new Size(122, 41);
@@ -119,7 +119,7 @@ partial class TaskForm
         // 
         // buttonInspectTask
         // 
-        buttonInspectTask.Anchor = AnchorStyles.Left;
+        buttonInspectTask.Anchor = AnchorStyles.None;
         buttonInspectTask.Location = new Point(650, 510);
         buttonInspectTask.Name = "buttonInspectTask";
         buttonInspectTask.Size = new Size(151, 41);
@@ -130,7 +130,7 @@ partial class TaskForm
         // 
         // labelActiveTask
         // 
-        labelActiveTask.Anchor = AnchorStyles.Left;
+        labelActiveTask.Anchor = AnchorStyles.None;
         labelActiveTask.Location = new Point(122, 524);
         labelActiveTask.Name = "labelActiveTask";
         labelActiveTask.Size = new Size(183, 54);
@@ -140,7 +140,7 @@ partial class TaskForm
         // 
         // comboBoxSavedTask
         // 
-        comboBoxSavedTask.Anchor = AnchorStyles.Left;
+        comboBoxSavedTask.Anchor = AnchorStyles.None;
         comboBoxSavedTask.DropDownStyle = ComboBoxStyle.DropDownList;
         comboBoxSavedTask.FormattingEnabled = true;
         comboBoxSavedTask.Location = new Point(325, 538);
@@ -151,7 +151,7 @@ partial class TaskForm
         // 
         // labelTaskName
         // 
-        labelTaskName.Anchor = AnchorStyles.Left;
+        labelTaskName.Anchor = AnchorStyles.None;
         labelTaskName.BackColor = SystemColors.Control;
         labelTaskName.Location = new Point(122, 321);
         labelTaskName.Name = "labelTaskName";
@@ -162,7 +162,7 @@ partial class TaskForm
         // 
         // textBoxTaskName
         // 
-        textBoxTaskName.Anchor = AnchorStyles.Left;
+        textBoxTaskName.Anchor = AnchorStyles.None;
         textBoxTaskName.Location = new Point(325, 335);
         textBoxTaskName.Name = "textBoxTaskName";
         textBoxTaskName.Size = new Size(476, 27);
@@ -170,7 +170,7 @@ partial class TaskForm
         // 
         // textBoxTaskPath
         // 
-        textBoxTaskPath.Anchor = AnchorStyles.Left;
+        textBoxTaskPath.Anchor = AnchorStyles.None;
         textBoxTaskPath.Location = new Point(325, 403);
         textBoxTaskPath.Name = "textBoxTaskPath";
         textBoxTaskPath.ReadOnly = true;
@@ -179,7 +179,7 @@ partial class TaskForm
         // 
         // buttonUploadTask
         // 
-        buttonUploadTask.Anchor = AnchorStyles.Left;
+        buttonUploadTask.Anchor = AnchorStyles.None;
         buttonUploadTask.Location = new Point(151, 396);
         buttonUploadTask.Name = "buttonUploadTask";
         buttonUploadTask.Size = new Size(122, 41);
@@ -190,7 +190,7 @@ partial class TaskForm
         // 
         // buttonSaveTask
         // 
-        buttonSaveTask.Anchor = AnchorStyles.Left;
+        buttonSaveTask.Anchor = AnchorStyles.None;
         buttonSaveTask.Location = new Point(151, 457);
         buttonSaveTask.Name = "buttonSaveTask";
         buttonSaveTask.Size = new Size(122, 41);
@@ -201,7 +201,7 @@ partial class TaskForm
         // 
         // buttonRemoveTask
         // 
-        buttonRemoveTask.Anchor = AnchorStyles.Left;
+        buttonRemoveTask.Anchor = AnchorStyles.None;
         buttonRemoveTask.Location = new Point(650, 557);
         buttonRemoveTask.Name = "buttonRemoveTask";
         buttonRemoveTask.Size = new Size(151, 41);
@@ -212,7 +212,7 @@ partial class TaskForm
         // 
         // textBoxTaskReadme
         // 
-        textBoxTaskReadme.Anchor = AnchorStyles.Left;
+        textBoxTaskReadme.Anchor = AnchorStyles.None;
         textBoxTaskReadme.Location = new Point(1013, 178);
         textBoxTaskReadme.Multiline = true;
         textBoxTaskReadme.Name = "textBoxTaskReadme";
@@ -224,7 +224,7 @@ partial class TaskForm
         // 
         // buttonInterpreter
         // 
-        buttonInterpreter.Anchor = AnchorStyles.Top;
+        buttonInterpreter.Anchor = AnchorStyles.None;
         buttonInterpreter.Location = new Point(1141, 12);
         buttonInterpreter.Name = "buttonInterpreter";
         buttonInterpreter.Size = new Size(122, 41);
