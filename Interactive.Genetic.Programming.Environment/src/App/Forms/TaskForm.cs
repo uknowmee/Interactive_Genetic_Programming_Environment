@@ -104,14 +104,15 @@ public partial class TaskForm :
         var openFileDialog = new OpenFileDialog
         {
             Title = @"Select task file",
-            InitialDirectory = _appConfiguration.InitialDirectoryPath,
             Filter = _appConfiguration.ReadTaskFromJson
                 ? "JSON files (*.json)|*.json"
                 : "CSV files (*.csv)|*.csv",
-            FilterIndex = 2
+            FilterIndex = 2,
+            RestoreDirectory = true
         };
 
         openFileDialog.ShowDialog();
+        if (string.IsNullOrWhiteSpace(openFileDialog.FileName)) return;
 
         textBoxTaskPath.Text = openFileDialog.FileName;
     }
@@ -128,6 +129,8 @@ public partial class TaskForm :
 
         textBoxTaskName.Text = "";
         textBoxTaskPath.Text = "";
+        
+        MessageBox.Show(@"Task saved successfully", @"Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
     }
 
     private void buttonRemoveTask_Click(object sender, EventArgs e)
