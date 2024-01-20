@@ -73,6 +73,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "diagrams", "diagrams", "{DA
 	ProjectSection(SolutionItems) = preProject
 		diagrams\Model.png = diagrams\Model.png
 		diagrams\ModelV2.png = diagrams\ModelV2.png
+		diagrams\Interactive.Genetic.Programming.Environment.argr = diagrams\Interactive.Genetic.Programming.Environment.argr
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared", "src\Domain\Shared\Shared.csproj", "{C0790D5A-95B0-487E-9F54-EEC9FEC10428}"
