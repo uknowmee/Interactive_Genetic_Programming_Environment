@@ -43,6 +43,7 @@ public partial class SavedForm :
 
     private void SavedForm_Resize(object sender, EventArgs e)
     {
+        if (this.CanResize() is false) return;
         FormProperties.MinimizeMaximizeChange = this.ResizeDecision();
     }
 

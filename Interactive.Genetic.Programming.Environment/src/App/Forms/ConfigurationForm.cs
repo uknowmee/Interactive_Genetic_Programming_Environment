@@ -49,6 +49,7 @@ public partial class ConfigurationForm : Form, IFormPropertiesProvider<Configura
 
     private void ConfigurationForm_Resize(object sender, EventArgs e)
     {
+        if (this.CanResize() is false) return;
         FormProperties.MinimizeMaximizeChange = this.ResizeDecision();
     }
     
