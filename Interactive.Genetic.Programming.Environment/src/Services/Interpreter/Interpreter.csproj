@@ -23,7 +23,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\Domain\Configuration.Solver\Configuration.Solver.csproj" />
+      <ProjectReference Include="..\Configuration\Configuration.csproj" />
     </ItemGroup>
 
 </Project>
