@@ -3,6 +3,7 @@ using App.Forms.Scaling;
 using App.Services.Interfaces;
 using Configuration;
 using Configuration.Interfaces;
+using Configuration.Model;
 using Configuration.Solver;
 using Fitness.Interfaces;
 using History.Interfaces;

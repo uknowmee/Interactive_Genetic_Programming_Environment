@@ -2,6 +2,7 @@
 using App.Services.Interfaces;
 using Configuration;
 using Configuration.App;
+using Configuration.Model;
 using Configuration.Solver;
 
 namespace App.Forms;

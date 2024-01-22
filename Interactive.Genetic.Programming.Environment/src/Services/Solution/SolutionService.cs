@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics;
 using Configuration;
 using Configuration.App;
+using Configuration.Model;
 using Configuration.Solver;
 using Database.Entities;
 using Database.Interfaces;

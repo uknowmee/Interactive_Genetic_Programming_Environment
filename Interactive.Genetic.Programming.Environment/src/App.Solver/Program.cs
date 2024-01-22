@@ -1,6 +1,7 @@
 ﻿using App.Solver;
 using Autofac;
 using Configuration;
+using Configuration.Model;
 using Configuration.Solver;
 using Database;
 using Database.Interfaces;
@@ -50,32 +51,35 @@ catch (Exception e)
 Task.Delay(1000 * 60 * 60 * 10).Wait();
 Console.Out.WriteLine("Finished");
 
-public static class Application
+namespace App.Solver
 {
-    public static ContainerBuilder AddLogging(this ContainerBuilder builder)
+    public static class Application
     {
-        builder.RegisterInstance(LoggingConfiguration.Factory).As<ILoggerFactory>();
-        return builder;
-    }
+        public static ContainerBuilder AddLogging(this ContainerBuilder builder)
+        {
+            builder.RegisterInstance(LoggingConfiguration.Factory).As<ILoggerFactory>();
+            return builder;
+        }
     
-    public static ContainerBuilder RegisterServices(this ContainerBuilder builder)
-    {
-        builder.RegisterType<DatabaseService>().AsImplementedInterfaces().SingleInstance();
-        builder.RegisterType<FileService>().As<IFileService>().SingleInstance();
-        builder.RegisterType<FitnessService>().AsImplementedInterfaces().SingleInstance();
-        builder.RegisterType<ProgramGeneratorService>().As<IProgramGeneratorService>().SingleInstance();
-        builder.RegisterType<InterpreterService>().As<IInterpreterService>().SingleInstance();
-        builder.RegisterType<SerializationService>().As<ISerializationService>().SingleInstance();
-        builder.RegisterType<SolverConfigurationService>().AsImplementedInterfaces().SingleInstance();
-        builder.RegisterType<SolverService>().As<ISolverService>().SingleInstance();
-        builder.RegisterType<TournamentHandlerService>().As<ITournamentHandlerService>().SingleInstance();
-        builder.RegisterType<CrossingService>().As<ICrossingService>().SingleInstance();
-        builder.RegisterType<MutatorService>().As<IMutatorService>().SingleInstance();
-        builder.RegisterType<HorizontalMutatorService>().As<IHorizontalMutatorService>().SingleInstance();
-        builder.RegisterType<TasksService>().AsImplementedInterfaces().SingleInstance();
-        builder.RegisterType<HistoryService>().AsImplementedInterfaces().SingleInstance();
-        builder.RegisterType<SolutionService>().AsImplementedInterfaces().SingleInstance();
+        public static ContainerBuilder RegisterServices(this ContainerBuilder builder)
+        {
+            builder.RegisterType<DatabaseService>().AsImplementedInterfaces().SingleInstance();
+            builder.RegisterType<FileService>().As<IFileService>().SingleInstance();
+            builder.RegisterType<FitnessService>().AsImplementedInterfaces().SingleInstance();
+            builder.RegisterType<ProgramGeneratorService>().As<IProgramGeneratorService>().SingleInstance();
+            builder.RegisterType<InterpreterService>().As<IInterpreterService>().SingleInstance();
+            builder.RegisterType<SerializationService>().As<ISerializationService>().SingleInstance();
+            builder.RegisterType<SolverConfigurationService>().AsImplementedInterfaces().SingleInstance();
+            builder.RegisterType<SolverService>().As<ISolverService>().SingleInstance();
+            builder.RegisterType<TournamentHandlerService>().As<ITournamentHandlerService>().SingleInstance();
+            builder.RegisterType<CrossingService>().As<ICrossingService>().SingleInstance();
+            builder.RegisterType<MutatorService>().As<IMutatorService>().SingleInstance();
+            builder.RegisterType<HorizontalMutatorService>().As<IHorizontalMutatorService>().SingleInstance();
+            builder.RegisterType<TasksService>().AsImplementedInterfaces().SingleInstance();
+            builder.RegisterType<HistoryService>().AsImplementedInterfaces().SingleInstance();
+            builder.RegisterType<SolutionService>().AsImplementedInterfaces().SingleInstance();
         
-        return builder;
+            return builder;
+        }
     }
 }

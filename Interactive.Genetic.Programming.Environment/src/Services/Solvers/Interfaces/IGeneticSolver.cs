@@ -1,5 +1,6 @@
 ﻿using Configuration;
 using Configuration.App;
+using Configuration.Model;
 using Configuration.Solver;
 using Fitness.Interfaces;
 using Generators.Program.Interfaces;

@@ -1,4 +1,4 @@
-﻿namespace Configuration;
+﻿namespace Configuration.Model;
 
 public interface IConstantConfiguration
 {

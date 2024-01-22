@@ -1,4 +1,5 @@
-﻿using Configuration.Solver;
+﻿using Configuration.Model;
+using Configuration.Solver;
 
 namespace Configuration.Interfaces;
 

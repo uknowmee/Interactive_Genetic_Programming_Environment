@@ -1,4 +1,5 @@
 ﻿using Configuration;
+using Configuration.Model;
 using Configuration.Solver;
 using Shared;
 

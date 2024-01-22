@@ -1,6 +1,6 @@
 ﻿using Autofac;
 
-namespace Configuration;
+namespace Configuration.Model;
 
 public static class ConfigurationResolver
 {

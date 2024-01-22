@@ -1,5 +1,6 @@
 ﻿using System.Collections.Concurrent;
 using Configuration;
+using Configuration.Model;
 using Configuration.Solver;
 using Fitness.Interfaces;
 using Generators.Program.Interfaces;

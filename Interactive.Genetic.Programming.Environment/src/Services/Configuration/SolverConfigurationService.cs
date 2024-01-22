@@ -1,5 +1,6 @@
 ﻿using Configuration.App;
 using Configuration.Interfaces;
+using Configuration.Model;
 using Configuration.Solver;
 using Shared.Exceptions;
 

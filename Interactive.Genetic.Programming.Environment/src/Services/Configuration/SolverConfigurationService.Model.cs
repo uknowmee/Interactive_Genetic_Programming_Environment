@@ -1,4 +1,6 @@
-﻿namespace Configuration;
+﻿using Configuration.Model;
+
+namespace Configuration;
 
 public partial class SolverConfigurationService
 {

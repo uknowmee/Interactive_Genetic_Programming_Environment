@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Diagnostics;
 using Configuration;
+using Configuration.Model;
 using Model.Abstract;
 using Model.Nodes.Small.Constants;
 
