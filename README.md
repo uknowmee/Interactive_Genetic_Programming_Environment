@@ -1,6 +1,6 @@
 # Interactive_Genetic_Programming_Environment
 
-This is project I am currently working on. It is the focus of my engineering thesis and aims to
+This is project I am currently working on. It was the focus of my engineering thesis and aimed to
 - <ins>investigate the impact of expert intervention on the effectiveness of genetic programming in code generation tasks.</ins>
 
 The project is based on a previously implemented Java library that I created,
@@ -12,27 +12,18 @@ Programs are generated using known input and output data and evaluated using a u
 
 # Future goals: 
 
-- defining the test set - CSV + script, e.g. python (in the future "clickable").
-- defining one or more loss functions - a script, e.g. python (in the future "clickable").
+- web migration
+- better architecture and code quality
 - the possibility of multi-stage evolution using previously generated populations <br/>
 (different presentations of individuals, i.e. list of successive productions, AST, PT, .txt).
 
 - expert intervention in the method of creating the initial population:
-    - Min/max/avg length,
-    - number of inputs and outputs,
-    - Selection of programming structures and the number of their occurrence,
-    - The number of nestings in the code,
-    - program execution time,
-    - Editing the chance of creating new variables and other programming constructs,
     - Injection of pre-existing individuals.
     
     
 - user intervention in the way of performing evolutions:
-    - View and edit size: population, tournament, dropout,
-    - Dynamic change of the loss function (several prepared scripts, negative evaluation of programs with e.g. too many lines, certain structures, too many outputs),
-    - Editing chance of mutation, crossing, transposition, reproduction and other genetic operations,
-    - Refreshing the population,
-    - Injecting pre-prepared individuals into the population.
+    - View and edit size: dropout,
+    - Injecting pre-prepared individuals into the population during evolution.
     
 Conducting research using the above-mentioned software and determining the translation of the human factor
 for the time of learning. Defining the impact of expert intervention on the phenomenon of overfitting. Comparison
